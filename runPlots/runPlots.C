@@ -106,6 +106,7 @@ int main (int argc, char *argv[])
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
+   TH1D* h1_lepton_pT_Zoom = new TH1D("h1_lepton_pT","",50,0,50) ;
    TH1D* h1_lepton_eta = new TH1D("h1_lepton_eta","",40,-2.5,2.5) ;
    TH1D* h1_mlb_hemi = new TH1D("h1_mlb_hemi","",40,0,800) ;
    TH1D* h1_m3b = new TH1D("h1_m3b","",75,0,1500) ;
@@ -575,6 +576,7 @@ int main (int argc, char *argv[])
 
              h1_met->Fill(met);
              h1_lepton_pT->Fill(lepton_pT);
+             h1_lepton_pT_Zoom->Fill(lepton_pT);
              h1_lepton_eta->Fill(lepton_eta);
              h1_mlb_hemi->Fill(min(799.99, (double)mlb_hemi));
              h1_m3b->Fill(min(1499.99,(double)m3b));
@@ -602,6 +604,7 @@ int main (int argc, char *argv[])
       
 		     h1_met->Fill(met, lumiweight);
 		     h1_lepton_pT->Fill(lepton_pT, lumiweight);
+		     h1_lepton_pT_Zoom->Fill(lepton_pT, lumiweight);
 		     h1_lepton_eta->Fill(lepton_eta, lumiweight);
 		     h1_mlb_hemi->Fill(min(799.99, (double)mlb_hemi), lumiweight);
 		     h1_m3b->Fill(min(1499.99, (double)m3b), lumiweight);
