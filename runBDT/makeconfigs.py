@@ -3,15 +3,15 @@
 import os, sys
 import ConfigParser
 
-def makeconfigfile(configfilename,NN_book_options,NN_vars,train_test,backgroundfilelist,signalsample):
+def makeconfigfile(configfilename,BDT_book_options,BDT_vars,train_test,backgroundfilelist,signalsample):
     config = ConfigParser.RawConfigParser()
     
-    config.add_section('NN')
-    config.set('NN', "NN_book_options", NN_book_options)
-    config.set('NN', "NN_vars", NN_vars)
-    config.set('NN', "backgroundfilelist", backgroundfilelist)
-    config.set('NN', "signalfilelist", signalsample)
-    config.set('NN', "NN_train_test", train_test)
+    config.add_section('BDT')
+    config.set('BDT', "BDT_book_options", BDT_book_options)
+    config.set('BDT', "BDT_vars", BDT_vars)
+    config.set('BDT', "backgroundfilelist", backgroundfilelist)
+    config.set('BDT', "signalfilelist", signalsample)
+    config.set('BDT', "BDT_train_test", train_test)
     
     with open(configfilename, 'wb') as configfile:
         config.write(configfile)
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     print basedir
    
 
-    NN_vars_list = [
+    BDT_vars_list = [
 		    #t2bw	
                     #"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB" # 102 
                     #"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,HT,dPhi_JetMet,jet1_pT" # 103
@@ -46,21 +46,21 @@ if __name__ == "__main__":
 
 
 
-    NN_book_options_list = []
-    NN_book_options_list.append("!H:!V:NTrees=400:nEventsMin=400:MaxDepth=3:BoostType=AdaBoost:SeparationType=GiniIndex:nCuts=20:PruneMethod=NoPruning")
+    BDT_book_options_list = []
+    BDT_book_options_list.append("!H:!V:NTrees=400:nEventsMin=400:MaxDepth=3:BoostType=AdaBoost:SeparationType=GiniIndex:nCuts=20:PruneMethod=NoPruning")
 
     
     counter = 105 
     train_test = "nTrain_Signal=0:nTrain_Background=0:nTest_Signal=0:nTest_Background=0:SplitMode=Random:NormMode=EqualNumEvents"
 
 
-    for NN_vars in NN_vars_list:
-        for NN_book_options in NN_book_options_list:
+    for BDT_vars in BDT_vars_list:
+        for BDT_book_options in BDT_book_options_list:
             configfilename = getconfigname(counter,basedir)
             print configfilename
             backgroundfilelist = os.getcwd() + "/filelists/filelist_TTbar_skim.txt"
             signalsample = os.getcwd() + "/filelists/filelist_signal_skim.txt"
-            makeconfigfile(configfilename,NN_book_options,NN_vars,train_test,backgroundfilelist,signalsample)
+            makeconfigfile(configfilename,BDT_book_options,BDT_vars,train_test,backgroundfilelist,signalsample)
             counter = counter + 1
             
 
