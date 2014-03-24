@@ -1,5 +1,4 @@
-StopsPlotting
+AN-14-067
 ============
 
-Plotting package for stops analysis
-
+To check-out: git clone git@github.com:sigamani/Stops-AN-14-067.git 
