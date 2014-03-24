@@ -1,2 +1,2 @@
 TO GET TDR STYLE
-gROOT->ProcessLine("../../setTDRStyle.C");
+gROOT->ProcessLine("setTDRStyle.C");
