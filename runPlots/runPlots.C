@@ -39,15 +39,18 @@ using namespace std;
 
 using namespace TMVA;
 
-void printProgressBar(int current, int max);
+
+
 
 
 void help(int argc, char* argv[]) {
-  cout << "usage: \n"
+  cout << "\n\n usage: \n"
        << "./runPlots <INPUT FILE> <OUTPUT FILE> <SELECTION TYPE> <TTBAR TYPE> <DI-LEPTON TYPE> <DI-LEPTON SELECTION TYPE> <LEPTON TYPE> <VARIABLES USED IN BDT> <SETUP DIRECTORY> <DECAY MODE> \n" 
        << "./runPlots root://eoscms//eos/cms/store/group/phys_susy/StopBabies/V00-04/SingleElec.root SingleElecBVetoElec.root 1 0 0 0 0 \"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB setup_102 T2bw050\" " << endl;
        exit(0);
 }
+
+
 
 // ###################
 // #  Main function  #
@@ -56,7 +59,7 @@ void help(int argc, char* argv[]) {
 int main (int argc, char *argv[])
 {
 
-//   if( argc != 7  ) help(argc,argv);
+   if( argc != 10   ) help(argc,argv);
 
 
   // ################################
@@ -456,8 +459,6 @@ int main (int argc, char *argv[])
         if (myEvent.numberOfLepton != 1) continue;
 //        if (myEvent.isolatedTrackVeto == false ) continue;
 //        if (myEvent.tauVeto == false) continue;
-//        if ( (myEvent.isolatedTrackVeto == false ) && (myEvent.tauVeto == false)) continue;
-
 
 	}
 
@@ -660,21 +661,3 @@ int main (int argc, char *argv[])
 }
 
 
-void printProgressBar(int current, int max)
-{
-    std::string bar;
-    int percent = 100 * (float) current / (float) max;
-
-    for(int i = 0; i < 50; i++)
-    {
-        if( i < (percent/2))       bar.replace(i,1,"=");
-        else if( i == (percent/2)) bar.replace(i,1,">");
-        else                       bar.replace(i,1," ");
-    }
-
-    std::cout << "  [Progress]  ";
-    std::cout << "[" << bar << "] ";
-    std::cout.width( 3 );
-    std::cout << percent << "%     ";
-    std::cout << "(" << current << " / " << max << ")" << "\r" << std::flush;
-}
