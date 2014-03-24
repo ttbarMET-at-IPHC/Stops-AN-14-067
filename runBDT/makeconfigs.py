@@ -35,24 +35,13 @@ if __name__ == "__main__":
 
     NN_vars_list = [
 		    #t2bw	
-                    #"met,lepton_pT,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB" # laras stuff 100 
-                    #"met,lepton_pT,mlb_hemi,m3b,mT2W,HT,dPhi_JetMet,jet1_pT" # laras stuff 101
-                    #"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB" # laras stuff 102 
-                    #"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,HT,dPhi_JetMet,jet1_pT" # laras stuff 103
+                    #"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB" # 102 
+                    #"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,HT,dPhi_JetMet,jet1_pT" # 103
 
 		    #t2tt
 		    #"met,mT2W,HTfrac,njets,dPhi_JetMet,lepton_pT,dR_LepB,Chi2SNT,jet1_pT"  #104
 		    "met,lepton_pT,mlb_hemi,HTfrac,njets,dPhi_JetMet,b1_pt" #105 
-		    #"met,mT2W,HTfrac,dPhi_JetMet,lepton_pT,dR_LepB,Chi2SNT,jet1_pT"  #106
-		    #"met,lepton_pT,mlb_hemi,HTfrac,dPhi_JetMet,b1_pt" # 107
 
-
-		    #t2bw	
-                    #"met,mT2W,HTfrac,b1_pt,dPhi_JetMet,dR_LepB" #200
-                    #"met,lepton_pT,mT2W,HTfrac,b1_pt,dPhi_JetMet,dR_LepB" #201
-		    #t2tt	
-                    #"met,mT2W,HTfrac,dPhi_JetMet,Chi2SNT" #202
-                    #"met,mT2W,HTfrac,dPhi_JetMet,b1_pt" #203
                   ]
 
 
