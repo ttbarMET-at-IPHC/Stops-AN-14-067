@@ -1,14 +1,9 @@
 // C / C++ headers
 #include <cmath>
 #include <iostream>
+using namespace std;
+
 #include <algorithm>
-#include <set>
-#include <string>
-#include <TLorentzVector.h>
-#include <TFile.h>
-#include <TTree.h>
-#include <TMath.h>
-#include <TBranch.h>
 #include "TColor.h"
 #include "TStyle.h"
 #include "TH1F.h"
@@ -23,12 +18,18 @@
 #include "TROOT.h"
 #include "TString.h"
 #include "TPRegexp.h"
+#include <TFile.h>
+#include <TTree.h>
+#include <TMath.h>
+#include <TBranch.h>
+#include <set>
+#include <string>
+#include <TLorentzVector.h>
 #include "TMVA/Tools.h"
 #include "TMVA/Reader.h"
 
 // Define format and input file
 #include "../Reader_final0210.h" 
-
 
 #define MT_CUT 100
 #define MET_CUT 80
@@ -37,16 +38,14 @@
 
 
 using namespace TMVA;
-using namespace std;
 
 void printProgressBar(int current, int max);
 
 
 void help(int argc, char* argv[]) {
   cout << "usage: \n"
-       << "\t<required var>: required arguments\n"
-       << "\t[optional]    : optional argument\n"
-       << "./runPlots root://eoscms//eos/cms/store/group/phys_susy/StopBabies/V00-03/babyTuple_SingleElec.root SingleElec.root 1 1" << endl;
+       << "./runPlots <INPUT FILE> <OUTPUT FILE> <SELECTION TYPE> <TTBAR TYPE> <DI-LEPTON TYPE> <DI-LEPTON SELECTION TYPE> <LEPTON TYPE> <VARIABLES USED IN BDT> <SETUP DIRECTORY> <DECAY MODE> \n" 
+       << "./runPlots root://eoscms//eos/cms/store/group/phys_susy/StopBabies/V00-04/SingleElec.root SingleElecBVetoElec.root 1 0 0 0 0 \"met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB setup_102 T2bw050\" " << endl;
        exit(0);
 }
 
@@ -57,7 +56,7 @@ void help(int argc, char* argv[]) {
 int main (int argc, char *argv[])
 {
 
-   if( argc <4  ) help(argc,argv);
+//   if( argc != 7  ) help(argc,argv);
 
 
   // ################################
@@ -82,7 +81,6 @@ int main (int argc, char *argv[])
    bool isNoMT = false; 
    bool isTTBarDL = false; 
    bool isTTBarSL = false; 
-   bool isDL = false; 
    bool is2Leptons = false; 
    bool isFailsTrackOrTau = false; 
    bool isElec = false; 
@@ -95,18 +93,17 @@ int main (int argc, char *argv[])
    if (atoi(argv[3]) == 3) isNoMT = true; 
    if (atoi(argv[3]) == 4) isMTPeak = true; 
 
-   // Split ttbar	
+   // Split TTbar	
    if (atoi(argv[4]) == 1) isTTBarSL = true; 
    if (atoi(argv[4]) == 2) isTTBarDL = true; 
 
-   if (atoi(argv[5]) == 0) isDL = false; 
-   if (atoi(argv[5]) == 1) isDL = true; 
+   // Di-lepton selection
+   if (atoi(argv[5]) == 1) is2Leptons = true; 
+   if (atoi(argv[5]) == 2) isFailsTrackOrTau = true; 
 
-   if (atoi(argv[6]) == 1) is2Leptons = true; 
-   if (atoi(argv[6]) == 2) isFailsTrackOrTau = true; 
-
-   if (atoi(argv[7]) == 0) isElec = true; 
-   if (atoi(argv[7]) == 1) isMuon = true; 
+   // Lepton tyle
+   if (atoi(argv[6]) == 0) isElec = true; 
+   if (atoi(argv[6]) == 1) isMuon = true; 
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
@@ -204,7 +201,7 @@ int main (int argc, char *argv[])
    Reader* reader; 
    reader = new Reader("V");
 
-   string NN_vars = string(argv[8]);
+   string NN_vars = string(argv[7]);
    TString str_NNvariables = TString(NN_vars);
    TPMERegexp _variables(",");
 
@@ -220,12 +217,13 @@ int main (int argc, char *argv[])
 
    cout << "" << endl;
    cout << "**********************************************************" << endl;
-   cout << "*   Will use these variables in BDT  * "                    << NN_vars << endl;
+   cout << "*   Will use these variables in BDT  * \n "                    
+        <<             NN_vars			   			<< endl;
    cout << "**********************************************************" << endl;
    cout << "" << endl;
 
 
-    string setup_directory = string(argv[9]);
+    string setup_directory = string(argv[8]);
 
 
 
@@ -344,7 +342,7 @@ int main (int argc, char *argv[])
 
 
 
-   string Decay_Mode = string(argv[10]);
+   string Decay_Mode = string(argv[9]);
 
  
    TString BDT_dir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/runBDT_V4/";
@@ -400,11 +398,9 @@ int main (int argc, char *argv[])
 
 		if (abs(myEvent.leadingLeptonPDGId) == 13)
 		{
-//			if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-			/*else*/  //if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
-
 			if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-			// if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+			else  if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+
 		}
 
 	}
@@ -491,8 +487,6 @@ int main (int argc, char *argv[])
 	        if ( (isDoubleElec || isDoubleMuon) && (myEvent.leadingLeptonPDGId + myEvent.secondLeptonPDGId !=0))  continue;       
 
 
-		//cout << "myEvent.leadingLeptonPDGId: "<< myEvent.leadingLeptonPDGId << endl;
-		//cout << "myEvent.secondLeptonPDGId:  "<< myEvent.secondLeptonPDGId << endl;
 
 
 			if (is2Leptons) {
@@ -500,9 +494,7 @@ int main (int argc, char *argv[])
 			} 
 
 			if (isFailsTrackOrTau) {
-				//if ( myEvent.tauVeto == true )  continue; 
 				if ( !((myEvent.isolatedTrackVeto == true ) || (myEvent.tauVeto == true))) continue; 
-				//if ( !(((myEvent.isolatedTrackVeto == true ) && (myEvent.tauVeto == false))  ||  ((myEvent.isolatedTrackVeto == false ) && (myEvent.tauVeto == true)) ||  ((myEvent.isolatedTrackVeto == true ) && (myEvent.tauVeto == true)) )) continue; 
 			} 
 
         }
@@ -553,13 +545,13 @@ int main (int argc, char *argv[])
 
         double lumi = 1.0;
 
-        if (isDL == false) {
+        if (isDilepton == false) {
 
 		if  (fabs(myEvent.leadingLeptonPDGId) == 13 )  {lumi = 19190.;}
 		if  (fabs(myEvent.leadingLeptonPDGId) == 11 )  {lumi = 19250.;}
 
 	}  
-		else if (isDL == true) {
+		else if (isDilepton == true) {
 	
 			if  (fabs(myEvent.leadingLeptonPDGId) == 13)  {lumi = 14690.;}
 			if  (fabs(myEvent.leadingLeptonPDGId) == 11)  {lumi = 19316.;}
@@ -600,7 +592,6 @@ int main (int argc, char *argv[])
              h1_jet4_pT->Fill(min(1499.99,(double)jet4_pT));
              h1_jet1_eta->Fill(jet1_eta);
              h1_HTfrac->Fill(HTfrac);
-             //h1_njets->Fill(njets);
              h1_njets->Fill(min(6,(int)njets));
              h1_nVtx->Fill(nVtx);
              h1_Chi2SNT->Fill(min(9.99,(double)Chi2SNT));  
@@ -661,8 +652,6 @@ int main (int argc, char *argv[])
       BDT2->Write(); 
       BDT3->Write(); 
       BDT4->Write(); 
-      BDT5->Write(); 
-      BDT6->Write(); 
       fout->Write();
       fout->Close();
 
