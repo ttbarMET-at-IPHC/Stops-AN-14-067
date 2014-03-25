@@ -398,8 +398,10 @@ int main (int argc, char *argv[])
 
 		if (abs(myEvent.leadingLeptonPDGId) == 13)
 		{
-			if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-			else  if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+			//if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
+			//else  if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+			//if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
+			if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
 
 		}
 
@@ -419,7 +421,7 @@ int main (int argc, char *argv[])
 
         if (myEvent.MET < MET_CUT) continue;
         if (myEvent.nJets < JET_CUT) continue;
-//        if (myEvent.leadingLepton.Pt() > LEPTON_PT_CUT) continue;
+        if (myEvent.leadingLepton.Pt() < LEPTON_PT_CUT) continue;
 
 
         if(isTTBarSL && (myEvent.numberOfGenLepton != 1)) continue;  
@@ -430,8 +432,8 @@ int main (int argc, char *argv[])
         if ( isDefault ) {
 
 		if (myEvent.MT < MT_CUT ) continue;
-		if (myEvent.nBTag < 1) continue;
-	    	if (myEvent.numberOfLepton != 1) continue;
+		if (myEvent.nBTag < NBTAGS_CUT) continue;
+	    	if (myEvent.numberOfLepton != NLEP_CUT) continue;
 	        if (myEvent.isolatedTrackVeto == false ) continue;
  	        if (myEvent.tauVeto == false) continue;
         }
@@ -442,7 +444,7 @@ int main (int argc, char *argv[])
 
 	if (myEvent.MT < MT_CUT ) continue;
         if (myEvent.nBTag != 0) continue;
-        if (myEvent.numberOfLepton != 1) continue;
+        if (myEvent.numberOfLepton != NLEP_CUT) continue;
         if (myEvent.isolatedTrackVeto == false ) continue;
         if (myEvent.tauVeto == false) continue;
 
@@ -452,10 +454,10 @@ int main (int argc, char *argv[])
         if ( isNoMT ) {
 
         if (myEvent.MT < MT_CUT) continue;
-        if (myEvent.nBTag < 1) continue;
-        if (myEvent.numberOfLepton != 1) continue;
-//        if (myEvent.isolatedTrackVeto == false ) continue;
-//        if (myEvent.tauVeto == false) continue;
+        if (myEvent.nBTag < NBTAGS_CUT) continue;
+        if (myEvent.numberOfLepton != NLEP_CUT) continue;
+        if (myEvent.isolatedTrackVeto == false ) continue;
+        if (myEvent.tauVeto == false) continue;
 
 	}
 
@@ -464,8 +466,8 @@ int main (int argc, char *argv[])
 
 		if (myEvent.MT < 50) continue;
 		if (myEvent.MT > 80) continue;
-		if (myEvent.nBTag < 1) continue;
-	    	if (myEvent.numberOfLepton != 1) continue;
+		if (myEvent.nBTag < NBTAGS_CUT) continue;
+	    	if (myEvent.numberOfLepton != NLEP_CUT) continue;
 	        if (myEvent.isolatedTrackVeto == false ) continue;
  	        if (myEvent.tauVeto == false) continue;
         }
@@ -476,7 +478,7 @@ int main (int argc, char *argv[])
         if ( isDilepton ) {
 
 		if (myEvent.MT < MT_CUT) continue;
-		if (myEvent.nBTag < 1) continue;
+		if (myEvent.nBTag < NBTAGS_CUT) continue;
 
 		if ( isDoubleElec && (( abs(myEvent.leadingLeptonPDGId) != 11) || abs(myEvent.secondLeptonPDGId) != 11) ) continue;
 		if ( isDoubleMuon && (( abs(myEvent.leadingLeptonPDGId) != 13) || abs(myEvent.secondLeptonPDGId) != 13) ) continue;
@@ -561,15 +563,23 @@ int main (int argc, char *argv[])
 
         double weight = 1.0; 
 
-        if (isTTbar) { weight = myEvent.weightCrossSection * myEvent.weightTriggerEfficiency * myEvent.weightPileUp * myEvent.weightTopPt;}
+        if (isTTbar) { weight = myEvent.weightCrossSection * 
+				myEvent.weightTriggerEfficiency * 
+				myEvent.weightPileUp * 
+				myEvent.weightTopPt; 
+		     }
 
-          else if (isSignal) { weight = myEvent.weightCrossSection * myEvent.weightTriggerEfficiency * myEvent.weightISRmodeling; } 
+          else if (isSignal) { weight = myEvent.weightCrossSection * 
+					myEvent.weightTriggerEfficiency * 
+					myEvent.weightISRmodeling; } 
 	
-		else  weight = myEvent.weightCrossSection * myEvent.weightTriggerEfficiency * myEvent.weightPileUp;  
+			else  weight = 	myEvent.weightCrossSection * 
+					myEvent.weightTriggerEfficiency * 
+					myEvent.weightPileUp;  
 
-	        double lumiweight = (lumi * weight);
-
-
+	        
+		
+	     double lumiweight = (lumi * weight);
 
 
   	     if (isData){ 
@@ -634,10 +644,12 @@ int main (int argc, char *argv[])
       fout->cd();
       h1_met->Write(); 
       h1_lepton_pT->Write(); 
+      h1_lepton_Zoom->Write(); 
       h1_lepton_eta->Write(); 
       h1_m3b->Write(); 
       h1_mlb_hemi->Write(); 
       h1_mT2W->Write(); 
+      h1_mT->Write(); 
       h1_b1_pt->Write(); 
       h1_dPhi_JetMet->Write(); 
       h1_dR_LepB->Write(); 
