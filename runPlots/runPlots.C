@@ -106,7 +106,7 @@ int main (int argc, char *argv[])
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
-   TH1D* h1_lepton_pT_Zoom = new TH1D("h1_lepton_pT","",50,0,50) ;
+   TH1D* h1_lepton_pT_Zoom = new TH1D("h1_lepton_pT_Zoom","",50,0,50) ;
    TH1D* h1_lepton_eta = new TH1D("h1_lepton_eta","",40,-2.5,2.5) ;
    TH1D* h1_mlb_hemi = new TH1D("h1_mlb_hemi","",40,0,800) ;
    TH1D* h1_m3b = new TH1D("h1_m3b","",75,0,1500) ;
@@ -421,7 +421,7 @@ int main (int argc, char *argv[])
 
         if (myEvent.MET < MET_CUT) continue;
         if (myEvent.nJets < JET_CUT) continue;
-        if (myEvent.leadingLepton.Pt() < LEPTON_PT_CUT) continue;
+        if (myEvent.leadingLepton.Pt() > LEPTON_PT_CUT) continue;
 
 
         if(isTTBarSL && (myEvent.numberOfGenLepton != 1)) continue;  
