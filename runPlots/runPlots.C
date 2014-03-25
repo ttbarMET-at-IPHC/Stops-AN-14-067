@@ -100,9 +100,9 @@ int main (int argc, char *argv[])
    if (atoi(argv[5]) == 1) is2Leptons = true; 
    if (atoi(argv[5]) == 2) isFailsTrackOrTau = true; 
 
-   // Lepton tyle
-   if (atoi(argv[6]) == 0) isElec = true; 
-   if (atoi(argv[6]) == 1) isMuon = true; 
+   // Lepton type
+   if (atoi(argv[6]) == 1) isElec = true; 
+   if (atoi(argv[6]) == 2) isMuon = true; 
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
