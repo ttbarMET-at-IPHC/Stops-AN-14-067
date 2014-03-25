@@ -153,12 +153,21 @@ void DataMCplots(TString plotname){
               else if(plotname =="h1_Chi2SNT"){
                data_xaxis->SetTitle("Hadronic #chi^{2}");
               }
-              else if(plotname =="BDT2"){
-               data_xaxis->SetTitle("BDT2");
-              }
               else if(plotname == "h1_met"){
                 data_xaxis->SetTitle("MET [GeV]");
                 binunits = "GeV";  
+              }
+              else if(plotname =="BDT1"){
+               data_xaxis->SetTitle("BDT1");
+              }
+              else if(plotname =="BDT2"){
+               data_xaxis->SetTitle("BDT2");
+              }
+              else if(plotname =="BDT3"){
+               data_xaxis->SetTitle("BDT3");
+              }
+              else if(plotname =="BDT4"){
+               data_xaxis->SetTitle("BDT4");
               }
 
 	
