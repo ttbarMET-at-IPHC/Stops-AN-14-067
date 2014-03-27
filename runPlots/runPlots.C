@@ -106,7 +106,7 @@ int main (int argc, char *argv[])
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
-   TH1D* h1_lepton_pT_Zoom = new TH1D("h1_lepton_pT_Zoom","",50,0,50) ;
+   TH1D* h1_lepton_pT_Zoom = new TH1D("h1_lepton_pT_Zoom","",30,20,50) ;
    TH1D* h1_lepton_eta = new TH1D("h1_lepton_eta","",40,-2.5,2.5) ;
    TH1D* h1_mlb_hemi = new TH1D("h1_mlb_hemi","",40,0,800) ;
    TH1D* h1_m3b = new TH1D("h1_m3b","",75,0,1500) ;
@@ -364,10 +364,10 @@ int main (int argc, char *argv[])
       ReadEvent(theInputTree,i,&pointers,&myEvent);
 
       
-        bool isSignal = false;
-        bool isTTbar  = false;
-        bool isData  = false;
+        bool isSignal 	   = false;
+        bool isTTbar  	   = false;
 
+        bool isData  	   = false;
         bool isDoubleElec  = false;
         bool isDoubleMuon  = false;
         bool isDoubleMuEl  = false;
@@ -390,29 +390,32 @@ int main (int argc, char *argv[])
         if (isElec && ((abs(myEvent.leadingLeptonPDGId) != 11))) continue;
         if (isMuon && ((abs(myEvent.leadingLeptonPDGId) != 13))) continue;
 
-        if (isDilepton==false){ 
 
-		// Electron triggers
-		if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerElec ==false)) continue;
-		// Muon triggers
 
-		if (abs(myEvent.leadingLeptonPDGId) == 13)
-		{
-			//if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-			//else  if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
-			//if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-			if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+
+        if (isData) {
+
+		if (isDilepton==false){ 
+
+			if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerElec ==false)) continue;
+			if (abs(myEvent.leadingLeptonPDGId) == 13)
+			{
+				//if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
+				//else  if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+				if (myEvent.triggerMuon ==false) continue;
+
+			}
 
 		}
 
-	}
 
+		if (isDilepton==true) {
 
-        if (isDilepton==true) {
+			if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerDoubleElec ==false)) continue;
+			if (((abs(myEvent.leadingLeptonPDGId) == 13) && (myEvent.triggerDoubleMuon ==false))) continue;
+			if (( ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24)) && (myEvent.triggerMuonElec ==false))) continue;
 
-		if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerDoubleElec ==false)) continue;
-		if (((abs(myEvent.leadingLeptonPDGId) == 13) && (myEvent.triggerDoubleMuon ==false))) continue;
-		if (( ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24)) && (myEvent.triggerMuonElec ==false))) continue;
+		}
 
 	}
 
@@ -421,7 +424,7 @@ int main (int argc, char *argv[])
 
         if (myEvent.MET < MET_CUT) continue;
         if (myEvent.nJets < JET_CUT) continue;
-        if (myEvent.leadingLepton.Pt() > LEPTON_PT_CUT) continue;
+        if (myEvent.leadingLepton.Pt() < LEPTON_PT_CUT) continue;
 
 
         if(isTTBarSL && (myEvent.numberOfGenLepton != 1)) continue;  
@@ -565,8 +568,8 @@ int main (int argc, char *argv[])
 
         if (isTTbar) { weight = myEvent.weightCrossSection * 
 				myEvent.weightTriggerEfficiency * 
-				myEvent.weightPileUp * 
-				myEvent.weightTopPt; 
+				myEvent.weightTopPt * 
+				myEvent.weightPileUp; 
 		     }
 
           else if (isSignal) { weight = myEvent.weightCrossSection * 
