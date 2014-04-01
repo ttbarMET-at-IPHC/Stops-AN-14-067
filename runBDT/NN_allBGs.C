@@ -105,39 +105,11 @@ void NN(TString outputfilename, string sigfilename, string bkgfilelistname, TStr
     string name = bkgfiles[i];
     //give weight according to the name
 
-    if(name.find("TTJetsSemiLep") != string::npos)
-      weight = 53.2*1.7e-02; // cross-section * QC+4J selection efficiency
-    else if(name.find("TTJetsFullLep") != string::npos)
-      weight = 13.43*8.4e-03;
-    else if(name.find("TTJetsHad") != string::npos)
-      weight = 53.4*2.9e-05;
-/*    else if(name.find("topbar_") != string::npos)
-      weight = 1.44*393/137980;
-    else if(name.find("topbarT_") != string::npos)
-      weight = 22.65*3820/1944822;
-    else if(name.find("topTW_") != string::npos)
-      weight = 2*7.87*20023/814390;
-    else if(name.find("zjets_") != string::npos)
-      weight = 3048.*8549/36059026;
-    else if(name.find("ww_") != string::npos)
-      weight = 43.*7789/4225857;
-    else if(name.find("wz_") != string::npos)
-      weight = 18.2*6248/4265171;
-    else if(name.find("zz_") != string::npos)
-      weight = 5.9*2628/4190973;
-    else if(name.find("qcdmu_") != string::npos)
-      weight = 2.966e8*0.0002855*80/25066511;
-    else if(name.find("qcd30_") != string::npos)
-      weight = 5.944e7*0.061*0;
-    else if(name.find("qcd80_") != string::npos)
-      weight = 898200.*0.159*10/2654051;
-    else if(name.find("qcd170_") != string::npos)
-      weight = 22140.*0.1474*89/2720054;
-    else if(name.find("qcd250_") != string::npos)
-      weight = 2900.*0.1269*182/2761474;
-    else if(name.find("qcd350_") != string::npos)
-      weight = 520*0.1058*350/2769821;
-*/
+    if(name.find("ttbar_sl") != string::npos)
+      weight = 0.55;  
+    else if(name.find("ttbar_dl") != string::npos)
+      weight = 0.45;  
+
     bkgWeight.push_back(weight);
     cout << "weight of bg " << i << " " << name << " = " << weight << endl;
     }
