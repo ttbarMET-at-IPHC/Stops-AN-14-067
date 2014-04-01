@@ -106,9 +106,9 @@ void NN(TString outputfilename, string sigfilename, string bkgfilelistname, TStr
     //give weight according to the name
 
     if(name.find("ttbar_sl") != string::npos)
-      weight = 0.55;  
+      weight = 0.55; // xsection weight 4.173e-06 
     else if(name.find("ttbar_dl") != string::npos)
-      weight = 0.45;  
+      weight = 0.45; // xsection weight 3.406e-06  
 
     bkgWeight.push_back(weight);
     cout << "weight of bg " << i << " " << name << " = " << weight << endl;
