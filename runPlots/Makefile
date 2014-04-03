@@ -17,7 +17,7 @@ CXXFLAGS      += $(ROOTCFLAGS) -I./
 
 LD            = g++ 
 LDFLAGS       = -g -O -Wall -fPIC -Wl,--no-undefined 
-LDFLAGS       += $(ROOTLIBS)  -lEG -l:`pwd`/vectorDictionnary_C.so -lTMVA
+LDFLAGS       += $(ROOTLIBS)  -lEG -l:`pwd`/../vectorDictionary_C.so -lTMVA
 
 SOFLAGS       = -shared
 LIBS          = 
