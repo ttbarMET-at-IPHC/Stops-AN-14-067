@@ -45,16 +45,16 @@ void DataMCplots(TString plotname){
 
 
 
-          TFile data("dataMTPeakMuon.root");
-          TFile ttbarDL("ttbarDLMTPeakMuon.root");
-          TFile ttbarSL("ttbarSLMTPeakMuon.root");
-          TFile wjets("WjetsMTPeakMuon.root");
-          TFile others("othersMTPeakMuon.root");
+          TFile data("dataDilepton_2LeptonsMuon.root");
+          TFile ttbar2l("ttbar2lDilepton_2LeptonsMuon.root");
+          TFile ttbar1l("ttbar1lDilepton_2LeptonsMuon.root");
+          TFile wjets("WjetsDilepton_2LeptonsMuon.root");
+          TFile others("othersDilepton_2LeptonsMuon.root");
 
 
 	  TH1D* Data= (TH1D*)data.Get(plotname);
-	  TH1D* TTBarDL= (TH1D*)ttbarDL.Get(plotname);
-	  TH1D* TTBarSL= (TH1D*)ttbarSL.Get(plotname);
+	  TH1D* TTBar2l= (TH1D*)ttbar2l.Get(plotname);
+	  TH1D* TTBar1l= (TH1D*)ttbar1l.Get(plotname);
 	  TH1D* WJets= (TH1D*)wjets.Get(plotname);
 	  TH1D* Others= (TH1D*)others.Get(plotname);
 
@@ -63,10 +63,10 @@ void DataMCplots(TString plotname){
 	  Data->SetMarkerSize(1.1);
 	  Data->SetMarkerColor(kBlack);
 
-	  TTBarDL->SetFillColor(7);
-	  TTBarDL->SetLineWidth(0.);
-	  TTBarSL->SetFillColor(46);
-	  TTBarSL->SetLineWidth(0.);
+	  TTBar2l->SetFillColor(7);
+	  TTBar2l->SetLineWidth(0.);
+	  TTBar1l->SetFillColor(46);
+	  TTBar1l->SetLineWidth(0.);
 
     	  WJets->SetFillColor(42);
     	  Others->SetFillColor(40);
@@ -76,24 +76,24 @@ void DataMCplots(TString plotname){
           TH1F * h_data = Data->Clone();
           TH1F * h_mc = Others->Clone();
 	  h_mc->Add(WJets);
-	  h_mc->Add(TTBarDL);
-	  h_mc->Add(TTBarSL);
+	  h_mc->Add(TTBar2l);
+	  h_mc->Add(TTBar1l);
 
           double num = Data->Integral();
           double denom = h_mc->Integral();
   /*        h_mc->Scale(num/denom);
           Others->Scale(num/denom);
           WJets->Scale(num/denom);
-          TTBarDL->Scale(num/denom);
-          TTBarSL->Scale(num/denom);
+          TTBar2l->Scale(num/denom);
+          TTBar1l->Scale(num/denom);
 */           
  
 
           THStack *stack= new THStack("stack", "");
           stack->Add(Others);
           stack->Add(WJets);
-          stack->Add(TTBarDL);
-          stack->Add(TTBarSL);
+          stack->Add(TTBar2l);
+          stack->Add(TTBar1l);
 
 
               TAxis *data_yaxis = h_data->GetYaxis();
@@ -132,7 +132,7 @@ void DataMCplots(TString plotname){
                 data_xaxis->SetTitle("mlb_{hemi} [GeV]");
 	      binunits = "GeV";	 
               }
-              else if(plotname == "h1_lepton_pT"){
+              else if( (plotname == "h1_lepton_pT")  || (plotname == "h1_lepton_pT_Zoom")){
                 data_xaxis->SetTitle("Leading lepton p_{T} [GeV]");
 	      binunits = "GeV";	 
               }
@@ -181,8 +181,8 @@ void DataMCplots(TString plotname){
            leg = new TLegend(0.58,0.62,0.88,0.92);
            leg->SetFillStyle(0); leg->SetBorderSize(0); leg->SetTextSize(0.043);
            legge = leg->AddEntry(Data,   "Data", "pl");
-           legge = leg->AddEntry(TTBarSL,   "1 #it{l} top", "F");
-           legge = leg->AddEntry(TTBarDL,   "t#bar{t} #rightarrow #it{ll}", "F");
+           legge = leg->AddEntry(TTBar1l,   "1 #it{l} top", "F");
+           legge = leg->AddEntry(TTBar2l,   "t#bar{t} #rightarrow #it{ll}", "F");
            legge = leg->AddEntry(WJets,   "W + Jets", "F");
            legge = leg->AddEntry(Others,   "Rare", "F");
            leg->SetFillColor(0);
@@ -255,7 +255,7 @@ void DataMCplots(TString plotname){
 
 	   c1->cd();
 
-           TString savedir = "~/";
+           TString savedir = "~/www/STOP/NNTraining/8TeV/Plots17/dataMC/";
            c1->Print(savedir+"/"+plotname+".png");
 
 	   delete c1;
@@ -270,7 +270,7 @@ void makeAllPlots(){
 DataMCplots("h1_met");
 DataMCplots("h1_mT");
 DataMCplots("h1_lepton_pT");
-DataMCplots("h1_lepton_pT_Zoom");
+//DataMCplots("h1_lepton_pT_Zoom");
 DataMCplots("h1_mlb_hemi");
 DataMCplots("h1_m3b");
 DataMCplots("h1_mT2W");

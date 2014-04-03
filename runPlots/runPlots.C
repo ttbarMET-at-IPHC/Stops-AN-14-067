@@ -48,6 +48,8 @@ void help(int argc, char* argv[]) {
 
 
 
+
+
 // ###################
 // #  Main function  #
 // ###################
@@ -84,6 +86,7 @@ int main (int argc, char *argv[])
    bool isFailsTrackOrTau = false; 
    bool isElec = false; 
    bool isMuon = false; 
+   bool isMuEl = false; 
 
    // Selection type	
    if (atoi(argv[3]) == 0) isDefault = true;  
@@ -103,6 +106,7 @@ int main (int argc, char *argv[])
    // Lepton type
    if (atoi(argv[6]) == 1) isElec = true; 
    if (atoi(argv[6]) == 2) isMuon = true; 
+   if (atoi(argv[6]) == 3) isMuEl = true; 
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
@@ -389,22 +393,17 @@ int main (int argc, char *argv[])
 
         if (isElec && ((abs(myEvent.leadingLeptonPDGId) != 11))) continue;
         if (isMuon && ((abs(myEvent.leadingLeptonPDGId) != 13))) continue;
+//        if (isMuEl && ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24))) continue;
 
 
 
 
-        if (isData) {
+  //      if ( !(isData && isDilepton) ) {
 
 		if (isDilepton==false){ 
 
 			if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerElec ==false)) continue;
-			if (abs(myEvent.leadingLeptonPDGId) == 13)
-			{
-				//if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-				//else  if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
-				if (myEvent.triggerMuon ==false) continue;
-
-			}
+			if ((abs(myEvent.leadingLeptonPDGId) == 13) && (myEvent.triggerMuon ==false)) continue; 
 
 		}
 
@@ -413,15 +412,16 @@ int main (int argc, char *argv[])
 
 			if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerDoubleElec ==false)) continue;
 			if (((abs(myEvent.leadingLeptonPDGId) == 13) && (myEvent.triggerDoubleMuon ==false))) continue;
-			if (( ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24)) && (myEvent.triggerMuonElec ==false))) continue;
+	//		if (( ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24)) && (myEvent.triggerMuonElec ==false))) continue;
+			if (isMuEl && (myEvent.triggerMuonElec ==false)) continue;
 
 		}
 
-	}
+//	}
 
 
 
-
+        if (myEvent.MET < MET_CUT) continue;
         if (myEvent.MET < MET_CUT) continue;
         if (myEvent.nJets < JET_CUT) continue;
         if (myEvent.leadingLepton.Pt() < LEPTON_PT_CUT) continue;
@@ -559,31 +559,19 @@ int main (int argc, char *argv[])
 			if  (fabs(myEvent.leadingLeptonPDGId) == 13)  {lumi = 14690.;}
 			if  (fabs(myEvent.leadingLeptonPDGId) == 11)  {lumi = 19316.;}
 			if  (fabs(myEvent.leadingLeptonPDGId) + fabs(myEvent.secondLeptonPDGId) == 24)  {lumi = 19447.;}
+			if  (isMuEl)  {lumi = 19447.;}
 
 		}
 
 
 
-        double weight = 1.0; 
-
-        if (isTTbar) { weight = myEvent.weightCrossSection * 
-				myEvent.weightTriggerEfficiency * 
-				myEvent.weightTopPt * 
-				myEvent.weightPileUp; 
-		     }
-
-          else if (isSignal) { weight = myEvent.weightCrossSection * 
-					myEvent.weightTriggerEfficiency * 
-					myEvent.weightISRmodeling; } 
+             double weight = 1.0; 
 	
-			else  weight = 	myEvent.weightCrossSection * 
-					myEvent.weightTriggerEfficiency * 
-					myEvent.weightPileUp;  
-
-	        
-		
-	     double lumiweight = (lumi * weight);
-
+             weight *= myEvent.weightCrossSection * lumi ;
+       
+             if (!isDilepton) weight *= myEvent.weightTriggerEfficiency;
+             if (!isSignal) weight *= myEvent.weightPileUp;	
+             if (isTTbar) weight *= myEvent.weightTopPt;
 
   	     if (isData){ 
 
@@ -615,31 +603,31 @@ int main (int argc, char *argv[])
 
 	     } else
       
-		     h1_met->Fill(met, lumiweight);
-		     h1_lepton_pT->Fill(lepton_pT, lumiweight);
-		     h1_lepton_pT_Zoom->Fill(lepton_pT, lumiweight);
-		     h1_lepton_eta->Fill(lepton_eta, lumiweight);
-		     h1_mlb_hemi->Fill(min(799.99, (double)mlb_hemi), lumiweight);
-		     h1_m3b->Fill(min(1499.99, (double)m3b), lumiweight);
-		     h1_mT2W->Fill(mT2W, lumiweight);
-		     h1_mT->Fill(mT, lumiweight);
-		     h1_b1_pt->Fill(min(799.99,(double)b1_pt), lumiweight);
-		     h1_dPhi_JetMet->Fill(dPhi_JetMet, lumiweight);
-		     h1_dR_LepB->Fill(dR_LepB, lumiweight);
-		     h1_jet1_pT->Fill(min(1499.99, (double)jet1_pT), lumiweight);
-		     h1_jet2_pT->Fill(min(1499.99, (double)jet2_pT), lumiweight);
-		     h1_jet3_pT->Fill(min(1499.99, (double)jet3_pT), lumiweight);
-		     h1_jet4_pT->Fill(min(1499.99, (double)jet4_pT), lumiweight);
-		     h1_jet1_eta->Fill(jet1_eta, lumiweight);
-		     h1_HTfrac->Fill(HTfrac, lumiweight);
-             	     h1_njets->Fill(min(6,(int)njets), lumiweight);
-             	     h1_nVtx->Fill(nVtx, lumiweight);
-		     h1_Chi2SNT->Fill(min(9.99, (double)Chi2SNT), lumiweight);
-		     h1_METoverSqrtHT->Fill(min(14.99, (double)METoverSqrtHT_), lumiweight);
-		     BDT1->Fill(bdt_R1, lumiweight);
-		     BDT2->Fill(bdt_R2, lumiweight);
-		     BDT3->Fill(bdt_R3, lumiweight);
-		     BDT4->Fill(bdt_R4, lumiweight);
+		     h1_met->Fill(met, weight);
+		     h1_lepton_pT->Fill(lepton_pT, weight);
+		     h1_lepton_pT_Zoom->Fill(lepton_pT, weight);
+		     h1_lepton_eta->Fill(lepton_eta, weight);
+		     h1_mlb_hemi->Fill(min(799.99, (double)mlb_hemi), weight);
+		     h1_m3b->Fill(min(1499.99, (double)m3b), weight);
+		     h1_mT2W->Fill(mT2W, weight);
+		     h1_mT->Fill(mT, weight);
+		     h1_b1_pt->Fill(min(799.99,(double)b1_pt), weight);
+		     h1_dPhi_JetMet->Fill(dPhi_JetMet, weight);
+		     h1_dR_LepB->Fill(dR_LepB, weight);
+		     h1_jet1_pT->Fill(min(1499.99, (double)jet1_pT), weight);
+		     h1_jet2_pT->Fill(min(1499.99, (double)jet2_pT), weight);
+		     h1_jet3_pT->Fill(min(1499.99, (double)jet3_pT), weight);
+		     h1_jet4_pT->Fill(min(1499.99, (double)jet4_pT), weight);
+		     h1_jet1_eta->Fill(jet1_eta, weight);
+		     h1_HTfrac->Fill(HTfrac, weight);
+             	     h1_njets->Fill(min(6,(int)njets), weight);
+             	     h1_nVtx->Fill(nVtx, weight);
+		     h1_Chi2SNT->Fill(min(9.99, (double)Chi2SNT), weight);
+		     h1_METoverSqrtHT->Fill(min(14.99, (double)METoverSqrtHT_), weight);
+		     BDT1->Fill(bdt_R1, weight);
+		     BDT2->Fill(bdt_R2, weight);
+		     BDT3->Fill(bdt_R3, weight);
+		     BDT4->Fill(bdt_R4, weight);
 
 
   } 
