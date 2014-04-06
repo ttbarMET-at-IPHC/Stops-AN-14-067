@@ -40,7 +40,6 @@ for x in range(len(selection)):
 			inputlist = "../inputFileLists/"+dataset_name[z]+".list"
 			outputdir = pwd+"/ntuples/"+dataset_name[z] 
 			     
-#test 
 #			os.system("rm -r "+outputdir)
 #			os.system("mkdir -p "+outputdir)
 #			os.system("mkdir -p "+outputdir+"/log/")
