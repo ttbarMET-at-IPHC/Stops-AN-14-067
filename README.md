@@ -10,4 +10,3 @@ To check-out: git clone git@github.com:sigamani/Stops-AN-14-067.git
 4) Then in a ROOT session:
 root [0] .L dataMC.C
 root [1] makeAllPlots()
-
