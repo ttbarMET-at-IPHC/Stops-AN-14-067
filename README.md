@@ -4,8 +4,7 @@ Instructions
 To check-out: git clone git@github.com:sigamani/Stops-AN-14-067.git 
 
 
-1) cd runPlots 
-
+1) cd runPlots \n
 2) make 
 
 3) python runPlots.py (to send on batch)
