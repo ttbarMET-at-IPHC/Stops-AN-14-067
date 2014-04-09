@@ -69,9 +69,9 @@ for z in range(len(dataset_name)):
                 outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+deltaMArguments[y]+";")
             else:
                 outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root ;")
-        outputfile.close
-        os.system("echo bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
-        os.system("bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
-        ijob = ijob+1
+            outputfile.close
+            os.system("echo bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
+            os.system("bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
+            ijob = ijob+1
                                                                                                                                                                                     
-        continue
+            continue
