@@ -12,8 +12,7 @@ using namespace std;
 #include <TLorentzVector.h>
 
 // Define format and input file
-#include "Reader_prefinal1024.h"
-#define INPUT "synchronizationBaby1102.root"
+#include "../Reader_final0210.h"
 
 // ###################
 // #  Main function  #
@@ -117,7 +116,7 @@ int main (int argc, char *argv[])
         if (myEvent.tauVeto == false) continue;
 
         if (myEvent.MET < 80) continue;
-        if (myEvent.MT < 120) continue;
+        if (myEvent.MT < 100) continue;
         if (myEvent.nBTag < 1) continue;
         if (myEvent.nJets < 4) continue;
         if (myEvent.numberOfLepton != 1) continue;

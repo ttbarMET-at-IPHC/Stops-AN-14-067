@@ -29,10 +29,10 @@
 using namespace std;
 
 
+TString indir = "ntuples";
 
 
-
-void DataMCplots(TString plotname){
+void DataMCplots(TString plotname, TString selectionname, TString leptonname){
 
 
 	  gStyle->SetOptStat(0);
@@ -44,12 +44,17 @@ void DataMCplots(TString plotname){
 	  gStyle->SetMarkerColor(37);
 
 
+	  ntuples/Double_Elec/output/Double_Elec_BVeto_Elec.root
+          TFile data("ntuples/"+datasetname+"_"+selectionname+"_"leptonname".root");
+          TFile ttbar2l("ttbar_1l_"+selectionname+"_"leptonname".root");
+          TFile ttbar1l("ttbar_1l_"+selectionname+"_"leptonname".root");
+          TFile wjets("wjets_all_"+selectionname+"_"leptonname".root");
+          TFile others("others_all_"+selectionname+"_"leptonname".root");
 
-          TFile data("dataDilepton_2LeptonsMuon.root");
-          TFile ttbar2l("ttbar2lDilepton_2LeptonsMuon.root");
-          TFile ttbar1l("ttbar1lDilepton_2LeptonsMuon.root");
-          TFile wjets("WjetsDilepton_2LeptonsMuon.root");
-          TFile others("othersDilepton_2LeptonsMuon.root");
+          TFile ttbar(ntpdir0+"/"+setup+"/"+dir+"/ttbar/output/ttbar_all_0.root");
+          TFile wjets(ntpdir0+"/"+setup+"/"+dir+"/wjets/output/wjets_all_0.root");
+          TFile others(ntpdir0+"/"+setup+"/"+dir+"/others/output/others_all_0.root");
+          TFile sig(ntpdir0+"/"+setup+"/"+dir+"/signal/"+TString(stop)+"/"+TString(neut)+"/output/"+dataset_name+"_0.root");
 
 
 	  TH1D* Data= (TH1D*)data.Get(plotname);
