@@ -13,6 +13,7 @@ using namespace std;
 
 // Define format and input file
 #include "../Reader_final0210.h"
+#include "../Cuts.h"
 
 // ###################
 // #  Main function  #
@@ -108,18 +109,18 @@ int main (int argc, char *argv[])
 
         if (abs(myEvent.leadingLeptonPDGId) == 13)
         {
-                if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-                else if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
+                if ((myEvent.leadingLepton.Pt() < LEPTON_PT_CUT) && (myEvent.xtriggerMuon ==false)) continue;
+                else if ((myEvent.leadingLepton.Pt() > LEPTON_PT_CUT) && (myEvent.triggerMuon ==false)) continue;
         }
 
         if (myEvent.isolatedTrackVeto == false ) continue;
         if (myEvent.tauVeto == false) continue;
 
-        if (myEvent.MET < 80) continue;
-        if (myEvent.MT < 100) continue;
-        if (myEvent.nBTag < 1) continue;
-        if (myEvent.nJets < 4) continue;
-        if (myEvent.numberOfLepton != 1) continue;
+        if (myEvent.MET < MET_CUT) continue;
+        if (myEvent.MT < MT_CUT) continue;
+        if (myEvent.nBTag < NBTAGS_CUT) continue;
+        if (myEvent.nJets < JET_CUT) continue;
+        if (myEvent.numberOfLepton != NLEP_CUT) continue;
 
         if ( isSignal && deltaM( myEvent.mStop, myEvent.mNeutralino, atof(argv[3]), atof(argv[4]), atof(argv[5]), atof(argv[6])) == 0) continue;
 

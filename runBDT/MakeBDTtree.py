@@ -25,7 +25,7 @@ for z in range(len(dataset_name)):
     for y in range(range_):
 
         inputlist = "../inputFileLists/"+dataset_name[z]+".list"
-        outputdir1 = pwd+"/BDT4_skim_MT100/"+dataset_name[z]
+        outputdir1 = pwd+"/BDT_skim_MT200/"+dataset_name[z]
 
         if (z < 4):
             outputdir = outputdir1+"/"+deltaMRegion[y]
