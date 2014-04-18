@@ -39,14 +39,14 @@ int signalregion(string decaymode, int stopmass, int lspmass)
 
   if (decaymode = "T2bw075") {
 
-	  if (lspmass > stopmass - 175)
+	  if (lspmass > stopmass - 200)
 	    signalregion = 1;
-	  if (lspmass <= stopmass - 175 && lspmass > stopmass - 275)
+	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
 	    signalregion = 2;
-	  if (lspmass <= stopmass - 275 && lspmass > stopmass - 450)
+	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
 	    signalregion = 3;
-	  if (lspmass <= stopmass - 450)
-	    signalregion = 6;
+	  if (lspmass <= stopmass - 475)
+	    signalregion = 5;
 
   }
 
@@ -54,52 +54,38 @@ int signalregion(string decaymode, int stopmass, int lspmass)
 
   if (decaymode = "T2bw050") {
 
-	  if (lspmass > stopmass - 200)
+	  if (lspmass > stopmass - 225)
 	    signalregion = 1;
-	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
-	    signalregion = 2;
-	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 500)
+	  if (lspmass <= stopmass - 225 && lspmass > stopmass - 375)
 	    signalregion = 3;
-	  if (lspmass <= stopmass - 500)
-	    signalregion = 4;
+	  if (lspmass <= stopmass - 375 && lspmass > stopmass - 625)
+	    signalregion = 5;
+	  if (lspmass <= stopmass - 625)
+	    signalregion = 6;
 
   }	
 
   if (decaymode = "T2bw025") {
 
-	  if (lspmass > stopmass - 200)
+	  if (lspmass > stopmass - 225)
 	    signalregion = 1;
-	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
-	    signalregion = 2;
-	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 425)
+	  if (lspmass <= stopmass - 225 && lspmass > stopmass - 425)
 	    signalregion = 3;
-	  if (lspmass <= stopmass - 425)
-	    signalregion = 5;
+	  if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
+	    signalregion = 4;
+	  if (lspmass <= stopmass - 600)
+	    signalregion = 6;
 
   }
 
 
   else if (decaymode = "T2tt") {
 
-	  if (stopmass >= 175 && stopmass <= 325)
+
+	  if (lspmass > stopmass - 225)
 	    signalregion = 1;
-
-	  else if (stopmass >= 350 && stopmass <= 700)
-	    {
-	      if (lspmass > stopmass - 225)
-		signalregion = 1;
-	      else
-		signalregion = 3;
-
-	    }
-
-	  else if (stopmass >= 725)
-	    {
-	      if (lspmass >= 500)
-		signalregion = 1;
-	      else
-		signalregion = 4;
-	    }
+	  if (lspmass <= stopmass - 225)
+	    signalregion = 5;
 
   } 
 
@@ -116,15 +102,16 @@ double signalcut(string decaymode, int stopmass, int lspmass)
 
   double cutvalue = 0.;
 
-  if (decaymode = "T2bw075") {
 
-	  if (lspmass > stopmass - 175)
-	    cutvalue = 0.3;
-	  if (lspmass <= stopmass - 175 && lspmass > stopmass - 275)
-	    cutvalue = 0.3;
-	  if (lspmass <= stopmass - 275 && lspmass > stopmass - 450)
-	    cutvalue = 0.3;
-	  if (lspmass <= stopmass - 450)
+   if (decaymode = "T2bw075") {
+
+	  if (lspmass > stopmass - 200)
+	    cutvalue = 0.225;
+	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
+	    cutvalue = 0.275;
+	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
+	    cutvalue = 0.350;
+	  if (lspmass <= stopmass - 475)
 	    cutvalue = 0.2;
 
   }
@@ -133,53 +120,49 @@ double signalcut(string decaymode, int stopmass, int lspmass)
 
   if (decaymode = "T2bw050") {
 
-	  if (lspmass > stopmass - 200)
+
+          if (lspmass > stopmass - 225)
 	    cutvalue = 0.25;
-	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
+          if (lspmass <= stopmass - 225 && lspmass > stopmass - 375)
 	    cutvalue = 0.3;
-	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 500)
-	    cutvalue = 0.35;
-	  if (lspmass <= stopmass - 500)
-	    cutvalue = 0.25;
+          if (lspmass <= stopmass - 375 && lspmass > stopmass - 625)
+	    cutvalue = 0.225;
+          if (lspmass <= stopmass - 625)
+	    cutvalue = 0.2;
 
   }	
 
    if (decaymode = "T2bw025") {
 
-          if (lspmass > stopmass - 200)
+          if (lspmass > stopmass - 225)
 	    cutvalue = 0.2;
-	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
-	    cutvalue = 0.35;
-	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 425)
+          if (lspmass <= stopmass - 225 && lspmass > stopmass - 425)
+	    cutvalue = 0.3;
+          if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
 	    cutvalue = 0.2;
-	  if (lspmass <= stopmass - 425)
-	    cutvalue = 0.2;
+          if (lspmass <= stopmass - 600)
+	    cutvalue = 0.175;
 
   }
 
 
   else if (decaymode = "T2tt") {
 
-	  if (stopmass >= 175 && stopmass <= 325)
-	    cutvalue = 0.35;
+          if (lspmass > stopmass - 225) {
+	    cutvalue = 0.3; 
+           
+		if (lspmass > 200 && stopmass < 400) {
+	         cutvalue = 0.4; }
+          }
+ 
+          	if (lspmass <= stopmass - 225) {
+	    	cutvalue = 0.250;
 
-	  else if (stopmass >= 350 && stopmass <= 700)
-	    {
-	      if (lspmass > stopmass - 225)
-		cutvalue = 0.35;
-	      else
-		cutvalue = 0.45;
-
-	    }
-
-	  else if (stopmass >= 725)
-	    {
-	      if (lspmass >= 500)
-		cutvalue = 0.35;
-	      else
-		cutvalue = 0.45;
-	    }
-
+		                if (lspmass <=  stopmass - 400) {
+				cutvalue = 0.325
+				}       
+          	}
+ 
   } 
 
   //  cout << "Cut: "<< cutvalue << endl;
