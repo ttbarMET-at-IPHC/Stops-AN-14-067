@@ -30,9 +30,11 @@ using namespace std;
 
 
 TString indir = "ntuples";
+TString outdir = "~/www/STOP/NNTraining/8TeV/TEST/";
 
 
 void DataMCplots(TString plotname, TString selectionname, TString leptonname){
+
 
 
 	  gStyle->SetOptStat(0);
@@ -44,17 +46,16 @@ void DataMCplots(TString plotname, TString selectionname, TString leptonname){
 	  gStyle->SetMarkerColor(37);
 
 
-	  ntuples/Double_Elec/output/Double_Elec_BVeto_Elec.root
-          TFile data("ntuples/"+datasetname+"_"+selectionname+"_"leptonname".root");
-          TFile ttbar2l("ttbar_1l_"+selectionname+"_"leptonname".root");
-          TFile ttbar1l("ttbar_1l_"+selectionname+"_"leptonname".root");
-          TFile wjets("wjets_all_"+selectionname+"_"leptonname".root");
-          TFile others("others_all_"+selectionname+"_"leptonname".root");
+         if (string(selectionname).find("Dilepton")) { 
 
-          TFile ttbar(ntpdir0+"/"+setup+"/"+dir+"/ttbar/output/ttbar_all_0.root");
-          TFile wjets(ntpdir0+"/"+setup+"/"+dir+"/wjets/output/wjets_all_0.root");
-          TFile others(ntpdir0+"/"+setup+"/"+dir+"/others/output/others_all_0.root");
-          TFile sig(ntpdir0+"/"+setup+"/"+dir+"/signal/"+TString(stop)+"/"+TString(neut)+"/output/"+dataset_name+"_0.root");
+         TFile data(indir+"/Double_"+leptonname+"/output/Double_"+leptonname+"_"+selectionname+"_"+leptonname+".root");
+	 } else
+
+          TFile data(indir+"/Single_"+leptonname+"/output/Single_"+leptonname+"_"+selectionname+"_"+leptonname+".root");
+          TFile ttbar2l(indir+"/ttbar_2l/output/ttbar_2l_"+selectionname+"_"+leptonname+".root");
+          TFile ttbar1l(indir+"/ttbar_1l/output/ttbar_1l_"+selectionname+"_"+leptonname+".root");
+          TFile wjets(indir+"/wjets_all/output/wjets_all_"+selectionname+"_"+leptonname+".root");
+          TFile others(indir+"/others_all/output/others_all_"+selectionname+"_"+leptonname+".root");
 
 
 	  TH1D* Data= (TH1D*)data.Get(plotname);
@@ -105,6 +106,7 @@ void DataMCplots(TString plotname, TString selectionname, TString leptonname){
               TAxis *data_xaxis = h_data->GetXaxis();
               string binunits;
 
+	      //h_data->SetMinimum(0.);
 
               if(plotname =="h1_b1_pt"){
               data_xaxis->SetTitle("Leading b-jet P_{T} [GeV]");
@@ -260,8 +262,10 @@ void DataMCplots(TString plotname, TString selectionname, TString leptonname){
 
 	   c1->cd();
 
-           TString savedir = "~/www/STOP/NNTraining/8TeV/Plots17/dataMC/";
-           c1->Print(savedir+"/"+plotname+".png");
+
+           gSystem->Exec("mkdir -p "+outdir);
+           gSystem->Exec("cp ~/www/index.php "+outdir);
+           c1->Print(outdir+"/"+plotname+"_"+selectionname+"_"+leptonname+".png");
 
 	   delete c1;
 }
@@ -271,31 +275,54 @@ void DataMCplots(TString plotname, TString selectionname, TString leptonname){
 
 void makeAllPlots(){
 
+int x;
+int y;
 
-DataMCplots("h1_met");
-DataMCplots("h1_mT");
-DataMCplots("h1_lepton_pT");
-//DataMCplots("h1_lepton_pT_Zoom");
-DataMCplots("h1_mlb_hemi");
-DataMCplots("h1_m3b");
-DataMCplots("h1_mT2W");
-DataMCplots("h1_b1_pt");
-DataMCplots("h1_dPhi_JetMet");
-DataMCplots("h1_dR_LepB");
-DataMCplots("h1_jet1_pT");
-DataMCplots("h1_jet2_pT");
-DataMCplots("h1_jet3_pT");
-DataMCplots("h1_jet4_pT");
-DataMCplots("h1_HTfrac");
-DataMCplots("h1_njets");
-DataMCplots("h1_Chi2SNT");
-DataMCplots("h1_METoverSqrtHT");
-DataMCplots("h1_nvTX");
-//DataMCplots("BDT1");
-DataMCplots("BDT2");
-//DataMCplots("BDT3");
-//DataMCplots("BDT4");
+TString leptonname_;
+TString selectionname_;
 
+   for( int y = 1; y < 3; y++ ) {
+ 
+     if (y == 1) { leptonname_ = "Elec" ; }
+     if (y == 2) { leptonname_ = "Muon" ; }
+   
+     cout <<  leptonname_ << endl;  
+
+    	//for( int x = 1; x < 3; x++ ) {
+    	for( int x = 3; x < 4; x++ ) {
+
+        if (x == 1) { selectionname_ = "BVeto" ; }
+        if (x == 2) { selectionname_ = "MTPeak" ; }
+        if (x == 3) { selectionname_ = "Dilepton_2Leptons" ; }
+        if (x == 4) { selectionname_ = "Dilepton_FailsTrackOrTau" ; }
+
+        cout <<  selectionname_ << endl;  
+
+	DataMCplots("h1_met", selectionname_ , leptonname_);
+	DataMCplots("h1_mT" , selectionname_ , leptonname_);
+	DataMCplots("h1_lepton_pT", selectionname_ , leptonname_);
+	DataMCplots("h1_mlb_hemi", selectionname_ , leptonname_);
+	DataMCplots("h1_m3b", selectionname_ , leptonname_);
+	DataMCplots("h1_mT2W", selectionname_ , leptonname_);
+	DataMCplots("h1_b1_pt", selectionname_ , leptonname_);
+	DataMCplots("h1_dPhi_JetMet", selectionname_ , leptonname_);
+	DataMCplots("h1_dR_LepB", selectionname_ , leptonname_);
+	DataMCplots("h1_jet1_pT", selectionname_ , leptonname_);
+	DataMCplots("h1_jet2_pT", selectionname_ , leptonname_);
+	DataMCplots("h1_jet3_pT", selectionname_ , leptonname_);
+	DataMCplots("h1_jet4_pT", selectionname_ , leptonname_);
+	DataMCplots("h1_HTfrac", selectionname_ , leptonname_);
+	DataMCplots("h1_njets", selectionname_ , leptonname_);
+	DataMCplots("h1_Chi2SNT", selectionname_ , leptonname_);
+	DataMCplots("h1_METoverSqrtHT", selectionname_ , leptonname_);
+	DataMCplots("h1_nvTX", selectionname_ , leptonname_);
+	//DataMCplots("BDT1", selectionname_ , leptonname_);
+	DataMCplots("BDT2", selectionname_ , leptonname_);
+	//DataMCplots("BDT3", selectionname_ , leptonname_);
+	//DataMCplots("BDT4", selectionname_ , leptonname_);
+
+	}
+   }
 
 }
 

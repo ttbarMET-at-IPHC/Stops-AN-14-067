@@ -48,8 +48,6 @@ void help(int argc, char* argv[]) {
 
 
 
-
-
 // ###################
 // #  Main function  #
 // ###################
@@ -57,7 +55,7 @@ void help(int argc, char* argv[]) {
 int main (int argc, char *argv[])
 {
 
-   if( argc != 10   ) help(argc,argv);
+   if( argc != 8   ) help(argc,argv);
 
 
   // ################################
@@ -75,38 +73,24 @@ int main (int argc, char *argv[])
    intermediatePointers pointers;
    InitializeBranches(theInputTree,&myEvent,&pointers);
      
-   bool isBVeto = false; 
-   bool isDilepton = false; 
    bool isDefault = false; 
+   bool isBVeto = false; 
+   bool isDileptonFailsTrackOrTau = false; 
+   bool isDilepton2Leptons = false; 
    bool isMTPeak = false; 
-   bool isNoMT = false; 
-   bool isTTBarDL = false; 
-   bool isTTBarSL = false; 
-   bool is2Leptons = false; 
-   bool isFailsTrackOrTau = false; 
    bool isElec = false; 
    bool isMuon = false; 
-   bool isMuEl = false; 
 
    // Selection type	
    if (atoi(argv[3]) == 0) isDefault = true;  
    if (atoi(argv[3]) == 1) isBVeto = true;  
-   if (atoi(argv[3]) == 2) isDilepton = true; 
-   if (atoi(argv[3]) == 3) isNoMT = true; 
+   if (atoi(argv[3]) == 2) isDileptonFailsTrackOrTau = true; 
+   if (atoi(argv[3]) == 3) isDilepton2Leptons = true; 
    if (atoi(argv[3]) == 4) isMTPeak = true; 
 
-   // Split TTbar	
-   if (atoi(argv[4]) == 1) isTTBarSL = true; 
-   if (atoi(argv[4]) == 2) isTTBarDL = true; 
-
-   // Di-lepton selection
-   if (atoi(argv[5]) == 1) is2Leptons = true; 
-   if (atoi(argv[5]) == 2) isFailsTrackOrTau = true; 
-
    // Lepton type
-   if (atoi(argv[6]) == 1) isElec = true; 
-   if (atoi(argv[6]) == 2) isMuon = true; 
-   if (atoi(argv[6]) == 3) isMuEl = true; 
+   if (atoi(argv[4]) == 1) isElec = true; 
+   if (atoi(argv[4]) == 2) isMuon = true; 
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
@@ -205,7 +189,7 @@ int main (int argc, char *argv[])
    Reader* reader; 
    reader = new Reader("V");
 
-   string NN_vars = string(argv[7]);
+   string NN_vars = string(argv[5]);
    TString str_NNvariables = TString(NN_vars);
    TPMERegexp _variables(",");
 
@@ -227,7 +211,7 @@ int main (int argc, char *argv[])
    cout << "" << endl;
 
 
-    string setup_directory = string(argv[8]);
+    string setup_directory = string(argv[6]);
 
 
 
@@ -346,7 +330,7 @@ int main (int argc, char *argv[])
 
 
 
-   string Decay_Mode = string(argv[9]);
+   string Decay_Mode = string(argv[7]);
 
  
    TString BDT_dir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/runBDT_V4/";
@@ -368,13 +352,12 @@ int main (int argc, char *argv[])
       ReadEvent(theInputTree,i,&pointers,&myEvent);
 
       
+//        bool isTTbar  	   = false;
         bool isSignal 	   = false;
-        bool isTTbar  	   = false;
-
         bool isData  	   = false;
         bool isDoubleElec  = false;
         bool isDoubleMuon  = false;
-        bool isDoubleMuEl  = false;
+        bool isMuEl  	   = false;
         bool isSingleElec  = false;
         bool isSingleMuon  = false;
 
@@ -382,25 +365,25 @@ int main (int argc, char *argv[])
         if (myEvent.mStop == -1) { isSignal = false;}
                 else isSignal = true;
 
-        if (string(argv[1]).find("ttbar") != std::string::npos) isTTbar = true; 
+//        if (string(argv[1]).find("ttbar") != std::string::npos) isTTbar = true; 
         if (string(argv[1]).find("SingleElec") != std::string::npos) isSingleElec = true; 
         if (string(argv[1]).find("SingleMuon") != std::string::npos) isSingleMuon = true; 
         if (string(argv[1]).find("DoubleElec") != std::string::npos) isDoubleElec = true; 
         if (string(argv[1]).find("DoubleMuon") != std::string::npos) isDoubleMuon = true; 
-        if (string(argv[1]).find("MuEl") != std::string::npos) isDoubleMuEl = true; 
+        if (string(argv[1]).find("MuEl") != std::string::npos) isMuEl = true; 
 
-        if (isSingleElec || isSingleMuon || isDoubleElec || isDoubleMuon || isDoubleMuEl) isData = true;
+        if (isSingleElec || isSingleMuon || isDoubleElec || isDoubleMuon || isMuEl) isData = true;
 
         if (isElec && ((abs(myEvent.leadingLeptonPDGId) != 11))) continue;
         if (isMuon && ((abs(myEvent.leadingLeptonPDGId) != 13))) continue;
-//        if (isMuEl && ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24))) continue;
+        if (isMuEl && ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24))) continue;
 
 
 
 
   //      if ( !(isData && isDilepton) ) {
 
-		if (isDilepton==false){ 
+		if ( !(isDileptonFailsTrackOrTau || isDilepton2Leptons) ){ 
 
 			if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerElec ==false)) continue;
 			if ((abs(myEvent.leadingLeptonPDGId) == 13) && (myEvent.triggerMuon ==false)) continue; 
@@ -408,11 +391,10 @@ int main (int argc, char *argv[])
 		}
 
 
-		if (isDilepton==true) {
+		if ( isDileptonFailsTrackOrTau || isDilepton2Leptons ) {
 
 			if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerDoubleElec ==false)) continue;
 			if (((abs(myEvent.leadingLeptonPDGId) == 13) && (myEvent.triggerDoubleMuon ==false))) continue;
-	//		if (( ((abs(myEvent.leadingLeptonPDGId) + abs(myEvent.secondLeptonPDGId) == 24)) && (myEvent.triggerMuonElec ==false))) continue;
 			if (isMuEl && (myEvent.triggerMuonElec ==false)) continue;
 
 		}
@@ -422,13 +404,10 @@ int main (int argc, char *argv[])
 
 
         if (myEvent.MET < MET_CUT) continue;
-        if (myEvent.MET < MET_CUT) continue;
         if (myEvent.nJets < JET_CUT) continue;
         if (myEvent.leadingLepton.Pt() < LEPTON_PT_CUT) continue;
 
 
-        if(isTTBarSL && (myEvent.numberOfGenLepton != 1)) continue;  
-        if(isTTBarDL && (myEvent.numberOfGenLepton != 2)) continue;  
 
 
 
@@ -454,17 +433,6 @@ int main (int argc, char *argv[])
 	}
 
 
-        if ( isNoMT ) {
-
-        if (myEvent.MT < MT_CUT) continue;
-        if (myEvent.nBTag < NBTAGS_CUT) continue;
-        if (myEvent.numberOfLepton != NLEP_CUT) continue;
-        if (myEvent.isolatedTrackVeto == false ) continue;
-        if (myEvent.tauVeto == false) continue;
-
-	}
-
-
         if ( isMTPeak ) {
 
 		if (myEvent.MT < 50) continue;
@@ -478,30 +446,32 @@ int main (int argc, char *argv[])
 
 
 
-        if ( isDilepton ) {
+        if ( isDileptonFailsTrackOrTau ) {
 
 		if (myEvent.MT < MT_CUT) continue;
 		if (myEvent.nBTag < NBTAGS_CUT) continue;
-
 		if ( isDoubleElec && (( abs(myEvent.leadingLeptonPDGId) != 11) || abs(myEvent.secondLeptonPDGId) != 11) ) continue;
 		if ( isDoubleMuon && (( abs(myEvent.leadingLeptonPDGId) != 13) || abs(myEvent.secondLeptonPDGId) != 13) ) continue;
-		if ( isDoubleMuEl && ( abs(myEvent.leadingLeptonPDGId) +  abs(myEvent.secondLeptonPDGId) != 24) ) continue;
-
+		if ( isMuEl && ( abs(myEvent.leadingLeptonPDGId) +  abs(myEvent.secondLeptonPDGId) != 24) ) continue;
 	        if ( (isDoubleElec || isDoubleMuon) && (myEvent.leadingLeptonPDGId + myEvent.secondLeptonPDGId !=0))  continue;       
-
-
-
-
-			if (is2Leptons) {
-				if (myEvent.numberOfLepton != 2) continue;  
-			} 
-
-			if (isFailsTrackOrTau) {
-				if ( !((myEvent.isolatedTrackVeto == true ) || (myEvent.tauVeto == true))) continue; 
-			} 
+		if ( !((myEvent.isolatedTrackVeto == true ) || (myEvent.tauVeto == true))) continue; 
 
         }
 
+
+
+
+        if ( isDilepton2Leptons ) {
+
+		if (myEvent.MT < MT_CUT) continue;
+		if (myEvent.nBTag < NBTAGS_CUT) continue;
+		if ( isDoubleElec && (( abs(myEvent.leadingLeptonPDGId) != 11) || abs(myEvent.secondLeptonPDGId) != 11) ) continue;
+		if ( isDoubleMuon && (( abs(myEvent.leadingLeptonPDGId) != 13) || abs(myEvent.secondLeptonPDGId) != 13) ) continue;
+		if ( isMuEl && ( abs(myEvent.leadingLeptonPDGId) +  abs(myEvent.secondLeptonPDGId) != 24) ) continue;
+	        if ( (isDoubleElec || isDoubleMuon) && (myEvent.leadingLeptonPDGId + myEvent.secondLeptonPDGId !=0))  continue;       
+		if (myEvent.numberOfLepton != 2) continue;  
+
+        }
 
 
 
@@ -542,36 +512,22 @@ int main (int argc, char *argv[])
 
 //	if  (bdt_R1 < 0.3)  continue;
 
+                double lumi = 1.0;
+                double weight = 1.0; 
 
-        if (isSingleElec || isSingleMuon || isDoubleElec || isDoubleMuon || isDoubleMuEl) isData = true;
-    
 
-        double lumi = 1.0;
+		if  ( abs(myEvent.leadingLeptonPDGId) == 11 )  {lumi = 19250.;}
+		if  ( abs(myEvent.leadingLeptonPDGId) == 13 )  {lumi = 19190.;}
+		if  ( (isDoubleMuon && abs(myEvent.leadingLeptonPDGId) == 13) )  {lumi = 14690.;}
+		if  ( (isDoubleElec && abs(myEvent.leadingLeptonPDGId) == 11) )  {lumi = 19316.;}
+		if  ( isMuEl )        {lumi = 19447.;}
 
-        if (isDilepton == false) {
 
-		if  (fabs(myEvent.leadingLeptonPDGId) == 13 )  {lumi = 19190.;}
-		if  (fabs(myEvent.leadingLeptonPDGId) == 11 )  {lumi = 19250.;}
-
-	}  
-		else if (isDilepton == true) {
 	
-			if  (fabs(myEvent.leadingLeptonPDGId) == 13)  {lumi = 14690.;}
-			if  (fabs(myEvent.leadingLeptonPDGId) == 11)  {lumi = 19316.;}
-			if  (fabs(myEvent.leadingLeptonPDGId) + fabs(myEvent.secondLeptonPDGId) == 24)  {lumi = 19447.;}
-			if  (isMuEl)  {lumi = 19447.;}
-
-		}
-
-
-
-             double weight = 1.0; 
-	
-             weight *= myEvent.weightCrossSection * lumi ;
+             weight *= myEvent.weightCrossSection * myEvent.weightPileUp * lumi * myEvent.weightTopPt;
        
-             if (!isDilepton) weight *= myEvent.weightTriggerEfficiency;
-             if (!isSignal) weight *= myEvent.weightPileUp;	
-             if (isTTbar) weight *= myEvent.weightTopPt;
+             if ( !(isDileptonFailsTrackOrTau || isDilepton2Leptons) ) weight *= myEvent.weightTriggerEfficiency;
+
 
   	     if (isData){ 
 

@@ -12,9 +12,10 @@ pwd = os.environ['PWD']
 dataset_name 		= ['Single_Elec', 'Single_Muon', 'Double_Elec', 'Double_Muon', 'Muon_Elec', 'wjets_all', 'others_all', 'ttbar_1l', 'ttbar_2l']
 queue               	= "1nh" 
 executable         	= "runPlots" 
-selection 		= ['1','2','4']		
+selection 		= ['0','1','2','3','4']		
 lepton 			= ['1','2']		
-additionalArguments1    = ['0 0', '0 0', '0 0', '0 0', '0 0', '0 0', '0 0', '1 1', '1 2']
+additionalArguments1   = ['']
+#additionalArguments1    = ['0 0', '0 0', '0 0', '0 0', '0 0', '0 0', '0 0', '1 2', '2 2']
 additionalArguments2 	= "met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB setup_102 T2bw050"
 
 
@@ -33,10 +34,13 @@ for z in range(len(dataset_name)):
 
     for x in range(len(selection)):
     
+        if selection[x] == '0':
+           selectionname = 'Default'
         if selection[x] == '1':
            selectionname = 'BVeto'
         if selection[x] == '2':
            selectionname = 'Dilepton_2Leptons'
+        #   selectionname = 'Dilepton_FailsTrackOrTau'
         if selection[x] == '4':
            selectionname = 'MTPeak'
 
@@ -67,15 +71,16 @@ for z in range(len(dataset_name)):
 
                 output = dataset_name[z]+"_"+selectionname+"_"+leptonname
                 outputname = outputdir+"/src/"+output+".src"
+		print selectionname
                 outputfile = open(outputname,'w')
                 outputfile.write('#!/bin/bash\n')
                 outputfile.write('export SCRAM_ARCH=slc6_amd64_gcc472\n')
                 outputfile.write('cd '+pwd+'; eval `scramv1 runtime -sh`; source setup.sh; \n')
-                outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + additionalArguments1[z] +" "+ lepton[y] +" " + additionalArguments2+" ;")
+                #outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + additionalArguments1[z] +" "+ lepton[y] +" " + additionalArguments2+" ;")
+                outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + lepton[y] +" " + additionalArguments2+" ;")
                 outputfile.close
                 os.system("echo bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
                 os.system("bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
-                print selectionname
                 ijob = ijob+1
                                                                                                                                                                                         
                 continue

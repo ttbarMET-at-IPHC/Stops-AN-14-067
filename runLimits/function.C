@@ -150,18 +150,18 @@ double signalcut(string decaymode, int stopmass, int lspmass)
 
           if (lspmass > stopmass - 225) {
 	    cutvalue = 0.3; 
+          }
            
 		if (lspmass > 200 && stopmass < 400) {
 	         cutvalue = 0.4; }
-          }
  
           	if (lspmass <= stopmass - 225) {
 	    	cutvalue = 0.250;
+          	}
 
 		                if (lspmass <=  stopmass - 400) {
 				cutvalue = 0.325
 				}       
-          	}
  
   } 
 
