@@ -1,43 +1,14 @@
-#include <iostream>   
-#include <algorithm>  
-#include <iomanip>
-#include <string>
-#include <fstream>
-#include <map>
-#include <sstream>
-#include "TColor.h"
-#include "TStyle.h"
-#include "TMath.h"
-#include "TFile.h"
-#include "TH1F.h"
-#include "TH2F.h"
-#include "TTree.h"
-#include "TGraph.h"
-#include "TMultiGraph.h"
-#include "TCanvas.h"
-#include "TLegend.h"
-#include "TStyle.h"
-#include "TLatex.h"
-#include "TPolyLine.h"
-#include "TROOT.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-
-
 
 using namespace std;
 
 
 
-
-
-int signalregion(string decaymode, int stopmass, int lspmass)
+int signalregion(TString decaymode, int stopmass, int lspmass)
 {
 
   int signalregion = 0;
 
-  if (decaymode = "T2bw075") {
+  if (decaymode == "T2bw075") {
 
 	  if (lspmass > stopmass - 200)
 	    signalregion = 1;
@@ -52,7 +23,7 @@ int signalregion(string decaymode, int stopmass, int lspmass)
 
 
 
-  if (decaymode = "T2bw050") {
+  else if (decaymode == "T2bw050") {
 
 	  if (lspmass > stopmass - 225)
 	    signalregion = 1;
@@ -65,7 +36,7 @@ int signalregion(string decaymode, int stopmass, int lspmass)
 
   }	
 
-  if (decaymode = "T2bw025") {
+  else if (decaymode == "T2bw025") {
 
 	  if (lspmass > stopmass - 225)
 	    signalregion = 1;
@@ -79,17 +50,17 @@ int signalregion(string decaymode, int stopmass, int lspmass)
   }
 
 
-  else if (decaymode = "T2tt") {
+  else if (decaymode == "T2tt") {
 
 
 	  if (lspmass > stopmass - 225)
 	    signalregion = 1;
-	  if (lspmass <= stopmass - 225)
+	  else if (lspmass <= stopmass - 225)
 	    signalregion = 5;
 
   } 
 
-  //cout << "Region: "<< signalregion << endl;
+//  cout << "Region: "<< signalregion << endl;
   return signalregion;
 
 }
@@ -97,28 +68,28 @@ int signalregion(string decaymode, int stopmass, int lspmass)
 
 
 
-double signalcut(string decaymode, int stopmass, int lspmass)
+double signalcut(TString decaymode, int stopmass, int lspmass)
 {
 
   double cutvalue = 0.;
 
 
-   if (decaymode = "T2bw075") {
+   if (decaymode == "T2bw075") {
 
 	  if (lspmass > stopmass - 200)
-	    cutvalue = 0.225;
+	     cutvalue = 0.225; 
 	  if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
-	    cutvalue = 0.275;
+	    cutvalue = 0.275; 
 	  if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
-	    cutvalue = 0.350;
+	    cutvalue = 0.350; 
 	  if (lspmass <= stopmass - 475)
-	    cutvalue = 0.2;
+	    cutvalue = 0.2; 
 
   }
 
 
 
-  if (decaymode = "T2bw050") {
+  if (decaymode == "T2bw050") {
 
 
           if (lspmass > stopmass - 225)
@@ -132,7 +103,7 @@ double signalcut(string decaymode, int stopmass, int lspmass)
 
   }	
 
-   if (decaymode = "T2bw025") {
+  if (decaymode == "T2bw025") {
 
           if (lspmass > stopmass - 225)
 	    cutvalue = 0.2;
@@ -146,14 +117,14 @@ double signalcut(string decaymode, int stopmass, int lspmass)
   }
 
 
-  else if (decaymode = "T2tt") {
+  if (decaymode == "T2tt") {
 
 
 	  if (lspmass > stopmass - 225) { //BDT 1 region
 
 	  	cutvalue=0.3;
 
-		  if (lspmass > 200 && stopmass < 400) { 
+		    if (lspmass > 200 && stopmass < 400) { 
 		    cutvalue = 0.4; }
 
 	  }
@@ -161,16 +132,71 @@ double signalcut(string decaymode, int stopmass, int lspmass)
 
 	  if (lspmass <= stopmass - 225) { // BDT 5 region
    
-                cutvalue = 0.250;
-
+                  cutvalue = 0.250;
 		  if (lspmass <=  stopmass - 400) {
            	  cutvalue = 0.325; }
 
 	  }
 
 
+ 	}
+
+
   //  cout << "Cut: "<< cutvalue << endl;
-    
+
   return cutvalue;
+}
+
+
+
+TString returnSetup(TString decaymode, TString BDT){
+
+	TString setup;
+
+	if (decaymode == "T2bw075")
+	  {
+	    setup = "setup_105";
+	    if (BDT == "BDT1")
+	      setup = "setup_8";
+	    if (BDT == "BDT2")
+	      setup = "setup_7";
+	  }
+
+	else if (decaymode == "T2bw050")
+	  {
+	    setup = "setup_105";
+	    if (BDT == "BDT1")
+	      setup = "setup_8";
+	    if (BDT == "BDT3")
+	      setup = "setup_3";
+	  }
+
+	else if (decaymode == "T2bw025")
+	  {
+	    setup = "setup_105";
+	    if (BDT == "BDT2")
+	      setup = "setup_9";
+	    if (BDT == "BDT3")
+	      setup = "setup_9";
+	    if (BDT == "BDT4")
+	      setup = "setup_9";
+	    if (BDT == "BDT5")
+	      setup = "setup_9";
+	  }
+
+
+
+	else if (decaymode == "T2tt")
+	  {
+	    setup = "setup_105";
+	    if (BDT == "BDT3")
+	      setup = "setup_6";
+	    if (BDT == "BDT4")
+	      setup = "setup_7";
+	    if (BDT == "BDT5")
+	      setup = "setup_5";
+	  }
+
+  return setup;
 
 }

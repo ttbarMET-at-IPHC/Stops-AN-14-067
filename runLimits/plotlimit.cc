@@ -36,24 +36,21 @@ using namespace std;
 void rootlogon();
 
 
-TString savedir = "~/www/";
-TString indir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/"; 
 
 
-
-
+TFile *fout = new TFile("T1tttt_results.root","recreate");
 
 
 void plot_limit(TString dir){
 
-  /*        gStyle->SetOptStat(0);
+          gStyle->SetOptStat(0);
           gStyle->SetCanvasColor(0);
           gStyle->SetPadColor(0);
           gStyle->SetMarkerStyle(15);
           gStyle->SetMarkerSize(0.25);
           gStyle->SetTextFont(42);
           gStyle->SetMarkerColor(37);
-*/
+
 
   //palette settings - completely independent
   const Int_t NRGBs = 6;
@@ -85,55 +82,63 @@ void plot_limit(TString dir){
    TH2D *SMSm = new TH2D("SMSm","",26,162.5, 812.5, 16, 12.5,412.5); 
 
 
+
               for(int x=175; x<=800; x+=25){
+
 
 
                       for(int y=25; y<=700; y+=25){
 
 
-  		  char shortfilename[500];
-  		  char filename[500];
 
 
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
-
-   
-                  ifstream ifile(filename);
-	          if (!ifile.good()) continue; 
-
-	         
-		  TFile* file  = new TFile(filename, "READ");  
-		  char* name = (char*)file->GetName();
+			char shortfilename[500];
+			char filename[500];
 
 
+			sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
 
-TTree *limittree = (TTree*)file->Get("limit");
+	   
+			ifstream ifile(filename);
+			if (!ifile.good()) continue; 
 
-
-double high_val = 100.;
-
-
-TH1F* obs = new TH1F("obs","",100,0,high_val);
-limittree->Draw("limit>>obs", "quantileExpected==-1");
-TH1F* expm2 = new TH1F("expm2","",100,0,high_val);
-limittree->Draw("limit>>expm2", "quantileExpected>0.02 && quantileExpected<0.03");
-TH1F* expm1 = new TH1F("expm1","",100,0,high_val);
-limittree->Draw("limit>>expm1", "quantileExpected>0.15 && quantileExpected<0.16");
-TH1F* exp = new TH1F("exp","",100,0,high_val);
-limittree->Draw("limit>>exp", "quantileExpected==0.5");
-TH1F* expp1 = new TH1F("expp1","",100,0,high_val);
-limittree->Draw("limit>>expp1", "quantileExpected>0.83 && quantileExpected<0.84");
-TH1F* expp2 = new TH1F("expp2","",100,0,high_val);
-limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98");
+			 
+			TFile* file  = new TFile(filename, "READ");  
+			char* name = (char*)file->GetName();
 
 
 
+			TTree *limittree = (TTree*)file->Get("limit");
 
-	   SMS->Fill(x,y,exp->GetMean());
-	   SMSp->Fill(x,y,expp1->GetMean());
-	   SMSm->Fill(x,y,expm1->GetMean());
- 
-		  file->Close();
+
+			double high_val = 100.;
+
+
+			TH1F* obs = new TH1F("obs","",100,0,high_val);
+			limittree->Draw("limit>>obs", "quantileExpected==-1");
+			TH1F* expm2 = new TH1F("expm2","",100,0,high_val);
+			limittree->Draw("limit>>expm2", "quantileExpected>0.02 && quantileExpected<0.03");
+			TH1F* expm1 = new TH1F("expm1","",100,0,high_val);
+			limittree->Draw("limit>>expm1", "quantileExpected>0.15 && quantileExpected<0.16");
+			TH1F* exp = new TH1F("exp","",100,0,high_val);
+			limittree->Draw("limit>>exp", "quantileExpected==0.5");
+			TH1F* expp1 = new TH1F("expp1","",100,0,high_val);
+			limittree->Draw("limit>>expp1", "quantileExpected>0.83 && quantileExpected<0.84");
+			TH1F* expp2 = new TH1F("expp2","",100,0,high_val);
+			limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98");
+
+
+
+
+			SMS->Fill(x,y,exp->GetMean());
+			SMSp->Fill(x,y,expp1->GetMean());
+			SMSm->Fill(x,y,expm1->GetMean());
+
+	 // cout << "M_STOP, \t M_LSP, Limit Strength:  " 
+	 // cout << x << ", \t" << y << ", \t "<< exp->GetMean() << endl;
+
+	 
+			  file->Close();
 
 		}
 	  }
@@ -154,6 +159,13 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 			}
 
 		}		
+
+   TCanvas c1("c1","c1",800,600);
+   c1.SetLeftMargin(0.1706731);
+   c1.SetRightMargin(0.1983173);
+   c1.SetTopMargin(0.04895105);
+   c1.SetBottomMargin(0.1416084);
+   c1.Range(-289.7381,-191.8196,1334.643,1074.487);
 
 
   SMS->SetFillColor(1);
@@ -183,13 +195,16 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   SMSm->SetContourLevel(1,1e6); //non-existing high level
   SMSm->SetContourLevel(2,1e9); //non-existing high level
   SMSm->SetLineColor(4);
-  SMSm->Draw("cont1 same");
+//  SMSm->Draw("cont1 same");
 
 
 
+      fout->cd();
+      SMSp->Write();
+      fout->Write();
+      fout->Close();
 
-
-  TLegendEntry *legge;
+/*  TLegendEntry *legge;
   TLegend *leg;
   leg = new TLegend(0.6,0.55,0.9,0.85);
   leg->SetFillStyle(0); leg->SetBorderSize(0); leg->SetTextSize(0.043);
@@ -198,9 +213,11 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   legge = leg->AddEntry(SMSm,   "Exp minus", "l");
   leg->SetFillColor(0);
   leg->Draw();
+*/
 
+   //c1->SaveAs(" ~/www/STOP/NNTraining/8TeV/Plots22/limits/BkgYield010_"+dir+".png");
+   c1->SaveAs(" ~/www/stops_"+dir+".png");
 
-   c1->SaveAs("~/www/test.png");
 
 
 }

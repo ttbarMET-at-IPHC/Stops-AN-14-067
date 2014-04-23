@@ -89,8 +89,8 @@ int main (int argc, char *argv[])
    if (atoi(argv[3]) == 4) isMTPeak = true; 
 
    // Lepton type
-   if (atoi(argv[4]) == 1) isElec = true; 
-   if (atoi(argv[4]) == 2) isMuon = true; 
+//   if (atoi(argv[4]) == 1) isElec = true; 
+//   if (atoi(argv[4]) == 2) isMuon = true; 
 
    TH1D* h1_met = new TH1D("h1_met","",50,0,1000) ;
    TH1D* h1_lepton_pT = new TH1D("h1_lepton_pT","",40,0,800) ;
@@ -475,7 +475,7 @@ int main (int argc, char *argv[])
 
 
 
-        if ( isSignal && !((myEvent.mStop == 250) && (myEvent.mNeutralino == 75)) )continue;
+        if ( isSignal && !((myEvent.mStop == 200) && (myEvent.mNeutralino == 25)) )continue;
 
 
       
@@ -524,7 +524,7 @@ int main (int argc, char *argv[])
 
 
 	
-             weight *= myEvent.weightCrossSection * myEvent.weightPileUp * lumi * myEvent.weightTopPt;
+             //weight *= myEvent.weightCrossSection * myEvent.weightPileUp * lumi * myEvent.weightTopPt;
        
              if ( !(isDileptonFailsTrackOrTau || isDilepton2Leptons) ) weight *= myEvent.weightTriggerEfficiency;
 
