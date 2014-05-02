@@ -37,8 +37,6 @@ void rootlogon();
 
 
 TString savedir = "~/www/";
-TString indir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/"; 
-
 
 
 
@@ -95,7 +93,7 @@ void plot_limit(TString dir){
   		  char filename[500];
 
 
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/Apr30/mT140/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
 
    
                   ifstream ifile(filename);
@@ -138,6 +136,14 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 		}
 	  }
 
+	
+              TAxis *data_yaxis = SMS->GetYaxis();
+              TAxis *data_xaxis = SMS->GetXaxis();
+
+              data_xaxis->SetTitle("Mass STOP");
+              data_yaxis->SetTitle("Mass LSP");
+
+
 
 	      // Hack to get the contours to work properly
 
@@ -176,14 +182,14 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   SMSp->SetContourLevel(1,1e6); //non-existing high level
   SMSp->SetContourLevel(2,1e9); //non-existing high level
   SMSp->SetLineColor(2);
-  SMSp->Draw("cont1 same");
+  //SMSp->Draw("cont1 same");
 
   SMSm->SetContour(3);
   SMSm->SetContourLevel(0,0.99); //value for your first level
   SMSm->SetContourLevel(1,1e6); //non-existing high level
   SMSm->SetContourLevel(2,1e9); //non-existing high level
   SMSm->SetLineColor(4);
-  SMSm->Draw("cont1 same");
+  //SMSm->Draw("cont1 same");
 
 
 
@@ -191,11 +197,11 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 
   TLegendEntry *legge;
   TLegend *leg;
-  leg = new TLegend(0.6,0.55,0.9,0.85);
+  leg = new TLegend(0.4,0.55,0.7,0.85);
   leg->SetFillStyle(0); leg->SetBorderSize(0); leg->SetTextSize(0.043);
-  legge = leg->AddEntry(SMS,   "Exp", "l");
-  legge = leg->AddEntry(SMSp,   "Exp plus", "l");
-  legge = leg->AddEntry(SMSm,   "Exp minus", "l");
+  legge = leg->AddEntry(SMS,   "Expected U.L. @95\% CL", "l");
+//  legge = leg->AddEntry(SMSp,   "Exp plus", "l");
+//  legge = leg->AddEntry(SMSm,   "Exp minus", "l");
   leg->SetFillColor(0);
   leg->Draw();
 

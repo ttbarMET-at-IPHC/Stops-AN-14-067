@@ -55,7 +55,7 @@ void help(int argc, char* argv[]) {
 int main (int argc, char *argv[])
 {
 
-   if( argc != 8   ) help(argc,argv);
+   if( argc != 7   ) help(argc,argv);
 
 
   // ################################
@@ -117,6 +117,8 @@ int main (int argc, char *argv[])
    TH1D* BDT2 = new TH1D("BDT2",",BDT2",10,0.,0.6) ;
    TH1D* BDT3 = new TH1D("BDT3",",BDT3",10,0.,0.6) ;
    TH1D* BDT4 = new TH1D("BDT4",",BDT4",10,0.,0.6) ;
+   TH1D* BDT5 = new TH1D("BDT5",",BDT5",10,0.,0.6) ;
+   TH1D* BDT6 = new TH1D("BDT6",",BDT6",10,0.,0.6) ;
 
 
 
@@ -184,6 +186,8 @@ int main (int argc, char *argv[])
    double bdt_R2;
    double bdt_R3;
    double bdt_R4;
+   double bdt_R5;
+   double bdt_R6;
  
 
    Reader* reader; 
@@ -210,8 +214,6 @@ int main (int argc, char *argv[])
    cout << "**********************************************************" << endl;
    cout << "" << endl;
 
-
-    string setup_directory = string(argv[6]);
 
 
 
@@ -330,17 +332,40 @@ int main (int argc, char *argv[])
 
 
 
-   string Decay_Mode = string(argv[7]);
+   string Decay_Mode = string(argv[6]);
 
  
-   TString BDT_dir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/runBDT_V4/";
-
-   reader->BookMVA("bdt_R1",  BDT_dir + "Reg1_"+Decay_Mode+"/OUTPUT/" + setup_directory + "/NN/weights/BDT_BDT.weights.xml");
-   reader->BookMVA("bdt_R2",  BDT_dir + "Reg2_"+Decay_Mode+"/OUTPUT/" + setup_directory + "/NN/weights/BDT_BDT.weights.xml");
-   reader->BookMVA("bdt_R3",  BDT_dir + "Reg3_"+Decay_Mode+"/OUTPUT/" + setup_directory + "/NN/weights/BDT_BDT.weights.xml");
-   reader->BookMVA("bdt_R4",  BDT_dir + "Reg4_"+Decay_Mode+"/OUTPUT/" + setup_directory + "/NN/weights/BDT_BDT.weights.xml");
+   TString BDT_dir = "../30AprWeights/";
 
 
+
+   if (Decay_Mode == "t2bw025") {
+   reader->BookMVA("bdt_R1",  BDT_dir + "BDT_"+Decay_Mode+"_Reg1.weights.xml");
+   reader->BookMVA("bdt_R2",  BDT_dir + "BDT_"+Decay_Mode+"_Reg1.weights.xml");
+   reader->BookMVA("bdt_R3",  BDT_dir + "BDT_"+Decay_Mode+"_Reg3.weights.xml");
+   reader->BookMVA("bdt_R4",  BDT_dir + "BDT_"+Decay_Mode+"_Reg4.weights.xml");
+   reader->BookMVA("bdt_R5",  BDT_dir + "BDT_"+Decay_Mode+"_Reg4.weights.xml");
+   reader->BookMVA("bdt_R6",  BDT_dir + "BDT_"+Decay_Mode+"_Reg6.weights.xml");
+   }
+
+   if (Decay_Mode == "t2bw050") {
+   reader->BookMVA("bdt_R1",  BDT_dir + "BDT_"+Decay_Mode+"_Reg1.weights.xml");
+   reader->BookMVA("bdt_R2",  BDT_dir + "BDT_"+Decay_Mode+"_Reg1.weights.xml");
+   reader->BookMVA("bdt_R3",  BDT_dir + "BDT_"+Decay_Mode+"_Reg3.weights.xml");
+   reader->BookMVA("bdt_R4",  BDT_dir + "BDT_"+Decay_Mode+"_Reg5.weights.xml");
+   reader->BookMVA("bdt_R5",  BDT_dir + "BDT_"+Decay_Mode+"_Reg5.weights.xml");
+   reader->BookMVA("bdt_R6",  BDT_dir + "BDT_"+Decay_Mode+"_Reg6.weights.xml");
+   }
+
+
+   if (Decay_Mode == "t2bw075") {
+   reader->BookMVA("bdt_R1",  BDT_dir + "BDT_"+Decay_Mode+"_Reg1.weights.xml");
+   reader->BookMVA("bdt_R2",  BDT_dir + "BDT_"+Decay_Mode+"_Reg2.weights.xml");
+   reader->BookMVA("bdt_R3",  BDT_dir + "BDT_"+Decay_Mode+"_Reg3.weights.xml");
+   reader->BookMVA("bdt_R4",  BDT_dir + "BDT_"+Decay_Mode+"_Reg3.weights.xml");
+   reader->BookMVA("bdt_R5",  BDT_dir + "BDT_"+Decay_Mode+"_Reg5.weights.xml");
+   reader->BookMVA("bdt_R6",  BDT_dir + "BDT_"+Decay_Mode+"_Reg5.weights.xml");
+   }
 
 
   // ########################################
@@ -508,6 +533,8 @@ int main (int argc, char *argv[])
         bdt_R2 = reader->EvaluateMVA( "bdt_R2" );
         bdt_R3 = reader->EvaluateMVA( "bdt_R3" );
         bdt_R4 = reader->EvaluateMVA( "bdt_R4" );
+        bdt_R5 = reader->EvaluateMVA( "bdt_R5" );
+        bdt_R6 = reader->EvaluateMVA( "bdt_R6" );
 
 
 //	if  (bdt_R1 < 0.3)  continue;
@@ -523,7 +550,6 @@ int main (int argc, char *argv[])
 		if  ( isMuEl )        {lumi = 19447.;}
 
 
-	
              //weight *= myEvent.weightCrossSection * myEvent.weightPileUp * lumi * myEvent.weightTopPt;
        
              if ( !(isDileptonFailsTrackOrTau || isDilepton2Leptons) ) weight *= myEvent.weightTriggerEfficiency;
@@ -556,6 +582,8 @@ int main (int argc, char *argv[])
 	     BDT2->Fill(bdt_R2);
 	     BDT3->Fill(bdt_R3);
 	     BDT4->Fill(bdt_R4);
+	     BDT5->Fill(bdt_R5);
+	     BDT6->Fill(bdt_R6);
 
 	     } else
       
@@ -584,6 +612,8 @@ int main (int argc, char *argv[])
 		     BDT2->Fill(bdt_R2, weight);
 		     BDT3->Fill(bdt_R3, weight);
 		     BDT4->Fill(bdt_R4, weight);
+		     BDT5->Fill(bdt_R5, weight);
+		     BDT6->Fill(bdt_R6, weight);
 
 
   } 

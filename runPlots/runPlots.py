@@ -13,10 +13,9 @@ dataset_name 		= ['Single_Elec', 'Single_Muon', 'Double_Elec', 'Double_Muon', 'M
 queue               	= "1nh" 
 executable         	= "runPlots" 
 selection 		= ['0','1','2','3','4']		
-lepton 			= ['1','2']		
-additionalArguments1   = ['']
-#additionalArguments1    = ['0 0', '0 0', '0 0', '0 0', '0 0', '0 0', '0 0', '1 2', '2 2']
-additionalArguments2 	= "met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB setup_102 T2bw050"
+lepton 			= ['0']		
+#lepton 			= ['1','2']		
+additionalArguments2 	= "met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB t2bw025"
 
 
 for z in range(len(dataset_name)):
@@ -47,6 +46,8 @@ for z in range(len(dataset_name)):
           
         for y in range(len(lepton)):
 
+            if lepton[y] == '0':
+                leptonname = 'All'
             if lepton[y] == '1':
                 leptonname = 'Elec'
             if lepton[y] == '2':
