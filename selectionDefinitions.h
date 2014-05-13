@@ -21,7 +21,7 @@ bool goesInPreselectionCR0()
     if (myEvent.MT < MT_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false; 
-    if (myEvent.nBTag < 1)  return false; 
+    if (myEvent.nBTag < NBJET_CUT)  return false; 
     if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
 
     return true; 
