@@ -45,7 +45,7 @@ bool goesIn0BtagCR1()
 
 
 
-bool goesInMTPeakCR2()   // I guess CR2 was a logical name for it 
+bool goesInMTPeak()   
 {
 
     if (myEvent.MET < MET_CUT) return false;
