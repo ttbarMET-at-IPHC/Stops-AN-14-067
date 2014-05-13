@@ -114,7 +114,7 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
 
           if (lspmass > stopmass - 250) {
 		cutvalue = 0.25 ; 
-		    if (MLSP < 150) cutvalue = 0.175;
+		    if (lspmass < 150) cutvalue = 0.175;
 		}
 
           if (lspmass <= stopmass - 250 && lspmass > stopmass - 400)

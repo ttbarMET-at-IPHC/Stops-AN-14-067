@@ -30,7 +30,8 @@
 using namespace std;
 
 double f_syst = 0.15;
-TString ntpdir0 = "~/scratch0/ntuplesmadgraph/setup_120/"; 
+//TString ntpdir0 = "~/scratch0/ntuplesmadgraph/setup_120/"; 
+TString ntpdir0 = "ntuplesmadgraph/"; 
 
 
 
@@ -181,9 +182,9 @@ void makeCards(TString decay_mode){
 
 				TString BDTval  = "BDT"+bdtNUM;
             
-//				TString setup = returnSetup(decay_mode, BDTval);
+				TString setup = returnSetup(decay_mode, BDTval);
 //				TString setup = "setup_105";				
-				TString setup = "";				
+//				TString setup = "";				
 
 				makeCLsCards(setup, BDTval, decay_mode, x, y);
 			}
@@ -205,10 +206,10 @@ void makeAllPlots(){
 
 
 
-//makeCards("T2tt");
-//makeCards("T2bw025");
+makeCards("T2tt");
+makeCards("T2bw025");
 makeCards("T2bw050");
-//makeCards("T2bw075");
+makeCards("T2bw075");
 
 }
 
@@ -237,7 +238,7 @@ void createTableCLs(TString decay_mode, TString setup, TString BDT, int S, int N
              << "rate           	\t\t " << signal << "  \t \t "<< ttbar + wjets + others << endl
              << "------------" << endl
              << "lumi       \t lnN 	\t 1.022         \t\t -                 \t  lumi uncertainty" << endl
-             << "signal_unc \t lnN 	\t 1.1           \t\t -              	\t  stop cross section + signal efficiency + other minor ones." << endl
+             << "signal_unc \t lnN 	\t 1.30           \t\t -              	\t  stop cross section + signal efficiency + other minor ones." << endl
              << "bkg_unc    \t lnN 	\t -             \t\t 1.13             	\t  13\% uncertainty on the rest of the backgrounds" << endl
              << "------------"<<endl 
              << ""<<endl 
@@ -248,7 +249,7 @@ void createTableCLs(TString decay_mode, TString setup, TString BDT, int S, int N
   tablesFile.close();
 
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/Apr30/mT120/"+TString(decay_mode);
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/May5/mT100_Sig30/"+TString(decay_mode);
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 

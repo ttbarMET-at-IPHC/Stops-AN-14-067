@@ -1,12 +1,20 @@
 #define MT_CUT 100 
 #define MET_CUT 80
-#define LEPTON_PT_CUT 26
+#define LEPTON_PT_CUT 26  
 #define NJET_CUT 4
-#define NBTAG_CUT 1
+#define NBJET_CUT 1
 #define NLEP_CUT 1
 
 
-bool goesInPreselection(babyEvent event) 
+#include "Reader_final0210.h"
+babyEvent myEvent;
+
+
+// Control region definitions
+// // ##################################
+
+
+bool goesInPreselectionCR0() 
 {
 
     if (myEvent.MET < MET_CUT) return false;
@@ -22,8 +30,7 @@ bool goesInPreselection(babyEvent event)
 
 
 
-
-bool goesIn0BtagCR1(babyEvent event) 
+bool goesIn0BtagCR1()
 {
 
     if (myEvent.MET < MET_CUT) return false;
@@ -38,7 +45,7 @@ bool goesIn0BtagCR1(babyEvent event)
 
 
 
-bool goesInMTPeakCRX(babyEvent event)   // Do we want to call this CR2 maybe? M.S.
+bool goesInMTPeakCR2()   // I guess CR2 was a logical name for it 
 {
 
     if (myEvent.MET < MET_CUT) return false;
@@ -54,7 +61,7 @@ bool goesInMTPeakCRX(babyEvent event)   // Do we want to call this CR2 maybe? M.
 
 
 
-bool goesInDileptonCR4(babyEvent event) 
+bool goesInDileptonCR4() 
 {
 
     // Apply double-lepton trigger requirement (for both MC and data)
@@ -73,7 +80,7 @@ bool goesInDileptonCR4(babyEvent event)
 
 
 
-bool goesInDileptonCR5(babyEvent event) 
+bool goesInDileptonCR5() 
 {
 
     // Apply double-lepton trigger requirement (for both MC and data)

@@ -93,7 +93,7 @@ void plot_limit(TString dir){
   		  char filename[500];
 
 
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/Apr30/mT140/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/May5/mT100_Sig30/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
 
    
                   ifstream ifile(filename);
@@ -126,15 +126,15 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 
 
 
-
-	   SMS->Fill(x,y,exp->GetMean());
+//	  if (exp->GetMean() < 1.0) {
+	   SMS->Fill(x,y,1./exp->GetMean());
 	   SMSp->Fill(x,y,expp1->GetMean());
 	   SMSm->Fill(x,y,expm1->GetMean());
  
 		  file->Close();
-
+			}
 		}
-	  }
+//	  }
 
 	
               TAxis *data_yaxis = SMS->GetYaxis();
@@ -151,9 +151,9 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 
                       for(int y=25; y<=700; y+=25){
 	
-			if (x-y > 100) continue;
+			if (x-y > 75) continue;
 
-		           SMS->Fill(x,y,1.1);
+		           SMS->Fill(x,y,1./1.1);
 		           SMSp->Fill(x,y,1.1);
 		           SMSm->Fill(x,y,1.1);
 
@@ -170,15 +170,15 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   gStyle->SetPalette(3,colors);  
 
 
-  SMS->SetContour(3);
-  SMS->SetContourLevel(0,0.99); //value for your first level
-  SMS->SetContourLevel(1,1e6); //non-existing high level
+  SMS->SetContour(2);
+  SMS->SetContourLevel(0,1e6); //value for your first level
+  SMS->SetContourLevel(1,1.); //non-existing high level
   SMS->SetContourLevel(2,1e9); //non-existing high level
   SMS->SetLineColor(1);
   SMS->Draw("cont1");
 
   SMSp->SetContour(3);
-  SMSp->SetContourLevel(0,0.99); //value for your first level
+  SMSp->SetContourLevel(0,1.); //value for your first level
   SMSp->SetContourLevel(1,1e6); //non-existing high level
   SMSp->SetContourLevel(2,1e9); //non-existing high level
   SMSp->SetLineColor(2);
@@ -204,7 +204,7 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 //  legge = leg->AddEntry(SMSm,   "Exp minus", "l");
   leg->SetFillColor(0);
   leg->Draw();
-
+//  SMS->Draw("colz");
 
    c1->SaveAs("~/www/test.png");
 

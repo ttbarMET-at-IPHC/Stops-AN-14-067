@@ -31,6 +31,7 @@ using namespace std;
 // Define format and input file
 #include "../Reader_final0210.h" 
 #include "../Cuts.h" 
+#include "../analysisDefinitions.h" 
 
 
 using namespace TMVA;
@@ -460,12 +461,14 @@ int main (int argc, char *argv[])
 
         if ( isMTPeak ) {
 
+//goesIn0BtagCR1();
 		if (myEvent.MT < 50) continue;
 		if (myEvent.MT > 80) continue;
 		if (myEvent.nBTag < NBTAGS_CUT) continue;
 	    	if (myEvent.numberOfLepton != NLEP_CUT) continue;
 	        if (myEvent.isolatedTrackVeto == false ) continue;
  	        if (myEvent.tauVeto == false) continue;
+
         }
 
 

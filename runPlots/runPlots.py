@@ -13,9 +13,9 @@ dataset_name 		= ['Single_Elec', 'Single_Muon', 'Double_Elec', 'Double_Muon', 'M
 queue               	= "1nh" 
 executable         	= "runPlots" 
 selection 		= ['0','1','2','3','4']		
-lepton 			= ['0']		
-#lepton 			= ['1','2']		
-additionalArguments2 	= "met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB t2bw025"
+#lepton 			= ['0']		
+lepton 			= ['1','2']		
+additionalArguments 	= "met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB t2bw025"
 
 
 for z in range(len(dataset_name)):
@@ -77,8 +77,7 @@ for z in range(len(dataset_name)):
                 outputfile.write('#!/bin/bash\n')
                 outputfile.write('export SCRAM_ARCH=slc6_amd64_gcc472\n')
                 outputfile.write('cd '+pwd+'; eval `scramv1 runtime -sh`; source setup.sh; \n')
-                #outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + additionalArguments1[z] +" "+ lepton[y] +" " + additionalArguments2+" ;")
-                outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + lepton[y] +" " + additionalArguments2+" ;")
+                outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + lepton[y] +" " + additionalArguments+" ;")
                 outputfile.close
                 os.system("echo bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
                 os.system("bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)

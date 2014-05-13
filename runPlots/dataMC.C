@@ -30,7 +30,7 @@ using namespace std;
 
 
 TString indir = "ntuples";
-TString outdir = "~/www/STOP/NNTraining/8TeV/TEST/";
+TString outdir = "~/www/STOP/NNTraining/8TeV/TEST2/";
 
 
 void DataMCplots(TString plotname, TString selectionname, TString leptonname){
@@ -282,14 +282,16 @@ TString leptonname_;
 TString selectionname_;
 
    for( int y = 1; y < 3; y++ ) {
+ //  for( int y = 3; y < 4; y++ ) {
  
      if (y == 1) { leptonname_ = "Elec" ; }
      if (y == 2) { leptonname_ = "Muon" ; }
+//     if (y == 3) { leptonname_ = "All" ; }
    
      cout <<  leptonname_ << endl;  
 
-    	//for( int x = 1; x < 3; x++ ) {
-    	for( int x = 3; x < 4; x++ ) {
+    	for( int x = 1; x < 3; x++ ) {
+    	//for( int x = 3; x < 4; x++ ) {
 
         if (x == 1) { selectionname_ = "BVeto" ; }
         if (x == 2) { selectionname_ = "MTPeak" ; }
@@ -298,7 +300,7 @@ TString selectionname_;
 
         cout <<  selectionname_ << endl;  
 
-	DataMCplots("h1_met", selectionname_ , leptonname_);
+/*	DataMCplots("h1_met", selectionname_ , leptonname_);
 	DataMCplots("h1_mT" , selectionname_ , leptonname_);
 	DataMCplots("h1_lepton_pT", selectionname_ , leptonname_);
 	DataMCplots("h1_mlb_hemi", selectionname_ , leptonname_);
@@ -316,10 +318,12 @@ TString selectionname_;
 	DataMCplots("h1_Chi2SNT", selectionname_ , leptonname_);
 	DataMCplots("h1_METoverSqrtHT", selectionname_ , leptonname_);
 	DataMCplots("h1_nvTX", selectionname_ , leptonname_);
-	//DataMCplots("BDT1", selectionname_ , leptonname_);
+	*/DataMCplots("BDT1", selectionname_ , leptonname_);
 	DataMCplots("BDT2", selectionname_ , leptonname_);
-	//DataMCplots("BDT3", selectionname_ , leptonname_);
-	//DataMCplots("BDT4", selectionname_ , leptonname_);
+	DataMCplots("BDT3", selectionname_ , leptonname_);
+	DataMCplots("BDT4", selectionname_ , leptonname_);
+	DataMCplots("BDT5", selectionname_ , leptonname_);
+	DataMCplots("BDT6", selectionname_ , leptonname_);
 
 	}
    }
