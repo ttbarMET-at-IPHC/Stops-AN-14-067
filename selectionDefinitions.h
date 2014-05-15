@@ -16,15 +16,20 @@ babyEvent myEvent;
 string sampleName;
 string sampleType;
 
+// MT cuts definitions
+// ###################
+
+bool goesInMTpeak()     { if ((myEvent.MT > 50) && (myEvent.MT < 80)) return true; else return false; }
+bool goesInMTtail()     { if (myEvent.MT > MT_CUT)                    return true; else return false; }
+bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return true; else return false; }
+
 // Control region definitions
 // ##########################
-
 
 bool goesInPreselection() 
 {
 
     if (myEvent.MET < MET_CUT) return false;
-    if (myEvent.MT < MT_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false; 
     if (myEvent.nBTag < NBJET_CUT)  return false; 
@@ -33,14 +38,14 @@ bool goesInPreselection()
     return true; 
 }
 
-
-
+bool goesInPreselectionMTtail()     { return (goesInPreselection() && goesInMTtail());     } 
+bool goesInPreselectionMTpeak()     { return (goesInPreselection() && goesInMTpeak());     } 
+bool goesInPreselectionMTinverted() { return (goesInPreselection() && goesInMTinverted()); } 
 
 bool goesIn0BtagControlRegion()
 {
 
     if (myEvent.MET < MET_CUT) return false;
-    if (myEvent.MT < MT_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false; 
     if (myEvent.nBTag != 0 )  return false; 
@@ -49,23 +54,9 @@ bool goesIn0BtagControlRegion()
     return true; 
 }
 
-
-
-bool goesInMTPeakControlRegion()   
-{
-
-    if (myEvent.MET < MET_CUT) return false;
-    if (myEvent.MT < 50) return false;
-    if (myEvent.MT > 80) return false;
-    if (myEvent.numberOfLepton != NLEP_CUT) return false;
-    if (myEvent.nJets < NJET_CUT)  return false; 
-    if (myEvent.nBTag < NBJET_CUT )  return false; 
-    if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
-
-    return true; 
-}
-
-
+bool goesIn0BtagControlRegionMTtail()     { return (goesIn0BtagControlRegion() && goesInMTtail());     } 
+bool goesIn0BtagControlRegionMTpeak()     { return (goesIn0BtagControlRegion() && goesInMTpeak());     } 
+bool goesIn0BtagControlRegionMTinverted() { return (goesIn0BtagControlRegion() && goesInMTinverted()); } 
 
 bool goesInDileptonControlRegion() 
 {
@@ -76,15 +67,12 @@ bool goesInDileptonControlRegion()
      && (!myEvent.triggerDoubleElec)) return false;
     
     if (myEvent.MET < MET_CUT) return false;
-    if (myEvent.MT < MT_CUT) return false;
     if (myEvent.numberOfLepton != 2) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
     if (myEvent.nBTag < NBJET_CUT)  return false;
 
     return true; 
 }
-
-
 
 bool goesInVetosControlRegion() 
 {
@@ -95,14 +83,12 @@ bool goesInVetosControlRegion()
      && (!myEvent.triggerDoubleElec)) return false;
    
     if (myEvent.MET < MET_CUT) return false;
-    if (myEvent.MT < MT_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
     if (myEvent.nBTag < NBJET_CUT)  return false;
 
     // Apply vetos
     if ( !((myEvent.isolatedTrackVeto == true ) || (myEvent.tauVeto == true))) return false; 
-
 
     return true; 
 }
@@ -134,11 +120,11 @@ bool goesInSingleMuonChannel()
     if (sampleType == "data")
     {
         if ((sampleName != "SingleMuon") || ((!myEvent.triggerMuon) && (!myEvent.xtriggerMuon))) return false;
+        
+        // Take care of the splitting due to x-trigger
+        if ((myEvent.leadingLepton.Pt() >= 26) && (!myEvent.triggerMuon))  return false;
+        if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
     }    
-    
-    // Take care of the splitting due to x-trigger
-    if ((myEvent.leadingLepton.Pt() >= 26) && (!myEvent.triggerMuon))  return false;
-    if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
    
     // TODO : remove this temporary fix for the eta(muon) < -2.1 after its propagated in the babyTuples
     if (myEvent.leadingLepton.Eta() < -2.1) return false;
@@ -261,7 +247,7 @@ float getWeight()
         weight *= myEvent.weightISRmodeling;
 
     // For ttbar only, apply topPt reweighting
-    if (sampleName.find("ttbar") != string::npos) 
+    if (sampleName.find("ttbar_madgraph") != string::npos) 
         weight *= myEvent.weightTopPt;
 
     return weight;
