@@ -19,9 +19,9 @@ string sampleType;
 // MT cuts definitions
 // ###################
 
-bool goesInMTpeak()     { if ((myEvent.MT > 50) && (myEvent.MT < 80)) return true; }
-bool goesInMTtail()     { if (myEvent.MT > MT_CUT)                    return true; }
-bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return true; }
+bool goesInMTpeak()     { if ((myEvent.MT > 50) && (myEvent.MT < 80)) return true; else return false; }
+bool goesInMTtail()     { if (myEvent.MT > MT_CUT)                    return true; else return false; }
+bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return true; else return false; }
 
 // Control region definitions
 // ##########################
@@ -120,11 +120,11 @@ bool goesInSingleMuonChannel()
     if (sampleType == "data")
     {
         if ((sampleName != "SingleMuon") || ((!myEvent.triggerMuon) && (!myEvent.xtriggerMuon))) return false;
+        
+        // Take care of the splitting due to x-trigger
+        if ((myEvent.leadingLepton.Pt() >= 26) && (!myEvent.triggerMuon))  return false;
+        if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
     }    
-    
-    // Take care of the splitting due to x-trigger
-    if ((myEvent.leadingLepton.Pt() >= 26) && (!myEvent.triggerMuon))  return false;
-    if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
    
     // TODO : remove this temporary fix for the eta(muon) < -2.1 after its propagated in the babyTuples
     if (myEvent.leadingLepton.Eta() < -2.1) return false;
@@ -247,7 +247,7 @@ float getWeight()
         weight *= myEvent.weightISRmodeling;
 
     // For ttbar only, apply topPt reweighting
-    if (sampleName.find("ttbar") != string::npos) 
+    if (sampleName.find("ttbar_madgraph") != string::npos) 
         weight *= myEvent.weightTopPt;
 
     return weight;
