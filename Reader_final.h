@@ -422,9 +422,9 @@ void InitializeBranches(TTree* theTree, babyEvent* myEvent,intermediatePointers*
     theTree->SetBranchAddress("flavor_secondIncomingParton",                  &(myEvent->flavor_secondIncomingParton));
     theTree->SetBranchAddress("scalePDF",                                     &(myEvent->scalePDF));                   
 
-   theTree->SetBranchAddress("isUsedInBDT",           			              &(myEvent->isUsedInBDT));
-   theTree->SetBranchAddress("BDT_output_t2bw025_R1", 				          &(myEvent->BDT_output_t2bw025_R1));
-   theTree->SetBranchAddress("BDT_output_t2bw025_R3", 				          &(myEvent->BDT_output_t2bw025_R3));
+   theTree->SetBranchAddress("isUsedInBDT",                                   &(myEvent->isUsedInBDT));
+   theTree->SetBranchAddress("BDT_output_t2bw025_R1",                         &(myEvent->BDT_output_t2bw025_R1));
+   theTree->SetBranchAddress("BDT_output_t2bw025_R3",                         &(myEvent->BDT_output_t2bw025_R3));
    theTree->SetBranchAddress("BDT_output_t2bw025_R4",                         &(myEvent->BDT_output_t2bw025_R4));
    theTree->SetBranchAddress("BDT_output_t2bw025_R6",                         &(myEvent->BDT_output_t2bw025_R6));
    theTree->SetBranchAddress("BDT_output_t2bw050_R1",                         &(myEvent->BDT_output_t2bw050_R1));
