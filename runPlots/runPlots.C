@@ -450,6 +450,7 @@ int main (int argc, char *argv[])
 
         if ( isBVeto ) {
 
+//goesIn0BtagCR1();
 	if (myEvent.MT < MT_CUT ) continue;
         if (myEvent.nBTag != 0) continue;
         if (myEvent.numberOfLepton != NLEP_CUT) continue;
@@ -461,7 +462,6 @@ int main (int argc, char *argv[])
 
         if ( isMTPeak ) {
 
-//goesIn0BtagCR1();
 		if (myEvent.MT < 50) continue;
 		if (myEvent.MT > 80) continue;
 		if (myEvent.nBTag < NBTAGS_CUT) continue;

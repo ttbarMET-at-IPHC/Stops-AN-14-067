@@ -147,7 +147,7 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 
 	      // Hack to get the contours to work properly
 
-              for(int x=175; x<=800; x+=25){
+            for(int x=175; x<=800; x+=25){
 
                       for(int y=25; y<=700; y+=25){
 	
@@ -170,15 +170,15 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   gStyle->SetPalette(3,colors);  
 
 
-  SMS->SetContour(2);
-  SMS->SetContourLevel(0,1e6); //value for your first level
+  SMS->SetContour(3);
+  SMS->SetContourLevel(0,1e9); //value for your first level
   SMS->SetContourLevel(1,1.); //non-existing high level
-  SMS->SetContourLevel(2,1e9); //non-existing high level
+  SMS->SetContourLevel(2,1e6); //non-existing high level
   SMS->SetLineColor(1);
   SMS->Draw("cont1");
 
   SMSp->SetContour(3);
-  SMSp->SetContourLevel(0,1.); //value for your first level
+  SMSp->SetContourLevel(0,1.0); //value for your first level
   SMSp->SetContourLevel(1,1e6); //non-existing high level
   SMSp->SetContourLevel(2,1e9); //non-existing high level
   SMSp->SetLineColor(2);

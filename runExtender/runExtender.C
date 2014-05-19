@@ -29,16 +29,14 @@ using namespace std;
 #include <TLorentzVector.h>
 #include "TMVA/Tools.h"
 #include "TMVA/Reader.h"
-#include <Api.h>
+
 
 // Define format of input file
-#include "../Reader.h"
-#include "../Writer.h"
-
+#include "Reader_final0210.h"
+#include "Writer.h"
 
 using namespace TMVA;
 
-//test
 void printProgressBar(int current, int max);
 
 int main (int argc, char *argv[])
@@ -48,18 +46,12 @@ int main (int argc, char *argv[])
   // ##       Open the tree        ##
   // ################################
 
- /*  TH1D* BDT1 = new TH1D("BDT1",",BDT1",80,-1,1) ;
-   TH1D* BDT2 = new TH1D("BDT2",",BDT2",80,-1,1) ;
-   TH1D* BDT3 = new TH1D("BDT3",",BDT3",80,-1,1) ;
-   TH1D* BDT4 = new TH1D("BDT4",",BDT4",80,-1,1) ;
-//   TH1D* BDT5 = new TH1D("BDT5",",BDT5",80,-1,1) ;
-//   TH1D* BDT6 = new TH1D("BDT6",",BDT6",80,-1,1) ;
-*/
-
 
   TFile *fin = TFile::Open(argv[1]);
   TTree* theInputTree = (TTree*) fin->Get("babyTuple");
   TFile *fout = new TFile(argv[2],"recreate");
+
+
 
   babyEvent myEvent;
   intermediatePointers pointers;
@@ -138,37 +130,97 @@ int main (int argc, char *argv[])
 
 
 
-   double bdt_R1;
-   double bdt_R2;
-   double bdt_R3;
-   double bdt_R4;
-   //double bdt_R5;
-   //double bdt_R6;
+   double BDT_output_t2bw025_R1;
+   double BDT_output_t2bw025_R3;
+   double BDT_output_t2bw025_R4;
+   double BDT_output_t2bw025_R6;
+
+   double BDT_output_t2bw050_R1;
+   double BDT_output_t2bw050_R3;
+   double BDT_output_t2bw050_R4;
+   double BDT_output_t2bw050_R5;
+   double BDT_output_t2bw050_R6;
+
+   double BDT_output_t2bw075_R1;
+   double BDT_output_t2bw075_R2;
+   double BDT_output_t2bw075_R3;
+   double BDT_output_t2bw075_R5;
+
+   double BDT_output_t2tt_R1;
+   double BDT_output_t2tt_R2;
+   double BDT_output_t2tt_R5;
+
 
    Reader* reader;
    reader = new Reader("V");
+
+   Reader* reader_t2bw050;
+   reader_t2bw050 = new Reader("V");
+
+   Reader* reader_t2bw075;
+   reader_t2bw075 = new Reader("V");
+
+   Reader* reader_t2ttOffShell;
+   reader_t2ttOffShell = new Reader("V");
+   Reader* reader_t2ttOnShell;
+   reader_t2ttOnShell = new Reader("V");
 
     string NN_vars = string(argv[3]);
     TString str_NNvariables = TString(NN_vars);
     TPMERegexp _variables(",");
 
+    string NN_vars_t2bw050 = string(argv[4]);
+    TString str_NNvariables_t2bw050 = TString(NN_vars_t2bw050);
+    TPMERegexp _variables_t2bw050(",");
+
+    string NN_vars_t2bw075 = string(argv[5]);
+    TString str_NNvariables_t2bw075 = TString(NN_vars_t2bw075);
+    TPMERegexp _variables_t2bw075(",");
+
+
+    string NN_vars_t2ttOffShell = string(argv[6]);
+    TString str_NNvariables_t2ttOffShell = TString(NN_vars_t2ttOffShell);
+    TPMERegexp _variables_t2ttOffShell(",");
+    string NN_vars_t2ttOnShell = string(argv[7]);
+    TString str_NNvariables_t2ttOnShell = TString(NN_vars_t2ttOnShell);
+    TPMERegexp _variables_t2ttOnShell(",");
+
+
     set<string> NNvariables;
     int nvariables = 0;
-
     nvariables = _variables.Split(str_NNvariables);
-
     for(int i=0; i<nvariables; i++){
     NNvariables.insert(_variables[i].Data());
     }
 
-   cout << "" << endl;
-   cout << "**********************************************************" << endl;
-   cout << "*   Will use these variables in BDT  * "                    << NN_vars << endl;
-   cout << "**********************************************************" << endl;
-   cout << "" << endl;
+    set<string> NNvariables_t2bw050;
+    int nvariables_t2bw050 = 0;
+    nvariables_t2bw050 = _variables_t2bw050.Split(str_NNvariables_t2bw050);
+    for(int j=0; j<nvariables_t2bw050; j++){
+    NNvariables_t2bw050.insert(_variables_t2bw050[j].Data());
+    }
 
 
-    string setup_directory = string(argv[4]); 
+    set<string> NNvariables_t2bw075;
+    int nvariables_t2bw075 = 0;
+    nvariables_t2bw075 = _variables_t2bw075.Split(str_NNvariables_t2bw075);
+    for(int j=0; j<nvariables_t2bw075; j++){
+    NNvariables_t2bw075.insert(_variables_t2bw075[j].Data());
+    }
+
+
+    set<string> NNvariables_t2ttOffShell;
+    int nvariables_t2ttOffShell = 0;
+    nvariables_t2ttOffShell = _variables_t2ttOffShell.Split(str_NNvariables_t2ttOffShell);
+    for(int j=0; j<nvariables_t2ttOffShell; j++){
+    NNvariables_t2ttOffShell.insert(_variables_t2ttOffShell[j].Data());
+    }
+    set<string> NNvariables_t2ttOnShell;
+    int nvariables_t2ttOnShell = 0;
+    nvariables_t2ttOnShell = _variables_t2ttOnShell.Split(str_NNvariables_t2ttOnShell);
+    for(int j=0; j<nvariables_t2ttOnShell; j++){
+    NNvariables_t2ttOnShell.insert(_variables_t2ttOnShell[j].Data());
+    }
 
   if(NNvariables.find("met")!=NNvariables.end())
     reader->AddVariable("met",&met);
@@ -282,24 +334,499 @@ int main (int argc, char *argv[])
     reader->AddVariable("HT",&HT);
 
 
-   string Decay_Mode = string(argv[5]);
 
-   TString BDT_dir = "/afs/cern.ch/user/l/lara/public/weights/t2tt";
+  if(NNvariables_t2bw050.find("met")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("met",&met);
+  if(NNvariables_t2bw050.find("met_phi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("met_phi",&met_phi);
+  if(NNvariables_t2bw050.find("met_signif")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("met_signif",&met_signif);
+  if(NNvariables_t2bw050.find("mT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mT",&mT);
+  if(NNvariables_t2bw050.find("lepton_pT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("lepton_pT",&lepton_pT);
+  if(NNvariables_t2bw050.find("lepton_phi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("lepton_phi",&lepton_phi);
+  if(NNvariables_t2bw050.find("njets")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("njets",&njets);
+  if(NNvariables_t2bw050.find("nbjets")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("nbjets",&nbjets);
+  if(NNvariables_t2bw050.find("m3")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("m3",&m3);
+  if(NNvariables_t2bw050.find("m3_pt")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("m3_pt",&m3_pt);
+  if(NNvariables_t2bw050.find("m3b")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("m3b",&m3b);
+  if(NNvariables_t2bw050.find("mi34")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mi34",&mi34);
+  if(NNvariables_t2bw050.find("mi34b")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mi34b",&mi34b);
+  if(NNvariables_t2bw050.find("mi34b_m2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mi34b_m2",&mi34b_m2);
+  if(NNvariables_t2bw050.find("mjetlepmax")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mjetlepmax",&mjetlepmax);
+  if(NNvariables_t2bw050.find("phi_lepton_met")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("phi_lepton_met",&phi_lepton_met);
+  if(NNvariables_t2bw050.find("jet1_pT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet1_pT",&jet1_pT);
+  if(NNvariables_t2bw050.find("jet2_pT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet2_pT",&jet2_pT);
+  if(NNvariables_t2bw050.find("jet3_pT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet3_pT",&jet3_pT);
+  if(NNvariables_t2bw050.find("jet4_pT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet4_pT",&jet4_pT);
+  if(NNvariables_t2bw050.find("jet1_phi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet1_phi",&jet1_phi);
+  if(NNvariables_t2bw050.find("jet2_phi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet2_phi",&jet2_phi);
+  if(NNvariables_t2bw050.find("jet3_phi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet3_phi",&jet3_phi);
+  if(NNvariables_t2bw050.find("jet4_phi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("jet4_phi",&jet4_phi);
+  if(NNvariables_t2bw050.find("missmass")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("missmass",&missmass);
+  if(NNvariables_t2bw050.find("mlpjpa")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mlpjpa",&mlpjpa);
+  if(NNvariables_t2bw050.find("dphiljpa")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dphiljpa",&dphiljpa);
+  if(NNvariables_t2bw050.find("dphimetl")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dphimetl",&dphimetl);
+  if(NNvariables_t2bw050.find("dphiljb")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dphiljb",&dphiljb);
+  if(NNvariables_t2bw050.find("m3topW")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("m3topW",&m3topW);
+  if(NNvariables_t2bw050.find("b1_pt")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b1_pt",&b1_pt);
+  if(NNvariables_t2bw050.find("b1_pt_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b1_pt_2",&b1_pt_2);
+  if(NNvariables_t2bw050.find("b2_pt")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b2_pt",&b2_pt);
+  if(NNvariables_t2bw050.find("b2_pt_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b2_pt_2",&b2_pt_2);
+  if(NNvariables_t2bw050.find("b1plusb2_pt")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b1plusb2_pt",&b1plusb2_pt);
+  if(NNvariables_t2bw050.find("b1plusb2_pt_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b1plusb2_pt_2",&b1plusb2_pt_2);
+  if(NNvariables_t2bw050.find("b1_eta")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b1_eta",&b1_eta);
+  if(NNvariables_t2bw050.find("b1_eta_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("b1_eta_2",&b1_eta_2);
+  if(NNvariables_t2bw050.find("dR_b1b2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dR_b1b2",&dR_b1b2);
+  if(NNvariables_t2bw050.find("dR_b1b2_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dR_b1b2_2",&dR_b1b2_2);
+  if(NNvariables_t2bw050.find("dPhi_b1b2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dPhi_b1b2",&dPhi_b1b2);
+  if(NNvariables_t2bw050.find("dPhi_b1b2_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dPhi_b1b2_2",&dPhi_b1b2_2);
+  if(NNvariables_t2bw050.find("mlb1_2")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mlb1_2",&mlb1_2);
+  if(NNvariables_t2bw050.find("HT_av")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("HT_av",&HT_av);
+  if(NNvariables_t2bw050.find("HT_MET_lep_pt")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("HT_MET_lep_pt",&HT_MET_lep_pt);
+  if(NNvariables_t2bw050.find("mlb_hemi")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mlb_hemi",&mlb_hemi);
+  if(NNvariables_t2bw050.find("HTfrac")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("HTfrac",&HTfrac);
+  if(NNvariables_t2bw050.find("HTfrac_FNAL")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("HTfrac_FNAL",&HTfrac_FNAL);
+  if(NNvariables_t2bw050.find("mT2W")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("mT2W",&mT2W);
+  if(NNvariables_t2bw050.find("dR_LepB")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dR_LepB",&dR_LepB);
+  if(NNvariables_t2bw050.find("dR_LepJet")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dR_LepJet",&dR_LepJet);
+  if(NNvariables_t2bw050.find("dPhi_JetMet")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("dPhi_JetMet",&dPhi_JetMet);
+  if(NNvariables_t2bw050.find("METoverSqrtHT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("METoverSqrtHT",&METoverSqrtHT);
+  if(NNvariables_t2bw050.find("Chi2SNT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("Chi2SNT",&Chi2SNT);
+   if(NNvariables_t2bw050.find("HT")!=NNvariables_t2bw050.end())
+    reader_t2bw050->AddVariable("HT",&HT);
 
-//   reader->BookMVA("bdt_R1",  BDT_dir + "/BDT_t2tt_Reg1.weights.xml");
-   reader->BookMVA("bdt_R2",  BDT_dir + "/BDT_t2tt_Reg3.weights.xml");
-   reader->BookMVA("bdt_R3",  BDT_dir + "/BDT_t2tt_Reg4.weights.xml");
-//   reader->BookMVA("bdt_R4",  BDT_dir + "/BDT_t2bw075_Reg6.weights.xml");
-
-  // Add a vector<float> branch that will contain the additional
-  // info, like BDT outputs.
 
 
-  vector<Float_t> BDToutputs;
-  Int_t isUsedInBDT;
-  //theOutputTree->Branch("BDToutputs",     "std::vector<Float_t>",          &(BDToutputs));
-  theOutputTree->Branch("BDToutputs",      &(BDToutputs));
-  theOutputTree->Branch("isUsedInBDT",     &(isUsedInBDT));
+  if(NNvariables_t2bw075.find("met")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("met",&met);
+  if(NNvariables_t2bw075.find("met_phi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("met_phi",&met_phi);
+  if(NNvariables_t2bw075.find("met_signif")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("met_signif",&met_signif);
+  if(NNvariables_t2bw075.find("mT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mT",&mT);
+  if(NNvariables_t2bw075.find("lepton_pT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("lepton_pT",&lepton_pT);
+  if(NNvariables_t2bw075.find("lepton_phi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("lepton_phi",&lepton_phi);
+  if(NNvariables_t2bw075.find("njets")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("njets",&njets);
+  if(NNvariables_t2bw075.find("nbjets")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("nbjets",&nbjets);
+  if(NNvariables_t2bw075.find("m3")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("m3",&m3);
+  if(NNvariables_t2bw075.find("m3_pt")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("m3_pt",&m3_pt);
+  if(NNvariables_t2bw075.find("m3b")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("m3b",&m3b);
+  if(NNvariables_t2bw075.find("mi34")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mi34",&mi34);
+  if(NNvariables_t2bw075.find("mi34b")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mi34b",&mi34b);
+  if(NNvariables_t2bw075.find("mi34b_m2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mi34b_m2",&mi34b_m2);
+  if(NNvariables_t2bw075.find("mjetlepmax")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mjetlepmax",&mjetlepmax);
+  if(NNvariables_t2bw075.find("phi_lepton_met")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("phi_lepton_met",&phi_lepton_met);
+  if(NNvariables_t2bw075.find("jet1_pT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet1_pT",&jet1_pT);
+  if(NNvariables_t2bw075.find("jet2_pT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet2_pT",&jet2_pT);
+  if(NNvariables_t2bw075.find("jet3_pT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet3_pT",&jet3_pT);
+  if(NNvariables_t2bw075.find("jet4_pT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet4_pT",&jet4_pT);
+  if(NNvariables_t2bw075.find("jet1_phi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet1_phi",&jet1_phi);
+  if(NNvariables_t2bw075.find("jet2_phi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet2_phi",&jet2_phi);
+  if(NNvariables_t2bw075.find("jet3_phi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet3_phi",&jet3_phi);
+  if(NNvariables_t2bw075.find("jet4_phi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("jet4_phi",&jet4_phi);
+  if(NNvariables_t2bw075.find("missmass")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("missmass",&missmass);
+  if(NNvariables_t2bw075.find("mlpjpa")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mlpjpa",&mlpjpa);
+  if(NNvariables_t2bw075.find("dphiljpa")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dphiljpa",&dphiljpa);
+  if(NNvariables_t2bw075.find("dphimetl")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dphimetl",&dphimetl);
+  if(NNvariables_t2bw075.find("dphiljb")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dphiljb",&dphiljb);
+  if(NNvariables_t2bw075.find("m3topW")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("m3topW",&m3topW);
+  if(NNvariables_t2bw075.find("b1_pt")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b1_pt",&b1_pt);
+  if(NNvariables_t2bw075.find("b1_pt_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b1_pt_2",&b1_pt_2);
+  if(NNvariables_t2bw075.find("b2_pt")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b2_pt",&b2_pt);
+  if(NNvariables_t2bw075.find("b2_pt_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b2_pt_2",&b2_pt_2);
+  if(NNvariables_t2bw075.find("b1plusb2_pt")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b1plusb2_pt",&b1plusb2_pt);
+  if(NNvariables_t2bw075.find("b1plusb2_pt_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b1plusb2_pt_2",&b1plusb2_pt_2);
+  if(NNvariables_t2bw075.find("b1_eta")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b1_eta",&b1_eta);
+  if(NNvariables_t2bw075.find("b1_eta_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("b1_eta_2",&b1_eta_2);
+  if(NNvariables_t2bw075.find("dR_b1b2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dR_b1b2",&dR_b1b2);
+  if(NNvariables_t2bw075.find("dR_b1b2_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dR_b1b2_2",&dR_b1b2_2);
+  if(NNvariables_t2bw075.find("dPhi_b1b2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dPhi_b1b2",&dPhi_b1b2);
+  if(NNvariables_t2bw075.find("dPhi_b1b2_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dPhi_b1b2_2",&dPhi_b1b2_2);
+  if(NNvariables_t2bw075.find("mlb1_2")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mlb1_2",&mlb1_2);
+  if(NNvariables_t2bw075.find("HT_av")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("HT_av",&HT_av);
+  if(NNvariables_t2bw075.find("HT_MET_lep_pt")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("HT_MET_lep_pt",&HT_MET_lep_pt);
+  if(NNvariables_t2bw075.find("HT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("HT",&HT);
+  if(NNvariables_t2bw075.find("mlb_hemi")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mlb_hemi",&mlb_hemi);
+  if(NNvariables_t2bw075.find("HTfrac")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("HTfrac",&HTfrac);
+  if(NNvariables_t2bw075.find("HTfrac_FNAL")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("HTfrac_FNAL",&HTfrac_FNAL);
+  if(NNvariables_t2bw075.find("mT2W")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("mT2W",&mT2W);
+  if(NNvariables_t2bw075.find("dR_LepB")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dR_LepB",&dR_LepB);
+  if(NNvariables_t2bw075.find("dR_LepJet")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dR_LepJet",&dR_LepJet);
+  if(NNvariables_t2bw075.find("dPhi_JetMet")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("dPhi_JetMet",&dPhi_JetMet);
+  if(NNvariables_t2bw075.find("METoverSqrtHT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("METoverSqrtHT",&METoverSqrtHT);
+  if(NNvariables_t2bw075.find("Chi2SNT")!=NNvariables_t2bw075.end())
+    reader_t2bw075->AddVariable("Chi2SNT",&Chi2SNT);
+
+
+  if(NNvariables_t2ttOffShell.find("met")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("met",&met);
+  if(NNvariables_t2ttOffShell.find("met_phi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("met_phi",&met_phi);
+  if(NNvariables_t2ttOffShell.find("met_signif")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("met_signif",&met_signif);
+  if(NNvariables_t2ttOffShell.find("mT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mT",&mT);
+  if(NNvariables_t2ttOffShell.find("lepton_pT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("lepton_pT",&lepton_pT);
+  if(NNvariables_t2ttOffShell.find("lepton_phi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("lepton_phi",&lepton_phi);
+  if(NNvariables_t2ttOffShell.find("njets")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("njets",&njets);
+  if(NNvariables_t2ttOffShell.find("nbjets")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("nbjets",&nbjets);
+  if(NNvariables_t2ttOffShell.find("m3")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("m3",&m3);
+  if(NNvariables_t2ttOffShell.find("m3_pt")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("m3_pt",&m3_pt);
+  if(NNvariables_t2ttOffShell.find("m3b")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("m3b",&m3b);
+  if(NNvariables_t2ttOffShell.find("mi34")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mi34",&mi34);
+  if(NNvariables_t2ttOffShell.find("mi34b")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mi34b",&mi34b);
+  if(NNvariables_t2ttOffShell.find("mi34b_m2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mi34b_m2",&mi34b_m2);
+  if(NNvariables_t2ttOffShell.find("mjetlepmax")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mjetlepmax",&mjetlepmax);
+  if(NNvariables_t2ttOffShell.find("phi_lepton_met")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("phi_lepton_met",&phi_lepton_met);
+  if(NNvariables_t2ttOffShell.find("jet1_pT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet1_pT",&jet1_pT);
+  if(NNvariables_t2ttOffShell.find("jet2_pT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet2_pT",&jet2_pT);
+  if(NNvariables_t2ttOffShell.find("jet3_pT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet3_pT",&jet3_pT);
+  if(NNvariables_t2ttOffShell.find("jet4_pT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet4_pT",&jet4_pT);
+  if(NNvariables_t2ttOffShell.find("jet1_phi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet1_phi",&jet1_phi);
+  if(NNvariables_t2ttOffShell.find("jet2_phi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet2_phi",&jet2_phi);
+  if(NNvariables_t2ttOffShell.find("jet3_phi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet3_phi",&jet3_phi);
+  if(NNvariables_t2ttOffShell.find("jet4_phi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("jet4_phi",&jet4_phi);
+  if(NNvariables_t2ttOffShell.find("missmass")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("missmass",&missmass);
+  if(NNvariables_t2ttOffShell.find("mlpjpa")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mlpjpa",&mlpjpa);
+  if(NNvariables_t2ttOffShell.find("dphiljpa")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dphiljpa",&dphiljpa);
+  if(NNvariables_t2ttOffShell.find("dphimetl")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dphimetl",&dphimetl);
+  if(NNvariables_t2ttOffShell.find("dphiljb")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dphiljb",&dphiljb);
+  if(NNvariables_t2ttOffShell.find("m3topW")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("m3topW",&m3topW);
+  if(NNvariables_t2ttOffShell.find("b1_pt")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b1_pt",&b1_pt);
+  if(NNvariables_t2ttOffShell.find("b1_pt_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b1_pt_2",&b1_pt_2);
+  if(NNvariables_t2ttOffShell.find("b2_pt")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b2_pt",&b2_pt);
+  if(NNvariables_t2ttOffShell.find("b2_pt_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b2_pt_2",&b2_pt_2);
+  if(NNvariables_t2ttOffShell.find("b1plusb2_pt")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b1plusb2_pt",&b1plusb2_pt);
+  if(NNvariables_t2ttOffShell.find("b1plusb2_pt_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b1plusb2_pt_2",&b1plusb2_pt_2);
+  if(NNvariables_t2ttOffShell.find("b1_eta")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b1_eta",&b1_eta);
+  if(NNvariables_t2ttOffShell.find("b1_eta_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("b1_eta_2",&b1_eta_2);
+  if(NNvariables_t2ttOffShell.find("dR_b1b2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dR_b1b2",&dR_b1b2);
+  if(NNvariables_t2ttOffShell.find("dR_b1b2_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dR_b1b2_2",&dR_b1b2_2);
+  if(NNvariables_t2ttOffShell.find("dPhi_b1b2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dPhi_b1b2",&dPhi_b1b2);
+  if(NNvariables_t2ttOffShell.find("dPhi_b1b2_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dPhi_b1b2_2",&dPhi_b1b2_2);
+  if(NNvariables_t2ttOffShell.find("mlb1_2")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mlb1_2",&mlb1_2);
+  if(NNvariables_t2ttOffShell.find("HT_av")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("HT_av",&HT_av);
+  if(NNvariables_t2ttOffShell.find("HT_MET_lep_pt")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("HT_MET_lep_pt",&HT_MET_lep_pt);
+  if(NNvariables_t2ttOffShell.find("HT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("HT",&HT);
+  if(NNvariables_t2ttOffShell.find("mlb_hemi")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mlb_hemi",&mlb_hemi);
+  if(NNvariables_t2ttOffShell.find("HTfrac")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("HTfrac",&HTfrac);
+  if(NNvariables_t2ttOffShell.find("HTfrac_FNAL")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("HTfrac_FNAL",&HTfrac_FNAL);
+  if(NNvariables_t2ttOffShell.find("mT2W")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("mT2W",&mT2W);
+  if(NNvariables_t2ttOffShell.find("dR_LepB")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dR_LepB",&dR_LepB);
+  if(NNvariables_t2ttOffShell.find("dR_LepJet")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dR_LepJet",&dR_LepJet);
+  if(NNvariables_t2ttOffShell.find("dPhi_JetMet")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("dPhi_JetMet",&dPhi_JetMet);
+  if(NNvariables_t2ttOffShell.find("METoverSqrtHT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("METoverSqrtHT",&METoverSqrtHT);
+  if(NNvariables_t2ttOffShell.find("Chi2SNT")!=NNvariables_t2ttOffShell.end())
+    reader_t2ttOffShell->AddVariable("Chi2SNT",&Chi2SNT);
+
+  if(NNvariables_t2ttOnShell.find("met")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("met",&met);
+  if(NNvariables_t2ttOnShell.find("met_phi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("met_phi",&met_phi);
+  if(NNvariables_t2ttOnShell.find("met_signif")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("met_signif",&met_signif);
+  if(NNvariables_t2ttOnShell.find("mT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mT",&mT);
+  if(NNvariables_t2ttOnShell.find("lepton_pT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("lepton_pT",&lepton_pT);
+  if(NNvariables_t2ttOnShell.find("lepton_phi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("lepton_phi",&lepton_phi);
+  if(NNvariables_t2ttOnShell.find("njets")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("njets",&njets);
+  if(NNvariables_t2ttOnShell.find("nbjets")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("nbjets",&nbjets);
+  if(NNvariables_t2ttOnShell.find("m3")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("m3",&m3);
+  if(NNvariables_t2ttOnShell.find("m3_pt")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("m3_pt",&m3_pt);
+  if(NNvariables_t2ttOnShell.find("m3b")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("m3b",&m3b);
+  if(NNvariables_t2ttOnShell.find("mi34")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mi34",&mi34);
+  if(NNvariables_t2ttOnShell.find("mi34b")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mi34b",&mi34b);
+  if(NNvariables_t2ttOnShell.find("mi34b_m2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mi34b_m2",&mi34b_m2);
+  if(NNvariables_t2ttOnShell.find("mjetlepmax")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mjetlepmax",&mjetlepmax);
+  if(NNvariables_t2ttOnShell.find("phi_lepton_met")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("phi_lepton_met",&phi_lepton_met);
+  if(NNvariables_t2ttOnShell.find("jet1_pT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet1_pT",&jet1_pT);
+  if(NNvariables_t2ttOnShell.find("jet2_pT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet2_pT",&jet2_pT);
+  if(NNvariables_t2ttOnShell.find("jet3_pT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet3_pT",&jet3_pT);
+  if(NNvariables_t2ttOnShell.find("jet4_pT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet4_pT",&jet4_pT);
+  if(NNvariables_t2ttOnShell.find("jet1_phi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet1_phi",&jet1_phi);
+  if(NNvariables_t2ttOnShell.find("jet2_phi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet2_phi",&jet2_phi);
+  if(NNvariables_t2ttOnShell.find("jet3_phi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet3_phi",&jet3_phi);
+  if(NNvariables_t2ttOnShell.find("jet4_phi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("jet4_phi",&jet4_phi);
+  if(NNvariables_t2ttOnShell.find("missmass")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("missmass",&missmass);
+  if(NNvariables_t2ttOnShell.find("mlpjpa")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mlpjpa",&mlpjpa);
+  if(NNvariables_t2ttOnShell.find("dphiljpa")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dphiljpa",&dphiljpa);
+  if(NNvariables_t2ttOnShell.find("dphimetl")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dphimetl",&dphimetl);
+  if(NNvariables_t2ttOnShell.find("dphiljb")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dphiljb",&dphiljb);
+  if(NNvariables_t2ttOnShell.find("m3topW")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("m3topW",&m3topW);
+  if(NNvariables_t2ttOnShell.find("b1_pt")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b1_pt",&b1_pt);
+  if(NNvariables_t2ttOnShell.find("b1_pt_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b1_pt_2",&b1_pt_2);
+  if(NNvariables_t2ttOnShell.find("b2_pt")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b2_pt",&b2_pt);
+  if(NNvariables_t2ttOnShell.find("b2_pt_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b2_pt_2",&b2_pt_2);
+  if(NNvariables_t2ttOnShell.find("b1plusb2_pt")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b1plusb2_pt",&b1plusb2_pt);
+  if(NNvariables_t2ttOnShell.find("b1plusb2_pt_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b1plusb2_pt_2",&b1plusb2_pt_2);
+  if(NNvariables_t2ttOnShell.find("b1_eta")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b1_eta",&b1_eta);
+  if(NNvariables_t2ttOnShell.find("b1_eta_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("b1_eta_2",&b1_eta_2);
+  if(NNvariables_t2ttOnShell.find("dR_b1b2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dR_b1b2",&dR_b1b2);
+  if(NNvariables_t2ttOnShell.find("dR_b1b2_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dR_b1b2_2",&dR_b1b2_2);
+  if(NNvariables_t2ttOnShell.find("dPhi_b1b2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dPhi_b1b2",&dPhi_b1b2);
+  if(NNvariables_t2ttOnShell.find("dPhi_b1b2_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dPhi_b1b2_2",&dPhi_b1b2_2);
+  if(NNvariables_t2ttOnShell.find("mlb1_2")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mlb1_2",&mlb1_2);
+  if(NNvariables_t2ttOnShell.find("HT_av")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("HT_av",&HT_av);
+  if(NNvariables_t2ttOnShell.find("HT_MET_lep_pt")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("HT_MET_lep_pt",&HT_MET_lep_pt);
+  if(NNvariables_t2ttOnShell.find("HT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("HT",&HT);
+  if(NNvariables_t2ttOnShell.find("mlb_hemi")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mlb_hemi",&mlb_hemi);
+  if(NNvariables_t2ttOnShell.find("HTfrac")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("HTfrac",&HTfrac);
+  if(NNvariables_t2ttOnShell.find("HTfrac_FNAL")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("HTfrac_FNAL",&HTfrac_FNAL);
+  if(NNvariables_t2ttOnShell.find("mT2W")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("mT2W",&mT2W);
+  if(NNvariables_t2ttOnShell.find("dR_LepB")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dR_LepB",&dR_LepB);
+  if(NNvariables_t2ttOnShell.find("dR_LepJet")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dR_LepJet",&dR_LepJet);
+  if(NNvariables_t2ttOnShell.find("dPhi_JetMet")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("dPhi_JetMet",&dPhi_JetMet);
+  if(NNvariables_t2ttOnShell.find("METoverSqrtHT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("METoverSqrtHT",&METoverSqrtHT);
+  if(NNvariables_t2ttOnShell.find("Chi2SNT")!=NNvariables_t2ttOnShell.end())
+    reader_t2ttOnShell->AddVariable("Chi2SNT",&Chi2SNT);
+
+
+
+
+   TString BDT_dir = "weights_BDT_May5";
+
+
+   reader->BookMVA("BDT_output_t2bw025_R1",  BDT_dir + "/BDT_t2bw025_Reg1.weights.xml");
+   reader->BookMVA("BDT_output_t2bw025_R3",  BDT_dir + "/BDT_t2bw025_Reg3.weights.xml");
+   reader->BookMVA("BDT_output_t2bw025_R4",  BDT_dir + "/BDT_t2bw025_Reg4.weights.xml");
+   reader->BookMVA("BDT_output_t2bw025_R6",  BDT_dir + "/BDT_t2bw025_Reg6.weights.xml");
+
+   reader_t2bw050->BookMVA("BDT_output_t2bw050_R1",  BDT_dir + "/BDT_t2bw050_Reg1.weights.xml");
+   reader_t2bw050->BookMVA("BDT_output_t2bw050_R3",  BDT_dir + "/BDT_t2bw050_Reg3.weights.xml");
+   reader_t2bw050->BookMVA("BDT_output_t2bw050_R4",  BDT_dir + "/BDT_t2bw050_Reg4.weights.xml");
+   reader_t2bw050->BookMVA("BDT_output_t2bw050_R5",  BDT_dir + "/BDT_t2bw050_Reg5.weights.xml");
+   reader_t2bw050->BookMVA("BDT_output_t2bw050_R6",  BDT_dir + "/BDT_t2bw050_Reg6.weights.xml");
+
+   reader_t2bw075->BookMVA("BDT_output_t2bw075_R1",  BDT_dir + "/BDT_t2bw075_Reg1.weights.xml");
+   reader_t2bw075->BookMVA("BDT_output_t2bw075_R2",  BDT_dir + "/BDT_t2bw075_Reg2.weights.xml");
+   reader_t2bw075->BookMVA("BDT_output_t2bw075_R3",  BDT_dir + "/BDT_t2bw075_Reg3.weights.xml");
+   reader_t2bw075->BookMVA("BDT_output_t2bw075_R5",  BDT_dir + "/BDT_t2bw075_Reg5.weights.xml");
+
+   reader_t2ttOffShell->BookMVA("BDT_output_t2tt_R1",  BDT_dir + "/BDT_t2tt_Reg1.weights.xml");
+   reader_t2ttOnShell->BookMVA("BDT_output_t2tt_R2",  BDT_dir + "/BDT_t2tt_Reg2.weights.xml");
+   reader_t2ttOnShell->BookMVA("BDT_output_t2tt_R5",  BDT_dir + "/BDT_t2tt_Reg5.weights.xml");
+
+   Int_t isUsedInBDT;
+
+   theOutputTree->Branch("isUsedInBDT",     	    	    &(isUsedInBDT));
+   theOutputTree->Branch("BDT_output_t2bw025_R1",     	    &(BDT_output_t2bw025_R1));
+   theOutputTree->Branch("BDT_output_t2bw025_R3",     	    &(BDT_output_t2bw025_R3));
+   theOutputTree->Branch("BDT_output_t2bw025_R4",     	    &(BDT_output_t2bw025_R4));
+   theOutputTree->Branch("BDT_output_t2bw025_R6",     	    &(BDT_output_t2bw025_R6));
+   theOutputTree->Branch("BDT_output_t2bw050_R1",     	    &(BDT_output_t2bw050_R1));
+   theOutputTree->Branch("BDT_output_t2bw050_R3",     	    &(BDT_output_t2bw050_R3));
+   theOutputTree->Branch("BDT_output_t2bw050_R4",     	    &(BDT_output_t2bw050_R4));
+   theOutputTree->Branch("BDT_output_t2bw050_R5",     	    &(BDT_output_t2bw050_R5));
+   theOutputTree->Branch("BDT_output_t2bw050_R6",     	    &(BDT_output_t2bw050_R6));
+   theOutputTree->Branch("BDT_output_t2bw075_R1",     	    &(BDT_output_t2bw075_R1));
+   theOutputTree->Branch("BDT_output_t2bw075_R2",     	    &(BDT_output_t2bw075_R2));
+   theOutputTree->Branch("BDT_output_t2bw075_R3",     	    &(BDT_output_t2bw075_R3));
+   theOutputTree->Branch("BDT_output_t2bw075_R5",     	    &(BDT_output_t2bw075_R5));
+   theOutputTree->Branch("BDT_output_t2tt_R1",     	    &(BDT_output_t2tt_R1));
+   theOutputTree->Branch("BDT_output_t2tt_R2",     	    &(BDT_output_t2tt_R2));
+   theOutputTree->Branch("BDT_output_t2tt_R5",     	    &(BDT_output_t2tt_R5));
 
 
   // ########################################
@@ -308,7 +835,6 @@ int main (int argc, char *argv[])
 
 
   for (int i = 0 ; i < theInputTree->GetEntries() ; i++)
-  //for (int i = 0 ; i < 1000 ; i++)
   {
       
       if (i % (theInputTree->GetEntries() / 50) == 0) 
@@ -329,35 +855,9 @@ int main (int argc, char *argv[])
         if (string(argv[1]).find("ttbar") != std::string::npos) isTTbar = true;
 
 
-        // Electron triggers
-        if ((abs(myEvent.leadingLeptonPDGId) == 11) && (myEvent.triggerElec ==false)) continue;
-        // Muon triggers
-
-        if (abs(myEvent.leadingLeptonPDGId) == 13)
-        {
-                if ((myEvent.leadingLepton.Pt() < 25) && (myEvent.xtriggerMuon ==false)) continue;
-                else if ((myEvent.leadingLepton.Pt() > 25) && (myEvent.triggerMuon ==false)) continue;
-        }
-
-        if (myEvent.isolatedTrackVeto == false ) continue;
-        if (myEvent.tauVeto == false) continue;
-
-        if (myEvent.MET < 80) continue;
-        if (myEvent.MT < 120) continue;
-        if (myEvent.nBTag < 1) continue;
-        if (myEvent.nJets < 4) continue;
-        if (myEvent.numberOfLepton != 1) continue;
-
-
-        if ( isSignal && !((myEvent.mStop == atof(argv[6])) && (myEvent.mNeutralino == atof(argv[7]))) )continue;
-
-//        if (myEvent.event%4 == 0) isUsedInBDT = 1; else isUsedInBDT = 0; 
 
         if ( isSignal && ((myEvent.event%2)==1)) isUsedInBDT = 1;
-        else if ( isTTbar && ((myEvent.event%2)==1))  isUsedInBDT = 1;
- 
 		else isUsedInBDT = 0;
-        //cout << "isUsedInBDT: " << isUsedInBDT <<  endl;
 
       
         met = myEvent.MET;
@@ -381,32 +881,34 @@ int main (int argc, char *argv[])
         stop_mass = myEvent.mStop;
         lsp_mass = myEvent.mNeutralino;
 
-        bdt_R1 = 0;
 
-  //      bdt_R1 = reader->EvaluateMVA( "bdt_R1" );
-        bdt_R2 = reader->EvaluateMVA( "bdt_R2" );
-        bdt_R3 = reader->EvaluateMVA( "bdt_R3" );
-//        bdt_R4 = reader->EvaluateMVA( "bdt_R4" );
-
-  //      bdt_R2 = 0;
-   //     bdt_R3 = 0;
-
-  //      bdt_R4 = 0;
+        BDT_output_t2bw025_R1 = reader->EvaluateMVA( "BDT_output_t2bw025_R1" );
+        BDT_output_t2bw025_R3 = reader->EvaluateMVA( "BDT_output_t2bw025_R3" );
+        BDT_output_t2bw025_R4 = reader->EvaluateMVA( "BDT_output_t2bw025_R4" );
+        BDT_output_t2bw025_R6 = reader->EvaluateMVA( "BDT_output_t2bw025_R6" );
 
 
-        BDToutputs.clear();           // Don't forget to clear the vector from the previous info
-        BDToutputs.push_back(bdt_R1);
-        BDToutputs.push_back(bdt_R2);
-        BDToutputs.push_back(bdt_R3);
-    //    BDToutputs.push_back(bdt_R4);
+        BDT_output_t2bw050_R1 = reader_t2bw050->EvaluateMVA( "BDT_output_t2bw050_R1" );
+        BDT_output_t2bw050_R3 = reader_t2bw050->EvaluateMVA( "BDT_output_t2bw050_R3" );
+        BDT_output_t2bw050_R4 = reader_t2bw050->EvaluateMVA( "BDT_output_t2bw050_R4" );
+        BDT_output_t2bw050_R5 = reader_t2bw050->EvaluateMVA( "BDT_output_t2bw050_R5" );
+        BDT_output_t2bw050_R6 = reader_t2bw050->EvaluateMVA( "BDT_output_t2bw050_R6" );
 
-   //cout << bdt_R2 << endl; 
+
+        BDT_output_t2bw075_R1 = reader_t2bw075->EvaluateMVA( "BDT_output_t2bw075_R1" );
+        BDT_output_t2bw075_R2 = reader_t2bw075->EvaluateMVA( "BDT_output_t2bw075_R2" );
+        BDT_output_t2bw075_R3 = reader_t2bw075->EvaluateMVA( "BDT_output_t2bw075_R3" );
+        BDT_output_t2bw075_R5 = reader_t2bw075->EvaluateMVA( "BDT_output_t2bw075_R5" );
+
+        BDT_output_t2tt_R1  = reader_t2ttOffShell->EvaluateMVA( "BDT_output_t2tt_R1" );
+        BDT_output_t2tt_R2  = reader_t2ttOnShell->EvaluateMVA( "BDT_output_t2tt_R2" );
+        BDT_output_t2tt_R5  = reader_t2ttOnShell->EvaluateMVA( "BDT_output_t2tt_R5" );
+
         theOutputTree->Fill();
-
- 
 
 
   }           
+
 
   printProgressBar(theInputTree->GetEntries(),theInputTree->GetEntries());
   cout << endl;
