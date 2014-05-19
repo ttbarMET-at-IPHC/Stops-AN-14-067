@@ -32,8 +32,8 @@ using namespace std;
 
 
 // Define format of input file
-#include "Reader_final0210.h"
-#include "Writer.h"
+#include "../Reader_final0210.h"
+#include "../Writer.h"
 
 using namespace TMVA;
 
