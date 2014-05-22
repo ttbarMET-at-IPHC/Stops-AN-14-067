@@ -26,6 +26,22 @@ bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return tru
 // Control region definitions
 // ##########################
 
+bool goesInPreVetoSelection() 
+{
+
+    if (myEvent.MET < MET_CUT) return false;
+    if (myEvent.numberOfLepton != NLEP_CUT) return false;
+    if (myEvent.nJets < NJET_CUT)  return false; 
+    if (myEvent.nBTag < NBJET_CUT)  return false; 
+
+    return true; 
+}
+
+bool goesInPreVetoSelectionMTtail()     { return (goesInPreVetoSelection() && goesInMTtail());     } 
+bool goesInPreVetoSelectionMTpeak()     { return (goesInPreVetoSelection() && goesInMTpeak());     } 
+bool goesInPreVetoSelectionMTinverted() { return (goesInPreVetoSelection() && goesInMTinverted()); } 
+
+
 bool goesInPreselection() 
 {
 
