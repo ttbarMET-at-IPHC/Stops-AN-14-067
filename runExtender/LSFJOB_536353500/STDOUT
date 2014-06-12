@@ -1,0 +1,454 @@
+@(#)CERN job starter $Date: 2010/06/23 14:22:16 $
+Working directory is </pool/lsf/sigamani/536353500> on <>
+
+Error in <TTree::SetBranchAddress>: The class requested (vector<short>) for the branch "nonSelectedLeptonsPDGId" refer to an stl collection and do not have a compiled CollectionProxy.  Please generate the dictionary for this class (vector<short>)
+Warning in <TTree::Bronch>: Using split mode on a class: TLorentzVector with a custom Streamer
+Warning in <TTree::Bronch>: Using split mode on a class: TLorentzVector with a custom Streamer
+Warning in <TTree::Bronch>: Using split mode on a class: TLorentzVector with a custom Streamer
+Warning in <TTree::Bronch>: Using split mode on a class: TLorentzVector with a custom Streamer
+Warning in <TTree::Bronch>: Using split mode on a class: TLorentzVector with a custom Streamer
+Warning in <TTree::Bronch>: Using split mode on a class: TLorentzVector with a custom Streamer
+Error in <TTree::Branch>: The class requested (vector<short>) for the branch "nonSelectedLeptonsPDGId" refer to an stl collection and do not have a compiled CollectionProxy.  Please generate the dictionary for this class (vector<short>)
+--- Reader                   : Parsing option string: 
+--- Reader                   : ... "V"
+--- Reader                   : The following options are set:
+--- Reader                   : - By User:
+--- Reader                   :     V: "True" [Verbose flag]
+--- Reader                   : - Default:
+--- Reader                   :     Color: "False" [Color flag (default True)]
+--- Reader                   :     Silent: "False" [Boolean silent flag (default False)]
+--- Reader                   :     Error: "False" [Calculates errors (default False)]
+--- <VERBOSE> Reader                   : Parsing option string: 
+--- <VERBOSE> Reader                   : ... "V"
+--- <VERBOSE> Reader                   : The following options are set:
+--- <VERBOSE> Reader                   : - By User:
+--- <VERBOSE> Reader                   :     V: "True" [Verbose flag]
+--- <VERBOSE> Reader                   : - Default:
+--- <VERBOSE> Reader                   :     Color: "False" [Color flag (default True)]
+--- <VERBOSE> Reader                   :     Silent: "False" [Boolean silent flag (default False)]
+--- <VERBOSE> Reader                   :     Error: "False" [Calculates errors (default False)]
+--- <VERBOSE> Reader                   : Parsing option string: 
+--- <VERBOSE> Reader                   : ... "V"
+--- <VERBOSE> Reader                   : The following options are set:
+--- <VERBOSE> Reader                   : - By User:
+--- <VERBOSE> Reader                   :     V: "True" [Verbose flag]
+--- <VERBOSE> Reader                   : - Default:
+--- <VERBOSE> Reader                   :     Color: "False" [Color flag (default True)]
+--- <VERBOSE> Reader                   :     Silent: "False" [Boolean silent flag (default False)]
+--- <VERBOSE> Reader                   :     Error: "False" [Calculates errors (default False)]
+--- <VERBOSE> Reader                   : Parsing option string: 
+--- <VERBOSE> Reader                   : ... "V"
+--- <VERBOSE> Reader                   : The following options are set:
+--- <VERBOSE> Reader                   : - By User:
+--- <VERBOSE> Reader                   :     V: "True" [Verbose flag]
+--- <VERBOSE> Reader                   : - Default:
+--- <VERBOSE> Reader                   :     Color: "False" [Color flag (default True)]
+--- <VERBOSE> Reader                   :     Silent: "False" [Boolean silent flag (default False)]
+--- <VERBOSE> Reader                   :     Error: "False" [Calculates errors (default False)]
+--- <VERBOSE> Reader                   : Parsing option string: 
+--- <VERBOSE> Reader                   : ... "V"
+--- <VERBOSE> Reader                   : The following options are set:
+--- <VERBOSE> Reader                   : - By User:
+--- <VERBOSE> Reader                   :     V: "True" [Verbose flag]
+--- <VERBOSE> Reader                   : - Default:
+--- <VERBOSE> Reader                   :     Color: "False" [Color flag (default True)]
+--- <VERBOSE> Reader                   :     Silent: "False" [Boolean silent flag (default False)]
+--- <VERBOSE> Reader                   :     Error: "False" [Calculates errors (default False)]
+--- Reader                   : Booking "BDT_output_t2bw025_R1" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg1.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg1.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- DataSetInfo              : Added class "Signal"	 with internal class number 0
+--- DataSetInfo              : Added class "Background"	 with internal class number 1
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw025_R3" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg3.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg3.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw025_R4" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg4.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg4.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw025_R6" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg6.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw025_Reg6.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw050_R1" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg1.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg1.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- DataSetInfo              : Added class "Signal"	 with internal class number 0
+--- DataSetInfo              : Added class "Background"	 with internal class number 1
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw050_R3" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg3.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg3.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw050_R4" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg4.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg4.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw050_R5" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg5.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg5.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw050_R6" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg6.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw050_Reg6.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw075_R1" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg1.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg1.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- DataSetInfo              : Added class "Signal"	 with internal class number 0
+--- DataSetInfo              : Added class "Background"	 with internal class number 1
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw075_R2" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg2.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg2.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw075_R3" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg3.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg3.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2bw075_R5" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg5.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5/BDT_t2bw075_Reg5.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2tt_R1" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt/BDT_t2tt_Reg1.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt/BDT_t2tt_Reg1.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- DataSetInfo              : Added class "Signal"	 with internal class number 0
+--- DataSetInfo              : Added class "Background"	 with internal class number 1
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2tt_R2" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt/BDT_t2tt_Reg2.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt/BDT_t2tt_Reg2.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- DataSetInfo              : Added class "Signal"	 with internal class number 0
+--- DataSetInfo              : Added class "Background"	 with internal class number 1
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+--- Reader                   : Booking "BDT_output_t2tt_R5" of type "BDT" from /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt/BDT_t2tt_Reg5.weights.xml.
+--- MethodBase               : Reading weight file: /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt/BDT_t2tt_Reg5.weights.xml
+--- BDT                      : Read method "BDT" of type "BDT"
+--- BDT                      : MVA method was trained with TMVA Version: 4.1.2
+--- BDT                      : MVA method was trained with ROOT Version: 5.32/00
+--- Reader                   : Booked classifier "BDT" of type: "BDT"
+  [Progress]  [>                                                 ]   0%     (0 / 1658266)  [Progress]  [=================================================>]  99%     (1658266 / 1658266)
+Warning in <TStreamerInfo::Build:>: TStreamerBase: base class TStreamerElement has no streamer or dictionary it will not be saved
+*** glibc detected *** ./runExtender: corrupted double-linked list: 0x0000000003a1d060 ***
+======= Backtrace: =========
+/lib64/libc.so.6(+0x76166)[0x2b1d01796166]
+/lib64/libc.so.6(+0x78f81)[0x2b1d01798f81]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN7TBranchD2Ev+0x91)[0x2b1d000c4cf1]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN14TBranchElementD1Ev+0x22b)[0x2b1d000d5f8b]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN14TBranchElementD0Ev+0x9)[0x2b1d000d6249]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN11TCollection14GarbageCollectEP7TObject+0x79)[0x2b1cfe4ce639]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN9TObjArray6DeleteEPKc+0x31)[0x2b1cfe4d51a1]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN7TBranchD2Ev+0x191)[0x2b1d000c4df1]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN14TBranchElementD1Ev+0x22b)[0x2b1d000d5f8b]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN14TBranchElementD0Ev+0x9)[0x2b1d000d6249]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN11TCollection14GarbageCollectEP7TObject+0x79)[0x2b1cfe4ce639]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN9TObjArray6DeleteEPKc+0x31)[0x2b1cfe4d51a1]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN5TTreeD2Ev+0x160)[0x2b1d001082a0]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libTree.so(_ZN5TTreeD0Ev+0x9)[0x2b1d00108659]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN11TCollection14GarbageCollectEP7TObject+0x79)[0x2b1cfe4ce639]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN5TList6DeleteEPKc+0x1a5)[0x2b1cfe4d1cc5]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libRIO.so(_ZN14TDirectoryFile5CloseEPKc+0xc2)[0x2b1cff4bdf02]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libRIO.so(_ZN5TFile5CloseEPKc+0xe3)[0x2b1cff4cada3]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libRIO.so(_ZN5TFileD1Ev+0x27)[0x2b1cff4cb117]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libRIO.so(_ZN5TFileD0Ev+0x9)[0x2b1cff4cb3d9]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN11TCollection14GarbageCollectEP7TObject+0x79)[0x2b1cfe4ce639]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN5TList6DeleteEPKc+0x145)[0x2b1cfe4d1c65]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(_ZN5TROOTD1Ev+0xe3)[0x2b1cfe489f53]
+/lib64/libc.so.6(__cxa_finalize+0x9d)[0x2b1d017561bd]
+/afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/external/slc6_amd64_gcc472/lib/libCore.so(+0x176cd3)[0x2b1cfe44bcd3]
+======= Memory map: ========
+00400000-0041b000 r-xp 00000000 00:15 4941894                            /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender/runExtender
+0041b000-0041c000 rw-p 0001a000 00:15 4941894                            /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender/runExtender
+01b60000-045b8000 rw-p 00000000 00:00 0                                  [heap]
+2b1cfdeb2000-2b1cfded2000 r-xp 00000000 09:01 917522                     /lib64/ld-2.12.so
+2b1cfded2000-2b1cfded3000 rw-p 00000000 00:00 0 
+2b1cfded4000-2b1cfded5000 rw-p 00000000 00:00 0 
+2b1cfe0d1000-2b1cfe0d2000 r--p 0001f000 09:01 917522                     /lib64/ld-2.12.so
+2b1cfe0d2000-2b1cfe0d3000 rw-p 00020000 09:01 917522                     /lib64/ld-2.12.so
+2b1cfe0d3000-2b1cfe0d4000 rw-p 00000000 00:00 0 
+2b1cfe0d4000-2b1cfe0d5000 r-xp 00000000 09:01 917911                     /lib64/snoopy.so
+2b1cfe0d5000-2b1cfe2d4000 ---p 00001000 09:01 917911                     /lib64/snoopy.so
+2b1cfe2d4000-2b1cfe2d5000 rw-p 00000000 09:01 917911                     /lib64/snoopy.so
+2b1cfe2d5000-2b1cfe99c000 r-xp 00000000 00:15 934028728                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+2b1cfe99c000-2b1cfe9d2000 rw-p 006c6000 00:15 934028728                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCore.so
+2b1cfe9d2000-2b1cfea53000 rw-p 00000000 00:00 0 
+2b1cfea53000-2b1cfec90000 r-xp 00000000 00:15 934028720                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+2b1cfec90000-2b1cfec98000 rw-p 0023c000 00:15 934028720                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCint.so
+2b1cfec98000-2b1cff451000 rw-p 00000000 00:00 0 
+2b1cff451000-2b1cff647000 r-xp 00000000 00:15 934028922                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libRIO.so
+2b1cff647000-2b1cff653000 rw-p 001f5000 00:15 934028922                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libRIO.so
+2b1cff653000-2b1cff656000 rw-p 00000000 00:00 0 
+2b1cff656000-2b1cff7bf000 r-xp 00000000 00:15 934028864                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libNet.so
+2b1cff7bf000-2b1cff7d0000 rw-p 00168000 00:15 934028864                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libNet.so
+2b1cff7d0000-2b1cff7d7000 rw-p 00000000 00:00 0 
+2b1cff7d7000-2b1cffc2d000 r-xp 00000000 00:15 934028824                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libHist.so
+2b1cffc2d000-2b1cffc54000 rw-p 00455000 00:15 934028824                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libHist.so
+2b1cffc54000-2b1cffc5b000 rw-p 00000000 00:00 0 
+2b1cffc5b000-2b1cffdf8000 r-xp 00000000 00:15 934028800                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libGraf.so
+2b1cffdf8000-2b1cffe08000 rw-p 0019c000 00:15 934028800                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libGraf.so
+2b1cffe08000-2b1cffe15000 rw-p 00000000 00:00 0 
+2b1cffe15000-2b1cfff30000 r-xp 00000000 00:15 934028804                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libGraf3d.so
+2b1cfff30000-2b1cfff3c000 rw-p 0011b000 00:15 934028804                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libGraf3d.so
+2b1cfff3c000-2b1cfff41000 rw-p 00000000 00:00 0 
+2b1cfff41000-2b1d00027000 r-xp 00000000 00:15 934028796                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libGpad.so
+2b1d00027000-2b1d00032000 rw-p 000e6000 00:15 934028796                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libGpad.so
+2b1d00032000-2b1d00034000 rw-p 00000000 00:00 0 
+2b1d00034000-2b1d0024f000 r-xp 00000000 00:15 934028982                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libTree.so
+2b1d0024f000-2b1d00263000 rw-p 0021b000 00:15 934028982                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libTree.so
+2b1d00263000-2b1d00267000 rw-p 00000000 00:00 0 
+2b1d00267000-2b1d00299000 r-xp 00000000 00:15 934028936                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libRint.so
+2b1d00299000-2b1d0029c000 rw-p 00031000 00:15 934028936                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libRint.so
+2b1d0029c000-2b1d0029d000 rw-p 00000000 00:00 0 
+2b1d0029d000-2b1d002eb000 r-xp 00000000 00:15 934028878                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libPostscript.so
+2b1d002eb000-2b1d002ee000 rw-p 0004d000 00:15 934028878                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libPostscript.so
+2b1d002ee000-2b1d002ef000 rw-p 00000000 00:00 0 
+2b1d002ef000-2b1d0053a000 r-xp 00000000 00:15 934028848                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMatrix.so
+2b1d0053a000-2b1d00549000 rw-p 0024a000 00:15 934028848                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMatrix.so
+2b1d00549000-2b1d0054d000 rw-p 00000000 00:00 0 
+2b1d0054d000-2b1d005ea000 r-xp 00000000 00:15 934028874                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libPhysics.so
+2b1d005ea000-2b1d005ef000 rw-p 0009d000 00:15 934028874                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libPhysics.so
+2b1d005ef000-2b1d005f1000 rw-p 00000000 00:00 0 
+2b1d005f1000-2b1d00808000 r-xp 00000000 00:15 934028840                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMathCore.so
+2b1d00808000-2b1d00814000 rw-p 00217000 00:15 934028840                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMathCore.so
+2b1d00814000-2b1d0081b000 rw-p 00000000 00:00 0 
+2b1d0081b000-2b1d00869000 r-xp 00000000 00:15 934028978                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libThread.so
+2b1d00869000-2b1d0086e000 rw-p 0004e000 00:15 934028978                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libThread.so
+2b1d0086e000-2b1d0086f000 rw-p 00000000 00:00 0 
+2b1d00891000-2b1d00893000 r-xp 00000000 09:01 917542                     /lib64/libdl-2.12.so
+2b1d00893000-2b1d00a93000 ---p 00002000 09:01 917542                     /lib64/libdl-2.12.so
+2b1d00a93000-2b1d00a94000 r--p 00002000 09:01 917542                     /lib64/libdl-2.12.so
+2b1d00a94000-2b1d00a95000 rw-p 00003000 09:01 917542                     /lib64/libdl-2.12.so
+2b1d00a95000-2b1d00a96000 rw-p 00000000 00:00 0 
+2b1d00a96000-2b1d00afa000 r-xp 00000000 00:15 934028736                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libEG.so
+2b1d00afa000-2b1d00afe000 rw-p 00064000 00:15 934028736                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libEG.so
+2b1d00afe000-2b1d00b5c000 rw-p 00000000 00:00 0 
+2b1d00b5c000-2b1d00b6b000 r-xp 00000000 00:15 5082580                    /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender/vectorDictionary_C.so
+2b1d00b6b000-2b1d00b6c000 rw-p 0000f000 00:15 5082580                    /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender/vectorDictionary_C.so
+2b1d00b6c000-2b1d0112a000 r-xp 00000000 00:15 934028970                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libTMVA.so
+2b1d0112a000-2b1d0115a000 rw-p 005be000 00:15 934028970                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libTMVA.so
+2b1d0115a000-2b1d01166000 rw-p 00000000 00:00 0 
+2b1d01166000-2b1d01249000 r-xp 00000000 00:15 933563836                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/gcc/4.7.2-cms/lib64/libstdc++.so.6.0.17
+2b1d01249000-2b1d01251000 r--p 000e2000 00:15 933563836                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/gcc/4.7.2-cms/lib64/libstdc++.so.6.0.17
+2b1d01251000-2b1d01253000 rw-p 000ea000 00:15 933563836                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/gcc/4.7.2-cms/lib64/libstdc++.so.6.0.17
+2b1d01253000-2b1d01268000 rw-p 00000000 00:00 0 
+2b1d01268000-2b1d012eb000 r-xp 00000000 09:01 917546                     /lib64/libm-2.12.so
+2b1d012eb000-2b1d014ea000 ---p 00083000 09:01 917546                     /lib64/libm-2.12.so
+2b1d014ea000-2b1d014eb000 r--p 00082000 09:01 917546                     /lib64/libm-2.12.so
+2b1d014eb000-2b1d014ec000 rw-p 00083000 09:01 917546                     /lib64/libm-2.12.so
+2b1d014ec000-2b1d01501000 r-xp 00000000 00:15 933563764                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/gcc/4.7.2-cms/lib64/libgcc_s.so.1
+2b1d01501000-2b1d01502000 rw-p 00014000 00:15 933563764                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/gcc/4.7.2-cms/lib64/libgcc_s.so.1
+2b1d01502000-2b1d01503000 rw-p 00000000 00:00 0 
+2b1d01503000-2b1d0151a000 r-xp 00000000 09:01 917540                     /lib64/libpthread-2.12.so
+2b1d0151a000-2b1d0171a000 ---p 00017000 09:01 917540                     /lib64/libpthread-2.12.so
+2b1d0171a000-2b1d0171b000 r--p 00017000 09:01 917540                     /lib64/libpthread-2.12.so
+2b1d0171b000-2b1d0171c000 rw-p 00018000 09:01 917540                     /lib64/libpthread-2.12.so
+2b1d0171c000-2b1d01720000 rw-p 00000000 00:00 0 
+2b1d01720000-2b1d018ab000 r-xp 00000000 09:01 917516                     /lib64/libc-2.12.so
+2b1d018ab000-2b1d01aaa000 ---p 0018b000 09:01 917516                     /lib64/libc-2.12.so
+2b1d01aaa000-2b1d01aae000 r--p 0018a000 09:01 917516                     /lib64/libc-2.12.so
+2b1d01aae000-2b1d01aaf000 rw-p 0018e000 09:01 917516                     /lib64/libc-2.12.so
+2b1d01aaf000-2b1d01ab4000 rw-p 00000000 00:00 0 
+2b1d01ab4000-2b1d01aca000 r-xp 00000000 00:15 933561624                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/zlib/1.2.3-cms/lib/libz.so.1.2.3
+2b1d01aca000-2b1d01acb000 rw-p 00016000 00:15 933561624                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/zlib/1.2.3-cms/lib/libz.so.1.2.3
+2b1d01acb000-2b1d01acc000 rw-p 00000000 00:00 0 
+2b1d01acc000-2b1d01af2000 r-xp 00000000 00:15 933571878                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/xz/5.0.3-cms/lib/liblzma.so.5.0.3
+2b1d01af2000-2b1d01af3000 rw-p 00025000 00:15 933571878                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/xz/5.0.3-cms/lib/liblzma.so.5.0.3
+2b1d01af3000-2b1d01b20000 r-xp 00000000 00:15 933570394                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/pcre/7.9-cms/lib/libpcre.so.0.0.1
+2b1d01b20000-2b1d01b21000 rw-p 0002d000 00:15 933570394                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/pcre/7.9-cms/lib/libpcre.so.0.0.1
+2b1d01b21000-2b1d01b28000 r-xp 00000000 09:01 917520                     /lib64/libcrypt-2.12.so
+2b1d01b28000-2b1d01d28000 ---p 00007000 09:01 917520                     /lib64/libcrypt-2.12.so
+2b1d01d28000-2b1d01d29000 r--p 00007000 09:01 917520                     /lib64/libcrypt-2.12.so
+2b1d01d29000-2b1d01d2a000 rw-p 00008000 09:01 917520                     /lib64/libcrypt-2.12.so
+2b1d01d2a000-2b1d01d59000 rw-p 00000000 00:00 0 
+2b1d01d59000-2b1d01e9e000 r-xp 00000000 00:15 933564214                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/openssl/0.9.8e__1.0.1-cms/lib/libcrypto.so.6
+2b1d01e9e000-2b1d01ebf000 rw-p 00144000 00:15 933564214                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/openssl/0.9.8e__1.0.1-cms/lib/libcrypto.so.6
+2b1d01ebf000-2b1d01ec3000 rw-p 00000000 00:00 0 
+2b1d01ec3000-2b1d01f0c000 r-xp 00000000 00:15 933564218                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/openssl/0.9.8e__1.0.1-cms/lib/libssl.so.6
+2b1d01f0c000-2b1d01f12000 rw-p 00049000 00:15 933564218                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/openssl/0.9.8e__1.0.1-cms/lib/libssl.so.6
+2b1d01f12000-2b1d01f13000 rw-p 00000000 00:00 0 
+2b1d01f13000-2b1d01fa7000 r-xp 00000000 09:01 1852162                    /usr/lib64/libfreetype.so.6.3.22
+2b1d01fa7000-2b1d021a6000 ---p 00094000 09:01 1852162                    /usr/lib64/libfreetype.so.6.3.22
+2b1d021a6000-2b1d021ac000 rw-p 00093000 09:01 1852162                    /usr/lib64/libfreetype.so.6.3.22
+2b1d021ac000-2b1d021ad000 rw-p 00000000 00:00 0 
+2b1d021ad000-2b1d02239000 r-xp 00000000 00:15 933800092                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/nss/3.12.9-cms3/lib/libfreebl3.so
+2b1d02239000-2b1d0223b000 rw-p 0008b000 00:15 933800092                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/nss/3.12.9-cms3/lib/libfreebl3.so
+2b1d0223b000-2b1d0223f000 rw-p 00000000 00:00 0 
+2b1d0223f000-2b1d02259000 r-xp 00000000 00:15 1472148358                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreFWLite.so
+2b1d02259000-2b1d0225b000 rw-p 0001a000 00:15 1472148358                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreFWLite.so
+2b1d0225b000-2b1d0225c000 rw-p 00000000 00:00 0 
+2b1d0225c000-2b1d022b1000 r-xp 00000000 00:15 1472148166                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsFWLite.so
+2b1d022b1000-2b1d022b5000 rw-p 00054000 00:15 1472148166                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsFWLite.so
+2b1d022b5000-2b1d022b6000 rw-p 00000000 00:00 0 
+2b1d022b6000-2b1d025fb000 r-xp 00000000 00:15 934032252                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/roofit/5.32.03/lib/libRooFit.so
+2b1d025fb000-2b1d02629000 rw-p 00345000 00:15 934032252                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/roofit/5.32.03/lib/libRooFit.so
+2b1d02629000-2b1d02632000 rw-p 00000000 00:00 0 
+2b1d02632000-2b1d0266f000 r-xp 00000000 00:15 934028754                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libFoam.so
+2b1d0266f000-2b1d02672000 rw-p 0003d000 00:15 934028754                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libFoam.so
+2b1d02672000-2b1d026f4000 r-xp 00000000 00:15 934028856                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMinuit.so
+2b1d026f4000-2b1d026f8000 rw-p 00082000 00:15 934028856                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMinuit.so
+2b1d026f8000-2b1d026f9000 rw-p 00000000 00:00 0 
+2b1d026f9000-2b1d028ec000 r-xp 00000000 00:15 934028844                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMathMore.so
+2b1d028ec000-2b1d028fb000 rw-p 001f2000 00:15 934028844                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMathMore.so
+2b1d028fb000-2b1d02901000 rw-p 00000000 00:00 0 
+2b1d02901000-2b1d03123000 r-xp 00000000 00:15 934032256                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/roofit/5.32.03/lib/libRooFitCore.so
+2b1d03123000-2b1d03170000 rw-p 00822000 00:15 934032256                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/roofit/5.32.03/lib/libRooFitCore.so
+2b1d03170000-2b1d0318a000 rw-p 00000000 00:00 0 
+2b1d0318a000-2b1d03328000 r-xp 00000000 00:15 934028986                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libTreePlayer.so
+2b1d03328000-2b1d03334000 rw-p 0019d000 00:15 934028986                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libTreePlayer.so
+2b1d03334000-2b1d0333b000 rw-p 00000000 00:00 0 
+2b1d0333b000-2b1d03385000 r-xp 00000000 00:15 934028836                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMLP.so
+2b1d03385000-2b1d03396000 rw-p 00049000 00:15 934028836                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libMLP.so
+2b1d03396000-2b1d03417000 r-xp 00000000 00:15 934029002                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libXMLIO.so
+2b1d03417000-2b1d0341c000 rw-p 00080000 00:15 934029002                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libXMLIO.so
+2b1d0341c000-2b1d0341d000 rw-p 00000000 00:00 0 
+2b1d0341d000-2b1d0345e000 r-xp 00000000 09:01 917636                     /lib64/libgssapi_krb5.so.2.2
+2b1d0345e000-2b1d0365e000 ---p 00041000 09:01 917636                     /lib64/libgssapi_krb5.so.2.2
+2b1d0365e000-2b1d0365f000 r--p 00041000 09:01 917636                     /lib64/libgssapi_krb5.so.2.2
+2b1d0365f000-2b1d03661000 rw-p 00042000 09:01 917636                     /lib64/libgssapi_krb5.so.2.2
+2b1d03661000-2b1d0373c000 r-xp 00000000 09:01 917642                     /lib64/libkrb5.so.3.3
+2b1d0373c000-2b1d0393b000 ---p 000db000 09:01 917642                     /lib64/libkrb5.so.3.3
+2b1d0393b000-2b1d03945000 r--p 000da000 09:01 917642                     /lib64/libkrb5.so.3.3
+2b1d03945000-2b1d03947000 rw-p 000e4000 09:01 917642                     /lib64/libkrb5.so.3.3
+2b1d03947000-2b1d0394a000 r-xp 00000000 09:01 917952                     /lib64/libcom_err.so.2.1
+2b1d0394a000-2b1d03b49000 ---p 00003000 09:01 917952                     /lib64/libcom_err.so.2.1
+2b1d03b49000-2b1d03b4a000 r--p 00002000 09:01 917952                     /lib64/libcom_err.so.2.1
+2b1d03b4a000-2b1d03b4b000 rw-p 00003000 09:01 917952                     /lib64/libcom_err.so.2.1
+2b1d03b4b000-2b1d03b4c000 rw-p 00000000 00:00 0 
+2b1d03b4c000-2b1d03b75000 r-xp 00000000 09:01 917640                     /lib64/libk5crypto.so.3.1
+2b1d03b75000-2b1d03d75000 ---p 00029000 09:01 917640                     /lib64/libk5crypto.so.3.1
+2b1d03d75000-2b1d03d76000 r--p 00029000 09:01 917640                     /lib64/libk5crypto.so.3.1
+2b1d03d76000-2b1d03d77000 rw-p 0002a000 09:01 917640                     /lib64/libk5crypto.so.3.1
+2b1d03d77000-2b1d03d78000 rw-p 00000000 00:00 0 
+2b1d03d78000-2b1d03e33000 r-xp 00000000 00:15 1472148138                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsCommon.so
+2b1d03e33000-2b1d03e39000 rw-p 000ba000 00:15 1472148138                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsCommon.so
+2b1d03e39000-2b1d03e3e000 rw-p 00000000 00:00 0 
+2b1d03e3e000-2b1d03fc3000 r-xp 00000000 00:15 1472148232                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsProvenance.so
+2b1d03fc3000-2b1d03fc9000 rw-p 00185000 00:15 1472148232                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsProvenance.so
+2b1d03fc9000-2b1d03fd0000 rw-p 00000000 00:00 0 
+2b1d03fd0000-2b1d03ff2000 r-xp 00000000 00:15 1472148380                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreRootAutoLibraryLoader.so
+2b1d03ff2000-2b1d03ff4000 rw-p 00021000 00:15 1472148380                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreRootAutoLibraryLoader.so
+2b1d03ff4000-2b1d03ff5000 rw-p 00000000 00:00 0 
+2b1d03ff5000-2b1d04031000 r-xp 00000000 00:15 1472148368                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreMessageLogger.so
+2b1d04031000-2b1d04033000 rw-p 0003c000 00:15 1472148368                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreMessageLogger.so
+2b1d04033000-2b1d04058000 r-xp 00000000 00:15 1472148374                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCorePluginManager.so
+2b1d04058000-2b1d0405a000 rw-p 00024000 00:15 1472148374                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCorePluginManager.so
+2b1d0405a000-2b1d042dd000 r-xp 00000000 00:15 1472148262                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsStdDictionaries.so
+2b1d042dd000-2b1d042e6000 rw-p 00283000 00:15 1472148262                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libDataFormatsStdDictionaries.so
+2b1d042e6000-2b1d042f5000 rw-p 00000000 00:00 0 
+2b1d042f5000-2b1d04368000 r-xp 00000000 00:15 1472148394                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreUtilities.so
+2b1d04368000-2b1d0436c000 rw-p 00073000 00:15 1472148394                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreUtilities.so
+2b1d0436c000-2b1d04389000 r-xp 00000000 00:15 933817572                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_filesystem.so.1.47.0
+2b1d04389000-2b1d0438a000 rw-p 0001d000 00:15 933817572                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_filesystem.so.1.47.0
+2b1d0438a000-2b1d0438b000 rw-p 00000000 00:00 0 
+2b1d0438b000-2b1d043b8000 r-xp 00000000 00:15 934028724                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCintex.so
+2b1d043b8000-2b1d043ba000 rw-p 0002c000 00:15 934028724                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libCintex.so
+2b1d043ba000-2b1d04497000 r-xp 00000000 00:15 933817624                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_regex.so.1.47.0
+2b1d04497000-2b1d0449d000 rw-p 000dc000 00:15 933817624                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_regex.so.1.47.0
+2b1d0449d000-2b1d044a0000 r-xp 00000000 00:15 933817636                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_system.so.1.47.0
+2b1d044a0000-2b1d044a1000 rw-p 00002000 00:15 933817636                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_system.so.1.47.0
+2b1d044a1000-2b1d044a2000 rw-p 00000000 00:00 0 
+2b1d044a2000-2b1d04537000 r-xp 00000000 00:15 934028928                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libReflex.so
+2b1d04537000-2b1d0453d000 rw-p 00094000 00:15 934028928                  /afs/cern.ch/cms/slc6_amd64_gcc472/lcg/root/5.32.00/lib/libReflex.so
+2b1d0453d000-2b1d04556000 r-xp 00000000 00:15 933817640                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_thread.so.1.47.0
+2b1d04556000-2b1d04558000 rw-p 00018000 00:15 933817640                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_thread.so.1.47.0
+2b1d04558000-2b1d04559000 rw-p 00000000 00:00 0 
+2b1d04559000-2b1d04570000 r-xp 00000000 00:15 933817632                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_signals.so.1.47.0
+2b1d04570000-2b1d04571000 rw-p 00017000 00:15 933817632                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_signals.so.1.47.0
+2b1d04571000-2b1d04580000 r-xp 00000000 00:15 933817568                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_date_time.so.1.47.0
+2b1d04580000-2b1d04582000 rw-p 0000e000 00:15 933817568                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/boost/1.47.0/lib/libboost_date_time.so.1.47.0
+2b1d04582000-2b1d04585000 r-xp 00000000 00:15 933565556                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/libuuid/2.22.2-cms2/lib64/libuuid.so.1
+2b1d04585000-2b1d04586000 rw-p 00002000 00:15 933565556                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/libuuid/2.22.2-cms2/lib64/libuuid.so.1
+2b1d04586000-2b1d04587000 rw-p 00000000 00:00 0 
+2b1d04587000-2b1d0459d000 r-xp 00000000 09:01 917576                     /lib64/libnsl-2.12.so
+2b1d0459d000-2b1d0479c000 ---p 00016000 09:01 917576                     /lib64/libnsl-2.12.so
+2b1d0479c000-2b1d0479d000 r--p 00015000 09:01 917576                     /lib64/libnsl-2.12.so
+2b1d0479d000-2b1d0479e000 rw-p 00016000 09:01 917576                     /lib64/libnsl-2.12.so
+2b1d0479e000-2b1d047a0000 rw-p 00000000 00:00 0 
+2b1d047a0000-2b1d047a7000 r-xp 00000000 09:01 917947                     /lib64/librt-2.12.so
+2b1d047a7000-2b1d049a6000 ---p 00007000 09:01 917947                     /lib64/librt-2.12.so
+2b1d049a6000-2b1d049a7000 r--p 00006000 09:01 917947                     /lib64/librt-2.12.so
+2b1d049a7000-2b1d049a8000 rw-p 00007000 09:01 917947                     /lib64/librt-2.12.so
+2b1d049a8000-2b1d049ac000 r-xp 00000000 00:15 933663446                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/sigcpp/2.2.10-cms/lib/libsigc-2.0.so.0.0.0
+2b1d049ac000-2b1d049ad000 rw-p 00004000 00:15 933663446                  /afs/cern.ch/cms/slc6_amd64_gcc472/external/sigcpp/2.2.10-cms/lib/libsigc-2.0.so.0.0.0
+2b1d049ad000-2b1d049ae000 rw-p 00000000 00:00 0 
+2b1d049ae000-2b1d049c5000 r-xp 00000000 00:15 1472148356                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreCommon.so
+2b1d049c5000-2b1d049c7000 rw-p 00016000 00:15 1472148356                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreCommon.so
+2b1d049c7000-2b1d04a80000 r-xp 00000000 00:15 1472148372                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreParameterSet.so
+2b1d04a80000-2b1d04a86000 rw-p 000b8000 00:15 1472148372                 /afs/cern.ch/cms/slc6_amd64_gcc472/cms/cmssw/CMSSW_5_3_14/lib/slc6_amd64_gcc472/libFWCoreParameterSet.so
+2b1d04a86000-2b1d04a87000 rw-p 00000000 00:00 0 
+2b1d04a87000-2b1d04a91000 r-xp 00000000 09:01 917644                     /lib64/libkrb5support.so.0.1
+2b1d04a91000-2b1d04c90000 ---p 0000a000 09:01 917644                     /lib64/libkrb5support.so.0.1
+2b1d04c90000-2b1d04c91000 r--p 00009000 09:01 917644                     /lib64/libkrb5support.so.0.1
+2b1d04c91000-2b1d04c92000 rw-p 0000a000 09:01 917644                     /lib64/libkrb5support.so.0.1
+2b1d04c92000-2b1d04c93000 rw-p 00000000 00:00 0 
+2b1d04c93000-2b1d04c95000 r-xp 00000000 09:01 917635                     /lib64/libkeyutils.so.1.3
+2b1d04c95000-2b1d04e94000 ---p 00002000 09:01 917635                     /lib64/libkeyutils.so.1.3
+2b1d04e94000-2b1d04e95000 r--p 00001000 09:01 917635                     /lib64/libkeyutils.so.1.3
+2b1d04e95000-2b1d04e96000 rw-p 00002000 09:01 917635                     /lib64/libkeyutils.so.1.3
+2b1d04e96000-2b1d04eac000 r-xp 00000000 09:01 917945                     /lib64/libresolv-2.12.so
+2b1d04eac000-2b1d050ac000 ---p 00016000 09:01 917945                     /lib64/libresolv-2.12.so
+2b1d050ac000-2b1d050ad000 r--p 00016000 09:01 917945                     /lib64/libresolv-2.12.so
+2b1d050ad000-2b1d050ae000 rw-p 00017000 09:01 917945                     /lib64/libresolv-2.12.so
+2b1d050ae000-2b1d050b2000 rw-p 00000000 00:00 0 
+2b1d050b2000-2b1d050cf000 r-xp 00000000 09:01 917586                     /lib64/libselinux.so.1
+2b1d050cf000-2b1d052ce000 ---p 0001d000 09:01 917586                     /lib64/libselinux.so.1
+2b1d052ce000-2b1d052cf000 r--p 0001c000 09:01 917586                     /lib64/libselinux.so.1
+2b1d052cf000-2b1d052d0000 rw-p 0001d000 09:01 917586                     /lib64/libselinux.so.1
+2b1d052d0000-2b1d052de000 rw-p 00000000 00:00 0 
+2b1d052de000-2b1d052ea000 r-xp 00000000 09:01 917941                     /lib64/libnss_files-2.12.so
+2b1d052ea000-2b1d054ea000 ---p 0000c000 09:01 917941                     /lib64/libnss_files-2.12.so
+2b1d054ea000-2b1d054eb000 r--p 0000c000 09:01 917941                     /lib64/libnss_files-2.12.so
+2b1d054eb000-2b1d054ec000 rw-p 0000d000 09:01 917941                     /lib64/libnss_files-2.12.so
+2b1d054ec000-2b1d054f3000 r-xp 00000000 09:01 917679                     /lib64/libnss_sss.so.2
+2b1d054f3000-2b1d056f3000 ---p 00007000 09:01 917679                     /lib64/libnss_sss.so.2
+2b1d056f3000-2b1d056f4000 rw-p 00007000 09:01 917679                     /lib64/libnss_sss.so.2
+2b1d056f4000-2b1d05d72000 r--s 00000000 09:02 1294534                    /var/lib/sss/mc/passwd
+2b1d05d73000-2b1d05d74000 rw-p 00000000 00:00 0 
+2b1d05d74000-2b1d05da9000 r--s 00000000 09:02 737284                     /var/db/nscd/hosts
+2b1d05da9000-2b1d05dad000 rw-p 00000000 00:00 0 
+2b1d05dae000-2b1d05dbf000 rw-p 00000000 00:00 0 
+7fff11d6d000-7fff11db1000 rw-p 00000000 00:00 0                          [stack]
+7fff11de0000-7fff11de1000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender/batch_output/W+jets/src/W+jets.src: line 4: 30260 Aborted                 (core dumped) ./runExtender /afs/cern.ch/work/a/aaubin/stopBabies/W+jets.root /tmp/sigamani/W+jets.root met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB met,lepton_pT,njets,mlb_hemi,m3b,mT2W,dR_LepB,dPhi_JetMet,b1_pt met,lepton_pT,njets,jet1_pT,HT,mlb_hemi,m3b,mT2W,dPhi_JetMet met,lepton_pT,mlb_hemi,HTfrac,njets,dPhi_JetMet,b1_pt met,mT2W,HTfrac,njets,dPhi_JetMet,lepton_pT,dR_LepB,Chi2SNT,jet1_pT
+/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender/batch_output/W+jets/src/W+jets.src: line 4: eos: command not found
+[xrootd] Total 13.37 MB	|===========>........| 59.82 % [7.6 MB/s][xrootd] Total 13.37 MB	|====================| 100.00 % [11.3 MB/s]
+
+Job finished at Thu Jun 12 16:34:39 CEST 2014 on node 
+ under linux version Scientific Linux CERN SLC release 6.5 (Carbon)
+
+CERN statistics: This process used approximately : 0:01:11 KSI2K hours (71 KSI2K seconds)
+                 This process corresponds to     : 0:04:39 HS06  hours (279 HS06  seconds)

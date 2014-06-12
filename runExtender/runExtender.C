@@ -32,8 +32,7 @@ using namespace std;
 
 
 // Define format of input file
-#include "../Reader_final0210.h"
-#include "../Writer.h"
+#include "../Reader.h" 
 
 using namespace TMVA;
 
@@ -51,6 +50,7 @@ int main (int argc, char *argv[])
   TTree* theInputTree = (TTree*) fin->Get("babyTuple");
   TFile *fout = new TFile(argv[2],"recreate");
 
+//  TFile *file = TFile::Open("root://eoscms//eos/cms/store/caf/user/oglez/test/test.root");
 
 
   babyEvent myEvent;
@@ -785,7 +785,8 @@ int main (int argc, char *argv[])
 
 
 
-   TString BDT_dir = "weights_BDT_May5";
+   TString BDT_dir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5";
+   TString BDT_dir_t2tt = "/afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_11/src/readerSTOPS/weights_BDT_May5_t2tt";
 
 
    reader->BookMVA("BDT_output_t2bw025_R1",  BDT_dir + "/BDT_t2bw025_Reg1.weights.xml");
@@ -804,11 +805,13 @@ int main (int argc, char *argv[])
    reader_t2bw075->BookMVA("BDT_output_t2bw075_R3",  BDT_dir + "/BDT_t2bw075_Reg3.weights.xml");
    reader_t2bw075->BookMVA("BDT_output_t2bw075_R5",  BDT_dir + "/BDT_t2bw075_Reg5.weights.xml");
 
-   reader_t2ttOffShell->BookMVA("BDT_output_t2tt_R1",  BDT_dir + "/BDT_t2tt_Reg1.weights.xml");
-   reader_t2ttOnShell->BookMVA("BDT_output_t2tt_R2",  BDT_dir + "/BDT_t2tt_Reg2.weights.xml");
-   reader_t2ttOnShell->BookMVA("BDT_output_t2tt_R5",  BDT_dir + "/BDT_t2tt_Reg5.weights.xml");
+   reader_t2ttOffShell->BookMVA("BDT_output_t2tt_R1",  BDT_dir_t2tt + "/BDT_t2tt_Reg1.weights.xml");
+   reader_t2ttOnShell->BookMVA("BDT_output_t2tt_R2",  BDT_dir_t2tt + "/BDT_t2tt_Reg2.weights.xml");
+   reader_t2ttOnShell->BookMVA("BDT_output_t2tt_R5",  BDT_dir_t2tt + "/BDT_t2tt_Reg5.weights.xml");
 
+   vector<Float_t> BDToutputs_t2bw025, BDToutputs_t2bw050, BDToutputs_t2bw075, BDToutputs_t2tt;
    Int_t isUsedInBDT;
+
 
    theOutputTree->Branch("isUsedInBDT",     	    	    &(isUsedInBDT));
    theOutputTree->Branch("BDT_output_t2bw025_R1",     	    &(BDT_output_t2bw025_R1));
@@ -857,6 +860,8 @@ int main (int argc, char *argv[])
 
 
         if ( isSignal && ((myEvent.event%2)==1)) isUsedInBDT = 1;
+//        else if ( isTTbar && ((myEvent.event%2)==1))  isUsedInBDT = 1;
+ 
 		else isUsedInBDT = 0;
 
       

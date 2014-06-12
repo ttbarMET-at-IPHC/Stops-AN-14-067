@@ -1,0 +1,4 @@
+#!/bin/bash
+export SCRAM_ARCH=slc6_amd64_gcc472
+cd /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runExtender; eval `scramv1 runtime -sh`; source setup.sh; 
+./runExtender /afs/cern.ch/work/a/aaubin/stopBabies/MuEl.root /tmp/sigamani/MuEl.root met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB met,lepton_pT,njets,mlb_hemi,m3b,mT2W,dR_LepB,dPhi_JetMet,b1_pt met,lepton_pT,njets,jet1_pT,HT,mlb_hemi,m3b,mT2W,dPhi_JetMet met,lepton_pT,mlb_hemi,HTfrac,njets,dPhi_JetMet,b1_pt met,mT2W,HTfrac,njets,dPhi_JetMet,lepton_pT,dR_LepB,Chi2SNT,jet1_pT;eos rm root://eoscms//eos/cms/store/caf/user/sigamani/test//MuEl.root; xrdcp /tmp/sigamani/MuEl.root root://eoscms//eos/cms/store/caf/user/sigamani/test//MuEl.root; rm /tmp/sigamani/MuEl.root
