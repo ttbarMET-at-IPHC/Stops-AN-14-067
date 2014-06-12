@@ -159,9 +159,9 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
 
 
 	  if (lspmass > stopmass - 225)
-	    cutvalue = 0.3;
+	    cutvalue = 0.325;
 	  if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-	    cutvalue = 0.275;
+	    cutvalue = 0.350;
 		  if (lspmass <= stopmass - 275) {
 
 			cutvalue=0.250; if (lspmass <= stopmass - 400) cutvalue = 0.325;
@@ -215,9 +215,9 @@ TString returnSetup(TString decaymode, TString BDT){
 
 	else if (decaymode == "T2tt")
 	  {
-	    setup = "setup_105";
+	    setup = "setup_1";
 	    if (BDT == "BDT3")
-	      setup = "setup_6";
+	      setup = "setup_4";
 	    if (BDT == "BDT4")
 	      setup = "setup_7";
 	    if (BDT == "BDT5")
