@@ -9,18 +9,18 @@ pwd = os.environ['PWD']
 
 
 
-dataset_name 		= ['Single_Elec', 'Single_Muon', 'Double_Elec', 'Double_Muon', 'Muon_Elec', 'wjets_all', 'others_all', 'ttbar_1l', 'ttbar_2l']
+dataset_name 		= ['Single_Elec', 'Single_Muon', 'Double_Elec', 'Double_Muon', 'Muon_Elec', 'wjets_all', 'others_all', 'ttbar_MG_1l', 'ttbar_MG_2l']
 queue               	= "1nh" 
-executable         	= "runPlots" 
+executable         	= "runPlots2" 
 selection 		= ['0','1','2','3','4']		
-#lepton 			= ['0']		
-lepton 			= ['1','2']		
-additionalArguments 	= "met,lepton_pT,njets,mlb_hemi,m3b,mT2W,b1_pt,dPhi_JetMet,dR_LepB t2bw025"
+lepton 			= ['']		
+#lepton 			= ['1','2']		
+additionalArguments 	= ''		
 
 
 for z in range(len(dataset_name)):
 
-    inputlist = "../inputFileLists/"+dataset_name[z]+".list"
+    inputlist = "../inputFileLists_BDTInfo/"+dataset_name[z]+".list"
     outputdir = pwd+"/ntuples/"+dataset_name[z] 
 			     
     os.system("rm -r "+outputdir)
@@ -39,14 +39,15 @@ for z in range(len(dataset_name)):
            selectionname = 'BVeto'
         if selection[x] == '2':
            selectionname = 'Dilepton_2Leptons'
-        #   selectionname = 'Dilepton_FailsTrackOrTau'
+        if selection[x] == '3':
+           selectionname = 'Dilepton_FailsTrackOrTau'
         if selection[x] == '4':
            selectionname = 'MTPeak'
 
           
         for y in range(len(lepton)):
 
-            if lepton[y] == '0':
+            if lepton[y] == '':
                 leptonname = 'All'
             if lepton[y] == '1':
                 leptonname = 'Elec'

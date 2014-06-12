@@ -27,7 +27,7 @@ SOURCES       = $(wildcard src/*.cc)
 OBJECTS       = $(SOURCES:.$(SrcSuf)=.$(ObjSuf))
 #------------------------------------------------------------------------------
 
-all:	runPlots
+all:	runPlots MakeBDTtree_bkg
 
 %.o: %.c
 	$(CXX) $(CXXFLAGS) -c $<

@@ -9,9 +9,8 @@ import time
 pwd = os.environ['PWD']
 
 dataset_name 		= ['SingleElec', 'SingleMuon', 'DoubleElec', 'DoubleMuon', 'MuEl', 'W+jets', 'rare', 'singleTop_st', 'ttbar_powheg', 'ttbar_madgraph_1l', 'ttbar_madgraph_2l', 'T2bw-025', 'T2bw-050', 'T2bw-075', 'T2tt']
-#dataset_name 		= ['SingleElec', 'SingleMuon', 'DoubleElec', 'DoubleMuon'] 
 queue               	= "1nd" 
-outputEOSdir		= "root://eoscms//eos/cms/store/caf/user/sigamani/test/"
+outputEOSdir		= "root://eoscms//eos/cms/store/caf/user/sigamani/StopBabies/V00-05/"
 
 for z in range(len(dataset_name)):
 

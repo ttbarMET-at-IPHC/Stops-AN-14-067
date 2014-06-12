@@ -67,6 +67,7 @@ void InitializeBranchesForWriting(TTree* theTree, babyEvent* myEvent)
     theTree->Branch("weightPileUp",                                 &(myEvent->weightPileUp));
     theTree->Branch("weightISRmodeling",                            &(myEvent->weightISRmodeling));
     theTree->Branch("weightTopPt",                                  &(myEvent->weightTopPt));
+    theTree->Branch("weightTriggerEfficiency",                      &(myEvent->weightTriggerEfficiency));
     theTree->Branch("weightT2ttLeftHanded",                         &(myEvent->weightT2ttLeftHanded));
     theTree->Branch("weightT2ttRightHanded",                        &(myEvent->weightT2ttRightHanded));
     theTree->Branch("weightT2bwPolarization_ss",                    &(myEvent->weightT2bwPolarization_ss));
@@ -132,6 +133,20 @@ void InitializeBranchesForWriting(TTree* theTree, babyEvent* myEvent)
     theTree->Branch("flavor_firstIncomingParton",   &(myEvent->flavor_firstIncomingParton));  
     theTree->Branch("flavor_secondIncomingParton",  &(myEvent->flavor_secondIncomingParton)); 
     theTree->Branch("scalePDF",                     &(myEvent->scalePDF));                   
+
+    theTree->Branch("leadingLeptonIdEfficiency",                     &(myEvent->leadingLeptonIdEfficiency));                   
+    theTree->Branch("leadingLeptonIsoScaleFactor",                     &(myEvent->leadingLeptonIsoScaleFactor));                   
+    theTree->Branch("secondLeptonIdEfficiency",                     &(myEvent->secondLeptonIdEfficiency));                   
+    theTree->Branch("secondLeptonIsoScaleFactor",                     &(myEvent->secondLeptonIsoScaleFactor));                   
+    theTree->Branch("nBTag_JESup",                     &(myEvent->nBTag_JESup));                   
+    theTree->Branch("jets_JESup",                     &(myEvent->jets_JESup));                   
+    theTree->Branch("jets_CSV_raw_JESup",                     &(myEvent->jets_CSV_raw_JESup));                   
+    theTree->Branch("jets_CSV_reshaped_JESup",                     &(myEvent->jets_CSV_reshaped_JESup));                   
+    theTree->Branch("nBTag_JESdown",                     &(myEvent->nBTag_JESdown));                   
+    theTree->Branch("jets_JESdown",                     &(myEvent->jets_JESdown));                   
+    theTree->Branch("jets_CSV_raw_JESdown",                     &(myEvent->jets_CSV_raw_JESdown));                   
+    theTree->Branch("jets_CSV_reshaped_JESdown",                     &(myEvent->jets_CSV_reshaped_JESdown));                   
+    theTree->Branch("METPhi",                     &(myEvent->METPhi));                   
 
 }
 
