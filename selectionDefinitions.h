@@ -5,7 +5,7 @@
 #define NLEP_CUT  1
 
 
-#include "Reader_final0210.h"
+#include "Reader_newFinal0603.h"
 
 // NB : When you call any of the following functions,
 // these three variables must be filled with the current
@@ -44,7 +44,6 @@ bool goesInPreVetoSelectionMTinverted() { return (goesInPreVetoSelection() && go
 
 bool goesInPreselection() 
 {
-
     if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false; 
@@ -76,35 +75,30 @@ bool goesIn0BtagControlRegionMTinverted() { return (goesIn0BtagControlRegion() &
 
 bool goesInDileptonControlRegion() 
 {
-
-    // Apply double-lepton trigger requirement (for both MC and data)
-    if ((!myEvent.triggerMuonElec) 
-     && (!myEvent.triggerDoubleMuon)
-     && (!myEvent.triggerDoubleElec)) return false;
-    
-    if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != 2) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
     if (myEvent.nBTag < NBJET_CUT)  return false;
+    if (myEvent.MET < MET_CUT) return false;
+
+    // Remove same-sign events
+    if ((myEvent.leadingLeptonPDGId < 0) && (myEvent.secondLeptonPDGId < 0)) return false;
+    if ((myEvent.leadingLeptonPDGId > 0) && (myEvent.secondLeptonPDGId > 0)) return false;
+    
+    // Remove Z mass peak
+    if (((myEvent.leadingLepton + myEvent.secondLepton).M() - 91) > 15) return false;
 
     return true; 
 }
 
 bool goesInVetosControlRegion() 
 {
-
-    // Apply double-lepton trigger requirement (for both MC and data)
-    if ((!myEvent.triggerMuonElec) 
-     && (!myEvent.triggerDoubleMuon)
-     && (!myEvent.triggerDoubleElec)) return false;
-   
-    if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
     if (myEvent.nBTag < NBJET_CUT)  return false;
+    if (myEvent.MET < MET_CUT) return false;
 
-    // Apply vetos
-    if ( !((myEvent.isolatedTrackVeto == true ) || (myEvent.tauVeto == true))) return false; 
+    // Apply reversed vetos
+    if ((myEvent.isolatedTrackVeto) && (myEvent.tauVeto)) return false;
 
     return true; 
 }
@@ -123,6 +117,10 @@ bool goesInSingleElecChannel()
     {
         if ((sampleName != "SingleElec") || (!myEvent.triggerElec)) return false;
     }
+    
+    // Remove electrons with pT < 30 GeV
+    if (myEvent.leadingLepton.Pt() < 30)  return false;
+    
     // Keep only events with an electron as leading lepton
     return (abs(myEvent.leadingLeptonPDGId) == 11); 
 }
@@ -142,9 +140,6 @@ bool goesInSingleMuonChannel()
         if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
     }    
    
-    // TODO : remove this temporary fix for the eta(muon) < -2.1 after its propagated in the babyTuples
-    if (myEvent.leadingLepton.Eta() < -2.1) return false;
-
     // Keep only events with a muon as leading lepton
     return (abs(myEvent.leadingLeptonPDGId) == 13); 
 }
@@ -177,8 +172,6 @@ bool goesInDoubleElecChannel()
          && (abs(myEvent.secondLeptonPDGId)  == 11)); 
 }
 
-
-
 bool goesInDoubleMuonChannel() 
 { 
     // Keep only events with numberOfLepton == 2
@@ -192,8 +185,6 @@ bool goesInDoubleMuonChannel()
     return ((abs(myEvent.leadingLeptonPDGId) == 13) 
          && (abs(myEvent.secondLeptonPDGId)  == 13)); 
 }
-
-
 
 bool goesInMuonElecChannel() 
 { 
@@ -229,13 +220,12 @@ bool goesInDoubleLeptonChannel()
 
 float getLumi()
 {
-    // TODO : upload these numbers after missing lumi is recovered
-         if (goesInSingleElecChannel())  return 19154.0;
-    else if (goesInSingleMuonChannel())  return 19096.0;
-    else if (goesInMuonElecChannel  ())  return 19347.0;
-    else if (goesInDoubleMuonChannel())  return 14595.0;
-    else if (goesInDoubleElecChannel())  return 19216.0;
-    else                                                       return 0.0;
+         if (goesInSingleElecChannel())  return 19508.0;
+    else if (goesInSingleMuonChannel())  return 19514.0;
+    else if (goesInMuonElecChannel  ())  return 19513.0;
+    else if (goesInDoubleMuonChannel())  return 19504.0;
+    else if (goesInDoubleElecChannel())  return 19517.0;
+    else                                 return 0.0;
 }
 
 float getWeight()
@@ -250,9 +240,29 @@ float getWeight()
     weight *= myEvent.weightCrossSection * lumi;
 
     // Apply trigger efficiency weights for singleLepton channels
-    // TODO : Add trigger efficiency for dilepton in babyTuple
     if (myEvent.numberOfLepton == 1)
+    {
         weight *= myEvent.weightTriggerEfficiency;
+    }
+    // Apply trigger efficiency weights for doubleLepton channels
+    else if (myEvent.numberOfLepton == 2)
+    {
+        if (goesInDoubleElecChannel()) weight *= 0.96;
+        if (goesInDoubleMuonChannel()) weight *= 0.88;
+        if (goesInMuonElecChannel())   weight *= 0.93;
+    }
+
+    // Apply lepton ID efficiency and isolation scale factor to singleLepton channels
+    if (myEvent.numberOfLepton == 1)
+    {
+        weight *= myEvent.leadingLeptonIdEfficiency * myEvent.leadingLeptonIsoScaleFactor;
+    }
+    // TODO not sure about this, to be confirmed
+    else if (myEvent.numberOfLepton == 2)
+    {
+        weight *= myEvent.leadingLeptonIdEfficiency * myEvent.leadingLeptonIsoScaleFactor;
+        weight *= myEvent.secondLeptonIdEfficiency  * myEvent.secondLeptonIsoScaleFactor;
+    }
 
     // Apply pile-up weight 
     // TODO : Do we confirm we'll use also this for signal ?
