@@ -18,7 +18,7 @@ bool crossCheck_LM150(bool applyMTCut)
 bool preselection(bool applyMTCut)
 {
     if (applyMTCut) return goesInPreselectionMTtail();
-    else            return goesInPreselection() 
+    else            return goesInPreselection();
 }
 
 // ISR jet definition
