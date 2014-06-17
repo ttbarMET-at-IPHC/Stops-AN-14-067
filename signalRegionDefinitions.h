@@ -227,3 +227,80 @@ TString returnSetup(TString decaymode, TString BDT){
   return setup;
 
 }
+
+float BDToutput(string BDTregion)
+{
+
+         if (BDTregion == "T2tt_1"      )    return myEvent.BDT_output_t2tt_R1;
+    else if (BDTregion == "T2tt_2"      )    return myEvent.BDT_output_t2tt_R2;
+    else if (BDTregion == "T2tt_5_loose")    return myEvent.BDT_output_t2tt_R5;
+    else if (BDTregion == "T2tt_5_tight")    return myEvent.BDT_output_t2tt_R5;
+    
+    else if (BDTregion == "T2bw075_1"   )    return myEvent.BDT_output_t2bw075_R1;
+    else if (BDTregion == "T2bw075_2"   )    return myEvent.BDT_output_t2bw075_R2;
+    else if (BDTregion == "T2bw075_3"   )    return myEvent.BDT_output_t2bw075_R3;
+    else if (BDTregion == "T2bw075_5"   )    return myEvent.BDT_output_t2bw075_R5;
+
+    else if (BDTregion == "T2bw050_1_loose") return myEvent.BDT_output_t2bw050_R1;
+    else if (BDTregion == "T2bw050_1_tight") return myEvent.BDT_output_t2bw050_R1;
+    else if (BDTregion == "T2bw050_3"   )    return myEvent.BDT_output_t2bw050_R3;
+    else if (BDTregion == "T2bw050_4"   )    return myEvent.BDT_output_t2bw050_R4;
+    else if (BDTregion == "T2bw050_5"   )    return myEvent.BDT_output_t2bw050_R5;
+    else if (BDTregion == "T2bw050_6"   )    return myEvent.BDT_output_t2bw050_R6;
+
+    else if (BDTregion == "T2bw025_1"   )    return myEvent.BDT_output_t2bw025_R1;
+    else if (BDTregion == "T2bw025_3"   )    return myEvent.BDT_output_t2bw025_R3;
+    else if (BDTregion == "T2bw025_4"   )    return myEvent.BDT_output_t2bw025_R4;
+    else if (BDTregion == "T2bw025_6"   )    return myEvent.BDT_output_t2bw025_R6;
+
+    else return -10.0;
+}
+
+
+float BDTcut(string BDTregion)
+{
+         if (BDTregion == "T2tt_1"      )    return 0.325;
+    else if (BDTregion == "T2tt_2"      )    return 0.35 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.25 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.325;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.225;
+    else if (BDTregion == "T2bw075_2"   )    return 0.275;
+    else if (BDTregion == "T2bw075_3"   )    return 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.25 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.175;
+    else if (BDTregion == "T2bw050_3"   )    return 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.2  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.2  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.175;
+    
+    else return -1.0;
+}
+
+bool goesInBDTRegion(string BDTregion) { return (BDTouput(BDTregion) > BDTcut(BDTregion)); }
+
+bool BDT_T2tt_1         (bool applyMTCut) { return goesInBDTRegion("T2tt_1"         ); }
+bool BDT_T2tt_2         (bool applyMTCut) { return goesInBDTRegion("T2tt_2"         ); }
+bool BDT_T2tt_5_loose   (bool applyMTCut) { return goesInBDTRegion("T2tt_5_loose"   ); }
+bool BDT_T2tt_5_tight   (bool applyMTCut) { return goesInBDTRegion("T2tt_5_tight"   ); }
+bool BDT_T2bw075_1      (bool applyMTCut) { return goesInBDTRegion("T2bw075_1"      ); }
+bool BDT_T2bw075_2      (bool applyMTCut) { return goesInBDTRegion("T2bw075_2"      ); }
+bool BDT_T2bw075_3      (bool applyMTCut) { return goesInBDTRegion("T2bw075_3"      ); }
+bool BDT_T2bw075_5      (bool applyMTCut) { return goesInBDTRegion("T2bw075_5"      ); }
+bool BDT_T2bw050_1_loose(bool applyMTCut) { return goesInBDTRegion("T2bw050_1_loose"); }
+bool BDT_T2bw050_1_tight(bool applyMTCut) { return goesInBDTRegion("T2bw050_1_tight"); }
+bool BDT_T2bw050_3      (bool applyMTCut) { return goesInBDTRegion("T2bw050_3"      ); }
+bool BDT_T2bw050_4      (bool applyMTCut) { return goesInBDTRegion("T2bw050_4"      ); }
+bool BDT_T2bw050_5      (bool applyMTCut) { return goesInBDTRegion("T2bw050_5"      ); }
+bool BDT_T2bw050_6      (bool applyMTCut) { return goesInBDTRegion("T2bw050_6"      ); }
+bool BDT_T2bw025_1      (bool applyMTCut) { return goesInBDTRegion("T2bw025_1"      ); }
+bool BDT_T2bw025_3      (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"      ); }
+bool BDT_T2bw025_4      (bool applyMTCut) { return goesInBDTRegion("T2bw025_4"      ); }
+bool BDT_T2bw025_6      (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"      ); }
