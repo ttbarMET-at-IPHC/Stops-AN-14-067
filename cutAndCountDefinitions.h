@@ -1,4 +1,26 @@
 
+// LM 150 to cross check with number from Alex. G
+
+bool crossCheck_LM150(bool applyMTCut)
+{
+    // Apply MET and MT cuts
+    if (myEvent.MET < 150) return false;
+    if ((applyMTCut) && (myEvent.MT < 120)) return false;
+
+    // Chi2 and deltaPhi cuts
+    if (myEvent.deltaPhiMETJets < 0.8) return false;
+    if (myEvent.hadronicChi2 > 5) return false;
+
+    return true;
+}
+
+// Preselection definition
+bool preselection(bool applyMTCut)
+{
+    if (applyMTCut) return goesInPreselectionMTtail();
+    else            return goesInPreselection() 
+}
+
 // ISR jet definition
 
 bool findISRJet()
