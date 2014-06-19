@@ -201,10 +201,7 @@ void makeCards(TString decay_mode){
 
 
 
-
-void makeAllPlots(){
-
-
+void makeCards(){
 
 makeCards("T2tt");
 makeCards("T2bw025");
@@ -231,7 +228,8 @@ void createTableCLs(TString decay_mode, TString setup, TString BDT, int S, int N
              << "kmax 3  number of nuisance parameters (sources of systematical uncertainties)" << endl
              << "------------"<<endl
              << "bin 1"<<endl    
-             << "observation \t 0.0" << endl
+             //<< "observation \t 0.0" << endl
+             << "observation \t " << ttbar + wjets + others << endl
              << "bin            	\t\t 1              \t 1          	" << endl
              << "process        	\t\t signal         \t bkg     		" << endl
              << "process        	\t\t 0              \t 1          	" << endl
@@ -249,7 +247,7 @@ void createTableCLs(TString decay_mode, TString setup, TString BDT, int S, int N
   tablesFile.close();
 
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/May5/mT100_Sig30/"+TString(decay_mode);
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_FullCls/"+TString(decay_mode);
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 

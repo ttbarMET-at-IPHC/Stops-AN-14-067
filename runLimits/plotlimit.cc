@@ -44,14 +44,14 @@ TString savedir = "~/www/";
 
 void plot_limit(TString dir){
 
-  /*        gStyle->SetOptStat(0);
+          gStyle->SetOptStat(0);
           gStyle->SetCanvasColor(0);
           gStyle->SetPadColor(0);
           gStyle->SetMarkerStyle(15);
           gStyle->SetMarkerSize(0.25);
           gStyle->SetTextFont(42);
           gStyle->SetMarkerColor(37);
-*/
+
 
   //palette settings - completely independent
   const Int_t NRGBs = 6;
@@ -92,8 +92,7 @@ void plot_limit(TString dir){
   		  char shortfilename[500];
   		  char filename[500];
 
-
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/May5/mT100_Sig30/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_FullCls/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, x, y);
 
    
                   ifstream ifile(filename);
@@ -105,36 +104,37 @@ void plot_limit(TString dir){
 
 
 
-TTree *limittree = (TTree*)file->Get("limit");
+			TTree *limittree = (TTree*)file->Get("limit");
 
 
-double high_val = 100.;
+			double high_val = 100.;
 
 
-TH1F* obs = new TH1F("obs","",100,0,high_val);
-limittree->Draw("limit>>obs", "quantileExpected==-1");
-TH1F* expm2 = new TH1F("expm2","",100,0,high_val);
-limittree->Draw("limit>>expm2", "quantileExpected>0.02 && quantileExpected<0.03");
-TH1F* expm1 = new TH1F("expm1","",100,0,high_val);
-limittree->Draw("limit>>expm1", "quantileExpected>0.15 && quantileExpected<0.16");
-TH1F* exp = new TH1F("exp","",100,0,high_val);
-limittree->Draw("limit>>exp", "quantileExpected==0.5");
-TH1F* expp1 = new TH1F("expp1","",100,0,high_val);
-limittree->Draw("limit>>expp1", "quantileExpected>0.83 && quantileExpected<0.84");
-TH1F* expp2 = new TH1F("expp2","",100,0,high_val);
-limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98");
+			TH1F* obs = new TH1F("obs","",100,0,high_val);
+			limittree->Draw("limit>>obs", "quantileExpected==-1");
+			TH1F* expm2 = new TH1F("expm2","",100,0,high_val);
+			limittree->Draw("limit>>expm2", "quantileExpected>0.02 && quantileExpected<0.03");
+			TH1F* expm1 = new TH1F("expm1","",100,0,high_val);
+			limittree->Draw("limit>>expm1", "quantileExpected>0.15 && quantileExpected<0.16");
+			TH1F* exp = new TH1F("exp","",100,0,high_val);
+			limittree->Draw("limit>>exp", "quantileExpected==0.5");
+			TH1F* expp1 = new TH1F("expp1","",100,0,high_val);
+			limittree->Draw("limit>>expp1", "quantileExpected>0.83 && quantileExpected<0.84");
+			TH1F* expp2 = new TH1F("expp2","",100,0,high_val);
+			limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98");
 
 
 
-//	  if (exp->GetMean() < 1.0) {
-	   SMS->Fill(x,y,1./exp->GetMean());
-	   SMSp->Fill(x,y,expp1->GetMean());
-	   SMSm->Fill(x,y,expm1->GetMean());
- 
-		  file->Close();
+      	  		if (exp->GetMean() < 1.0) {
+
+	   		SMS->Fill(x,y, exp->GetMean());
+	   		SMSp->Fill(x,y,expp1->GetMean());
+	   		SMSm->Fill(x,y,expm1->GetMean());
+		  	file->Close();
+
 			}
 		}
-//	  }
+	  }
 
 	
               TAxis *data_yaxis = SMS->GetYaxis();
@@ -147,13 +147,13 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 
 	      // Hack to get the contours to work properly
 
-            for(int x=175; x<=800; x+=25){
+       /*     for(int x=175; x<=800; x+=25){
 
                       for(int y=25; y<=700; y+=25){
 	
 			if (x-y > 75) continue;
 
-		           SMS->Fill(x,y,1./1.1);
+		           SMS->Fill(x,y, 1.1);
 		           SMSp->Fill(x,y,1.1);
 		           SMSm->Fill(x,y,1.1);
 
@@ -171,9 +171,9 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
 
 
   SMS->SetContour(3);
-  SMS->SetContourLevel(0,1e9); //value for your first level
-  SMS->SetContourLevel(1,1.); //non-existing high level
-  SMS->SetContourLevel(2,1e6); //non-existing high level
+  SMS->SetContourLevel(0,1.0); //value for your first level
+  SMS->SetContourLevel(1,1e6); //non-existing high level
+  SMS->SetContourLevel(2,1e9); //non-existing high level
   SMS->SetLineColor(1);
   SMS->Draw("cont1");
 
@@ -191,7 +191,7 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   SMSm->SetLineColor(4);
   //SMSm->Draw("cont1 same");
 
-
+*/
 
 
 
@@ -200,11 +200,9 @@ limittree->Draw("limit>>expp2", "quantileExpected>0.97 && quantileExpected<0.98"
   leg = new TLegend(0.4,0.55,0.7,0.85);
   leg->SetFillStyle(0); leg->SetBorderSize(0); leg->SetTextSize(0.043);
   legge = leg->AddEntry(SMS,   "Expected U.L. @95\% CL", "l");
-//  legge = leg->AddEntry(SMSp,   "Exp plus", "l");
-//  legge = leg->AddEntry(SMSm,   "Exp minus", "l");
   leg->SetFillColor(0);
   leg->Draw();
-//  SMS->Draw("colz");
+  SMS->Draw("colz");
 
    c1->SaveAs("~/www/test.png");
 

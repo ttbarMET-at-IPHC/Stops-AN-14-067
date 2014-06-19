@@ -4,7 +4,10 @@
 #define NBJET_CUT 1
 #define NLEP_CUT  1
 
-//#include "Reader_newFinal0603.h"
+
+//#include "Reader.h"
+#include "Reader_withBDTinfo.h"  // switch between default ntuples or extended ones
+
 
 // NB : When you call any of the following functions,
 // these three variables must be filled with the current
@@ -84,7 +87,7 @@ bool goesInDileptonControlRegion()
     if ((myEvent.leadingLeptonPDGId > 0) && (myEvent.secondLeptonPDGId > 0)) return false;
     
     // Remove Z mass peak
-    if ( fabs((myEvent.leadingLepton + myEvent.secondLepton).M() - 91) < 15) return false;
+    if (((myEvent.leadingLepton + myEvent.secondLepton).M() - 91) > 15) return false;
 
     return true; 
 }

@@ -9,19 +9,16 @@ pwd = os.environ['PWD']
 
 
 
-dataset_name 		= ['Single_Elec', 'Single_Muon', 'Double_Elec', 'Double_Muon', 'Muon_Elec', 'wjets_all', 'others_all', 'ttbar_MG_1l', 'ttbar_MG_2l']
+dataset_name 		= ['SingleElec', 'SingleMuon', 'DoubleElec', 'DoubleMuon', 'MuEl', 'W+jets', 'rare', 'singleTop_st', 'ttbar_madgraph_1l', 'ttbar_madgraph_2l', 'T2bw-025' , 'T2bw-050' , 'T2bw-075' , 'T2tt' ]
 queue               	= "1nh" 
-executable         	= "runPlots2" 
+executable         	= "runPlots" 
 selection 		= ['0','1','2','3','4']		
-lepton 			= ['']		
-#lepton 			= ['1','2']		
-additionalArguments 	= ''		
-
+additionalArguments 	= '0 0'		
 
 for z in range(len(dataset_name)):
 
-    inputlist = "../inputFileLists_BDTInfo/"+dataset_name[z]+".list"
-    outputdir = pwd+"/ntuples/"+dataset_name[z] 
+    inputfile = "root://eoscms//eos/cms/store/caf/user/sigamani/StopBabies/V00-05/"+dataset_name[z]+".root"
+    outputdir = pwd+"/batch_output/"+dataset_name[z] 
 			     
     os.system("rm -r "+outputdir)
     os.system("mkdir -p "+outputdir)
@@ -33,8 +30,6 @@ for z in range(len(dataset_name)):
 
     for x in range(len(selection)):
     
-        if selection[x] == '0':
-           selectionname = 'Default'
         if selection[x] == '1':
            selectionname = 'BVeto'
         if selection[x] == '2':
@@ -43,45 +38,21 @@ for z in range(len(dataset_name)):
            selectionname = 'Dilepton_FailsTrackOrTau'
         if selection[x] == '4':
            selectionname = 'MTPeak'
+        if selection[x] == '0':
+           selectionname = 'Default'
 
           
-        for y in range(len(lepton)):
-
-            if lepton[y] == '':
-                leptonname = 'All'
-            if lepton[y] == '1':
-                leptonname = 'Elec'
-            if lepton[y] == '2':
-                leptonname = 'Muon'
-        
-
-            input = open(inputlist)
-            inputfiles = input.readlines()
-
-            ijob=0
-            
-            while (len(inputfiles) > 0):
-                inputfilename = outputdir+"/input/input_"+str(ijob)
-                inputfile = open(inputfilename,'w')
-                for line in range(min(1,len(inputfiles))):
-                    ntpfile = inputfiles.pop()
-                    if ntpfile != '':
-                        inputfile.write(ntpfile)
-            
-                inputfile.close()
-
-
-                output = dataset_name[z]+"_"+selectionname+"_"+leptonname
-                outputname = outputdir+"/src/"+output+".src"
-		print selectionname
-                outputfile = open(outputname,'w')
-                outputfile.write('#!/bin/bash\n')
-                outputfile.write('export SCRAM_ARCH=slc6_amd64_gcc472\n')
-                outputfile.write('cd '+pwd+'; eval `scramv1 runtime -sh`; source setup.sh; \n')
-                outputfile.write("./"+executable+" "+ntpfile[:-1]+ " "+outputdir+"/output/"+output+".root "+ selection[x]+ " " + lepton[y] +" " + additionalArguments+" ;")
-                outputfile.close
-                os.system("echo bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
-                os.system("bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
-                ijob = ijob+1
-                                                                                                                                                                                        
-                continue
+           output = dataset_name[z]+"_"+selectionname
+           outputname = outputdir+"/src/"+output+".src"
+   	   print selectionname
+           outputfile = open(outputname,'w')
+           outputfile.write('#!/bin/bash\n')
+           outputfile.write('export SCRAM_ARCH=slc6_amd64_gcc472\n')
+           outputfile.write('cd '+pwd+'; eval `scramv1 runtime -sh`; source setup.sh; \n')
+           outputfile.write('cd /tmp/sigamani; \n')
+           outputfile.write('cp /afs/cern.ch/work/s/sigamani/public/CMSSW_5_3_14_STOPS/src/Stops-AN-14-067/runPlots/runPlots .; \n')
+           outputfile.write("./"+executable+" "+inputfile+ " "+output+".root "+ selection[x]+ " " + additionalArguments+" ;")
+           outputfile.write("cp "+output+".root "+outputdir+"/output/ ; rm "+output+".root")
+           outputfile.close
+           os.system("echo bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)
+           os.system("bsub -q 1nd -o "+outputdir+"/log/"+output+".log source "+outputname)

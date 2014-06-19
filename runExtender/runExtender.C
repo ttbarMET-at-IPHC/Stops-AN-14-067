@@ -50,8 +50,6 @@ int main (int argc, char *argv[])
   TTree* theInputTree = (TTree*) fin->Get("babyTuple");
   TFile *fout = new TFile(argv[2],"recreate");
 
-//  TFile *file = TFile::Open("root://eoscms//eos/cms/store/caf/user/oglez/test/test.root");
-
 
   babyEvent myEvent;
   intermediatePointers pointers;
@@ -837,7 +835,8 @@ int main (int argc, char *argv[])
   // ########################################
 
 
-  for (int i = 0 ; i < theInputTree->GetEntries() ; i++)
+  for (int i = 0 ; i < 1000 ; i++)
+  //for (int i = 0 ; i < theInputTree->GetEntries() ; i++)
   {
       
       if (i % (theInputTree->GetEntries() / 50) == 0) 
