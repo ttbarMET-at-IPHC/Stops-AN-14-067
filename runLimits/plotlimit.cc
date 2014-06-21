@@ -92,7 +92,8 @@ void plot_limit(TString dir){
   		  char shortfilename[500];
   		  char filename[500];
 
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_FullCls/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, x, y);
+                  //sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_Nom/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_Nom/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
 
    
                   ifstream ifile(filename);
@@ -125,14 +126,14 @@ void plot_limit(TString dir){
 
 
 
-      	  		if (exp->GetMean() < 1.0) {
+  //    	  		if (exp->GetMean() < 1.0) {
 
-	   		SMS->Fill(x,y, exp->GetMean());
+	   		SMS->Fill(x,y, 1./exp->GetMean());
 	   		SMSp->Fill(x,y,expp1->GetMean());
 	   		SMSm->Fill(x,y,expm1->GetMean());
 		  	file->Close();
 
-			}
+//			}
 		}
 	  }
 
@@ -147,13 +148,13 @@ void plot_limit(TString dir){
 
 	      // Hack to get the contours to work properly
 
-       /*     for(int x=175; x<=800; x+=25){
+            for(int x=175; x<=800; x+=25){
 
                       for(int y=25; y<=700; y+=25){
 	
 			if (x-y > 75) continue;
 
-		           SMS->Fill(x,y, 1.1);
+		           SMS->Fill(x,y, 1./1000);
 		           SMSp->Fill(x,y,1.1);
 		           SMSm->Fill(x,y,1.1);
 
@@ -162,6 +163,8 @@ void plot_limit(TString dir){
 		}		
 
 
+
+/*
   SMS->SetFillColor(1);
   SMSp->SetFillColor(2);
   SMSm->SetFillColor(4);
@@ -169,30 +172,21 @@ void plot_limit(TString dir){
   int colors[3] = {1,2,4}; //red, blue,black
   gStyle->SetPalette(3,colors);  
 
+*/
 
-  SMS->SetContour(3);
+
+ /* SMS->SetContour(3);
   SMS->SetContourLevel(0,1.0); //value for your first level
   SMS->SetContourLevel(1,1e6); //non-existing high level
   SMS->SetContourLevel(2,1e9); //non-existing high level
-  SMS->SetLineColor(1);
   SMS->Draw("cont1");
-
-  SMSp->SetContour(3);
-  SMSp->SetContourLevel(0,1.0); //value for your first level
-  SMSp->SetContourLevel(1,1e6); //non-existing high level
-  SMSp->SetContourLevel(2,1e9); //non-existing high level
-  SMSp->SetLineColor(2);
-  //SMSp->Draw("cont1 same");
-
-  SMSm->SetContour(3);
-  SMSm->SetContourLevel(0,0.99); //value for your first level
-  SMSm->SetContourLevel(1,1e6); //non-existing high level
-  SMSm->SetContourLevel(2,1e9); //non-existing high level
-  SMSm->SetLineColor(4);
-  //SMSm->Draw("cont1 same");
-
 */
 
+  double level = 1.0;
+  double contours[1];
+  contours[0] = level;
+  SMS->SetContour(1,contours);
+  SMS->Draw("cont3c");
 
 
   TLegendEntry *legge;
@@ -202,7 +196,7 @@ void plot_limit(TString dir){
   legge = leg->AddEntry(SMS,   "Expected U.L. @95\% CL", "l");
   leg->SetFillColor(0);
   leg->Draw();
-  SMS->Draw("colz");
+  //SMS->Draw("colz");
 
    c1->SaveAs("~/www/test.png");
 
