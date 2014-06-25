@@ -122,7 +122,6 @@ std::pair<double,double> Pred_cutAndCount_T2tt_offShellTight(){return std::pair<
 std::pair<double,double> Pred_cutAndCount_T2tt_lowDeltaM(){return std::pair<double,double>(358.625,80.7227);}
 std::pair<double,double> Pred_cutAndCount_T2tt_mediumDeltaM(){return std::pair<double,double>(16.0243,6.0595);}
 std::pair<double,double> Pred_cutAndCount_T2tt_highDeltaM(){return std::pair<double,double>(2.5033,0.9448);}
-std::pair<double,double> Pred_BDT_T2tt_1(){return std::pair<double,double>(38.4453,8.7745);}
 std::pair<double,double> Pred_cutAndCount_T2bw025_veryOffShell_loose(){return std::pair<double,double>(25.617,4.6451);}
 std::pair<double,double> Pred_cutAndCount_T2bw025_offShell_loose(){return std::pair<double,double>(16.1526,3.098);}
 std::pair<double,double> Pred_cutAndCount_T2bw025_lowDeltaM_tight(){return std::pair<double,double>(14.0656,2.5857);}
@@ -134,6 +133,7 @@ std::pair<double,double> Pred_cutAndCount_T2bw050_highDeltaM(){return std::pair<
 std::pair<double,double> Pred_cutAndCount_T2bw075_lowDeltaM_tight(){return std::pair<double,double>(7.5097,1.8561);}
 std::pair<double,double> Pred_cutAndCount_T2bw075_mediumDeltaM(){return std::pair<double,double>(35.7962,8.3931);}
 std::pair<double,double> Pred_cutAndCount_T2bw075_highDeltaM(){return std::pair<double,double>(3.3587,0.9881);}
+std::pair<double,double> Pred_BDT_T2tt_1(){return std::pair<double,double>(38.4453,8.7745);}
 std::pair<double,double> Pred_BDT_T2tt_2(){return std::pair<double,double>(38.331,8.1962);}
 std::pair<double,double> Pred_BDT_T2tt_5_loose(){return std::pair<double,double>(16.0994,4.537);}
 std::pair<double,double> Pred_BDT_T2tt_5_tight(){return std::pair<double,double>(4.9319,2.0099);}
