@@ -1,4 +1,8 @@
+#include "../AN-14-067/SecondLeptonInAcceptance.h"
 
+
+#ifndef _signalRegionDefinitions_h
+#define _signalRegionDefinitions_h
 
 int signalregion(TString decaymode, int stopmass, int lspmass)
 {
@@ -284,7 +288,7 @@ float BDTcut(string BDTregion)
     else return -1.0;
 }
 
-bool goesInBDTRegion(string BDTregion) { return (BDTouput(BDTregion) > BDTcut(BDTregion)); }
+bool goesInBDTRegion(string BDTregion) { return (BDToutput(BDTregion) > BDTcut(BDTregion)); }
 
 bool BDT_T2tt_1         (bool applyMTCut) { return goesInBDTRegion("T2tt_1"         ); }
 bool BDT_T2tt_2         (bool applyMTCut) { return goesInBDTRegion("T2tt_2"         ); }
@@ -304,3 +308,5 @@ bool BDT_T2bw025_1      (bool applyMTCut) { return goesInBDTRegion("T2bw025_1"  
 bool BDT_T2bw025_3      (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"      ); }
 bool BDT_T2bw025_4      (bool applyMTCut) { return goesInBDTRegion("T2bw025_4"      ); }
 bool BDT_T2bw025_6      (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"      ); }
+
+#endif

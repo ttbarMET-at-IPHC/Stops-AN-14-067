@@ -1,3 +1,7 @@
+#include "../AN-14-067/SecondLeptonInAcceptance.h"
+
+#ifndef _cutAndCountDefinitions_h 
+#define _cutAndCountDefinitions_h 
 
 // LM 150 to cross check with number from Alex. G
 
@@ -60,7 +64,8 @@ bool cutAndCount_T2tt(float cutMET, float cutMEToverSqrtHT, float cutMT, float c
     if (myEvent.MET             < cutMET)           return false;
     if (myEvent.deltaPhiMETJets < cutDeltaPhi)      return false;
     if (myEvent.hadronicChi2    > cutHadronicChi2)  return false;
-    if ((enableISRJetRequirement) && (!findISRJet()))       return false;
+    //if ((enableISRJetRequirement) && (!findISRJet()))       return false;
+    if ((enableISRJetRequirement) && (!myEvent.ISRJet))       return false;
 
     return true;
 }
@@ -89,7 +94,8 @@ bool cutAndCount_T2bw(float cutMET, float cutMETsig, float cutMT, float cutMT2W,
     if (myEvent.MT2W            < cutMT2W)              return false;
     if (myEvent.leadingBPt      < cutBPt)               return false;
     if (myEvent.deltaPhiMETJets < cutDeltaPhi)          return false;
-    if ((enableISRJetRequirement) && (!findISRJet()))   return false;
+    //if ((enableISRJetRequirement) && (!findISRJet()))   return false;
+    if ((enableISRJetRequirement) && (!myEvent.ISRJet))       return false;
 
     return true;
 }
@@ -111,3 +117,21 @@ bool cutAndCount_T2bw075_lowDeltaM_tight(bool applyMTCut)    { return cutAndCoun
 bool cutAndCount_T2bw075_mediumDeltaM(bool applyMTCut)       { return cutAndCount_T2bw(-1,  10,    140 * applyMTCut, 180, -1, 0.8, false); }
 bool cutAndCount_T2bw075_highDeltaM(bool applyMTCut)         { return cutAndCount_T2bw(320, -1,    160 * applyMTCut, 200, -1, 0.8, false); }
 
+//-- Additionnaly check if there is a second lepton in acceptance
+/*
+bool SecondLepton_cutAndCount_T2bw025_veryOffShell_loose() { return   cutAndCount_T2bw025_veryOffShell_loose(true)&& myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw025_offShell_loose()     { return   cutAndCount_T2bw025_offShell_loose(true)    && myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw025_lowDeltaM_tight()    { return   cutAndCount_T2bw025_lowDeltaM_tight(true)   && myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw025_highDeltaM()         { return   cutAndCount_T2bw025_highDeltaM(true)        && myEvent.secondLeptonInAcceptance; }
+                                                                                                              
+bool SecondLepton_cutAndCount_T2bw050_offShell_loose()     { return   cutAndCount_T2bw050_offShell_loose(true)    && myEvent.secondLeptonInAcceptance; } 
+bool SecondLepton_cutAndCount_T2bw050_lowMass()            { return   cutAndCount_T2bw050_lowMass(true)           && myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw050_mediumDeltaM_loose() { return   cutAndCount_T2bw050_mediumDeltaM_loose(true)&& myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw050_highDeltaM()         { return   cutAndCount_T2bw050_highDeltaM(true)        && myEvent.secondLeptonInAcceptance; }
+                                                                                                              
+bool SecondLepton_cutAndCount_T2bw075_lowDeltaM_tight()    { return   cutAndCount_T2bw075_lowDeltaM_tight(true)   && myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw075_mediumDeltaM()       { return   cutAndCount_T2bw075_mediumDeltaM(true)      && myEvent.secondLeptonInAcceptance; }
+bool SecondLepton_cutAndCount_T2bw075_highDeltaM()         { return   cutAndCount_T2bw075_highDeltaM(true)        && myEvent.secondLeptonInAcceptance; }
+*/
+
+#endif
