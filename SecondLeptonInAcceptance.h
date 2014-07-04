@@ -1,5 +1,5 @@
-#ifndef _SecondLeptonInAcceptance_H
-#define _SecondLeptonInAcceptance_H
+#ifndef _SecondLeptonInAcceptance_h
+#define _SecondLeptonInAcceptance_h
 
 // Return true for multilepton events  with true truth-level track and events with true truth-level tau
 bool EventHasSecondGeneratedLeptonInAcceptance()
