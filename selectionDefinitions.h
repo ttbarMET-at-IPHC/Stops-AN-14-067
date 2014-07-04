@@ -3,6 +3,9 @@
 #define NJET_CUT  4
 #define NBJET_CUT 1
 #define NLEP_CUT  1
+#define MET_CUTLL 80
+
+
 
 //#include "Reader_newFinal0603.h"
 
@@ -72,12 +75,17 @@ bool goesIn0BtagControlRegionMTtail()     { return (goesIn0BtagControlRegion() &
 bool goesIn0BtagControlRegionMTpeak()     { return (goesIn0BtagControlRegion() && goesInMTpeak());     } 
 bool goesIn0BtagControlRegionMTinverted() { return (goesIn0BtagControlRegion() && goesInMTinverted()); } 
 
-bool goesInDileptonControlRegion() 
+bool goesInDileptonControlRegion(short int nJetCut = -1)
 {
     if (myEvent.numberOfLepton != 2) return false;
-    if (myEvent.nJets < NJET_CUT)  return false;
-    if (myEvent.nBTag < NBJET_CUT)  return false;
-    if (myEvent.MET < MET_CUT) return false;
+
+    if (nJetCut == -1) { if (myEvent.nJets < 1) return false; }
+    else if (nJetCut == 2)  { if ((myEvent.nJets != 1) && (myEvent.nJets != 2)) return false; }
+    else if (nJetCut == 3)  { if (myEvent.nJets != 3) return false; }
+    else if (nJetCut == 4)  { if (myEvent.nJets <  4) return false; }
+    
+    if (myEvent.nBTag < NBJET_CUT)   return false;
+    if (myEvent.MET   < MET_CUTLL)   return false;
 
     // Remove same-sign events
     if ((myEvent.leadingLeptonPDGId < 0) && (myEvent.secondLeptonPDGId < 0)) return false;
@@ -94,7 +102,7 @@ bool goesInVetosControlRegion()
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
     if (myEvent.nBTag < NBJET_CUT)  return false;
-    if (myEvent.MET < MET_CUT) return false;
+    if (myEvent.MET   < MET_CUT) return false;
 
     // Apply reversed vetos
     if ((myEvent.isolatedTrackVeto) && (myEvent.tauVeto)) return false;
@@ -102,7 +110,13 @@ bool goesInVetosControlRegion()
     return true; 
 }
 
+bool goesInDileptonControlRegionMTtail()     { return (goesInDileptonControlRegion() && goesInMTtail());     }
+bool goesInDileptonControlRegionMTpeak()     { return (goesInDileptonControlRegion() && goesInMTpeak());     }
+bool goesInDileptonControlRegionMTinverted() { return (goesInDileptonControlRegion() && goesInMTinverted()); }
 
+bool goesInVetoControlRegionMTtail()     { return (goesInVetosControlRegion() && goesInMTtail());     }
+bool goesInVetoControlRegionMTpeak()     { return (goesInVetosControlRegion() && goesInMTpeak());     }
+bool goesInVetoControlRegionMTinverted() { return (goesInVetosControlRegion() && goesInMTinverted()); }
 
 // Single-lepton channels definitions
 // ##################################
