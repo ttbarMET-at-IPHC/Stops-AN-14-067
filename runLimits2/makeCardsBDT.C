@@ -223,18 +223,18 @@ void makeCards(TString decay_mode ){
       cout << decay_mode << endl;  
 
       //for(int z=-4; z<=4; z+=1){
-      for(int z=-7; z<=-5; z+=1){
+     for(int z=-6; z<=-5; z+=1){
 
 	double BDTdefCutOffset  = float(z) / 20.;
 
             //cout << BDTdefCutOffset << endl;
 	
-              for(int x=175; x<=800; x+=25){
-
+             // FIX LATER for(int x=175; x<=800; x+=25){
+	
+              for(int x=175; x<=775; x+=25){
 	
     	              for(int y=25; y<=700; y+=25){
 
-				//S775N675	
 				 if (x - y > 99){  
 					 cout << "S"<<x << "N"<<y<<endl;	
 					 makeCLsCards(decay_mode, BDTdefCutOffset, x, y);
