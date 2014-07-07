@@ -42,7 +42,7 @@ TString savedir = "~/www/";
 
 
 
-void plot_limit(TString dir){
+void plot_limit(TString dir, int SR){
 
           gStyle->SetOptStat(0);
           gStyle->SetCanvasColor(0);
@@ -70,6 +70,7 @@ void plot_limit(TString dir){
 
 
    double shell;
+//   TString SR_;
 
    if (dir == "T2bw025") {dataset_name = "T2bw025"; shell = 80. / 0.25;}
    if (dir == "T2bw050") {dataset_name = "T2bw050"; shell = 80. / 0.50;}
@@ -78,9 +79,47 @@ void plot_limit(TString dir){
 
 
 
+   if (dataset_name == "T2bw025") {	 
+
+	   if (SR == 1)    {SR_ = "highDeltaM";}
+	   if (SR == 2)    {SR_ = "lowDeltaMTight";}
+	   if (SR == 3)    {SR_ = "offShellLoose";}
+	   if (SR == 4)    {SR_ = "veryOffShellLoose";}
+
+   }
+
+
+   if (dataset_name == "T2bw050") {	 
+
+	   if (SR == 1)    {SR_ = "highDeltaM";}
+	   if (SR == 2)    {SR_ = "mediumDeltaMLoose";}
+	   if (SR == 3)    {SR_ = "lowMass";}
+	   if (SR == 4)    {SR_ = "offShellLoose";}
+
+   }
+
+
+   if (dataset_name == "T2bw075") {	 
+
+	   if (SR == 1)    {SR_ = "highDeltaM";}
+	   if (SR == 2)    {SR_ = "mediumDeltaM";}
+	   if (SR == 3)    {SR_ = "lowDeltaMTight";}
+
+   }
+
+
+   if (dataset_name == "T2tt") {	 
+
+	   if (SR == 1)    {SR_ = "highDeltaM";}
+	   if (SR == 2)    {SR_ = "mediumDeltaM";}
+	   if (SR == 3)    {SR_ = "offShellLoose";}
+	   if (SR == 4)    {SR_ = "offShellTight";}
+
+   }
+
+
+
    TH2D *SMS = new TH2D("SMS","",26,162.5, 812.5, 16, 12.5,412.5); 
-   TH2D *SMSp = new TH2D("SMSp","",26,162.5, 812.5, 16, 12.5,412.5); 
-   TH2D *SMSm = new TH2D("SMSm","",26,162.5, 812.5, 16, 12.5,412.5); 
 
 
               for(int x=175; x<=800; x+=25){
@@ -93,7 +132,7 @@ void plot_limit(TString dir){
   		  char filename[500];
 
                   //sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_Nom/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, x, y);
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/mT100_Nom/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsCNC_3/%s/%s/higgsCombineS%d-N%d.Asymptotic.mH120.root", dataset_name, SR_, x, y);
 
    
                   ifstream ifile(filename);
@@ -126,14 +165,13 @@ void plot_limit(TString dir){
 
 
 
-  //    	  		if (exp->GetMean() < 1.0) {
+      	  		if (exp->GetMean() < 1.0) {
 
-	   		SMS->Fill(x,y, 1./exp->GetMean());
-	   		SMSp->Fill(x,y,expp1->GetMean());
-	   		SMSm->Fill(x,y,expm1->GetMean());
+	   		SMS->Fill(x,y, exp->GetMean());
 		  	file->Close();
 
-//			}
+		//	cout << exp->GetMean() << endl;
+			}
 		}
 	  }
 
@@ -147,14 +185,14 @@ void plot_limit(TString dir){
 
 
 	      // Hack to get the contours to work properly
-
+/*
             for(int x=175; x<=800; x+=25){
 
                       for(int y=25; y<=700; y+=25){
 	
 			if (x-y > 75) continue;
 
-		           SMS->Fill(x,y, 1./1000);
+		           SMS->Fill(x,y, 1000.);
 		           SMSp->Fill(x,y,1.1);
 		           SMSm->Fill(x,y,1.1);
 
@@ -162,32 +200,15 @@ void plot_limit(TString dir){
 
 		}		
 
-
+*/
 
 /*
-  SMS->SetFillColor(1);
-  SMSp->SetFillColor(2);
-  SMSm->SetFillColor(4);
-
-  int colors[3] = {1,2,4}; //red, blue,black
-  gStyle->SetPalette(3,colors);  
-
-*/
-
-
- /* SMS->SetContour(3);
-  SMS->SetContourLevel(0,1.0); //value for your first level
-  SMS->SetContourLevel(1,1e6); //non-existing high level
-  SMS->SetContourLevel(2,1e9); //non-existing high level
-  SMS->Draw("cont1");
-*/
-
   double level = 1.0;
   double contours[1];
   contours[0] = level;
   SMS->SetContour(1,contours);
   SMS->Draw("cont3c");
-
+*/
 
   TLegendEntry *legge;
   TLegend *leg;
@@ -196,10 +217,10 @@ void plot_limit(TString dir){
   legge = leg->AddEntry(SMS,   "Expected U.L. @95\% CL", "l");
   leg->SetFillColor(0);
   leg->Draw();
-  //SMS->Draw("colz");
+  SMS->Draw("colz");
 
-   c1->SaveAs("~/www/test.png");
+   //c1->SaveAs("~/www/STOP/Limits/V1/"+dataset_name+"_"+SR_+"_CNC.png");
+   c1->SaveAs("~/www/STOP/Limits/V1/"+TString(dataset_name)+"_"+SR_+"_CNC.png");
 
 
 }
-
