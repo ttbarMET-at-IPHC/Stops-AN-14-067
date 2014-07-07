@@ -25,7 +25,8 @@
 
 
 #include "../signalRegionDefinitions.h" 
-#include "../cutAndCountDefinitions.h" 
+//#include "../cutAndCountDefinitions.h" 
+#include "../backgroundPredictions.h" 
 
 
 using namespace std;
@@ -114,73 +115,73 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 
 
 	if (SignalRegion == "T2bw025_1") {
-	  bkg = Pred_BDT_T2bw025_1().first  ; 
-	  bkg_err = Pred_BDT_T2bw025_1().second ; 
+	  bkg = Pred_BDT_T2bw025_1(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw025_1(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw025_3") {
-	  bkg = Pred_BDT_T2bw025_3().first  ; 
-	  bkg_err = Pred_BDT_T2bw025_3().second ; 
+	  bkg = Pred_BDT_T2bw025_3(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw025_3(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw025_4") {
-	  bkg = Pred_BDT_T2bw025_4().first  ; 
-	  bkg_err = Pred_BDT_T2bw025_4().second ; 
+	  bkg = Pred_BDT_T2bw025_4(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw025_4(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw025_6") {
-	  bkg = Pred_BDT_T2bw025_6().first  ; 
-	  bkg_err = Pred_BDT_T2bw025_6().second ; 
+	  bkg = Pred_BDT_T2bw025_6(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw025_6(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_1_loose") {
-	  bkg = Pred_BDT_T2bw050_1_loose().first  ; 
-	  bkg_err = Pred_BDT_T2bw050_1_loose().second ; 
+	  bkg = Pred_BDT_T2bw050_1_loose(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw050_1_loose(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_1_tight") {
-	  bkg = Pred_BDT_T2bw050_1_tight().first  ; 
-	  bkg_err = Pred_BDT_T2bw050_1_tight().second ; 
+	  bkg = Pred_BDT_T2bw050_1_tight(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw050_1_tight(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_3") {
-	  bkg = Pred_BDT_T2bw050_3().first  ; 
-	  bkg_err = Pred_BDT_T2bw050_3().second ; 
+	  bkg = Pred_BDT_T2bw050_3(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw050_3(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_4") {
-	  bkg = Pred_BDT_T2bw050_4().first  ; 
-	  bkg_err = Pred_BDT_T2bw050_4().second ; 
+	  bkg = Pred_BDT_T2bw050_4(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw050_4(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_5") {
-	  bkg = Pred_BDT_T2bw050_5().first  ; 
-	  bkg_err = Pred_BDT_T2bw050_5().second ; 
+	  bkg = Pred_BDT_T2bw050_5(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw050_5(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_6") {
-	  bkg = Pred_BDT_T2bw050_6().first  ; 
-	  bkg_err = Pred_BDT_T2bw050_6().second ; 
+	  bkg = Pred_BDT_T2bw050_6(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw050_6(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_1") {
-	  bkg = Pred_BDT_T2bw075_1().first  ; 
-	  bkg_err = Pred_BDT_T2bw075_1().second ; 
+	  bkg = Pred_BDT_T2bw075_1(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw075_1(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_2") {
-	  bkg = Pred_BDT_T2bw075_2().first  ; 
-	  bkg_err = Pred_BDT_T2bw075_2().second ; 
+	  bkg = Pred_BDT_T2bw075_2(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw075_2(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_3") {
-	  bkg = Pred_BDT_T2bw075_3().first  ; 
-	  bkg_err = Pred_BDT_T2bw075_3().second ; 
+	  bkg = Pred_BDT_T2bw075_3(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw075_3(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_5") {
-	  bkg = Pred_BDT_T2bw075_5().first  ; 
-	  bkg_err = Pred_BDT_T2bw075_5().second ; 
+	  bkg = Pred_BDT_T2bw075_5(BDTdefCutOffset).first  ; 
+	  bkg_err = Pred_BDT_T2bw075_5(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2tt_1") {
@@ -221,9 +222,16 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 void makeCards(TString decay_mode ){
 
       cout << decay_mode << endl;  
+      int start;
+      int end;
+ 
+      if (decay_mode == "T2tt") { start = -7; end = 4;}
+      if (decay_mode == "T2bw025") { start = -7; end = 4;}
+      if (decay_mode == "T2bw050") { start = -7; end = 3;}
+      if (decay_mode == "T2bw075") { start = -7; end = 2;}
 
-      //for(int z=-4; z<=4; z+=1){
-     for(int z=-6; z<=-5; z+=1){
+
+      for(int z= start; z<= end; z+=1){
 
 	double BDTdefCutOffset  = float(z) / 20.;
 
@@ -299,9 +307,9 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
 
 void makeCards(){
 
-//makeCards("T2bw025");
+makeCards("T2bw025");
 //makeCards("T2bw050");
 //makeCards("T2bw075");
-makeCards("T2tt");
+//makeCards("T2tt");
 
 }
