@@ -82,8 +82,9 @@ int signalregion(TString decaymode, int stopmass, int lspmass)
 
 
 
-
-TString signalregion(TString decaymode, int stopmass, int lspmass)
+// This is conflicting with the previous function
+//TString signalregion(TString decaymode, int stopmass, int lspmass)
+TString signalregionName(TString decaymode, int stopmass, int lspmass)
 {
 
   TString SR = "nan";
