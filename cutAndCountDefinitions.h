@@ -27,25 +27,30 @@ bool preselection(bool applyMTCut)
 
 // ISR jet definition
 
+float leadingNonBPt()
+{
+    float leadingPt = -1;
+    for (unsigned int j = 0 ; j < myEvent.jets.size()  ; j++)
+    {
+        // Ignore b-tagged jets
+        float CSV;
+        if (sampleType == "data") CSV = (myEvent.jets_CSV_raw)[j];
+        else                      CSV = (myEvent.jets_CSV_reshaped)[j];
+
+        if (CSV > 0.679) continue;
+
+        // Keep Pt max
+        if (leadingPt < (myEvent.jets)[j].Pt())
+            leadingPt = (myEvent.jets)[j].Pt();
+    }
+    return leadingPt;
+}
 
 bool findISRJet()
 {
     if (myEvent.nJets < 5) return false;
-
-    bool foundISRJet = false;
-    for (unsigned int i = 0 ; i < myEvent.jets.size() ; i++)
-    {
-        // Check jet is high-pt
-        if ((myEvent.jets)[i].Pt() < 200) continue;
-
-        // Check jet isn't b-tagged
-        if (sampleType == "data") { if ((myEvent.jets_CSV_raw)[i]      > 0.679) continue; }
-        else                      { if ((myEvent.jets_CSV_reshaped)[i] > 0.679) continue; }
-
-        foundISRJet = true;
-    }
-
-    return foundISRJet;
+    if (leadingNonBPt() < 200) return false;
+    return true;
 }
 
 

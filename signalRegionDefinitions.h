@@ -284,8 +284,8 @@ float BDTcut(string BDTregion)
     else if (BDTregion == "T2bw075_3"   )    return 0.350;
     else if (BDTregion == "T2bw075_5"   )    return 0.2  ;
 
-    else if (BDTregion == "T2bw050_1_loose") return 0.25 ;
-    else if (BDTregion == "T2bw050_1_tight") return 0.175;
+    else if (BDTregion == "T2bw050_1_loose") return 0.175;
+    else if (BDTregion == "T2bw050_1_tight") return 0.25 ;
     else if (BDTregion == "T2bw050_3"   )    return 0.3  ;
     else if (BDTregion == "T2bw050_4"   )    return 0.250;
     else if (BDTregion == "T2bw050_5"   )    return 0.225;
@@ -484,8 +484,8 @@ float BDTcut(string BDTregion)
     else if (BDTregion == "T2bw075_3"   )    return 0.325;  // previous 0.350;
     else if (BDTregion == "T2bw075_5"   )    return 0.175;  // previous 0.2  ;
 
-    else if (BDTregion == "T2bw050_1_loose") return 0.25 ;
-    else if (BDTregion == "T2bw050_1_tight") return 0.175;
+    else if (BDTregion == "T2bw050_1_loose") return 0.175;
+    else if (BDTregion == "T2bw050_1_tight") return 0.25 ;
     else if (BDTregion == "T2bw050_3"   )    return 0.275;  // previous 0.3  ;
     else if (BDTregion == "T2bw050_4"   )    return 0.225;  // previous 0.250;
     else if (BDTregion == "T2bw050_5"   )    return 0.200;  //previous 0.225;
