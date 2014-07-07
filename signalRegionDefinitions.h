@@ -1,4 +1,15 @@
+#ifndef _signalRegionDefinitions_h
+#define _signalRegionDefinitions_h
 
+#include "../AN-14-067/SecondLeptonInAcceptance.h"
+
+//#define CR4_1j 
+//#define CR4_2j 
+//#define CR4_3j 
+//#define CR4_4j 
+//#define CR4_4j_50evts 
+//#define CR4_4j_100evts
+//#define CR4_4j_150evts
 
 int signalregion(TString decaymode, int stopmass, int lspmass)
 {
@@ -230,33 +241,37 @@ TString returnSetup(TString decaymode, TString BDT){
 
 float BDToutput(string BDTregion)
 {
+    #ifdef BDT_OUTPUT_AVAILABLE
+             if (BDTregion == "T2tt_1"      )    return myEvent.BDT_output_t2tt_R1;
+        else if (BDTregion == "T2tt_2"      )    return myEvent.BDT_output_t2tt_R2;
+        else if (BDTregion == "T2tt_5_loose")    return myEvent.BDT_output_t2tt_R5;
+        else if (BDTregion == "T2tt_5_tight")    return myEvent.BDT_output_t2tt_R5;
+        
+        else if (BDTregion == "T2bw075_1"   )    return myEvent.BDT_output_t2bw075_R1;
+        else if (BDTregion == "T2bw075_2"   )    return myEvent.BDT_output_t2bw075_R2;
+        else if (BDTregion == "T2bw075_3"   )    return myEvent.BDT_output_t2bw075_R3;
+        else if (BDTregion == "T2bw075_5"   )    return myEvent.BDT_output_t2bw075_R5;
 
-         if (BDTregion == "T2tt_1"      )    return myEvent.BDT_output_t2tt_R1;
-    else if (BDTregion == "T2tt_2"      )    return myEvent.BDT_output_t2tt_R2;
-    else if (BDTregion == "T2tt_5_loose")    return myEvent.BDT_output_t2tt_R5;
-    else if (BDTregion == "T2tt_5_tight")    return myEvent.BDT_output_t2tt_R5;
-    
-    else if (BDTregion == "T2bw075_1"   )    return myEvent.BDT_output_t2bw075_R1;
-    else if (BDTregion == "T2bw075_2"   )    return myEvent.BDT_output_t2bw075_R2;
-    else if (BDTregion == "T2bw075_3"   )    return myEvent.BDT_output_t2bw075_R3;
-    else if (BDTregion == "T2bw075_5"   )    return myEvent.BDT_output_t2bw075_R5;
+        else if (BDTregion == "T2bw050_1_loose") return myEvent.BDT_output_t2bw050_R1;
+        else if (BDTregion == "T2bw050_1_tight") return myEvent.BDT_output_t2bw050_R1;
+        else if (BDTregion == "T2bw050_3"   )    return myEvent.BDT_output_t2bw050_R3;
+        else if (BDTregion == "T2bw050_4"   )    return myEvent.BDT_output_t2bw050_R4;
+        else if (BDTregion == "T2bw050_5"   )    return myEvent.BDT_output_t2bw050_R5;
+        else if (BDTregion == "T2bw050_6"   )    return myEvent.BDT_output_t2bw050_R6;
 
-    else if (BDTregion == "T2bw050_1_loose") return myEvent.BDT_output_t2bw050_R1;
-    else if (BDTregion == "T2bw050_1_tight") return myEvent.BDT_output_t2bw050_R1;
-    else if (BDTregion == "T2bw050_3"   )    return myEvent.BDT_output_t2bw050_R3;
-    else if (BDTregion == "T2bw050_4"   )    return myEvent.BDT_output_t2bw050_R4;
-    else if (BDTregion == "T2bw050_5"   )    return myEvent.BDT_output_t2bw050_R5;
-    else if (BDTregion == "T2bw050_6"   )    return myEvent.BDT_output_t2bw050_R6;
-
-    else if (BDTregion == "T2bw025_1"   )    return myEvent.BDT_output_t2bw025_R1;
-    else if (BDTregion == "T2bw025_3"   )    return myEvent.BDT_output_t2bw025_R3;
-    else if (BDTregion == "T2bw025_4"   )    return myEvent.BDT_output_t2bw025_R4;
-    else if (BDTregion == "T2bw025_6"   )    return myEvent.BDT_output_t2bw025_R6;
-
-    else return -10.0;
+        else if (BDTregion == "T2bw025_1"   )    return myEvent.BDT_output_t2bw025_R1;
+        else if (BDTregion == "T2bw025_3"   )    return myEvent.BDT_output_t2bw025_R3;
+        else if (BDTregion == "T2bw025_4"   )    return myEvent.BDT_output_t2bw025_R4;
+        else if (BDTregion == "T2bw025_6"   )    return myEvent.BDT_output_t2bw025_R6;
+        return -10.0;
+    #else
+        return -10.0;
+    #endif
 }
 
 
+
+/*
 float BDTcut(string BDTregion)
 {
          if (BDTregion == "T2tt_1"      )    return 0.325;
@@ -269,8 +284,8 @@ float BDTcut(string BDTregion)
     else if (BDTregion == "T2bw075_3"   )    return 0.350;
     else if (BDTregion == "T2bw075_5"   )    return 0.2  ;
 
-    else if (BDTregion == "T2bw050_1_loose") return 0.25 ;
-    else if (BDTregion == "T2bw050_1_tight") return 0.175;
+    else if (BDTregion == "T2bw050_1_loose") return 0.175;
+    else if (BDTregion == "T2bw050_1_tight") return 0.25 ;
     else if (BDTregion == "T2bw050_3"   )    return 0.3  ;
     else if (BDTregion == "T2bw050_4"   )    return 0.250;
     else if (BDTregion == "T2bw050_5"   )    return 0.225;
@@ -283,8 +298,210 @@ float BDTcut(string BDTregion)
     
     else return -1.0;
 }
+*/
 
-bool goesInBDTRegion(string BDTregion) { return (BDTouput(BDTregion) > BDTcut(BDTregion)); }
+// Definition of BDT cut including loosened cuts for control regions
+
+float BDTcut(string BDTregion)
+{
+    #ifdef CR4_1j
+         if (BDTregion == "T2tt_1"      )    return 0.305;
+    else if (BDTregion == "T2tt_2"      )    return 0.395 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.265 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.265;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.225;
+    else if (BDTregion == "T2bw075_2"   )    return 0.315;
+    else if (BDTregion == "T2bw075_3"   )    return 0.305;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.175;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.225 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.225;
+    else if (BDTregion == "T2bw050_3"   )    return 0.295;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.185;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.175;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.145;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.205  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.185;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.135  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.105;
+    else return -1.0;
+  #endif
+  #ifdef CR4_2j
+         if (BDTregion == "T2tt_1"      )    return 0.305;
+    else if (BDTregion == "T2tt_2"      )    return 0.365 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.225 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.225;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.225;
+    else if (BDTregion == "T2bw075_2"   )    return 0.285;
+    else if (BDTregion == "T2bw075_3"   )    return 0.275;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.155;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.215 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.215;
+    else if (BDTregion == "T2bw050_3"   )    return 0.245;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.155;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.155;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.125;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.195  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.175;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.125  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.095;
+    else return -1.0;
+   #endif 
+   #ifdef CR4_3j
+         if (BDTregion == "T2tt_1"      )    return 0.285;
+    else if (BDTregion == "T2tt_2"      )    return 0.335 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.185 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.185;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.195;
+    else if (BDTregion == "T2bw075_2"   )    return 0.245;
+    else if (BDTregion == "T2bw075_3"   )    return 0.245;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.145;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.185 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.185;
+    else if (BDTregion == "T2bw050_3"   )    return 0.205;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.145;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.135;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.105;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.175  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.155;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.115  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.095;
+    else return -1.0;
+   #endif 
+   #ifdef CR4_4j
+         if (BDTregion == "T2tt_1"      )    return 0.265;
+    else if (BDTregion == "T2tt_2"      )    return 0.285 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.135 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.135;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.155;
+    else if (BDTregion == "T2bw075_2"   )    return 0.205;
+    else if (BDTregion == "T2bw075_3"   )    return 0.205;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.115;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.165 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.165;
+    else if (BDTregion == "T2bw050_3"   )    return 0.105;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.095;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.095;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.075;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.155  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.125;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.085  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.075;
+    else return -1.0;
+   #endif
+   #ifdef CR4_4j_50evts
+         if (BDTregion == "T2tt_1"      )    return 0.255;
+    else if (BDTregion == "T2tt_2"      )    return 0.255 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.105 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.105;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.135;
+    else if (BDTregion == "T2bw075_2"   )    return 0.175;
+    else if (BDTregion == "T2bw075_3"   )    return 0.165;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.095;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.135 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.135;
+    else if (BDTregion == "T2bw050_3"   )    return 0.135;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.085;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.075;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.055;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.125  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.095;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.065  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.045;
+    else return -1.0;
+  #endif
+  #ifdef CR4_4j_100evts
+         if (BDTregion == "T2tt_1"      )    return 0.165;
+    else if (BDTregion == "T2tt_2"      )    return 0.205 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.065 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.065;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.105;
+    else if (BDTregion == "T2bw075_2"   )    return 0.135;
+    else if (BDTregion == "T2bw075_3"   )    return 0.115;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.055;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.105 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.105;
+    else if (BDTregion == "T2bw050_3"   )    return 0.095;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.055;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.035;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.015;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.085  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.065;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.035  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.015;
+    else return -1.0;
+  #endif
+  #ifdef CR4_4j_150evts
+         if (BDTregion == "T2tt_1"      )    return 0.135;
+    else if (BDTregion == "T2tt_2"      )    return 0.165 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.035 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.035;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.085;
+    else if (BDTregion == "T2bw075_2"   )    return 0.115;
+    else if (BDTregion == "T2bw075_3"   )    return 0.085;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.025;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.085 ;
+    else if (BDTregion == "T2bw050_1_tight") return 0.085;
+    else if (BDTregion == "T2bw050_3"   )    return 0.065;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.035;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.015;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return -0.005;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.065  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.035;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.015  ;
+    else if (BDTregion == "T2bw025_6"   )    return -0.015;
+    else return -1.0;
+  #endif
+  
+  // NOMINAL ANALYSIS       
+	     if (BDTregion == "T2tt_1"      )    return 0.325;
+    else if (BDTregion == "T2tt_2"      )    return 0.35 ;
+    else if (BDTregion == "T2tt_5_loose")    return 0.25 ;
+    else if (BDTregion == "T2tt_5_tight")    return 0.325;
+    
+    else if (BDTregion == "T2bw075_1"   )    return 0.225;
+    else if (BDTregion == "T2bw075_2"   )    return 0.275;
+    else if (BDTregion == "T2bw075_3"   )    return 0.325;  // previous 0.350;
+    else if (BDTregion == "T2bw075_5"   )    return 0.175;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw050_1_loose") return 0.175;
+    else if (BDTregion == "T2bw050_1_tight") return 0.25 ;
+    else if (BDTregion == "T2bw050_3"   )    return 0.275;  // previous 0.3  ;
+    else if (BDTregion == "T2bw050_4"   )    return 0.225;  // previous 0.250;
+    else if (BDTregion == "T2bw050_5"   )    return 0.200;  //previous 0.225;
+    else if (BDTregion == "T2bw050_6"   )    return 0.175;  // previous 0.2  ;
+
+    else if (BDTregion == "T2bw025_1"   )    return 0.2  ;
+    else if (BDTregion == "T2bw025_3"   )    return 0.275;  // previous 0.3  ;
+    else if (BDTregion == "T2bw025_4"   )    return 0.2  ;
+    else if (BDTregion == "T2bw025_6"   )    return 0.175;
+    
+    else return -1.0;
+
+    return -1.0;
+}
+
+bool goesInBDTRegion(string BDTregion) { return (BDToutput(BDTregion) > BDTcut(BDTregion)); }
 
 bool BDT_T2tt_1         (bool applyMTCut) { return goesInBDTRegion("T2tt_1"         ); }
 bool BDT_T2tt_2         (bool applyMTCut) { return goesInBDTRegion("T2tt_2"         ); }
@@ -304,3 +521,5 @@ bool BDT_T2bw025_1      (bool applyMTCut) { return goesInBDTRegion("T2bw025_1"  
 bool BDT_T2bw025_3      (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"      ); }
 bool BDT_T2bw025_4      (bool applyMTCut) { return goesInBDTRegion("T2bw025_4"      ); }
 bool BDT_T2bw025_6      (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"      ); }
+
+#endif
