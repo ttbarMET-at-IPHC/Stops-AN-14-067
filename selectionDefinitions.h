@@ -11,7 +11,7 @@
 // of skimming or use of tiny tuples...
 
 //#include "Reader.h"
-//#include "Reader_withBDTinfo.h"  // switch between default ntuples or extended ones
+//#include "Reader_final.h"  // Has the extended BDT info defined 
 
 
 
