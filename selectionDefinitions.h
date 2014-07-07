@@ -241,6 +241,7 @@ float getWeight()
     // Normalize to cross section times lumi
     weight *= myEvent.weightCrossSection * lumi;
 
+
     // Apply trigger efficiency weights for singleLepton channels
     if (myEvent.numberOfLepton == 1)
     {
@@ -258,6 +259,7 @@ float getWeight()
     if (myEvent.numberOfLepton == 1)
     {
         weight *= myEvent.leadingLeptonIdEfficiency * myEvent.leadingLeptonIsoScaleFactor;
+
     }
     // TODO not sure about this, to be confirmed
     else if (myEvent.numberOfLepton == 2)
@@ -268,11 +270,13 @@ float getWeight()
 
     // Apply pile-up weight 
     // TODO : Do we confirm we'll use also this for signal ?
-    weight *= myEvent.weightPileUp;
+        weight *= myEvent.weightPileUp;
+
 
     // For signal, apply ISR reweighting
     if (sampleType == "signal")  
         weight *= myEvent.weightISRmodeling;
+
 
     // For ttbar only, apply topPt reweighting
     if (sampleName.find("ttbar_madgraph") != string::npos) 

@@ -25,12 +25,13 @@
 #include "function.C"
 
 
+#include "../selectionDefinitions.h"
+#include "../cutAndCountDefinitions.h"
 
 
 using namespace std;
 
 double f_syst = 0.15;
-//TString ntpdir0 = "~/scratch0/ntuplesmadgraph/setup_120/"; 
 TString ntpdir0 = "ntuplesmadgraph/"; 
 
 

@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+#include <utility>
 #include <algorithm>
 #include "TColor.h"
 #include "TStyle.h"
@@ -28,6 +29,7 @@ using namespace std;
 
 // Define format and input file
 #include "../selectionDefinitions.h" 
+#include "../cutAndCountDefinitions.h" 
 
 
 
@@ -174,12 +176,19 @@ int main (int argc, char *argv[])
 		}
 
 
-		
-		if ( (myEvent.mNeutralino > 0) && !(( myEvent.mStop == atoi(argv[4]) ) && (myEvent.mNeutralino ==  atoi(argv[5]) )) ) continue;
+                if ( atoi(argv[3]) == 10 ) {
+	        cutAndCount_T2tt_offShellLoose()
+		}
+ 	
+
+
+//		if ( (myEvent.mNeutralino > 0) && !(( myEvent.mStop == atoi(argv[4]) ) && (myEvent.mNeutralino ==  atoi(argv[5]) )) ) continue;
 
 //		cout << myEvent.BDT_output_t2bw025_R1 << endl;
 
-	      
+//	        cout << Pred_cutAndCount_T2tt_offShellLoose().first  << endl; 
+//	        cout << Pred_cutAndCount_T2tt_offShellLoose().second << endl; 
+  
 		met = myEvent.MET; 
 		mT = myEvent.MT;
 		mT2W = myEvent.MT2W;
@@ -193,7 +202,6 @@ int main (int argc, char *argv[])
 		mlb_hemi = myEvent.Mlb_hemi;
 		jet1_pT = myEvent.leadingJetPt;
 		njets = myEvent.nJets;
-	//	HT_MET_lep_pt = myEvent.HTPlusLeptonPtPlusMET;
 		Chi2SNT = myEvent.hadronicChi2;
 		METoverSqrtHT_ = myEvent.METoverSqrtHT;
 		dR_LepB = myEvent.deltaRLeptonLeadingB;

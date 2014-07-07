@@ -176,57 +176,7 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
 
 
 
-TString returnSetup(TString decaymode, TString BDT){
 
-	TString setup;
-
-	if (decaymode == "T2bw075")
-	  {
-	    setup = "setup_105";
-	    if (BDT == "BDT1")
-	      setup = "setup_8";
-	    if (BDT == "BDT2")
-	      setup = "setup_7";
-	  }
-
-	else if (decaymode == "T2bw050")
-	  {
-	    setup = "setup_105";
-	    if (BDT == "BDT1")
-	      setup = "setup_8";
-	    if (BDT == "BDT3")
-	      setup = "setup_3";
-	  }
-
-	else if (decaymode == "T2bw025")
-	  {
-	    setup = "setup_105";
-	    if (BDT == "BDT2")
-	      setup = "setup_9";
-	    if (BDT == "BDT3")
-	      setup = "setup_9";
-	    if (BDT == "BDT4")
-	      setup = "setup_9";
-	    if (BDT == "BDT5")
-	      setup = "setup_9";
-	  }
-
-
-
-	else if (decaymode == "T2tt")
-	  {
-	    setup = "setup_1";
-	    if (BDT == "BDT3")
-	      setup = "setup_4";
-	    if (BDT == "BDT4")
-	      setup = "setup_7";
-	    if (BDT == "BDT5")
-	      setup = "setup_5";
-	  }
-
-  return setup;
-
-}
 
 float BDToutput(string BDTregion)
 {
@@ -284,7 +234,7 @@ float BDTcut(string BDTregion)
     else return -1.0;
 }
 
-bool goesInBDTRegion(string BDTregion) { return (BDTouput(BDTregion) > BDTcut(BDTregion)); }
+bool goesInBDTRegion(string BDTregion) { return (BDToutput(BDTregion) > BDTcut(BDTregion)); }
 
 bool BDT_T2tt_1         (bool applyMTCut) { return goesInBDTRegion("T2tt_1"         ); }
 bool BDT_T2tt_2         (bool applyMTCut) { return goesInBDTRegion("T2tt_2"         ); }
