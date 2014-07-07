@@ -6,10 +6,15 @@
 #define MET_CUTLL 80
 
 
-
+// Not sure that it is a good idea to include this here,
+// since one often needs to use a modified format because
+// of skimming or use of tiny tuples...
 
 //#include "Reader.h"
-#include "Reader_withBDTinfo.h"  // switch between default ntuples or extended ones
+//#include "Reader_withBDTinfo.h"  // switch between default ntuples or extended ones
+
+
+
 
 
 // NB : When you call any of the following functions,
