@@ -298,7 +298,7 @@ float getWeight()
 
 
     // For ttbar only, apply topPt reweighting
-    if (sampleName.find("ttbar_madgraph") != string::npos) 
+    if (sampleName.find("ttbar") != string::npos) 
         weight *= myEvent.weightTopPt;
 
     return weight;
