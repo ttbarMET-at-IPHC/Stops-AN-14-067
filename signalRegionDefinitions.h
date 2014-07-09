@@ -1,3 +1,11 @@
+#ifndef _SignalRegionDefinitions_h
+#define _SignalRegionDefinitions_h
+
+#include "../AN-14-067/BDTcuts.h"
+
+bool NOMINAL_BDT_CUT = true;
+bool CR45_INDEP_BINS =  false;
+int CR4_4j_Bin = 0;
 
 
 int signalregion(TString decaymode, int stopmass, int lspmass)
@@ -301,8 +309,11 @@ float BDToutput(string BDTregion)
 }
 
 
-float BDTcut(string BDTregion)
+float BDTcut(string BDTregion, bool BDTCutIndepSR_NextBin = false) 
+// second argument is meaningfull in the context of ttbar-dilepton estimation in CR
 {
+  if(NOMINAL_BDT_CUT)
+  {
          if (BDTregion == "T2tt_1"      )    return 0.325;
     else if (BDTregion == "T2tt_2"      )    return 0.35 ;
     else if (BDTregion == "T2tt_5_loose")    return 0.25 ;
@@ -326,9 +337,72 @@ float BDTcut(string BDTregion)
     else if (BDTregion == "T2bw025_6"   )    return 0.175;
     
     else return -1.0;
+  }
+  else if(CR45_INDEP_BINS)
+  {
+    int ibin = CR4_4j_Bin;
+    if(BDTCutIndepSR_NextBin) ibin--;
+
+         if (BDTregion == "T2tt_1"      )    return BDTCutIndepSR[0][ibin];
+    else if (BDTregion == "T2tt_2"      )    return BDTCutIndepSR[1][ibin];
+    else if (BDTregion == "T2tt_5_loose")    return BDTCutIndepSR[2][ibin];
+    else if (BDTregion == "T2tt_5_tight")    return BDTCutIndepSR[2][ibin];
+    
+    else if (BDTregion == "T2bw075_1"   )    return BDTCutIndepSR[3][ibin];
+    else if (BDTregion == "T2bw075_2"   )    return BDTCutIndepSR[4][ibin];
+    else if (BDTregion == "T2bw075_3"   )    return BDTCutIndepSR[5][ibin];
+    else if (BDTregion == "T2bw075_5"   )    return BDTCutIndepSR[6][ibin];
+
+    else if (BDTregion == "T2bw050_1_loose") return BDTCutIndepSR[7][ibin];
+    else if (BDTregion == "T2bw050_1_tight") return BDTCutIndepSR[7][ibin];
+    else if (BDTregion == "T2bw050_3"   )    return BDTCutIndepSR[8][ibin];
+    else if (BDTregion == "T2bw050_4"   )    return BDTCutIndepSR[9][ibin];
+    else if (BDTregion == "T2bw050_5"   )    return BDTCutIndepSR[10][ibin];
+    else if (BDTregion == "T2bw050_6"   )    return BDTCutIndepSR[11][ibin];
+
+    else if (BDTregion == "T2bw025_1"   )    return BDTCutIndepSR[12][ibin];
+    else if (BDTregion == "T2bw025_3"   )    return BDTCutIndepSR[13][ibin];
+    else if (BDTregion == "T2bw025_4"   )    return BDTCutIndepSR[14][ibin];
+    else if (BDTregion == "T2bw025_6"   )    return BDTCutIndepSR[15][ibin];
+    else return -1.0;
+  }
+  else
+  {
+  	cout<<"HERER "<<BDTCuts[0]<<endl;
+         if (BDTregion == "T2tt_1"      )    return BDTCuts[0];
+    else if (BDTregion == "T2tt_2"      )    return BDTCuts[1];
+    else if (BDTregion == "T2tt_5_loose")    return BDTCuts[2];
+    else if (BDTregion == "T2tt_5_tight")    return BDTCuts[3];
+    
+    else if (BDTregion == "T2bw075_1"   )    return BDTCuts[4];
+    else if (BDTregion == "T2bw075_2"   )    return BDTCuts[5];
+    else if (BDTregion == "T2bw075_3"   )    return BDTCuts[6];
+    else if (BDTregion == "T2bw075_5"   )    return BDTCuts[7];
+
+    else if (BDTregion == "T2bw050_1_loose") return BDTCuts[8];
+    else if (BDTregion == "T2bw050_1_tight") return BDTCuts[9];
+    else if (BDTregion == "T2bw050_3"   )    return BDTCuts[10];
+    else if (BDTregion == "T2bw050_4"   )    return BDTCuts[11];
+    else if (BDTregion == "T2bw050_5"   )    return BDTCuts[12];
+    else if (BDTregion == "T2bw050_6"   )    return BDTCuts[13];
+
+    else if (BDTregion == "T2bw025_1"   )    return BDTCuts[14];
+    else if (BDTregion == "T2bw025_3"   )    return BDTCuts[15];
+    else if (BDTregion == "T2bw025_4"   )    return BDTCuts[16];
+    else if (BDTregion == "T2bw025_6"   )    return BDTCuts[17];
+    else return -1.0;
+  }
 }
 
-bool goesInBDTRegion(string BDTregion) { return (BDToutput(BDTregion) > BDTcut(BDTregion)); }
+//bool goesInBDTRegion(string BDTregion) { return (BDToutput(BDTregion) > BDTcut(BDTregion)); }
+
+bool goesInBDTRegion(string BDTregion) { 
+	//This treatment in only applied for CR for tt-dilepton estimation
+	if(CR45_INDEP_BINS && CR4_4j_Bin>=1){
+		return (BDToutput(BDTregion)>BDTcut(BDTregion) && BDToutput(BDTregion)<=BDTcut(BDTregion,true));
+	}
+	else return (BDToutput(BDTregion) > BDTcut(BDTregion));
+}
 
 bool BDT_T2tt_1         (bool applyMTCut) { return goesInBDTRegion("T2tt_1"         ); }
 bool BDT_T2tt_2         (bool applyMTCut) { return goesInBDTRegion("T2tt_2"         ); }
@@ -348,3 +422,5 @@ bool BDT_T2bw025_1      (bool applyMTCut) { return goesInBDTRegion("T2bw025_1"  
 bool BDT_T2bw025_3      (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"      ); }
 bool BDT_T2bw025_4      (bool applyMTCut) { return goesInBDTRegion("T2bw025_4"      ); }
 bool BDT_T2bw025_6      (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"      ); }
+
+#endif
