@@ -1,4 +1,4 @@
-#define MT_CUT    100 
+#define MT_CUT    120 
 #define MET_CUT   80
 #define NJET_CUT  4
 #define NBJET_CUT 1
@@ -11,10 +11,7 @@
 // of skimming or use of tiny tuples...
 
 //#include "Reader.h"
-//#include "Reader_final.h"  // Has the extended BDT info defined 
-
-
-
+#include "Reader_final.h"  // Has the extended BDT info defined 
 
 
 // NB : When you call any of the following functions,
@@ -32,6 +29,7 @@ string sampleType;
 bool goesInMTpeak()     { if ((myEvent.MT > 50) && (myEvent.MT < 80)) return true; else return false; }
 bool goesInMTtail()     { if (myEvent.MT > MT_CUT)                    return true; else return false; }
 bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return true; else return false; }
+bool BVeto()            { if (myEvent.nBTag < NBJET_CUT)              return false; else return true; }  //For systematics MS
 
 // Control region definitions
 // ##########################
@@ -63,6 +61,19 @@ bool goesInPreselection()
     return true; 
 }
 
+
+bool goesInPreselectionNoBVeto() // For systematics MS
+{
+    if (myEvent.MET < MET_CUT) return false;
+    if (myEvent.numberOfLepton != NLEP_CUT) return false;
+    if (myEvent.nJets < NJET_CUT)  return false; 
+    if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
+
+    return true; 
+}
+
+
+bool goesInPreselectionMTtailNoBeto()   { return (goesInPreselectionNoBVeto() && goesInMTtail());     } 
 bool goesInPreselectionMTtail()     { return (goesInPreselection() && goesInMTtail());     } 
 bool goesInPreselectionMTpeak()     { return (goesInPreselection() && goesInMTpeak());     } 
 bool goesInPreselectionMTinverted() { return (goesInPreselection() && goesInMTinverted()); } 

@@ -66,7 +66,7 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 
 	  TString decay_mode_; 
 	  TString SignalRegion_; 
- 	  TString SignalRegion = signalregion(decay_mode, MSTOP, MLSP); 
+ 	  TString SignalRegion = signalregionName(decay_mode, MSTOP, MLSP); 
 
 	  if (decay_mode == "T2bw025") {decay_mode_ = "t2bw025"; }
  	  if (decay_mode == "T2bw050") {decay_mode_ = "t2bw050"; }   
@@ -227,7 +227,7 @@ void makeCards(TString decay_mode ){
  
       if (decay_mode == "T2tt") { start = -7; end = 4;}
       if (decay_mode == "T2bw025") { start = -7; end = 4;}
-      if (decay_mode == "T2bw050") { start = -7; end = 3;}
+      if (decay_mode == "T2bw050") { start = -7; end = -7;}
       if (decay_mode == "T2bw075") { start = -7; end = 2;}
 
 
@@ -237,7 +237,7 @@ void makeCards(TString decay_mode ){
 
             //cout << BDTdefCutOffset << endl;
 	
-             // FIX LATER for(int x=175; x<=800; x+=25){
+              //for(int x=175; x<=800; x+=25){
 	
               for(int x=175; x<=775; x+=25){
 	
@@ -296,7 +296,7 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
   tablesFile.close();
 
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_5/"+TString(decay_mode)+TString(CUT)+"/";
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_6_mT120/"+TString(decay_mode)+TString(CUT)+"/";
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 
@@ -307,8 +307,8 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
 
 void makeCards(){
 
-makeCards("T2bw025");
-//makeCards("T2bw050");
+//makeCards("T2bw025");
+makeCards("T2bw050");
 //makeCards("T2bw075");
 //makeCards("T2tt");
 
