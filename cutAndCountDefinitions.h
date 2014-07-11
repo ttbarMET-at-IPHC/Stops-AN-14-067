@@ -86,13 +86,11 @@ bool cutAndCount_T2tt(float cutMET, float cutMEToverSqrtHT, float cutMT, float c
 }
 
                                                                             // MET METsig   MT             MT2W dPhi Chi2    ISRjet
-bool cutAndCount_T2tt_offShellLoose(bool applyMTCut) { return cutAndCount_T2tt( 200, -1, 120 * applyMTCut, -1,  -1,  999999, true ); }
-bool cutAndCount_T2tt_offShellTight(bool applyMTCut) { return cutAndCount_T2tt( -1,  10, 140 * applyMTCut, -1,  -1,  999999, true ); }
-bool cutAndCount_T2tt_lowDeltaM    (bool applyMTCut) { return cutAndCount_T2tt( 130, -1, 130 * applyMTCut, -1,  0.8, 5,      false); }
-bool cutAndCount_T2tt_mediumDeltaM (bool applyMTCut) { return cutAndCount_T2tt( -1,  10, 140 * applyMTCut, 180, 0.8, 3,      false); }
-bool cutAndCount_T2tt_highDeltaM   (bool applyMTCut) { return cutAndCount_T2tt( -1,  15, 190 * applyMTCut, 240, -1,  999999, false); }
-
-bool cut_nocut(bool applyMTCut) { return cutAndCount_T2tt( -1, -1, 100 * applyMTCut, -1,  -1,  999999, false ); }
+bool cutAndCount_T2tt_offShellLoose(bool applyMTCut) { return cutAndCount_T2tt( -1,  8,  125 * applyMTCut, -1,   -1, 999999, true ); }
+bool cutAndCount_T2tt_offShellTight(bool applyMTCut) { return cutAndCount_T2tt( 300, -1, 130 * applyMTCut, -1,   -1, 999999, true ); }
+bool cutAndCount_T2tt_lowDeltaM    (bool applyMTCut) { return cutAndCount_T2tt( -1,  8,  140 * applyMTCut, -1,  0.8, 5,      false); }
+bool cutAndCount_T2tt_mediumDeltaM (bool applyMTCut) { return cutAndCount_T2tt( 200, -1, 140 * applyMTCut, 180, 0.8, 3,      false); }
+bool cutAndCount_T2tt_highDeltaM   (bool applyMTCut) { return cutAndCount_T2tt( 350, -1, 130 * applyMTCut, 190,  -1, 999999, false); }
 
 // #################################
 // #  _____ ____  _                #
