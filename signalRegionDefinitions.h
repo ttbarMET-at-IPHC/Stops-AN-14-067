@@ -368,7 +368,6 @@ float BDTcut(string BDTregion, bool BDTCutIndepSR_NextBin = false)
   }
   else
   {
-  	cout<<"HERER "<<BDTCuts[0]<<endl;
          if (BDTregion == "T2tt_1"      )    return BDTCuts[0];
     else if (BDTregion == "T2tt_2"      )    return BDTCuts[1];
     else if (BDTregion == "T2tt_5_loose")    return BDTCuts[2];
