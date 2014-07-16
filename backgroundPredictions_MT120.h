@@ -111,33 +111,33 @@ return std::pair<double,double>( 0.90 , 0.72 	 );
 std::pair<double,double> Pred_BDT_T2tt_5_tight(double BDTcutOffset){
 
     if (BDTcutOffset == -0.45)
-return std::pair<double,double>( 2463.95 , 248.45 	 )};
+return std::pair<double,double>( 2463.95 , 248.45 	 );
     if (BDTcutOffset == -0.40)
-return std::pair<double,double>( 1439.61 , 171.02 	 )};
+return std::pair<double,double>( 1439.61 , 171.02 	 );
     if (BDTcutOffset == -0.35)
-return std::pair<double,double>( 792.89 , 108.69 	 )};
+return std::pair<double,double>( 792.89 , 108.69 	 );
     if (BDTcutOffset == -0.30)
-return std::pair<double,double>( 386.42 , 56.70 	 )};
+return std::pair<double,double>( 386.42 , 56.70 	 );
     if (BDTcutOffset == -0.25)
-return std::pair<double,double>( 170.07 , 26.27 	 )};
+return std::pair<double,double>( 170.07 , 26.27 	 );
     if (BDTcutOffset == -0.20)
-return std::pair<double,double>( 79.62 , 13.46 	 )};
+return std::pair<double,double>( 79.62 , 13.46 	 );
     if (BDTcutOffset == -0.15)
-return std::pair<double,double>( 40.53 , 8.56 	 )};
+return std::pair<double,double>( 40.53 , 8.56 	 );
     if (BDTcutOffset == -0.10)
-return std::pair<double,double>( 18.22 , 4.55 	 )};
+return std::pair<double,double>( 18.22 , 4.55 	 );
     if (BDTcutOffset == -0.05)
-return std::pair<double,double>( 9.52 , 2.80 	 )};
+return std::pair<double,double>( 9.52 , 2.80 	 );
     if (BDTcutOffset ==  0.00)
-return std::pair<double,double>( 3.46 , 1.33 	 )};
+return std::pair<double,double>( 3.46 , 1.33 	 );
     if (BDTcutOffset ==  0.05)
-return std::pair<double,double>( 1.55 , 0.81 	 )};
+return std::pair<double,double>( 1.55 , 0.81 	 );
     if (BDTcutOffset ==  0.10)
-return std::pair<double,double>( 1.00 , 0.75 	 )};
+return std::pair<double,double>( 1.00 , 0.75 	 );
     if (BDTcutOffset ==  0.15)
-return std::pair<double,double>( 0.82 , 0.71 	 )};
+return std::pair<double,double>( 0.82 , 0.71 	 );
     if (BDTcutOffset ==  0.20)
-return std::pair<double,double>( 0.20 , 0.16 	 )};
+return std::pair<double,double>( 0.20 , 0.16 	 );
 
     else return pair<double,double>( -999 , -999 );
 
@@ -435,6 +435,41 @@ return std::pair<double,double>( 0.00 , 0.00 	 );
 
 
 
+pair<double,double> Pred_BDT_T2bw050_5(double BDTcutOffset){
+
+    if (BDTcutOffset == -0.45)
+return std::pair<double,double>( 3388.63 , 260.58 	 );
+    if (BDTcutOffset == -0.40)
+return std::pair<double,double>( 2794.16 , 223.48 	 );
+    if (BDTcutOffset == -0.35)
+return std::pair<double,double>( 2039.49 , 171.63 	 );
+    if (BDTcutOffset == -0.30)
+return std::pair<double,double>( 1270.34 , 119.34 	 );
+    if (BDTcutOffset == -0.25)
+ return std::pair<double,double>( 663.59 , 68.72 	 );
+
+    else return pair<double,double>( -999 , -999 );
+}
+
+
+
+pair<double,double> Pred_BDT_T2bw050_6(double BDTcutOffset){
+
+    if (BDTcutOffset == -0.45)
+return std::pair<double,double>( 3472.29 , 257.80 );
+    if (BDTcutOffset == -0.40)
+return std::pair<double,double>( 2817.15 , 216.16 );
+    if (BDTcutOffset == -0.35)
+return std::pair<double,double>( 2065.71 , 166.36 );
+    if (BDTcutOffset == -0.30)
+return std::pair<double,double>( 1352.30 , 119.11 );
+    if (BDTcutOffset == -0.25)
+return std::pair<double,double>( 761.91 , 72.59 );
+
+    else return pair<double,double>( -999 , -999 );
+}
+
+
 
 pair<double,double> Pred_BDT_T2bw025_1(double BDTcutOffset){
 
@@ -473,29 +508,29 @@ std::pair<double,double> Pred_BDT_T2bw025_3(double BDTcutOffset){
 
 
     if (BDTcutOffset == -0.45)
-return std::pair<double,double>( 3357.68 , 264.71 	 )};
+return std::pair<double,double>( 3357.68 , 264.71 	 );
     if (BDTcutOffset == -0.40)
-return std::pair<double,double>( 2284.11 , 201.33 	 )};
+return std::pair<double,double>( 2284.11 , 201.33 	 );
     if (BDTcutOffset == -0.35)
-return std::pair<double,double>( 1258.56 , 132.48 	 )};
+return std::pair<double,double>( 1258.56 , 132.48 	 );
     if (BDTcutOffset == -0.30)
-return std::pair<double,double>( 651.10 , 77.09 	 )};
+return std::pair<double,double>( 651.10 , 77.09 	 );
     if (BDTcutOffset == -0.25)
-return std::pair<double,double>( 297.43 , 35.89 	 )};
+return std::pair<double,double>( 297.43 , 35.89 	 );
     if (BDTcutOffset == -0.20)
-return std::pair<double,double>( 110.75 , 14.56 	 )};
+return std::pair<double,double>( 110.75 , 14.56 	 );
     if (BDTcutOffset == -0.15)
-return std::pair<double,double>( 37.54 , 5.91 	 )};
+return std::pair<double,double>( 37.54 , 5.91 	 );
     if (BDTcutOffset == -0.10)
-return std::pair<double,double>( 13.93 , 2.96 	 )};
+return std::pair<double,double>( 13.93 , 2.96 	 );
     if (BDTcutOffset == -0.05)
-return std::pair<double,double>( 6.09 , 1.94 	 )};
+return std::pair<double,double>( 6.09 , 1.94 	 );
     if (BDTcutOffset ==  0.00)
-return std::pair<double,double>( 1.74 , 0.80 	 )};
+return std::pair<double,double>( 1.74 , 0.80 	 );
     if (BDTcutOffset ==  0.05)
-return std::pair<double,double>( 1.03 , 0.73 	 )};
+return std::pair<double,double>( 1.03 , 0.73 	 );
     if (BDTcutOffset ==  0.10)
-return std::pair<double,double>( 0.29 , 0.27 	 )};
+return std::pair<double,double>( 0.29 , 0.27 	 );
 
     else return pair<double,double>( -999 , -999 );
 
@@ -506,29 +541,29 @@ return std::pair<double,double>( 0.29 , 0.27 	 )};
 std::pair<double,double> Pred_BDT_T2bw025_4(double BDTcutOffset){
 
     if (BDTcutOffset == -0.45)
-return std::pair<double,double>( 4285.34 , 326.85 	 )};
+return std::pair<double,double>( 4285.34 , 326.85 	 );
     if (BDTcutOffset == -0.40)
-return std::pair<double,double>( 3839.07 , 281.22 	 )};
+return std::pair<double,double>( 3839.07 , 281.22 	 );
     if (BDTcutOffset == -0.35)
-return std::pair<double,double>( 2975.68 , 227.62 	 )};
+return std::pair<double,double>( 2975.68 , 227.62 	 );
     if (BDTcutOffset == -0.25)
-return std::pair<double,double>( 2013.31 , 169.32 	 )};
+return std::pair<double,double>( 2013.31 , 169.32 	 );
     if (BDTcutOffset == -0.30)
-return std::pair<double,double>( 1118.10 , 112.23 	 )};
+return std::pair<double,double>( 1118.10 , 112.23 	 );
     if (BDTcutOffset == -0.20)
-return std::pair<double,double>( 485.53 , 54.46 	 )};
+return std::pair<double,double>( 485.53 , 54.46 	 );
     if (BDTcutOffset == -0.15)
-return std::pair<double,double>( 165.60 , 19.45 	 )};
+return std::pair<double,double>( 165.60 , 19.45 	 );
     if (BDTcutOffset == -0.10)
-return std::pair<double,double>( 44.18 , 6.52 	 )};
+return std::pair<double,double>( 44.18 , 6.52 	 );
     if (BDTcutOffset == -0.05)
-return std::pair<double,double>( 10.20 , 2.40 	 )};
+return std::pair<double,double>( 10.20 , 2.40 	 );
     if (BDTcutOffset ==  0.00)
-return std::pair<double,double>( 3.24 , 1.12 	 )};
+return std::pair<double,double>( 3.24 , 1.12 	 );
     if (BDTcutOffset ==  0.05)
-return std::pair<double,double>( 1.18 , 0.66 	 )};
+return std::pair<double,double>( 1.18 , 0.66 	 );
     if (BDTcutOffset ==  0.10)
-return std::pair<double,double>( 0.37 , 0.33 	 )};
+return std::pair<double,double>( 0.37 , 0.33 	 );
 
     else return pair<double,double>( -999 , -999 );
 
@@ -539,30 +574,33 @@ std::pair<double,double> Pred_BDT_T2bw025_6(double BDTcutOffset){
 
 
     if (BDTcutOffset == -0.45)
-return std::pair<double,double>( 3642.35 , 269.38 	 )};
+return std::pair<double,double>( 3642.35 , 269.3 );
     if (BDTcutOffset == -0.40)
-return std::pair<double,double>( 3058.98 , 228.10 	 )};
+return std::pair<double,double>( 3058.98 , 228.1 );
     if (BDTcutOffset == -0.35)
-return std::pair<double,double>( 2356.33 , 185.02 	 )};
+return std::pair<double,double>( 2356.33 , 185.0 );
     if (BDTcutOffset == -0.30)
-return std::pair<double,double>( 1636.65 , 137.98 	 )};
+return std::pair<double,double>( 1636.65 , 137.9 );
     if (BDTcutOffset == -0.25)
-return std::pair<double,double>( 927.41 , 82.53 	 )};
+return std::pair<double,double>( 927.41 , 82.53  );
     if (BDTcutOffset == -0.20)
-return std::pair<double,double>( 457.50 , 44.52 	 )};
+return std::pair<double,double>( 457.50 , 44.52  );
     if (BDTcutOffset == -0.15)
-return std::pair<double,double>( 189.36 , 20.52 	 )};
+return std::pair<double,double>( 189.36 , 20.52  );
     if (BDTcutOffset == -0.10)
-return std::pair<double,double>( 56.89 , 7.39 	 )};
+return std::pair<double,double>( 56.89 , 7.39 	 );
     if (BDTcutOffset == -0.05)
-return std::pair<double,double>( 15.97 , 3.22 	 )};
-    if (BDTcutOffset ==  0.00
-return std::pair<double,double>( 3.71 , 1.24 	 )};
+return std::pair<double,double>( 15.97 , 3.22 	 );
+    if (BDTcutOffset ==  0.00)
+return std::pair<double,double>( 3.71 , 1.24 	 );
     if (BDTcutOffset ==  0.05)
-return std::pair<double,double>( 1.09 , 0.77 	 )};
+return std::pair<double,double>( 1.09 , 0.77 	 );
     if (BDTcutOffset ==  0.10)
-return std::pair<double,double>( 0.54 , 1.07 	 )};
+return std::pair<double,double>( 0.54 , 1.07 	 );
 
     else return pair<double,double>( -999 , -999 );
 
 }
+
+
+

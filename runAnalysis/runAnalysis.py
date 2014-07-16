@@ -10,7 +10,7 @@ pwd = os.environ['PWD']
 
 #dataset_name 		= ['SingleElec', 'SingleMuon', 'DoubleElec', 'DoubleMuon', 'MuEl', 'W+jets', 'rare', 'singleTop_st', 'ttbar_madgraph_1l', 'ttbar_madgraph_2l', 'T2bw-025' , 'T2bw-050' , 'T2bw-075' , 'T2tt' ]
 #dataset_name 		= ['T2bw-025' , 'T2bw-050' , 'T2bw-075' , 'T2tt'] 
-dataset_name 		= ['T2bw-050' , 'T2bw-075' , 'T2tt'] 
+dataset_name 		= ['T2bw-050'] 
 executable         	= "runAnalysis" 
 
 
@@ -18,7 +18,7 @@ for z in range(len(dataset_name)):
 
 
     inputfile = "root://eoscms//eos/cms/store/caf/user/sigamani/StopBabies/V00-05/"+dataset_name[z]+".root"
-    outputdir = pwd+"/batch_output/"+dataset_name[z] 
+    outputdir = pwd+"/batch_output_MT100/"+dataset_name[z] 
    	     
     os.system("rm -r "+outputdir)
     os.system("mkdir -p "+outputdir)

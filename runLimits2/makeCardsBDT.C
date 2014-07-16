@@ -25,8 +25,8 @@
 
 
 #include "../signalRegionDefinitions.h" 
-//#include "../cutAndCountDefinitions.h" 
 #include "../backgroundPredictions.h" 
+//#include "../backgroundPredictions_MT120.h" 
 
 
 using namespace std;
@@ -97,7 +97,8 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
    	  if (SignalRegion == "T2tt_5_tight")   {SignalRegion_ = "R5_tight";   }
 
 
-          TFile sig(decay_mode+".root");
+          TFile sig("ntpMT100/"+decay_mode+".root");
+          //TFile sig("ntpMT120/"+decay_mode+".root");
           TH1D* signal= (TH1D*)sig.Get("hist_BDT_output_"+decay_mode_+"_"+SignalRegion_+"_S"+TString(stop)+"_N"+TString(neut));
 
           int nbins = signal->GetNbinsX();
@@ -225,10 +226,10 @@ void makeCards(TString decay_mode ){
       int start;
       int end;
  
-      if (decay_mode == "T2tt") { start = -7; end = 4;}
-      if (decay_mode == "T2bw025") { start = -7; end = 4;}
-      if (decay_mode == "T2bw050") { start = -7; end = -7;}
-      if (decay_mode == "T2bw075") { start = -7; end = 2;}
+      if (decay_mode == "T2tt") { start = -9; end = 4;}
+      if (decay_mode == "T2bw025") { start = -9; end = 4;}
+      if (decay_mode == "T2bw050") { start = -7; end = 4;}
+      if (decay_mode == "T2bw075") { start = -9; end = 2;}
 
 
       for(int z= start; z<= end; z+=1){
@@ -236,8 +237,6 @@ void makeCards(TString decay_mode ){
 	double BDTdefCutOffset  = float(z) / 20.;
 
             //cout << BDTdefCutOffset << endl;
-	
-              //for(int x=175; x<=800; x+=25){
 	
               for(int x=175; x<=775; x+=25){
 	
@@ -296,7 +295,7 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
   tablesFile.close();
 
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_6_mT120/"+TString(decay_mode)+TString(CUT)+"/";
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_6_mT100/"+TString(decay_mode)+"_CUT"+TString(CUT)+"/";
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 
@@ -307,9 +306,9 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
 
 void makeCards(){
 
-//makeCards("T2bw025");
-makeCards("T2bw050");
-//makeCards("T2bw075");
+makeCards("T2bw025");
+//makeCards("T2bw050");
+makeCards("T2bw075");
 //makeCards("T2tt");
 
 }

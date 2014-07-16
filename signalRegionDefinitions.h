@@ -271,6 +271,100 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
 
 
 
+int signalcut2(TString decaymode, int stopmass, int lspmass)
+{
+
+  int intoffset = -999;
+
+
+   if (decaymode == "T2bw075") {
+
+
+          if (lspmass > stopmass - 200)
+            intoffset = 8;
+          if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
+            intoffset = 8;
+          if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
+            intoffset = 8;
+          if (lspmass <= stopmass - 475)
+            intoffset = 9;
+
+  }
+
+
+
+  if (decaymode == "T2bw050") {
+
+
+          if (lspmass > stopmass - 250) {
+		intoffset = 7 ; 
+		    if (lspmass < 150) intoffset = 6;
+		}
+
+          if (lspmass <= stopmass - 250 && lspmass > stopmass - 400)
+            intoffset = 5;
+          if (lspmass <= stopmass - 400 && lspmass > stopmass - 450)
+            intoffset = 6;
+          if (lspmass <= stopmass - 450 && lspmass > stopmass - 625)
+            intoffset = 8;
+          if (lspmass <= stopmass - 625)
+            intoffset = 3;
+
+
+  }	
+
+  if (decaymode == "T2bw025") {
+
+
+          if (lspmass <= 125)
+            {
+              if (lspmass > stopmass - 275)
+                intoffset = 7;
+
+            }
+          if (lspmass > 125)
+            {
+              if (lspmass > stopmass - 225)
+                intoffset = 7;
+              if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
+                intoffset = 5;
+
+            }
+
+          if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
+            intoffset = 5;
+          if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
+            intoffset = 7;
+          if (lspmass <= stopmass - 600)
+            intoffset = 8;
+
+
+
+  }
+
+
+  if (decaymode == "T2tt") {
+
+
+	  if (lspmass > stopmass - 225)
+	    intoffset = 8;
+	  if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
+	    intoffset = 8;
+		  if (lspmass <= stopmass - 275) {
+
+			intoffset=8; if (lspmass <= stopmass - 400) intoffset = 8;
+		   }
+
+
+ 	}
+
+
+  return intoffset;
+}
+
+
+
+
 
 float BDToutput(string BDTregion)
 {

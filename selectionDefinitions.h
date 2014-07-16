@@ -1,4 +1,4 @@
-#define MT_CUT    120 
+#define MT_CUT    100 
 #define MET_CUT   80
 #define NJET_CUT  4
 #define NBJET_CUT 1
