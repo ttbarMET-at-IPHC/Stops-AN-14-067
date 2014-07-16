@@ -422,4 +422,21 @@ bool BDT_T2bw025_3      (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"  
 bool BDT_T2bw025_4      (bool applyMTCut) { return goesInBDTRegion("T2bw025_4"      ); }
 bool BDT_T2bw025_6      (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"      ); }
 
+bool LowBDT_T2tt_1         (bool applyMTCut) { return (BDToutput("T2tt_1"         )> -0.00  ); }
+bool LowBDT_T2tt_2         (bool applyMTCut) { return (BDToutput("T2tt_2"         )> 0.01   ); }
+bool LowBDT_T2tt_5         (bool applyMTCut) { return (BDToutput("T2tt_5_loose"   )> -0.06  ); }
+bool LowBDT_T2bw075_1      (bool applyMTCut) { return (BDToutput("T2bw075_1"      )> -0.01  ); }
+bool LowBDT_T2bw075_2      (bool applyMTCut) { return (BDToutput("T2bw075_2"      )> -0.04  ); }
+bool LowBDT_T2bw075_3      (bool applyMTCut) { return (BDToutput("T2bw075_3"      )> -0.04  ); }
+bool LowBDT_T2bw075_5      (bool applyMTCut) { return (BDToutput("T2bw075_5"      )> -0.05  ); }
+bool LowBDT_T2bw050_1      (bool applyMTCut) { return (BDToutput("T2bw050_1_loose")> -0.00  ); }
+bool LowBDT_T2bw050_3      (bool applyMTCut) { return (BDToutput("T2bw050_3"      )> 0.04   ); }
+bool LowBDT_T2bw050_4      (bool applyMTCut) { return (BDToutput("T2bw050_4"      )> 0.01   ); }
+bool LowBDT_T2bw050_5      (bool applyMTCut) { return (BDToutput("T2bw050_5"      )> 0.00   ); }
+bool LowBDT_T2bw050_6      (bool applyMTCut) { return (BDToutput("T2bw050_6"      )> -0.00  ); }
+bool LowBDT_T2bw025_1      (bool applyMTCut) { return (BDToutput("T2bw025_1"      )> 0.04   ); }
+bool LowBDT_T2bw025_3      (bool applyMTCut) { return (BDToutput("T2bw025_3"      )> 0.05   ); }
+bool LowBDT_T2bw025_4      (bool applyMTCut) { return (BDToutput("T2bw025_4"      )> 0.01   ); }
+bool LowBDT_T2bw025_6      (bool applyMTCut) { return (BDToutput("T2bw025_6"      )> -0.01  ); }
+
 #endif
