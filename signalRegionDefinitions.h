@@ -279,7 +279,7 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
 
 
 
-int signalcut2(TString decaymode, int stopmass, int lspmass)
+int returnIntBDTOffsetValue(TString decaymode, int stopmass, int lspmass)
 {
 
   int intoffset = -999;
