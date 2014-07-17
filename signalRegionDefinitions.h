@@ -415,20 +415,20 @@ float BDTcut(string BDTregion, bool BDTCutIndepSR_NextBin = false)
   if(NOMINAL_BDT_CUT)
   {
          if (BDTregion == "T2tt_1"      )    	return 0.325;
-    else if (BDTregion == "T2tt_2_loose")    	return 0.35 ;
+    else if (BDTregion == "T2tt_2_lowDM")    	return 0.35 ;
     else if (BDTregion == "T2tt_2_tight")    	return 0.25 ;
-    else if (BDTregion == "T2tt_5_loose")    	return 0.35 ;
-    else if (BDTregion == "T2tt_5_medium")    	return 0.325;
-    else if (BDTregion == "T2tt_5_tight")    	return 0.375;
+    else if (BDTregion == "T2tt_5_lowDM")    	return 0.35 ;
+    else if (BDTregion == "T2tt_5_mediumDM")    	return 0.325;
+    else if (BDTregion == "T2tt_5_highDM")    	return 0.375;
     
     else if (BDTregion == "T2bw075_1"   )    	return 0.225;
     else if (BDTregion == "T2bw075_2"   )    	return 0.275;
     else if (BDTregion == "T2bw075_3"   )    	return 0.350;
-    else if (BDTregion == "T2bw075_5_loose")    return 0.25 ;
-    else if (BDTregion == "T2bw075_5_tight")    return 0.3  ;
+    else if (BDTregion == "T2bw075_5_lowDM")    return 0.25 ;
+    else if (BDTregion == "T2bw075_5_highDM")    return 0.3  ;
 
-    else if (BDTregion == "T2bw050_1_loose") 	return 0.175;
-    else if (BDTregion == "T2bw050_1_tight") 	return 0.25 ;
+    else if (BDTregion == "T2bw050_1_lowDM") 	return 0.175;
+    else if (BDTregion == "T2bw050_1_highDM") 	return 0.25 ;
     else if (BDTregion == "T2bw050_3"   )    	return 0.3  ;
     else if (BDTregion == "T2bw050_4"   )    	return 0.250;
     else if (BDTregion == "T2bw050_5"   )    	return 0.225;
