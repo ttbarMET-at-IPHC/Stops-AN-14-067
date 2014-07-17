@@ -155,9 +155,11 @@ void plot_limit(TString decay_mode){
    TH2D *SMS = new TH2D(decay_mode,"",26,162.5, 812.5, 16, 12.5,412.5);
    TH2D *SMS2 = new TH2D(decay_mode+"SRs","",26,162.5, 812.5, 16, 12.5,412.5);
 	
-              for(int x=175; x<800; x+=25){
+              //for(int x=175; x<800; x+=25){
+              for(int x=175; x<725; x+=25){
 
-                      for(int y=25; y<=700; y+=25){
+                      //for(int y=25; y<=700; y+=25){
+                      for(int y=25; y<=300; y+=25){
 
                                if (x - y > 99){
 
@@ -223,16 +225,32 @@ void plot_limit(TString decay_mode){
 
 
 						double temp = 1000.;
-						double optimcut = -999.;
+						int mvaval = returnIntBDTOffsetValue(decay_mode,x,y) - 1;
+						double offset; 
+					        
+						if (mvaval+1 == 1) offset = -0.35;	
+						if (mvaval+1 == 2) offset = -0.3;	
+						if (mvaval+1 == 3) offset = -0.25;	
+						if (mvaval+1 == 4) offset = -0.2;	
+						if (mvaval+1 == 5) offset = -0.15;	
+						if (mvaval+1 == 6) offset = -0.1;	
+						if (mvaval+1 == 7) offset = -0.05;	
+						if (mvaval+1 == 8) offset = 0.0;	
+						if (mvaval+1 == 9) offset = 0.05;	
+						if (mvaval+1 == 10) offset = 0.1;	
+						if (mvaval+1 == 11) offset = 0.15;	
+						if (mvaval+1 == 12) offset = 0.2;	
 
-						int mvaval = signalcut2(decay_mode,x,y) - 1;
+						double optimcut = signalcut(decay_mode,x,y) + offset;
+
 						temp    = limits[mvaval];                     
 						myval2  = signalregion(decay_mode,x,y);
 
-
+						//cout << mvaval + 1 << endl;
 						  if ( temp < 1.0 ) {
 							SMS->Fill(x,y,temp);
 							SMS2->Fill(x,y,mvaval+1);
+							SMS3->Fill(x,y,optimcut);
 
 						  }
 
@@ -268,11 +286,12 @@ void plot_limit(TString decay_mode){
            TAxis *data_yaxis = SMS->GetYaxis();
            TAxis *data_xaxis = SMS->GetXaxis();
 
-           SMS2->GetXaxis()->SetTitle("Mass STOP");
-           SMS2->GetYaxis()->SetTitle("Mass LSP");
-	   SMS2->GetZaxis()->SetTitle("Optimal BDT cut off-set"); 
+           SMS3->GetXaxis()->SetTitle("Mass STOP");
+           SMS3->GetYaxis()->SetTitle("Mass LSP");
+	   //SMS3->GetZaxis()->SetTitle("Optimal BDT cut off-set"); 
+	   SMS3->GetZaxis()->SetTitle("Optimal BDT cut"); 
 
-	   SMS->GetZaxis()->SetRangeUser(1,12);
+//	   SMS->GetZaxis()->SetRangeUser(1,12);
  
 
 	   TPaveText* key = new TPaveText( 0.6, 0.6, 0.8, 0.92, "brNDC" );
@@ -299,13 +318,13 @@ void plot_limit(TString decay_mode){
            c1.SetTopMargin(0.04895105);
            c1.SetBottomMargin(0.1416084);
            c1.Range(-289.7381,-191.8196,1334.643,1074.487);
-           SMS2->SetMarkerSize(1.);
-           SMS2->SetMarkerColor(kWhite);
-           SMS2->Draw("COLZ TEXT");
+           SMS3->SetMarkerSize(1.);
+           SMS3->SetMarkerColor(kWhite);
+           SMS3->Draw("COLZ TEXT");
 
   	   key->Draw("same");
            c1.RedrawAxis();
-           c1.SaveAs("~/www/"+TString(decay_mode)+"_NEW.png");
+           c1.SaveAs("~/www/"+TString(decay_mode)+".png");
 
       fout->cd();
       fout->Write();
