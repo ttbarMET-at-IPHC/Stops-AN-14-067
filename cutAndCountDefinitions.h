@@ -68,7 +68,7 @@ bool cutAndCount_T2tt(float cutMET, float cutMEToverSqrtHT, float cutMT, float c
     if (myEvent.METoverSqrtHT   < cutMEToverSqrtHT) return false;
     if (myEvent.MT              < cutMT)            return false;
     if (myEvent.MT2W            < cutMT2W)          return false;
-    if (cutMT2W >0 && myEvent.MT2W>99990)        return false;
+    if ((cutMT2W > 0) && (myEvent.MT2W > 99990))    return false;
     if (myEvent.MET             < cutMET)           return false;
     if (myEvent.deltaPhiMETJets < cutDeltaPhi)      return false;
     if (myEvent.hadronicChi2    > cutHadronicChi2)  return false;
@@ -107,7 +107,7 @@ bool cutAndCount_T2bw(float cutMET, float cutMETsig, float cutMT, float cutMT2W,
     if (myEvent.METoverSqrtHT   < cutMETsig)            return false;
     if (myEvent.MT              < cutMT)                return false;
     if (myEvent.MT2W            < cutMT2W)              return false;
-    if (cutMT2W >0 && myEvent.MT2W>99990)        return false;
+    if ((cutMT2W > 0)  && (myEvent.MT2W>99990))         return false;
     if (myEvent.leadingBPt      < cutBPt)               return false;
     if (myEvent.deltaPhiMETJets < cutDeltaPhi)          return false;
     if (enableISRJetRequirement)
@@ -123,20 +123,19 @@ bool cutAndCount_T2bw(float cutMET, float cutMETsig, float cutMT, float cutMT2W,
 }
 
                                                                               // MET METsig   MT                MT2W BPt dPhi ISRjet
-bool cutAndCount_T2bw025_offShell(bool applyMTCut)     { return cutAndCount_T2bw(-1,   9,    120 * applyMTCut, -1,   -1, 0.2, true ); }
-bool cutAndCount_T2bw025_lowDeltaM(bool applyMTCut)    { return cutAndCount_T2bw(-1,   6,    120 * applyMTCut, 200, 180, 0.8, false); }
-bool cutAndCount_T2bw025_highDeltaM(bool applyMTCut)   { return cutAndCount_T2bw(300, -1,    120 * applyMTCut, 200, 180, 0.8, false); }
+bool cutAndCount_T2bw025_offShell    (bool applyMTCut) { return cutAndCount_T2bw(-1,   9,    120 * applyMTCut, -1,   -1, 0.2, true ); }
+bool cutAndCount_T2bw025_lowMasses   (bool applyMTCut) { return cutAndCount_T2bw(-1,   6,    120 * applyMTCut, 200, 180, 0.8, false); }
+bool cutAndCount_T2bw025_highMasses  (bool applyMTCut) { return cutAndCount_T2bw(300, -1,    120 * applyMTCut, 200, 180, 0.8, false); }
 
                                                                               // MET METsig   MT                MT2W BPt dPhi ISRjet
-bool cutAndCount_T2bw050_offShell(bool applyMTCut)     { return cutAndCount_T2bw(-1,   9,    120 * applyMTCut, -1,   -1, 0.2, true ); }
-bool cutAndCount_T2bw050_lowMasses(bool applyMTCut)    { return cutAndCount_T2bw(-1,   6,    135 * applyMTCut, 180,  -1, 0.8, false); }
+bool cutAndCount_T2bw050_offShell    (bool applyMTCut) { return cutAndCount_T2bw(-1,   9,    120 * applyMTCut, -1,   -1, 0.2, true ); }
+bool cutAndCount_T2bw050_lowMasses   (bool applyMTCut) { return cutAndCount_T2bw(-1,   6,    135 * applyMTCut, 180,  -1, 0.8, false); }
 bool cutAndCount_T2bw050_mediumDeltaM(bool applyMTCut) { return cutAndCount_T2bw(-1,   7,    140 * applyMTCut, 190, 100, 0.8, false); }
-bool cutAndCount_T2bw050_highDeltaM(bool applyMTCut)   { return cutAndCount_T2bw(300, -1,    120 * applyMTCut, 200, 100, 0.8, false); }
+bool cutAndCount_T2bw050_highDeltaM  (bool applyMTCut) { return cutAndCount_T2bw(300, -1,    120 * applyMTCut, 200, 100, 0.8, false); }
 
                                                                               // MET METsig   MT                MT2W BPt dPhi ISRjet
-bool cutAndCount_T2bw075_lowDeltaM(bool applyMTCut)    { return cutAndCount_T2bw(-1,  12,    120 * applyMTCut, -1,   -1, 0.8, true);  }
+bool cutAndCount_T2bw075_lowDeltaM   (bool applyMTCut) { return cutAndCount_T2bw(-1,  12,    120 * applyMTCut, -1,   -1, 0.8, true);  }
 bool cutAndCount_T2bw075_mediumDeltaM(bool applyMTCut) { return cutAndCount_T2bw(-1,  10,    130 * applyMTCut, 180,  -1, 0.8, false); }
-bool cutAndCount_T2bw075_highDeltaM(bool applyMTCut)   { return cutAndCount_T2bw(300, -1,    140 * applyMTCut, 200,  -1, 0.8, false); }
-
+bool cutAndCount_T2bw075_highDeltaM  (bool applyMTCut) { return cutAndCount_T2bw(300, -1,    140 * applyMTCut, 200,  -1, 0.8, false); }
 
 #endif
