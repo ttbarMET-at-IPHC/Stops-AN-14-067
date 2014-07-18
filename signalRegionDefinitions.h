@@ -416,7 +416,7 @@ float BDTcut(string BDTregion, bool BDTCutIndepSR_NextBin = false)
   {
          if (BDTregion == "T2tt_1"      )    	return 0.325;
     else if (BDTregion == "T2tt_2_lowDM")    	return 0.35 ;
-    else if (BDTregion == "T2tt_2_tight")    	return 0.25 ;
+    else if (BDTregion == "T2tt_2_highDM")    	return 0.25 ;
     else if (BDTregion == "T2tt_5_lowDM")    	return 0.35 ;
     else if (BDTregion == "T2tt_5_mediumDM")   	return 0.325;
     else if (BDTregion == "T2tt_5_highDM")    	return 0.375;
