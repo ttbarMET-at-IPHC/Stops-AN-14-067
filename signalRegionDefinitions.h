@@ -439,10 +439,10 @@ bool BDT_T2bw025_4       (bool applyMTCut) { return goesInBDTRegion("T2bw025_4" 
 bool BDT_T2bw025_6       (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"       ); }
 
 // Aliases to loosest BDT signal regions in case of different cuts that apply to same BDT output
-bool BDT_T2tt_2          (bool applyMTCut) { return T2tt_2_highDM  (applyMTCut); }
-bool BDT_T2tt_5          (bool applyMTCut) { return T2tt_5_mediumDM(applyMTCut); }
-bool BDT_T2bw075_5       (bool applyMTCut) { return T2bw075_5_lowDM(applyMTCut); }
-bool BDT_T2bw050_1       (bool applyMTCut) { return T2bw050_1_lowDM(applyMTCut); }
+bool BDT_T2tt_2          (bool applyMTCut) { return BDT_T2tt_2_highDM  (applyMTCut); }
+bool BDT_T2tt_5          (bool applyMTCut) { return BDT_T2tt_5_mediumDM(applyMTCut); }
+bool BDT_T2bw075_5       (bool applyMTCut) { return BDT_T2bw075_5_lowDM(applyMTCut); }
+bool BDT_T2bw050_1       (bool applyMTCut) { return BDT_T2bw050_1_lowDM(applyMTCut); }
 
 
 #endif
