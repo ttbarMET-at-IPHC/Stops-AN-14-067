@@ -307,7 +307,7 @@ float BDToutput(string BDTregion)
 {
          if (BDTregion == "T2tt_1"      )     return myEvent.BDT_output_t2tt_R1;
     else if (BDTregion == "T2tt_2_lowDM")     return myEvent.BDT_output_t2tt_R2;
-    else if (BDTregion == "T2tt_2_tight")     return myEvent.BDT_output_t2tt_R2;
+    else if (BDTregion == "T2tt_2_highDM")    return myEvent.BDT_output_t2tt_R2;
     else if (BDTregion == "T2tt_5_lowDM")     return myEvent.BDT_output_t2tt_R5;
     else if (BDTregion == "T2tt_5_mediumDM")  return myEvent.BDT_output_t2tt_R5;
     else if (BDTregion == "T2tt_5_highDM")    return myEvent.BDT_output_t2tt_R5;
