@@ -67,7 +67,6 @@ int main (int argc, char *argv[])
    char name3[300], title3[300];
    char name4[400], title4[400];
    char name5[500], title5[500];
-   char name6[500], title6[500];
    char name7[500], title7[500];
    char name8[500], title8[500];
    char name9[500], title9[500];
@@ -104,11 +103,6 @@ int main (int argc, char *argv[])
    char name5BVetoBCDown[100], title5BVetoBCDown[100];
    char name5BVetoLightUp[100], title5BVetoLightUp[100];
    char name5BVetoLightDown[100], title5BVetoLightDown[100];
-
-   char name6BVetoBCUp[100], title6BVetoBCUp[100];
-   char name6BVetoBCDown[100], title6BVetoBCDown[100];
-   char name6BVetoLightUp[100], title6BVetoLightUp[100];
-   char name6BVetoLightDown[100], title6BVetoLightDown[100];
 
    char name7BVetoBCUp[100], title7BVetoBCUp[100];
    char name7BVetoBCDown[100], title7BVetoBCDown[100];
@@ -166,8 +160,7 @@ int main (int argc, char *argv[])
    char name18[500], title18[500];
    char name19[500], title19[500];
    char name20[500], title20[500];
-   char name21_loose[500], title21_loose[500];
-   char name21_tight[500], title21_tight[500];
+   char name21[500], title21[500];
    char name22[500], title22[500];
    char name23[500], title23[500];
    char name24[500], title24[500];
@@ -178,8 +171,41 @@ int main (int argc, char *argv[])
    char name29[500], title29[500];
    char name30[500], title30[500];
    char name31[500], title31[500];
-   char name32_loose[500], title32_loose[500];
-   char name32_tight[500], title32_tight[500];
+   char name32[500], title32[500];
+
+
+   char name17JESUp[500], title17JESUp[500];
+   char name17JESDown[500], title17JESDown[500];
+   char name18JESUp[500], title18JESUp[500];
+   char name18JESDown[500], title18JESDown[500];
+   char name19JESUp[500], title19JESUp[500];
+   char name19JESDown[500], title19JESDown[500];
+   char name20JESUp[500], title20JESUp[500];
+   char name20JESDown[500], title20JESDown[500];
+   char name21JESUp[500], title21JESUp[500];
+   char name21JESDown[500], title21JESDown[500];
+   char name22JESUp[500], title22JESUp[500];
+   char name22JESDown[500], title22JESDown[500];
+   char name23JESUp[500], title23JESUp[500];
+   char name23JESDown[500], title23JESDown[500];
+   char name24JESUp[500], title24JESUp[500];
+   char name24JESDown[500], title24JESDown[500];
+   char name25JESUp[500], title25JESUp[500];
+   char name25JESDown[500], title25JESDown[500];
+   char name26JESUp[500], title26JESUp[500];
+   char name26JESDown[500], title26JESDown[500];
+   char name27JESUp[500], title27JESUp[500];
+   char name27JESDown[500], title27JESDown[500];
+   char name28JESUp[500], title28JESUp[500];
+   char name28JESDown[500], title28JESDown[500];
+   char name29JESUp[500], title29JESUp[500];
+   char name29JESDown[500], title29JESDown[500];
+   char name30JESUp[500], title30JESUp[500];
+   char name30JESDown[500], title30JESDown[500];
+   char name31JESUp[500], title31JESUp[500];
+   char name31JESDown[500], title31JESDown[500];
+   char name32JESUp[500], title32JESUp[500];
+   char name32JESDown[500], title32JESDown[500];
 
 
    char name17BVetoBCUp[500], title17BVetoBCUp[500];
@@ -202,15 +228,10 @@ int main (int argc, char *argv[])
    char name20BVetoLightUp[500], title20BVetoLightUp[500];
    char name20BVetoLightDown[500], title20BVetoLightDown[500];
 
-   char name21_looseBVetoBCUp[500], title21_looseBVetoBCUp[500];
-   char name21_looseBVetoBCDown[500], title21_looseBVetoBCDown[500];
-   char name21_looseBVetoLightUp[500], title21_looseBVetoLightUp[500];
-   char name21_looseBVetoLightDown[500], title21_looseBVetoLightDown[500];
-
-   char name21_tightBVetoBCUp[500], title21_tightBVetoBCUp[500];
-   char name21_tightBVetoBCDown[500], title21_tightBVetoBCDown[500];
-   char name21_tightBVetoLightUp[500], title21_tightBVetoLightUp[500];
-   char name21_tightBVetoLightDown[500], title21_tightBVetoLightDown[500];
+   char name21BVetoBCUp[500], title21BVetoBCUp[500];
+   char name21BVetoBCDown[500], title21BVetoBCDown[500];
+   char name21BVetoLightUp[500], title21BVetoLightUp[500];
+   char name21BVetoLightDown[500], title21BVetoLightDown[500];
 
    char name22BVetoBCUp[500], title22BVetoBCUp[500];
    char name22BVetoBCDown[500], title22BVetoBCDown[500];
@@ -267,15 +288,10 @@ int main (int argc, char *argv[])
    char name31BVetoLightDown[500], title31BVetoLightDown[500];
 
 
-   char name32_looseBVetoBCUp[500], title32_looseBVetoBCUp[500];
-   char name32_looseBVetoBCDown[500], title32_looseBVetoBCDown[500];
-   char name32_looseBVetoLightUp[500], title32_looseBVetoLightUp[500];
-   char name32_looseBVetoLightDown[500], title32_looseBVetoLightDown[500];
-
-   char name32_tightBVetoBCUp[500], title32_tightBVetoBCUp[500];
-   char name32_tightBVetoBCDown[500], title32_tightBVetoBCDown[500];
-   char name32_tightBVetoLightUp[500], title32_tightBVetoLightUp[500];
-   char name32_tightBVetoLightDown[500], title32_tightBVetoLightDown[500];
+   char name32BVetoBCUp[500], title32BVetoBCUp[500];
+   char name32BVetoBCDown[500], title32BVetoBCDown[500];
+   char name32BVetoLightUp[500], title32BVetoLightUp[500];
+   char name32BVetoLightDown[500], title32BVetoLightDown[500];
 
 
    TH1D* Events_Preselection;
@@ -286,17 +302,16 @@ int main (int argc, char *argv[])
    TH1D* Events_T2tt_mediumDeltaM ; 
    TH1D* Events_T2tt_highDeltaM ; 
 
-   TH1D* Events_T2bw025_veryOffShell_loose; 
-   TH1D* Events_T2bw025_offShell_loose;
-   TH1D* Events_T2bw025_lowDeltaM_tight; 
-   TH1D* Events_T2bw025_highDeltaM;
+   TH1D* Events_T2bw025_offShell;
+   TH1D* Events_T2bw025_lowMasses; 
+   TH1D* Events_T2bw025_highMasses;
 
-   TH1D* Events_T2bw050_offShell_loose;
-   TH1D* Events_T2bw050_lowMass;
-   TH1D* Events_T2bw050_mediumDeltaM_loose;
+   TH1D* Events_T2bw050_offShell;
+   TH1D* Events_T2bw050_lowMasses;
+   TH1D* Events_T2bw050_mediumDeltaM;
    TH1D* Events_T2bw050_highDeltaM;
 
-   TH1D* Events_T2bw075_lowDeltaM_tight;
+   TH1D* Events_T2bw075_lowDeltaM;
    TH1D* Events_T2bw075_mediumDeltaM;
    TH1D* Events_T2bw075_highDeltaM;
 
@@ -307,8 +322,7 @@ int main (int argc, char *argv[])
    TH1D* hist_BDT_output_t2bw025_R4;
    TH1D* hist_BDT_output_t2bw025_R6;
 
-   TH1D* hist_BDT_output_t2bw050_R1_loose;
-   TH1D* hist_BDT_output_t2bw050_R1_tight;
+   TH1D* hist_BDT_output_t2bw050_R1;
    TH1D* hist_BDT_output_t2bw050_R3;
    TH1D* hist_BDT_output_t2bw050_R4;
    TH1D* hist_BDT_output_t2bw050_R5;
@@ -321,8 +335,7 @@ int main (int argc, char *argv[])
 
    TH1D* hist_BDT_output_t2tt_R1;
    TH1D* hist_BDT_output_t2tt_R2;
-   TH1D* hist_BDT_output_t2tt_R5_loose;
-   TH1D* hist_BDT_output_t2tt_R5_tight;
+   TH1D* hist_BDT_output_t2tt_R5;
 
 
    // BVETO systematics
@@ -356,51 +369,45 @@ int main (int argc, char *argv[])
    TH1D* Events_T2tt_highDeltaMBVetoLightDown ;   
 
 
-   TH1D* Events_T2bw025_veryOffShell_looseBVetoBCUp ;      
-   TH1D* Events_T2bw025_veryOffShell_looseBVetoBCDown ;    
-   TH1D* Events_T2bw025_veryOffShell_looseBVetoLightUp ;   
-   TH1D* Events_T2bw025_veryOffShell_looseBVetoLightDown ; 
+   TH1D* Events_T2bw025_offShellBVetoBCUp ;      
+   TH1D* Events_T2bw025_offShellBVetoBCDown ;   
+   TH1D* Events_T2bw025_offShellBVetoLightUp ;  
+   TH1D* Events_T2bw025_offShellBVetoLightDown ;
 
+   TH1D* Events_T2bw025_lowMassesBVetoBCUp ;      
+   TH1D* Events_T2bw025_lowMassesBVetoBCDown ;    
+   TH1D* Events_T2bw025_lowMassesBVetoLightUp ;   
+   TH1D* Events_T2bw025_lowMassesBVetoLightDown ; 
 
-   TH1D* Events_T2bw025_offShell_looseBVetoBCUp ;      
-   TH1D* Events_T2bw025_offShell_looseBVetoBCDown ;   
-   TH1D* Events_T2bw025_offShell_looseBVetoLightUp ;  
-   TH1D* Events_T2bw025_offShell_looseBVetoLightDown ;
+   TH1D* Events_T2bw025_highMassesBVetoBCUp ;      
+   TH1D* Events_T2bw025_highMassesBVetoBCDown ;   
+   TH1D* Events_T2bw025_highMassesBVetoLightUp ;  
+   TH1D* Events_T2bw025_highMassesBVetoLightDown ;
 
-   TH1D* Events_T2bw025_lowDeltaM_tightBVetoBCUp ;      
-   TH1D* Events_T2bw025_lowDeltaM_tightBVetoBCDown ;    
-   TH1D* Events_T2bw025_lowDeltaM_tightBVetoLightUp ;   
-   TH1D* Events_T2bw025_lowDeltaM_tightBVetoLightDown ; 
+   TH1D* Events_T2bw050_offShellBVetoBCUp ;     
+   TH1D* Events_T2bw050_offShellBVetoBCDown ;   
+   TH1D* Events_T2bw050_offShellBVetoLightUp ;  
+   TH1D* Events_T2bw050_offShellBVetoLightDown ;
 
-   TH1D* Events_T2bw025_highDeltaMBVetoBCUp ;      
-   TH1D* Events_T2bw025_highDeltaMBVetoBCDown ;   
-   TH1D* Events_T2bw025_highDeltaMBVetoLightUp ;  
-   TH1D* Events_T2bw025_highDeltaMBVetoLightDown ;
+   TH1D* Events_T2bw050_lowMassesBVetoBCUp ;     
+   TH1D* Events_T2bw050_lowMassesBVetoBCDown ;   
+   TH1D* Events_T2bw050_lowMassesBVetoLightUp ;  
+   TH1D* Events_T2bw050_lowMassesBVetoLightDown ;
 
-   TH1D* Events_T2bw050_offShell_looseBVetoBCUp ;     
-   TH1D* Events_T2bw050_offShell_looseBVetoBCDown ;   
-   TH1D* Events_T2bw050_offShell_looseBVetoLightUp ;  
-   TH1D* Events_T2bw050_offShell_looseBVetoLightDown ;
-
-   TH1D* Events_T2bw050_lowMassBVetoBCUp ;     
-   TH1D* Events_T2bw050_lowMassBVetoBCDown ;   
-   TH1D* Events_T2bw050_lowMassBVetoLightUp ;  
-   TH1D* Events_T2bw050_lowMassBVetoLightDown ;
-
-   TH1D* Events_T2bw050_mediumDeltaM_looseBVetoBCUp ;     
-   TH1D* Events_T2bw050_mediumDeltaM_looseBVetoBCDown ;   
-   TH1D* Events_T2bw050_mediumDeltaM_looseBVetoLightUp ;  
-   TH1D* Events_T2bw050_mediumDeltaM_looseBVetoLightDown ;
+   TH1D* Events_T2bw050_mediumDeltaMBVetoBCUp ;     
+   TH1D* Events_T2bw050_mediumDeltaMBVetoBCDown ;   
+   TH1D* Events_T2bw050_mediumDeltaMBVetoLightUp ;  
+   TH1D* Events_T2bw050_mediumDeltaMBVetoLightDown ;
 
    TH1D* Events_T2bw050_highDeltaMBVetoBCUp ;     
    TH1D* Events_T2bw050_highDeltaMBVetoBCDown ;   
    TH1D* Events_T2bw050_highDeltaMBVetoLightUp ;  
    TH1D* Events_T2bw050_highDeltaMBVetoLightDown ;
 
-   TH1D* Events_T2bw075_lowDeltaM_tightBVetoBCUp ;     
-   TH1D* Events_T2bw075_lowDeltaM_tightBVetoBCDown ;   
-   TH1D* Events_T2bw075_lowDeltaM_tightBVetoLightUp ;  
-   TH1D* Events_T2bw075_lowDeltaM_tightBVetoLightDown ;
+   TH1D* Events_T2bw075_lowDeltaMBVetoBCUp ;     
+   TH1D* Events_T2bw075_lowDeltaMBVetoBCDown ;   
+   TH1D* Events_T2bw075_lowDeltaMBVetoLightUp ;  
+   TH1D* Events_T2bw075_lowDeltaMBVetoLightDown ;
 
    TH1D* Events_T2bw075_mediumDeltaMBVetoBCUp ;     
    TH1D* Events_T2bw075_mediumDeltaMBVetoBCDown ;   
@@ -434,15 +441,10 @@ int main (int argc, char *argv[])
    TH1D* hist_BDT_output_t2bw025_R6BVetoLightUp;
    TH1D* hist_BDT_output_t2bw025_R6BVetoLightDown;
 
-   TH1D* hist_BDT_output_t2bw050_R1_looseBVetoBCUp;
-   TH1D* hist_BDT_output_t2bw050_R1_looseBVetoBCDown;
-   TH1D* hist_BDT_output_t2bw050_R1_looseBVetoLightUp;
-   TH1D* hist_BDT_output_t2bw050_R1_looseBVetoLightDown;
-
-   TH1D* hist_BDT_output_t2bw050_R1_tightBVetoBCUp;
-   TH1D* hist_BDT_output_t2bw050_R1_tightBVetoBCDown;
-   TH1D* hist_BDT_output_t2bw050_R1_tightBVetoLightUp;
-   TH1D* hist_BDT_output_t2bw050_R1_tightBVetoLightDown;
+   TH1D* hist_BDT_output_t2bw050_R1BVetoBCUp;
+   TH1D* hist_BDT_output_t2bw050_R1BVetoBCDown;
+   TH1D* hist_BDT_output_t2bw050_R1BVetoLightUp;
+   TH1D* hist_BDT_output_t2bw050_R1BVetoLightDown;
 
    TH1D* hist_BDT_output_t2bw050_R3BVetoBCUp;
    TH1D* hist_BDT_output_t2bw050_R3BVetoBCDown;
@@ -494,15 +496,52 @@ int main (int argc, char *argv[])
    TH1D* hist_BDT_output_t2tt_R2BVetoLightUp;
    TH1D* hist_BDT_output_t2tt_R2BVetoLightDown;
 
-   TH1D* hist_BDT_output_t2tt_R5_looseBVetoBCUp;
-   TH1D* hist_BDT_output_t2tt_R5_looseBVetoBCDown;
-   TH1D* hist_BDT_output_t2tt_R5_looseBVetoLightUp;
-   TH1D* hist_BDT_output_t2tt_R5_looseBVetoLightDown;
+   TH1D* hist_BDT_output_t2tt_R5BVetoBCUp;
+   TH1D* hist_BDT_output_t2tt_R5BVetoBCDown;
+   TH1D* hist_BDT_output_t2tt_R5BVetoLightUp;
+   TH1D* hist_BDT_output_t2tt_R5BVetoLightDown;
 
-   TH1D* hist_BDT_output_t2tt_R5_tightBVetoBCUp;
-   TH1D* hist_BDT_output_t2tt_R5_tightBVetoBCDown;
-   TH1D* hist_BDT_output_t2tt_R5_tightBVetoLightUp;
-   TH1D* hist_BDT_output_t2tt_R5_tightBVetoLightDown;
+   // JES systematics
+   
+   TH1D* hist_BDT_output_t2bw025_R1JESUp;
+   TH1D* hist_BDT_output_t2bw025_R3JESUp;
+   TH1D* hist_BDT_output_t2bw025_R4JESUp;
+   TH1D* hist_BDT_output_t2bw025_R6JESUp;
+
+   TH1D* hist_BDT_output_t2bw050_R1JESUp;
+   TH1D* hist_BDT_output_t2bw050_R3JESUp;
+   TH1D* hist_BDT_output_t2bw050_R4JESUp;
+   TH1D* hist_BDT_output_t2bw050_R5JESUp;
+   TH1D* hist_BDT_output_t2bw050_R6JESUp;
+
+   TH1D* hist_BDT_output_t2bw075_R1JESUp;
+   TH1D* hist_BDT_output_t2bw075_R2JESUp;
+   TH1D* hist_BDT_output_t2bw075_R3JESUp;
+   TH1D* hist_BDT_output_t2bw075_R5JESUp;
+
+   TH1D* hist_BDT_output_t2tt_R1JESUp;
+   TH1D* hist_BDT_output_t2tt_R2JESUp;
+   TH1D* hist_BDT_output_t2tt_R5JESUp;
+
+   TH1D* hist_BDT_output_t2bw025_R1JESDown;
+   TH1D* hist_BDT_output_t2bw025_R3JESDown;
+   TH1D* hist_BDT_output_t2bw025_R4JESDown;
+   TH1D* hist_BDT_output_t2bw025_R6JESDown;
+
+   TH1D* hist_BDT_output_t2bw050_R1JESDown;
+   TH1D* hist_BDT_output_t2bw050_R3JESDown;
+   TH1D* hist_BDT_output_t2bw050_R4JESDown;
+   TH1D* hist_BDT_output_t2bw050_R5JESDown;
+   TH1D* hist_BDT_output_t2bw050_R6JESDown;
+
+   TH1D* hist_BDT_output_t2bw075_R1JESDown;
+   TH1D* hist_BDT_output_t2bw075_R2JESDown;
+   TH1D* hist_BDT_output_t2bw075_R3JESDown;
+   TH1D* hist_BDT_output_t2bw075_R5JESDown;
+
+   TH1D* hist_BDT_output_t2tt_R1JESDown;
+   TH1D* hist_BDT_output_t2tt_R2JESDown;
+   TH1D* hist_BDT_output_t2tt_R5JESDown;
 
 
    sprintf(name1,"Events_T2tt_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -521,34 +560,31 @@ int main (int argc, char *argv[])
    sprintf(title5,"Events_T2tt_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name6,"Events_T2bw025_veryOffShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title6,"Events_T2bw025_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7,"Events_T2bw025_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title7,"Events_T2bw025_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name7,"Events_T2bw025_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7,"Events_T2bw025_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8,"Events_T2bw025_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title8,"Events_T2bw025_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name8,"Events_T2bw025_lowDeltaMTight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8,"Events_T2bw025_lowDeltaMTight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name9,"Events_T2bw025_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9,"Events_T2bw025_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9,"Events_T2bw025_highMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title9,"Events_T2bw025_highMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name10,"Events_T2bw050_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10,"Events_T2bw050_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10,"Events_T2bw050_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title10,"Events_T2bw050_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name11,"Events_T2bw050_lowMass_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11,"Events_T2bw050_lowMass_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11,"Events_T2bw050_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title11,"Events_T2bw050_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name12,"Events_T2bw050_mediumDeltaMLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12,"Events_T2bw050_mediumDeltaMLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12,"Events_T2bw050_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title12,"Events_T2bw050_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
    sprintf(name13,"Events_T2bw050_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title13,"Events_T2bw050_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name14,"Events_T2bw075_lowDeltaMTight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14,"Events_T2bw075_lowDeltaMTight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14,"Events_T2bw075_lowDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title14,"Events_T2bw075_lowDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
    sprintf(name15,"Events_T2bw075_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title15,"Events_T2bw075_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -572,13 +608,8 @@ int main (int argc, char *argv[])
    sprintf(name20,"hist_BDT_output_t2bw025_R6_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title20,"hist_BDT_output_t2bw025_R6_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-
-   sprintf(name21_loose,"hist_BDT_output_t2bw050_R1_loose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_loose,"hist_BDT_output_t2bw050_R1_loose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name21_tight,"hist_BDT_output_t2bw050_R1_tight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_tight,"hist_BDT_output_t2bw050_R1_tight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
+   sprintf(name21,"hist_BDT_output_t2bw050_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21,"hist_BDT_output_t2bw050_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
    sprintf(name22,"hist_BDT_output_t2bw050_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title22,"hist_BDT_output_t2bw050_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -612,11 +643,8 @@ int main (int argc, char *argv[])
    sprintf(name31,"hist_BDT_output_t2tt_R2_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title31,"hist_BDT_output_t2tt_R2_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name32_loose,"hist_BDT_output_t2tt_R5_loose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_loose,"hist_BDT_output_t2tt_R5_loose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name32_tight,"hist_BDT_output_t2tt_R5_tight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_tight,"hist_BDT_output_t2tt_R5_tight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32,"hist_BDT_output_t2tt_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32,"hist_BDT_output_t2tt_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
 
@@ -657,7 +685,6 @@ int main (int argc, char *argv[])
    sprintf(name3BVetoLightDown,"Events_T2tt_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title3BVetoLightDown,"Events_T2tt_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-
    sprintf(name4BVetoBCUp,"Events_T2tt_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title4BVetoBCUp,"Events_T2tt_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
@@ -669,7 +696,6 @@ int main (int argc, char *argv[])
 
    sprintf(name4BVetoLightDown,"Events_T2tt_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title4BVetoLightDown,"Events_T2tt_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
 
    sprintf(name5BVetoBCUp,"Events_T2tt_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title5BVetoBCUp,"Events_T2tt_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -684,97 +710,84 @@ int main (int argc, char *argv[])
    sprintf(title5BVetoLightDown,"Events_T2tt_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name6BVetoBCUp,"Events_T2bw025_veryOffShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title6BVetoBCUp,"Events_T2bw025_veryOffShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoBCUp,"Events_T2bw025_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title7BVetoBCUp,"Events_T2bw025_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name6BVetoBCDown,"Events_T2bw025_veryOffShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title6BVetoBCDown,"Events_T2bw025_veryOffShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoBCDown,"Events_T2bw025_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title7BVetoBCDown,"Events_T2bw025_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name6BVetoLightUp,"Events_T2bw025_veryOffShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title6BVetoLightUp,"Events_T2bw025_veryOffShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoLightUp,"Events_T2bw025_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title7BVetoLightUp,"Events_T2bw025_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name6BVetoLightDown,"Events_T2bw025_veryOffShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title6BVetoLightDown,"Events_T2bw025_veryOffShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-
-   sprintf(name7BVetoBCUp,"Events_T2bw025_offShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoBCUp,"Events_T2bw025_offShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name7BVetoBCDown,"Events_T2bw025_offShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoBCDown,"Events_T2bw025_offShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name7BVetoLightUp,"Events_T2bw025_offShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoLightUp,"Events_T2bw025_offShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name7BVetoLightDown,"Events_T2bw025_offShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoLightDown,"Events_T2bw025_offShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoLightDown,"Events_T2bw025_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title7BVetoLightDown,"Events_T2bw025_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name8BVetoBCUp,"Events_T2bw025_lowDeltaMTightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoBCUp,"Events_T2bw025_lowDeltaMTightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoBCUp,"Events_T2bw025_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title8BVetoBCUp,"Events_T2bw025_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name8BVetoBCDown,"Events_T2bw025_lowDeltaMTightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoBCDown,"Events_T2bw025_lowDeltaMTightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoBCDown,"Events_T2bw025_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title8BVetoBCDown,"Events_T2bw025_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name8BVetoLightUp,"Events_T2bw025_lowDeltaMTightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoLightUp,"Events_T2bw025_lowDeltaMTightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoLightUp,"Events_T2bw025_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title8BVetoLightUp,"Events_T2bw025_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name8BVetoLightDown,"Events_T2bw025_lowDeltaMTightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoLightDown,"Events_T2bw025_lowDeltaMTightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoLightDown,"Events_T2bw025_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title8BVetoLightDown,"Events_T2bw025_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name9BVetoBCUp,"Events_T2bw025_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoBCUp,"Events_T2bw025_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoBCUp,"Events_T2bw025_highMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title9BVetoBCUp,"Events_T2bw025_highMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name9BVetoBCDown,"Events_T2bw025_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoBCDown,"Events_T2bw025_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoBCDown,"Events_T2bw025_highMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title9BVetoBCDown,"Events_T2bw025_highMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name9BVetoLightUp,"Events_T2bw025_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoLightUp,"Events_T2bw025_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoLightUp,"Events_T2bw025_highMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title9BVetoLightUp,"Events_T2bw025_highMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name9BVetoLightDown,"Events_T2bw025_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoLightDown,"Events_T2bw025_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoLightDown,"Events_T2bw025_highMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title9BVetoLightDown,"Events_T2bw025_highMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
 
 
-   sprintf(name10BVetoBCUp,"Events_T2bw050_offShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoBCUp,"Events_T2bw050_offShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoBCUp,"Events_T2bw050_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title10BVetoBCUp,"Events_T2bw050_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name10BVetoBCDown,"Events_T2bw050_offShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoBCDown,"Events_T2bw050_offShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoBCDown,"Events_T2bw050_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title10BVetoBCDown,"Events_T2bw050_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name10BVetoLightUp,"Events_T2bw050_offShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoLightUp,"Events_T2bw050_offShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoLightUp,"Events_T2bw050_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title10BVetoLightUp,"Events_T2bw050_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name10BVetoLightDown,"Events_T2bw050_offShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoLightDown,"Events_T2bw050_offShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-
-   sprintf(name11BVetoBCUp,"Events_T2bw050_lowMassBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoBCUp,"Events_T2bw050_lowMassBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name11BVetoBCDown,"Events_T2bw050_lowMassBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoBCDown,"Events_T2bw050_lowMassBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name11BVetoLightUp,"Events_T2bw050_lowMassBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoLightUp,"Events_T2bw050_lowMassBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name11BVetoLightDown,"Events_T2bw050_lowMassBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoLightDown,"Events_T2bw050_lowMassBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoLightDown,"Events_T2bw050_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title10BVetoLightDown,"Events_T2bw050_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name12BVetoBCUp,"Events_T2bw050_mediumDeltaMLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoBCUp,"Events_T2bw050_mediumDeltaMLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoBCUp,"Events_T2bw050_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title11BVetoBCUp,"Events_T2bw050_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name12BVetoBCDown,"Events_T2bw050_mediumDeltaMLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoBCDown,"Events_T2bw050_mediumDeltaMLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoBCDown,"Events_T2bw050_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title11BVetoBCDown,"Events_T2bw050_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name12BVetoLightUp,"Events_T2bw050_mediumDeltaMLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoLightUp,"Events_T2bw050_mediumDeltaMLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoLightUp,"Events_T2bw050_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title11BVetoLightUp,"Events_T2bw050_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name12BVetoLightDown,"Events_T2bw050_mediumDeltaMLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoLightDown,"Events_T2bw050_mediumDeltaMLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoLightDown,"Events_T2bw050_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title11BVetoLightDown,"Events_T2bw050_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+
+   sprintf(name12BVetoBCUp,"Events_T2bw050_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title12BVetoBCUp,"Events_T2bw050_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name12BVetoBCDown,"Events_T2bw050_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title12BVetoBCDown,"Events_T2bw050_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name12BVetoLightUp,"Events_T2bw050_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title12BVetoLightUp,"Events_T2bw050_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name12BVetoLightDown,"Events_T2bw050_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title12BVetoLightDown,"Events_T2bw050_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
    sprintf(name13BVetoBCUp,"Events_T2bw050_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -790,17 +803,17 @@ int main (int argc, char *argv[])
    sprintf(title13BVetoLightDown,"Events_T2bw050_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
-   sprintf(name14BVetoBCUp,"Events_T2bw075_lowDeltaMTightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoBCUp,"Events_T2bw075_lowDeltaMTightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoBCUp,"Events_T2bw075_lowDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title14BVetoBCUp,"Events_T2bw075_lowDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name14BVetoBCDown,"Events_T2bw075_lowDeltaMTightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoBCDown,"Events_T2bw075_lowDeltaMTightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoBCDown,"Events_T2bw075_lowDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title14BVetoBCDown,"Events_T2bw075_lowDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name14BVetoLightUp,"Events_T2bw075_lowDeltaMTightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoLightUp,"Events_T2bw075_lowDeltaMTightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoLightUp,"Events_T2bw075_lowDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title14BVetoLightUp,"Events_T2bw075_lowDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name14BVetoLightDown,"Events_T2bw075_lowDeltaMTightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoLightDown,"Events_T2bw075_lowDeltaMTightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoLightDown,"Events_T2bw075_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title14BVetoLightDown,"Events_T2bw075_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
    sprintf(name15BVetoBCUp,"Events_T2bw075_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -884,30 +897,17 @@ int main (int argc, char *argv[])
 
    
 
-   sprintf(name21_looseBVetoBCUp,"hist_BDT_output_t2bw050_R1_looseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_looseBVetoBCUp,"hist_BDT_output_t2bw050_R1_looseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoBCUp,"hist_BDT_output_t2bw050_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21BVetoBCUp,"hist_BDT_output_t2bw050_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name21_looseBVetoBCDown,"hist_BDT_output_t2bw050_R1_looseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_looseBVetoBCDown,"hist_BDT_output_t2bw050_R1_looseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoBCDown,"hist_BDT_output_t2bw050_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21BVetoBCDown,"hist_BDT_output_t2bw050_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name21_looseBVetoLightUp,"hist_BDT_output_t2bw050_R1_looseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_looseBVetoLightUp,"hist_BDT_output_t2bw050_R1_looseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoLightUp,"hist_BDT_output_t2bw050_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21BVetoLightUp,"hist_BDT_output_t2bw050_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name21_looseBVetoLightDown,"hist_BDT_output_t2bw050_R1_looseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_looseBVetoLightDown,"hist_BDT_output_t2bw050_R1_looseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-
-   sprintf(name21_tightBVetoBCUp,"hist_BDT_output_t2bw050_R1_tightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_tightBVetoBCUp,"hist_BDT_output_t2bw050_R1_tightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name21_tightBVetoBCDown,"hist_BDT_output_t2bw050_R1_tightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_tightBVetoBCDown,"hist_BDT_output_t2bw050_R1_tightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name21_tightBVetoLightUp,"hist_BDT_output_t2bw050_R1_tightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_tightBVetoLightUp,"hist_BDT_output_t2bw050_R1_tightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name21_tightBVetoLightDown,"hist_BDT_output_t2bw050_R1_tightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21_tightBVetoLightDown,"hist_BDT_output_t2bw050_R1_tightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoLightDown,"hist_BDT_output_t2bw050_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21BVetoLightDown,"hist_BDT_output_t2bw050_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
    sprintf(name22BVetoBCUp,"hist_BDT_output_t2bw050_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
@@ -1036,31 +1036,98 @@ int main (int argc, char *argv[])
    sprintf(name31BVetoLightDown,"hist_BDT_output_t2tt_R2BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
    sprintf(title31BVetoLightDown,"hist_BDT_output_t2tt_R2BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name32_looseBVetoBCUp,"hist_BDT_output_t2tt_R5_looseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_looseBVetoBCUp,"hist_BDT_output_t2tt_R5_looseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoBCUp,"hist_BDT_output_t2tt_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32BVetoBCUp,"hist_BDT_output_t2tt_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name32_looseBVetoBCDown,"hist_BDT_output_t2tt_R5_looseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_looseBVetoBCDown,"hist_BDT_output_t2tt_R5_looseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoBCDown,"hist_BDT_output_t2tt_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32BVetoBCDown,"hist_BDT_output_t2tt_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name32_looseBVetoLightUp,"hist_BDT_output_t2tt_R5_looseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_looseBVetoLightUp,"hist_BDT_output_t2tt_R5_looseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoLightUp,"hist_BDT_output_t2tt_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32BVetoLightUp,"hist_BDT_output_t2tt_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
-   sprintf(name32_looseBVetoLightDown,"hist_BDT_output_t2tt_R5_looseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_looseBVetoLightDown,"hist_BDT_output_t2tt_R5_looseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name32_tightBVetoBCUp,"hist_BDT_output_t2tt_R5_tightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_tightBVetoBCUp,"hist_BDT_output_t2tt_R5_tightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name32_tightBVetoBCDown,"hist_BDT_output_t2tt_R5_tightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_tightBVetoBCDown,"hist_BDT_output_t2tt_R5_tightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name32_tightBVetoLightUp,"hist_BDT_output_t2tt_R5_tightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_tightBVetoLightUp,"hist_BDT_output_t2tt_R5_tightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-
-   sprintf(name32_tightBVetoLightDown,"hist_BDT_output_t2tt_R5_tightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32_tightBVetoLightDown,"hist_BDT_output_t2tt_R5_tightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoLightDown,"hist_BDT_output_t2tt_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32BVetoLightDown,"hist_BDT_output_t2tt_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
+   sprintf(name17JESUp,"hist_BDT_output_t2bw025_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title17JESUp,"hist_BDT_output_t2bw025_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17JESDown,"hist_BDT_output_t2bw025_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title17JESDown,"hist_BDT_output_t2bw025_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name18JESUp,"hist_BDT_output_t2bw025_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title18JESUp,"hist_BDT_output_t2bw025_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18JESDown,"hist_BDT_output_t2bw025_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title18JESDown,"hist_BDT_output_t2bw025_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name19JESUp,"hist_BDT_output_t2bw025_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title19JESUp,"hist_BDT_output_t2bw025_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19JESDown,"hist_BDT_output_t2bw025_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title19JESDown,"hist_BDT_output_t2bw025_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name20JESUp,"hist_BDT_output_t2bw025_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title20JESUp,"hist_BDT_output_t2bw025_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20JESDown,"hist_BDT_output_t2bw025_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title20JESDown,"hist_BDT_output_t2bw025_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name21JESUp,"hist_BDT_output_t2bw050_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21JESUp,"hist_BDT_output_t2bw050_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21JESDown,"hist_BDT_output_t2bw050_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title21JESDown,"hist_BDT_output_t2bw050_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name22JESUp,"hist_BDT_output_t2bw050_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title22JESUp,"hist_BDT_output_t2bw050_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22JESDown,"hist_BDT_output_t2bw050_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title22JESDown,"hist_BDT_output_t2bw050_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name23JESUp,"hist_BDT_output_t2bw050_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title23JESUp,"hist_BDT_output_t2bw050_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23JESDown,"hist_BDT_output_t2bw050_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title23JESDown,"hist_BDT_output_t2bw050_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name24JESUp,"hist_BDT_output_t2bw050_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title24JESUp,"hist_BDT_output_t2bw050_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24JESDown,"hist_BDT_output_t2bw050_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title24JESDown,"hist_BDT_output_t2bw050_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name25JESUp,"hist_BDT_output_t2bw050_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title25JESUp,"hist_BDT_output_t2bw050_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25JESDown,"hist_BDT_output_t2bw050_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title25JESDown,"hist_BDT_output_t2bw050_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name26JESUp,"hist_BDT_output_t2bw075_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title26JESUp,"hist_BDT_output_t2bw075_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26JESDown,"hist_BDT_output_t2bw075_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title26JESDown,"hist_BDT_output_t2bw075_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name27JESUp,"hist_BDT_output_t2bw075_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title27JESUp,"hist_BDT_output_t2bw075_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27JESDown,"hist_BDT_output_t2bw075_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title27JESDown,"hist_BDT_output_t2bw075_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name28JESUp,"hist_BDT_output_t2bw075_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title28JESUp,"hist_BDT_output_t2bw075_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28JESDown,"hist_BDT_output_t2bw075_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title28JESDown,"hist_BDT_output_t2bw075_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name29JESUp,"hist_BDT_output_t2bw075_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title29JESUp,"hist_BDT_output_t2bw075_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29JESDown,"hist_BDT_output_t2bw075_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title29JESDown,"hist_BDT_output_t2bw075_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name30JESUp,"hist_BDT_output_t2tt_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title30JESUp,"hist_BDT_output_t2tt_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30JESDown,"hist_BDT_output_t2tt_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title30JESDown,"hist_BDT_output_t2tt_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name31JESUp,"hist_BDT_output_t2tt_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title31JESUp,"hist_BDT_output_t2tt_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31JESDown,"hist_BDT_output_t2tt_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title31JESDown,"hist_BDT_output_t2tt_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+
+   sprintf(name32JESUp,"hist_BDT_output_t2tt_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32JESUp,"hist_BDT_output_t2tt_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32JESDown,"hist_BDT_output_t2tt_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(title32JESDown,"hist_BDT_output_t2tt_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
 
 
 
@@ -1072,17 +1139,16 @@ int main (int argc, char *argv[])
    Events_T2tt_mediumDeltaM 	= new TH1D(name4,title4,50,0,1000) ; 
    Events_T2tt_highDeltaM 	= new TH1D(name5,title5,50,0,1000) ; 
 
-   Events_T2bw025_veryOffShell_loose = new TH1D(name6,title6,50,0,1000); 
-   Events_T2bw025_offShell_loose = new TH1D(name7,title7,50,0,1000);
-   Events_T2bw025_lowDeltaM_tight = new TH1D(name8,title8,50,0,1000); 
-   Events_T2bw025_highDeltaM = new TH1D(name9,title9,50,0,1000);
+   Events_T2bw025_offShell = new TH1D(name7,title7,50,0,1000);
+   Events_T2bw025_lowMasses = new TH1D(name8,title8,50,0,1000); 
+   Events_T2bw025_highMasses = new TH1D(name9,title9,50,0,1000);
 
-   Events_T2bw050_offShell_loose = new TH1D(name10,title10,50,0,1000);
-   Events_T2bw050_lowMass = new TH1D(name11,title11,50,0,1000);
-   Events_T2bw050_mediumDeltaM_loose = new TH1D(name12,title12,50,0,1000);
+   Events_T2bw050_offShell = new TH1D(name10,title10,50,0,1000);
+   Events_T2bw050_lowMasses = new TH1D(name11,title11,50,0,1000);
+   Events_T2bw050_mediumDeltaM = new TH1D(name12,title12,50,0,1000);
    Events_T2bw050_highDeltaM = new TH1D(name13,title13,50,0,1000);
 
-   Events_T2bw075_lowDeltaM_tight = new TH1D(name14,title14,50,0,1000);
+   Events_T2bw075_lowDeltaM = new TH1D(name14,title14,50,0,1000);
    Events_T2bw075_mediumDeltaM = new TH1D(name15,title15,50,0,1000);
    Events_T2bw075_highDeltaM = new TH1D(name16,title16,50,0,1000);
 
@@ -1112,40 +1178,36 @@ int main (int argc, char *argv[])
    Events_T2tt_highDeltaMBVetoLightUp    	                = new TH1D(name5BVetoLightUp,title5BVetoLightUp,50,0,1000) ; 
    Events_T2tt_highDeltaMBVetoLightDown  	                = new TH1D(name5BVetoLightDown,title5BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw025_veryOffShell_looseBVetoBCUp 	   		 = new TH1D(name6BVetoBCUp,title6BVetoBCUp,50,0,1000) ;           	
-   Events_T2bw025_veryOffShell_looseBVetoBCDown                 = new TH1D(name6BVetoBCDown,title6BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_veryOffShell_looseBVetoLightUp                = new TH1D(name6BVetoLightUp,title6BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_veryOffShell_looseBVetoLightDown              = new TH1D(name6BVetoLightDown,title6BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw025_offShell_looseBVetoBCUp 	   		= new TH1D(name7BVetoBCUp,title7BVetoBCUp,50,0,1000) ;           			 
-   Events_T2bw025_offShell_looseBVetoBCDown                    = new TH1D(name7BVetoBCDown,title7BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_offShell_looseBVetoLightUp                   = new TH1D(name7BVetoLightUp,title7BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_offShell_looseBVetoLightDown                 = new TH1D(name7BVetoLightDown,title7BVetoLightDown,50,0,1000) ; 
+   Events_T2bw025_offShellBVetoBCUp 	   		= new TH1D(name7BVetoBCUp,title7BVetoBCUp,50,0,1000) ;           			 
+   Events_T2bw025_offShellBVetoBCDown                    = new TH1D(name7BVetoBCDown,title7BVetoBCDown,50,0,1000) ; 
+   Events_T2bw025_offShellBVetoLightUp                   = new TH1D(name7BVetoLightUp,title7BVetoLightUp,50,0,1000) ; 
+   Events_T2bw025_offShellBVetoLightDown                 = new TH1D(name7BVetoLightDown,title7BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw025_lowDeltaM_tightBVetoBCUp 	   		 = new TH1D(name8BVetoBCUp,title8BVetoBCUp,50,0,1000) ;           	
-   Events_T2bw025_lowDeltaM_tightBVetoBCDown                    = new TH1D(name8BVetoBCDown,title8BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_lowDeltaM_tightBVetoLightUp                   = new TH1D(name8BVetoLightUp,title8BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_lowDeltaM_tightBVetoLightDown                 = new TH1D(name8BVetoLightDown,title8BVetoLightDown,50,0,1000) ; 
+   Events_T2bw025_lowMassesBVetoBCUp 	   		 = new TH1D(name8BVetoBCUp,title8BVetoBCUp,50,0,1000) ;           	
+   Events_T2bw025_lowMassesBVetoBCDown                    = new TH1D(name8BVetoBCDown,title8BVetoBCDown,50,0,1000) ; 
+   Events_T2bw025_lowMassesBVetoLightUp                   = new TH1D(name8BVetoLightUp,title8BVetoLightUp,50,0,1000) ; 
+   Events_T2bw025_lowMassesBVetoLightDown                 = new TH1D(name8BVetoLightDown,title8BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw025_highDeltaMBVetoBCUp 	   			= new TH1D(name9BVetoBCUp,title9BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw025_highDeltaMBVetoBCDown                        = new TH1D(name9BVetoBCDown,title9BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_highDeltaMBVetoLightUp                       = new TH1D(name9BVetoLightUp,title9BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_highDeltaMBVetoLightDown                     = new TH1D(name9BVetoLightDown,title9BVetoLightDown,50,0,1000) ; 
+   Events_T2bw025_highMassesBVetoBCUp 	   			= new TH1D(name9BVetoBCUp,title9BVetoBCUp,50,0,1000) ;           	 
+   Events_T2bw025_highMassesBVetoBCDown                        = new TH1D(name9BVetoBCDown,title9BVetoBCDown,50,0,1000) ; 
+   Events_T2bw025_highMassesBVetoLightUp                       = new TH1D(name9BVetoLightUp,title9BVetoLightUp,50,0,1000) ; 
+   Events_T2bw025_highMassesBVetoLightDown                     = new TH1D(name9BVetoLightDown,title9BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw050_offShell_looseBVetoBCUp 	   		= new TH1D(name10BVetoBCUp,title10BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_offShell_looseBVetoBCDown                    = new TH1D(name10BVetoBCDown,title10BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_offShell_looseBVetoLightUp                   = new TH1D(name10BVetoLightUp,title10BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_offShell_looseBVetoLightDown                 = new TH1D(name10BVetoLightDown,title10BVetoLightDown,50,0,1000) ; 
+   Events_T2bw050_offShellBVetoBCUp 	   		= new TH1D(name10BVetoBCUp,title10BVetoBCUp,50,0,1000) ;           	 
+   Events_T2bw050_offShellBVetoBCDown                    = new TH1D(name10BVetoBCDown,title10BVetoBCDown,50,0,1000) ; 
+   Events_T2bw050_offShellBVetoLightUp                   = new TH1D(name10BVetoLightUp,title10BVetoLightUp,50,0,1000) ; 
+   Events_T2bw050_offShellBVetoLightDown                 = new TH1D(name10BVetoLightDown,title10BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw050_lowMassBVetoBCUp 	   			= new TH1D(name11BVetoBCUp,title11BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_lowMassBVetoBCDown                           = new TH1D(name11BVetoBCDown,title11BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_lowMassBVetoLightUp                          = new TH1D(name11BVetoLightUp,title11BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_lowMassBVetoLightDown                        = new TH1D(name11BVetoLightDown,title11BVetoLightDown,50,0,1000) ; 
+   Events_T2bw050_lowMassesBVetoBCUp 	   			= new TH1D(name11BVetoBCUp,title11BVetoBCUp,50,0,1000) ;           	 
+   Events_T2bw050_lowMassesBVetoBCDown                           = new TH1D(name11BVetoBCDown,title11BVetoBCDown,50,0,1000) ; 
+   Events_T2bw050_lowMassesBVetoLightUp                          = new TH1D(name11BVetoLightUp,title11BVetoLightUp,50,0,1000) ; 
+   Events_T2bw050_lowMassesBVetoLightDown                        = new TH1D(name11BVetoLightDown,title11BVetoLightDown,50,0,1000) ; 
 
-   Events_T2bw050_mediumDeltaM_looseBVetoBCUp 	   		= new TH1D(name12BVetoBCUp,title12BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_mediumDeltaM_looseBVetoBCDown                = new TH1D(name12BVetoBCDown,title12BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_mediumDeltaM_looseBVetoLightUp               = new TH1D(name12BVetoLightUp,title12BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_mediumDeltaM_looseBVetoLightDown             = new TH1D(name12BVetoLightDown,title12BVetoLightDown,50,0,1000) ; 
+   Events_T2bw050_mediumDeltaMBVetoBCUp 	   		= new TH1D(name12BVetoBCUp,title12BVetoBCUp,50,0,1000) ;           	 
+   Events_T2bw050_mediumDeltaMBVetoBCDown                = new TH1D(name12BVetoBCDown,title12BVetoBCDown,50,0,1000) ; 
+   Events_T2bw050_mediumDeltaMBVetoLightUp               = new TH1D(name12BVetoLightUp,title12BVetoLightUp,50,0,1000) ; 
+   Events_T2bw050_mediumDeltaMBVetoLightDown             = new TH1D(name12BVetoLightDown,title12BVetoLightDown,50,0,1000) ; 
 
    Events_T2bw050_highDeltaMBVetoBCUp 	   			= new TH1D(name13BVetoBCUp,title13BVetoBCUp,50,0,1000) ;           	 
    Events_T2bw050_highDeltaMBVetoBCDown                        = new TH1D(name13BVetoBCDown,title13BVetoBCDown,50,0,1000) ; 
@@ -1153,10 +1215,10 @@ int main (int argc, char *argv[])
    Events_T2bw050_highDeltaMBVetoLightDown                     = new TH1D(name13BVetoLightDown,title13BVetoLightDown,50,0,1000) ; 
 
 
-   Events_T2bw075_lowDeltaM_tightBVetoBCUp 	   		= new TH1D(name14BVetoBCUp,title14BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw075_lowDeltaM_tightBVetoBCDown                   = new TH1D(name14BVetoBCDown,title14BVetoBCDown,50,0,1000) ; 
-   Events_T2bw075_lowDeltaM_tightBVetoLightUp                  = new TH1D(name14BVetoLightUp,title14BVetoLightUp,50,0,1000) ; 
-   Events_T2bw075_lowDeltaM_tightBVetoLightDown                = new TH1D(name14BVetoLightDown,title14BVetoLightDown,50,0,1000) ; 
+   Events_T2bw075_lowDeltaMBVetoBCUp 	   		= new TH1D(name14BVetoBCUp,title14BVetoBCUp,50,0,1000) ;           	 
+   Events_T2bw075_lowDeltaMBVetoBCDown                   = new TH1D(name14BVetoBCDown,title14BVetoBCDown,50,0,1000) ; 
+   Events_T2bw075_lowDeltaMBVetoLightUp                  = new TH1D(name14BVetoLightUp,title14BVetoLightUp,50,0,1000) ; 
+   Events_T2bw075_lowDeltaMBVetoLightDown                = new TH1D(name14BVetoLightDown,title14BVetoLightDown,50,0,1000) ; 
 
    Events_T2bw075_mediumDeltaMBVetoBCUp    			= new TH1D(name15BVetoBCUp,title15BVetoBCUp,50,0,1000) ;           	
    Events_T2bw075_mediumDeltaMBVetoBCDown                      = new TH1D(name15BVetoBCDown,title15BVetoBCDown,50,0,1000) ; 
@@ -1176,8 +1238,7 @@ int main (int argc, char *argv[])
    hist_BDT_output_t2bw025_R4 = new TH1D(name19,title19,100,-2,2);
    hist_BDT_output_t2bw025_R6 = new TH1D(name20,title20,100,-2,2);
 
-   hist_BDT_output_t2bw050_R1_loose = new TH1D(name21_loose,title21_loose,100,-2,2);
-   hist_BDT_output_t2bw050_R1_tight = new TH1D(name21_tight,title21_tight,100,-2,2);
+   hist_BDT_output_t2bw050_R1 = new TH1D(name21,title21,100,-2,2);
    hist_BDT_output_t2bw050_R3 = new TH1D(name22,title22,100,-2,2);
    hist_BDT_output_t2bw050_R4 = new TH1D(name23,title23,100,-2,2);
    hist_BDT_output_t2bw050_R5 = new TH1D(name24,title24,100,-2,2);
@@ -1191,8 +1252,7 @@ int main (int argc, char *argv[])
 
    hist_BDT_output_t2tt_R1 = new TH1D(name30,title30,100,-2,2);
    hist_BDT_output_t2tt_R2 = new TH1D(name31,title31,100,-2,2);
-   hist_BDT_output_t2tt_R5_loose = new TH1D(name32_loose,title32_loose,100,-2,2);
-   hist_BDT_output_t2tt_R5_tight = new TH1D(name32_tight,title32_tight,100,-2,2);
+   hist_BDT_output_t2tt_R5 = new TH1D(name32,title32,100,-2,2);
 
    // BVETO SYST
    
@@ -1216,15 +1276,10 @@ int main (int argc, char *argv[])
    hist_BDT_output_t2bw025_R6BVetoLightUp = new TH1D(name20BVetoLightUp,title20BVetoLightUp,100,-2,2);
    hist_BDT_output_t2bw025_R6BVetoLightDown = new TH1D(name20BVetoLightDown,title20BVetoLightDown,100,-2,2);
 
-   hist_BDT_output_t2bw050_R1_looseBVetoBCUp = new TH1D(name21_looseBVetoBCUp,title21_looseBVetoBCUp,100,-2,2);
-   hist_BDT_output_t2bw050_R1_looseBVetoBCDown = new TH1D(name21_looseBVetoBCDown,title21_looseBVetoBCDown,100,-2,2);
-   hist_BDT_output_t2bw050_R1_looseBVetoLightUp = new TH1D(name21_looseBVetoLightUp,title21_looseBVetoLightUp,100,-2,2);
-   hist_BDT_output_t2bw050_R1_looseBVetoLightDown = new TH1D(name21_looseBVetoLightDown,title21_looseBVetoLightDown,100,-2,2);
-
-   hist_BDT_output_t2bw050_R1_tightBVetoBCUp = new TH1D(name21_tightBVetoBCUp,title21_tightBVetoBCUp,100,-2,2);
-   hist_BDT_output_t2bw050_R1_tightBVetoBCDown = new TH1D(name21_tightBVetoBCDown,title21_tightBVetoBCDown,100,-2,2);
-   hist_BDT_output_t2bw050_R1_tightBVetoLightUp = new TH1D(name21_tightBVetoLightUp,title21_tightBVetoLightUp,100,-2,2);
-   hist_BDT_output_t2bw050_R1_tightBVetoLightDown = new TH1D(name21_tightBVetoLightDown,title21_tightBVetoLightDown,100,-2,2);
+   hist_BDT_output_t2bw050_R1BVetoBCUp = new TH1D(name21BVetoBCUp,title21BVetoBCUp,100,-2,2);
+   hist_BDT_output_t2bw050_R1BVetoBCDown = new TH1D(name21BVetoBCDown,title21BVetoBCDown,100,-2,2);
+   hist_BDT_output_t2bw050_R1BVetoLightUp = new TH1D(name21BVetoLightUp,title21BVetoLightUp,100,-2,2);
+   hist_BDT_output_t2bw050_R1BVetoLightDown = new TH1D(name21BVetoLightDown,title21BVetoLightDown,100,-2,2);
 
 
    hist_BDT_output_t2bw050_R3BVetoBCUp = new TH1D(name22BVetoBCUp,title22BVetoBCUp,100,-2,2);
@@ -1280,15 +1335,46 @@ int main (int argc, char *argv[])
    hist_BDT_output_t2tt_R2BVetoLightUp = new TH1D(name31BVetoLightUp,title31BVetoLightUp,100,-2,2);
    hist_BDT_output_t2tt_R2BVetoLightDown = new TH1D(name31BVetoLightDown,title31BVetoLightDown,100,-2,2);
 
-   hist_BDT_output_t2tt_R5_looseBVetoBCUp = new TH1D(name32_looseBVetoBCUp,title32_looseBVetoBCUp,100,-2,2);
-   hist_BDT_output_t2tt_R5_looseBVetoBCDown = new TH1D(name32_looseBVetoBCDown,title32_looseBVetoBCDown,100,-2,2);
-   hist_BDT_output_t2tt_R5_looseBVetoLightUp = new TH1D(name32_looseBVetoLightUp,title32_looseBVetoLightUp,100,-2,2);
-   hist_BDT_output_t2tt_R5_looseBVetoLightDown = new TH1D(name32_looseBVetoLightDown,title32_looseBVetoLightDown,100,-2,2);
+   hist_BDT_output_t2tt_R5BVetoBCUp = new TH1D(name32BVetoBCUp,title32BVetoBCUp,100,-2,2);
+   hist_BDT_output_t2tt_R5BVetoBCDown = new TH1D(name32BVetoBCDown,title32BVetoBCDown,100,-2,2);
+   hist_BDT_output_t2tt_R5BVetoLightUp = new TH1D(name32BVetoLightUp,title32BVetoLightUp,100,-2,2);
+   hist_BDT_output_t2tt_R5BVetoLightDown = new TH1D(name32BVetoLightDown,title32BVetoLightDown,100,-2,2);
 
-   hist_BDT_output_t2tt_R5_tightBVetoBCUp = new TH1D(name32_tightBVetoBCUp,title32_tightBVetoBCUp,100,-2,2);
-   hist_BDT_output_t2tt_R5_tightBVetoBCDown = new TH1D(name32_tightBVetoBCDown,title32_tightBVetoBCDown,100,-2,2);
-   hist_BDT_output_t2tt_R5_tightBVetoLightUp = new TH1D(name32_tightBVetoLightUp,title32_tightBVetoLightUp,100,-2,2);
-   hist_BDT_output_t2tt_R5_tightBVetoLightDown = new TH1D(name32_tightBVetoLightDown,title32_tightBVetoLightDown,100,-2,2);
+   // JES syst 
+   hist_BDT_output_t2bw025_R1JESUp = new TH1D(name17JESUp,title17JESUp,100,-2,2);
+   hist_BDT_output_t2bw025_R1JESDown = new TH1D(name17JESDown,title17JESDown,100,-2,2);
+   hist_BDT_output_t2bw025_R3JESUp = new TH1D(name18JESUp,title18JESUp,100,-2,2);
+   hist_BDT_output_t2bw025_R3JESDown = new TH1D(name18JESDown,title18JESDown,100,-2,2);
+   hist_BDT_output_t2bw025_R4JESUp = new TH1D(name19JESUp,title19JESUp,100,-2,2);
+   hist_BDT_output_t2bw025_R4JESDown = new TH1D(name19JESDown,title19JESDown,100,-2,2);
+   hist_BDT_output_t2bw025_R6JESUp = new TH1D(name20JESUp,title20JESUp,100,-2,2);
+   hist_BDT_output_t2bw025_R6JESDown = new TH1D(name20JESDown,title20JESDown,100,-2,2);
+   hist_BDT_output_t2bw050_R1JESUp = new TH1D(name21JESUp,title21JESUp,100,-2,2);
+   hist_BDT_output_t2bw050_R1JESDown = new TH1D(name21JESDown,title21JESDown,100,-2,2);
+   hist_BDT_output_t2bw050_R3JESUp = new TH1D(name22JESUp,title22JESUp,100,-2,2);
+   hist_BDT_output_t2bw050_R3JESDown = new TH1D(name22JESDown,title22JESDown,100,-2,2);
+   hist_BDT_output_t2bw050_R4JESUp = new TH1D(name23JESUp,title23JESUp,100,-2,2);
+   hist_BDT_output_t2bw050_R4JESDown = new TH1D(name23JESDown,title23JESDown,100,-2,2);
+   hist_BDT_output_t2bw050_R5JESUp = new TH1D(name24JESUp,title24JESUp,100,-2,2);
+   hist_BDT_output_t2bw050_R5JESDown = new TH1D(name24JESDown,title24JESDown,100,-2,2);
+   hist_BDT_output_t2bw050_R6JESUp = new TH1D(name25JESUp,title25JESUp,100,-2,2);
+   hist_BDT_output_t2bw050_R6JESDown = new TH1D(name25JESDown,title25JESDown,100,-2,2);
+   hist_BDT_output_t2bw075_R1JESUp = new TH1D(name26JESUp,title26JESUp,100,-2,2);
+   hist_BDT_output_t2bw075_R1JESDown = new TH1D(name26JESDown,title26JESDown,100,-2,2);
+   hist_BDT_output_t2bw075_R2JESUp = new TH1D(name27JESUp,title27JESUp,100,-2,2);
+   hist_BDT_output_t2bw075_R2JESDown = new TH1D(name27JESDown,title27JESDown,100,-2,2);
+   hist_BDT_output_t2bw075_R3JESUp = new TH1D(name28JESUp,title28JESUp,100,-2,2);
+   hist_BDT_output_t2bw075_R3JESDown = new TH1D(name28JESDown,title28JESDown,100,-2,2);
+   hist_BDT_output_t2bw075_R5JESUp = new TH1D(name29JESUp,title29JESUp,100,-2,2);
+   hist_BDT_output_t2bw075_R5JESDown = new TH1D(name29JESDown,title29JESDown,100,-2,2);
+   hist_BDT_output_t2tt_R1JESUp = new TH1D(name30JESUp,title30JESUp,100,-2,2);
+   hist_BDT_output_t2tt_R1JESDown = new TH1D(name30JESDown,title30JESDown,100,-2,2);
+   hist_BDT_output_t2tt_R2JESUp = new TH1D(name31JESUp,title31JESUp,100,-2,2);
+   hist_BDT_output_t2tt_R2JESDown = new TH1D(name31JESDown,title31JESDown,100,-2,2);
+   hist_BDT_output_t2tt_R5JESUp = new TH1D(name32JESUp,title32JESUp,100,-2,2);
+   hist_BDT_output_t2tt_R5JESDown = new TH1D(name32JESDown,title32JESDown,100,-2,2);
+
+
 
    // ########################################
    // ##        Run over the events         ##
@@ -1301,7 +1387,6 @@ int main (int argc, char *argv[])
    int counter3 = 0; 
    int counter4 = 0; 
    int counter5 = 0; 
-   int counter6 = 0; 
    int counter7 = 0; 
    int counter8 = 0; 
    int counter9 = 0; 
@@ -1338,11 +1423,6 @@ int main (int argc, char *argv[])
    int counter5BVetoBCDown = 0; 
    int counter5BVetoLightUp = 0; 
    int counter5BVetoLightDown = 0; 
-
-   int counter6BVetoBCUp = 0; 
-   int counter6BVetoBCDown = 0; 
-   int counter6BVetoLightUp = 0; 
-   int counter6BVetoLightDown = 0; 
 
    int counter7BVetoBCUp = 0; 
    int counter7BVetoBCDown = 0; 
@@ -1408,16 +1488,13 @@ int main (int argc, char *argv[])
         if (string(argv[1]).find("DoubleElec") != std::string::npos) 		{sampleName = "DoubleElec";} 
         if (string(argv[1]).find("DoubleMuon") != std::string::npos) 		{sampleName = "DoubleMuon";} 
         if (string(argv[1]).find("MuEl") != std::string::npos) 	     		{sampleName = "MuEl";} 
-
-        if (myEvent.mStop > 0) 						{sampleType = "signal"; }
+        if (string(argv[1]).find("T2") != std::string::npos) 	     		{sampleType = "signal";} 
         if ( (sampleName == "SingleElec") || (sampleName == "SingleMuon") 
 	  || (sampleName == "DoubleElec") || (sampleName == "DoubleMuon") 
 	  || (sampleName == "MuEl")) {						 sampleType = "data"; } 
 
 
-
 			if ( (sampleType == "signal")  &&  !((myEvent.mStop ==  atoi(argv[3]) ) && (myEvent.mNeutralino ==  atoi(argv[4]) )) )continue;
-
 
 			if (goesInPreselectionMTtail() == true) {
 			
@@ -1451,41 +1528,35 @@ int main (int argc, char *argv[])
 				Events_T2tt_highDeltaM->Fill(counter5, getWeight());
 				}	
 
-
-				if ( cutAndCount_T2bw025_veryOffShell_loose(true) == true){
-				counter6 ++;
-				Events_T2bw025_veryOffShell_loose->Fill(counter6, getWeight());
-				}
-
-				if ( cutAndCount_T2bw025_offShell_loose(true) == true){
+				if ( cutAndCount_T2bw025_offShell(true) == true){
 				counter7 ++;
-				Events_T2bw025_offShell_loose->Fill(counter7, getWeight());
+				Events_T2bw025_offShell->Fill(counter7, getWeight());
 				}
 
-				if ( cutAndCount_T2bw025_lowDeltaM_tight(true) == true){
+				if ( cutAndCount_T2bw025_lowMasses(true) == true){
 				counter8 ++;
-				Events_T2bw025_lowDeltaM_tight->Fill(counter8, getWeight());
+				Events_T2bw025_lowMasses->Fill(counter8, getWeight());
 				}
 
-				if ( cutAndCount_T2bw025_highDeltaM(true) == true){
+				if ( cutAndCount_T2bw025_highMasses(true) == true){
 				counter9 ++;
-				Events_T2bw025_highDeltaM->Fill(counter9, getWeight());
+				Events_T2bw025_highMasses->Fill(counter9, getWeight());
 				}
 
 		
-				if ( cutAndCount_T2bw050_offShell_loose(true) == true){
+				if ( cutAndCount_T2bw050_offShell(true) == true){
 				counter10 ++;
-				Events_T2bw050_offShell_loose->Fill(counter10, getWeight());
+				Events_T2bw050_offShell->Fill(counter10, getWeight());
 				}
 
-				if ( cutAndCount_T2bw050_lowMass(true) == true){
+				if ( cutAndCount_T2bw050_lowMasses(true) == true){
 				counter11 ++;
-				Events_T2bw050_lowMass->Fill(counter11, getWeight());
+				Events_T2bw050_lowMasses->Fill(counter11, getWeight());
 				}
 
-				if ( cutAndCount_T2bw050_mediumDeltaM_loose(true) == true){
+				if ( cutAndCount_T2bw050_mediumDeltaM(true) == true){
 				counter12 ++;
-				Events_T2bw050_mediumDeltaM_loose->Fill(counter12, getWeight());
+				Events_T2bw050_mediumDeltaM->Fill(counter12, getWeight());
 				}
 
 				if ( cutAndCount_T2bw050_highDeltaM(true) == true){
@@ -1494,9 +1565,9 @@ int main (int argc, char *argv[])
 				}
 
 
-				if ( cutAndCount_T2bw075_lowDeltaM_tight(true) == true){
+				if ( cutAndCount_T2bw075_lowDeltaM(true) == true){
 				counter14 ++;
-				Events_T2bw075_lowDeltaM_tight->Fill(counter14, getWeight());
+				Events_T2bw075_lowDeltaM->Fill(counter14, getWeight());
 				}
 
 				if ( cutAndCount_T2bw075_mediumDeltaM(true) == true){
@@ -1512,7 +1583,7 @@ int main (int argc, char *argv[])
 				
 				// BDT STUFF
 				
-				if (myEvent.isUsedInBDT == 1) continue;
+				if (myEvent.isUsedInBDTTraining == 1) continue;
 				double weight = getWeight() * 2.; 
 
 				hist_BDT_output_t2bw025_R1->Fill(myEvent.BDT_output_t2bw025_R1, weight);		
@@ -1520,9 +1591,7 @@ int main (int argc, char *argv[])
 				hist_BDT_output_t2bw025_R4->Fill(myEvent.BDT_output_t2bw025_R4, weight);		
 				hist_BDT_output_t2bw025_R6->Fill(myEvent.BDT_output_t2bw025_R6, weight);		
 
-
-				hist_BDT_output_t2bw050_R1_tight->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
-				hist_BDT_output_t2bw050_R1_loose->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
+				hist_BDT_output_t2bw050_R1->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
 				hist_BDT_output_t2bw050_R3->Fill(myEvent.BDT_output_t2bw050_R3, weight);		
 				hist_BDT_output_t2bw050_R4->Fill(myEvent.BDT_output_t2bw050_R4, weight);		
 				hist_BDT_output_t2bw050_R5->Fill(myEvent.BDT_output_t2bw050_R5, weight);		
@@ -1535,8 +1604,49 @@ int main (int argc, char *argv[])
 
 				hist_BDT_output_t2tt_R1->Fill(myEvent.BDT_output_t2tt_R1, weight);		
 				hist_BDT_output_t2tt_R2->Fill(myEvent.BDT_output_t2tt_R2, weight);		
-				hist_BDT_output_t2tt_R5_loose->Fill(myEvent.BDT_output_t2tt_R5, weight);		
-				hist_BDT_output_t2tt_R5_tight->Fill(myEvent.BDT_output_t2tt_R5, weight);		
+				hist_BDT_output_t2tt_R5->Fill(myEvent.BDT_output_t2tt_R5, weight);		
+
+	                        hist_BDT_output_t2bw025_R1JESUp->Fill(myEvent.BDT_output_t2bw025_R1_JESup, weight);
+				hist_BDT_output_t2bw025_R3JESUp->Fill(myEvent.BDT_output_t2bw025_R3_JESup, weight);		
+				hist_BDT_output_t2bw025_R4JESUp->Fill(myEvent.BDT_output_t2bw025_R4_JESup, weight);		
+				hist_BDT_output_t2bw025_R6JESUp->Fill(myEvent.BDT_output_t2bw025_R6_JESup, weight);		
+
+				hist_BDT_output_t2bw050_R1JESUp->Fill(myEvent.BDT_output_t2bw050_R1_JESup, weight);		
+				hist_BDT_output_t2bw050_R3JESUp->Fill(myEvent.BDT_output_t2bw050_R3_JESup, weight);		
+				hist_BDT_output_t2bw050_R4JESUp->Fill(myEvent.BDT_output_t2bw050_R4_JESup, weight);		
+				hist_BDT_output_t2bw050_R5JESUp->Fill(myEvent.BDT_output_t2bw050_R5_JESup, weight);		
+				hist_BDT_output_t2bw050_R6JESUp->Fill(myEvent.BDT_output_t2bw050_R6_JESup, weight);		
+
+				hist_BDT_output_t2bw075_R1JESUp->Fill(myEvent.BDT_output_t2bw075_R1_JESup, weight);		
+				hist_BDT_output_t2bw075_R2JESUp->Fill(myEvent.BDT_output_t2bw075_R2_JESup, weight);		
+				hist_BDT_output_t2bw075_R3JESUp->Fill(myEvent.BDT_output_t2bw075_R3_JESup, weight);		
+				hist_BDT_output_t2bw075_R5JESUp->Fill(myEvent.BDT_output_t2bw075_R5_JESup, weight);		
+
+				hist_BDT_output_t2tt_R1JESUp->Fill(myEvent.BDT_output_t2tt_R1_JESup, weight);		
+				hist_BDT_output_t2tt_R2JESUp->Fill(myEvent.BDT_output_t2tt_R2_JESup, weight);		
+				hist_BDT_output_t2tt_R5JESUp->Fill(myEvent.BDT_output_t2tt_R5_JESup, weight);		
+
+
+	                        hist_BDT_output_t2bw025_R1JESDown->Fill(myEvent.BDT_output_t2bw025_R1_JESdown, weight);
+				hist_BDT_output_t2bw025_R3JESDown->Fill(myEvent.BDT_output_t2bw025_R3_JESdown, weight);		
+				hist_BDT_output_t2bw025_R4JESDown->Fill(myEvent.BDT_output_t2bw025_R4_JESdown, weight);		
+				hist_BDT_output_t2bw025_R6JESDown->Fill(myEvent.BDT_output_t2bw025_R6_JESdown, weight);		
+
+				hist_BDT_output_t2bw050_R1JESDown->Fill(myEvent.BDT_output_t2bw050_R1_JESdown, weight);		
+				hist_BDT_output_t2bw050_R3JESDown->Fill(myEvent.BDT_output_t2bw050_R3_JESdown, weight);		
+				hist_BDT_output_t2bw050_R4JESDown->Fill(myEvent.BDT_output_t2bw050_R4_JESdown, weight);		
+				hist_BDT_output_t2bw050_R5JESDown->Fill(myEvent.BDT_output_t2bw050_R5_JESdown, weight);		
+				hist_BDT_output_t2bw050_R6JESDown->Fill(myEvent.BDT_output_t2bw050_R6_JESdown, weight);		
+
+				hist_BDT_output_t2bw075_R1JESDown->Fill(myEvent.BDT_output_t2bw075_R1_JESdown, weight);		
+				hist_BDT_output_t2bw075_R2JESDown->Fill(myEvent.BDT_output_t2bw075_R2_JESdown, weight);		
+				hist_BDT_output_t2bw075_R3JESDown->Fill(myEvent.BDT_output_t2bw075_R3_JESdown, weight);		
+				hist_BDT_output_t2bw075_R5JESDown->Fill(myEvent.BDT_output_t2bw075_R5_JESdown, weight);		
+
+				hist_BDT_output_t2tt_R1JESDown->Fill(myEvent.BDT_output_t2tt_R1_JESdown, weight);		
+				hist_BDT_output_t2tt_R2JESDown->Fill(myEvent.BDT_output_t2tt_R2_JESdown, weight);		
+				hist_BDT_output_t2tt_R5JESDown->Fill(myEvent.BDT_output_t2tt_R5_JESdown, weight);		
+
 
 				} 
 
@@ -1575,12 +1685,6 @@ int main (int argc, char *argv[])
 						nBJetsDownLight++;			 
 				}	
 
-
-					/*	cout << "1: "<< nBJetsUpBC << endl;
-						cout << "2: " << nBJetsDownBC << endl;
-						cout << "3: " << nBJetsUpLight << endl;
-						cout << "4: " << nBJetsDownLight << endl;
-					*/
 
 
 				if ( cutAndCount_T2tt_offShellLoose(true) == true){ 
@@ -1725,195 +1829,169 @@ int main (int argc, char *argv[])
 			  	}
 
 
-				if ( cutAndCount_T2bw025_veryOffShell_loose(true) == true){ 
-
-					if (nBJetsUpBC > 0 ) {
-						counter6BVetoBCUp ++;
-						Events_T2bw025_veryOffShell_looseBVetoBCUp->Fill(counter6BVetoBCUp, getWeight());
-					}
 
 
-					if (nBJetsDownBC > 0 ) {
-						counter6BVetoBCDown ++;
-						Events_T2bw025_veryOffShell_looseBVetoBCDown->Fill(counter6BVetoBCDown, getWeight());
-					}
-
-
-					if (nBJetsUpLight > 0 ) {
-						counter6BVetoLightUp ++;
-						Events_T2bw025_veryOffShell_looseBVetoLightUp->Fill(counter6BVetoLightUp, getWeight());
-					}
-
-
-					if (nBJetsDownLight > 0 ) {
-						counter6BVetoLightDown ++;
-						Events_T2bw025_veryOffShell_looseBVetoLightDown->Fill(counter6BVetoLightDown, getWeight());
-					}
-
-			  	}
-
-
-				if ( cutAndCount_T2bw025_offShell_loose(true) == true){ 
+				if ( cutAndCount_T2bw025_offShell(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter7BVetoBCUp ++;
-						Events_T2bw025_offShell_looseBVetoBCUp->Fill(counter7BVetoBCUp, getWeight());
+						Events_T2bw025_offShellBVetoBCUp->Fill(counter7BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter7BVetoBCDown ++;
-						Events_T2bw025_offShell_looseBVetoBCDown->Fill(counter7BVetoBCDown, getWeight());
+						Events_T2bw025_offShellBVetoBCDown->Fill(counter7BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter7BVetoLightUp ++;
-						Events_T2bw025_offShell_looseBVetoLightUp->Fill(counter7BVetoLightUp, getWeight());
+						Events_T2bw025_offShellBVetoLightUp->Fill(counter7BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter7BVetoLightDown ++;
-						Events_T2bw025_offShell_looseBVetoLightDown->Fill(counter7BVetoLightDown, getWeight());
+						Events_T2bw025_offShellBVetoLightDown->Fill(counter7BVetoLightDown, getWeight());
 					}
 
 			  	}
 
-				if ( cutAndCount_T2bw025_lowDeltaM_tight(true) == true){ 
+				if ( cutAndCount_T2bw025_lowMasses(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter8BVetoBCUp ++;
-						Events_T2bw025_lowDeltaM_tightBVetoBCUp->Fill(counter8BVetoBCUp, getWeight());
+						Events_T2bw025_lowMassesBVetoBCUp->Fill(counter8BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter8BVetoBCDown ++;
-						Events_T2bw025_lowDeltaM_tightBVetoBCDown->Fill(counter8BVetoBCDown, getWeight());
+						Events_T2bw025_lowMassesBVetoBCDown->Fill(counter8BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter8BVetoLightUp ++;
-						Events_T2bw025_lowDeltaM_tightBVetoLightUp->Fill(counter8BVetoLightUp, getWeight());
+						Events_T2bw025_lowMassesBVetoLightUp->Fill(counter8BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter8BVetoLightDown ++;
-						Events_T2bw025_lowDeltaM_tightBVetoLightDown->Fill(counter8BVetoLightDown, getWeight());
+						Events_T2bw025_lowMassesBVetoLightDown->Fill(counter8BVetoLightDown, getWeight());
 					}
 
 			  	}
 
 
-				if ( cutAndCount_T2bw025_highDeltaM(true) == true){ 
+				if ( cutAndCount_T2bw025_highMasses(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter9BVetoBCUp ++;
-						Events_T2bw025_highDeltaMBVetoBCUp->Fill(counter9BVetoBCUp, getWeight());
+						Events_T2bw025_highMassesBVetoBCUp->Fill(counter9BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter9BVetoBCDown ++;
-						Events_T2bw025_highDeltaMBVetoBCDown->Fill(counter9BVetoBCDown, getWeight());
+						Events_T2bw025_highMassesBVetoBCDown->Fill(counter9BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter9BVetoLightUp ++;
-						Events_T2bw025_highDeltaMBVetoLightUp->Fill(counter9BVetoLightUp, getWeight());
+						Events_T2bw025_highMassesBVetoLightUp->Fill(counter9BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter9BVetoLightDown ++;
-						Events_T2bw025_highDeltaMBVetoLightDown->Fill(counter9BVetoLightDown, getWeight());
+						Events_T2bw025_highMassesBVetoLightDown->Fill(counter9BVetoLightDown, getWeight());
 					}
 
 			  	}
 
 
-				if ( cutAndCount_T2bw050_offShell_loose(true) == true){ 
+				if ( cutAndCount_T2bw050_offShell(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter10BVetoBCUp ++;
-						Events_T2bw050_offShell_looseBVetoBCUp->Fill(counter10BVetoBCUp, getWeight());
+						Events_T2bw050_offShellBVetoBCUp->Fill(counter10BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter10BVetoBCDown ++;
-						Events_T2bw050_offShell_looseBVetoBCDown->Fill(counter10BVetoBCDown, getWeight());
+						Events_T2bw050_offShellBVetoBCDown->Fill(counter10BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter10BVetoLightUp ++;
-						Events_T2bw050_offShell_looseBVetoLightUp->Fill(counter10BVetoLightUp, getWeight());
+						Events_T2bw050_offShellBVetoLightUp->Fill(counter10BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter10BVetoLightDown ++;
-						Events_T2bw050_offShell_looseBVetoLightDown->Fill(counter10BVetoLightDown, getWeight());
+						Events_T2bw050_offShellBVetoLightDown->Fill(counter10BVetoLightDown, getWeight());
 					}
 
 			  	}
 
-				if ( cutAndCount_T2bw050_lowMass(true) == true){ 
+				if ( cutAndCount_T2bw050_lowMasses(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter11BVetoBCUp ++;
-						Events_T2bw050_lowMassBVetoBCUp->Fill(counter11BVetoBCUp, getWeight());
+						Events_T2bw050_lowMassesBVetoBCUp->Fill(counter11BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter11BVetoBCDown ++;
-						Events_T2bw050_lowMassBVetoBCDown->Fill(counter11BVetoBCDown, getWeight());
+						Events_T2bw050_lowMassesBVetoBCDown->Fill(counter11BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter11BVetoLightUp ++;
-						Events_T2bw050_lowMassBVetoLightUp->Fill(counter11BVetoLightUp, getWeight());
+						Events_T2bw050_lowMassesBVetoLightUp->Fill(counter11BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter11BVetoLightDown ++;
-						Events_T2bw050_lowMassBVetoLightDown->Fill(counter11BVetoLightDown, getWeight());
+						Events_T2bw050_lowMassesBVetoLightDown->Fill(counter11BVetoLightDown, getWeight());
 					}
 
 			  	}
 
 
-				if ( cutAndCount_T2bw050_mediumDeltaM_loose(true) == true){ 
+				if ( cutAndCount_T2bw050_mediumDeltaM(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter12BVetoBCUp ++;
-						Events_T2bw050_mediumDeltaM_looseBVetoBCUp->Fill(counter12BVetoBCUp, getWeight());
+						Events_T2bw050_mediumDeltaMBVetoBCUp->Fill(counter12BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter12BVetoBCDown ++;
-						Events_T2bw050_mediumDeltaM_looseBVetoBCDown->Fill(counter12BVetoBCDown, getWeight());
+						Events_T2bw050_mediumDeltaMBVetoBCDown->Fill(counter12BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter12BVetoLightUp ++;
-						Events_T2bw050_mediumDeltaM_looseBVetoLightUp->Fill(counter12BVetoLightUp, getWeight());
+						Events_T2bw050_mediumDeltaMBVetoLightUp->Fill(counter12BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter12BVetoLightDown ++;
-						Events_T2bw050_mediumDeltaM_looseBVetoLightDown->Fill(counter12BVetoLightDown, getWeight());
+						Events_T2bw050_mediumDeltaMBVetoLightDown->Fill(counter12BVetoLightDown, getWeight());
 					}
 
 			  	}
@@ -1946,29 +2024,29 @@ int main (int argc, char *argv[])
 
 			  	}
 
-				if ( cutAndCount_T2bw075_lowDeltaM_tight(true) == true){ 
+				if ( cutAndCount_T2bw075_lowDeltaM(true) == true){ 
 
 					if (nBJetsUpBC > 0 ) {
 						counter14BVetoBCUp ++;
-						Events_T2bw075_lowDeltaM_tightBVetoBCUp->Fill(counter14BVetoBCUp, getWeight());
+						Events_T2bw075_lowDeltaMBVetoBCUp->Fill(counter14BVetoBCUp, getWeight());
 					}
 
 
 					if (nBJetsDownBC > 0 ) {
 						counter14BVetoBCDown ++;
-						Events_T2bw075_lowDeltaM_tightBVetoBCDown->Fill(counter14BVetoBCDown, getWeight());
+						Events_T2bw075_lowDeltaMBVetoBCDown->Fill(counter14BVetoBCDown, getWeight());
 					}
 
 
 					if (nBJetsUpLight > 0 ) {
 						counter14BVetoLightUp ++;
-						Events_T2bw075_lowDeltaM_tightBVetoLightUp->Fill(counter14BVetoLightUp, getWeight());
+						Events_T2bw075_lowDeltaMBVetoLightUp->Fill(counter14BVetoLightUp, getWeight());
 					}
 
 
 					if (nBJetsDownLight > 0 ) {
 						counter14BVetoLightDown ++;
-						Events_T2bw075_lowDeltaM_tightBVetoLightDown->Fill(counter14BVetoLightDown, getWeight());
+						Events_T2bw075_lowDeltaMBVetoLightDown->Fill(counter14BVetoLightDown, getWeight());
 					}
 
 			  	}
@@ -2033,10 +2111,8 @@ int main (int argc, char *argv[])
 
 
 
-
-				if (myEvent.isUsedInBDT == 1) continue;
+				if (myEvent.isUsedInBDTTraining == 1) continue;
 				double weight = getWeight() * 2.; 
-
 
 
 				if (nBJetsUpBC > 0 ) {
@@ -2046,8 +2122,7 @@ int main (int argc, char *argv[])
 				hist_BDT_output_t2bw025_R6BVetoBCUp->Fill(myEvent.BDT_output_t2bw025_R6, weight);		
 
 
-				hist_BDT_output_t2bw050_R1_tightBVetoBCUp->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
-				hist_BDT_output_t2bw050_R1_looseBVetoBCUp->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
+				hist_BDT_output_t2bw050_R1BVetoBCUp->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
 				hist_BDT_output_t2bw050_R3BVetoBCUp->Fill(myEvent.BDT_output_t2bw050_R3, weight);		
 				hist_BDT_output_t2bw050_R4BVetoBCUp->Fill(myEvent.BDT_output_t2bw050_R4, weight);		
 				hist_BDT_output_t2bw050_R5BVetoBCUp->Fill(myEvent.BDT_output_t2bw050_R5, weight);		
@@ -2060,8 +2135,7 @@ int main (int argc, char *argv[])
 
 				hist_BDT_output_t2tt_R1BVetoBCUp->Fill(myEvent.BDT_output_t2tt_R1, weight);		
 				hist_BDT_output_t2tt_R2BVetoBCUp->Fill(myEvent.BDT_output_t2tt_R2, weight);		
-				hist_BDT_output_t2tt_R5_looseBVetoBCUp->Fill(myEvent.BDT_output_t2tt_R5, weight);		
-				hist_BDT_output_t2tt_R5_tightBVetoBCUp->Fill(myEvent.BDT_output_t2tt_R5, weight);		
+				hist_BDT_output_t2tt_R5BVetoBCUp->Fill(myEvent.BDT_output_t2tt_R5, weight);		
 
 				}
 
@@ -2071,8 +2145,7 @@ int main (int argc, char *argv[])
 				hist_BDT_output_t2bw025_R4BVetoBCDown->Fill(myEvent.BDT_output_t2bw025_R4, weight);		
 				hist_BDT_output_t2bw025_R6BVetoBCDown->Fill(myEvent.BDT_output_t2bw025_R6, weight);		
 
-				hist_BDT_output_t2bw050_R1_tightBVetoBCDown->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
-				hist_BDT_output_t2bw050_R1_looseBVetoBCDown->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
+				hist_BDT_output_t2bw050_R1BVetoBCDown->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
 				hist_BDT_output_t2bw050_R3BVetoBCDown->Fill(myEvent.BDT_output_t2bw050_R3, weight);		
 				hist_BDT_output_t2bw050_R4BVetoBCDown->Fill(myEvent.BDT_output_t2bw050_R4, weight);		
 				hist_BDT_output_t2bw050_R5BVetoBCDown->Fill(myEvent.BDT_output_t2bw050_R5, weight);		
@@ -2085,8 +2158,7 @@ int main (int argc, char *argv[])
 
 				hist_BDT_output_t2tt_R1BVetoBCDown->Fill(myEvent.BDT_output_t2tt_R1, weight);		
 				hist_BDT_output_t2tt_R2BVetoBCDown->Fill(myEvent.BDT_output_t2tt_R2, weight);		
-				hist_BDT_output_t2tt_R5_looseBVetoBCDown->Fill(myEvent.BDT_output_t2tt_R5, weight);		
-				hist_BDT_output_t2tt_R5_tightBVetoBCDown->Fill(myEvent.BDT_output_t2tt_R5, weight);		
+				hist_BDT_output_t2tt_R5BVetoBCDown->Fill(myEvent.BDT_output_t2tt_R5, weight);		
 
 				}
 
@@ -2097,8 +2169,7 @@ int main (int argc, char *argv[])
 				hist_BDT_output_t2bw025_R6BVetoLightUp->Fill(myEvent.BDT_output_t2bw025_R6, weight);		
 
 
-				hist_BDT_output_t2bw050_R1_tightBVetoLightUp->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
-				hist_BDT_output_t2bw050_R1_looseBVetoLightUp->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
+				hist_BDT_output_t2bw050_R1BVetoLightUp->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
 				hist_BDT_output_t2bw050_R3BVetoLightUp->Fill(myEvent.BDT_output_t2bw050_R3, weight);		
 				hist_BDT_output_t2bw050_R4BVetoLightUp->Fill(myEvent.BDT_output_t2bw050_R4, weight);		
 				hist_BDT_output_t2bw050_R5BVetoLightUp->Fill(myEvent.BDT_output_t2bw050_R5, weight);		
@@ -2111,8 +2182,7 @@ int main (int argc, char *argv[])
 
 				hist_BDT_output_t2tt_R1BVetoLightUp->Fill(myEvent.BDT_output_t2tt_R1, weight);		
 				hist_BDT_output_t2tt_R2BVetoLightUp->Fill(myEvent.BDT_output_t2tt_R2, weight);		
-				hist_BDT_output_t2tt_R5_looseBVetoLightUp->Fill(myEvent.BDT_output_t2tt_R5, weight);		
-				hist_BDT_output_t2tt_R5_tightBVetoLightUp->Fill(myEvent.BDT_output_t2tt_R5, weight);		
+				hist_BDT_output_t2tt_R5BVetoLightUp->Fill(myEvent.BDT_output_t2tt_R5, weight);		
 				}
 
 				if (nBJetsDownLight > 0 ) {
@@ -2122,8 +2192,7 @@ int main (int argc, char *argv[])
 				hist_BDT_output_t2bw025_R6BVetoLightDown->Fill(myEvent.BDT_output_t2bw025_R6, weight);		
 
 
-				hist_BDT_output_t2bw050_R1_tightBVetoLightDown->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
-				hist_BDT_output_t2bw050_R1_looseBVetoLightDown->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
+				hist_BDT_output_t2bw050_R1BVetoLightDown->Fill(myEvent.BDT_output_t2bw050_R1, weight);		
 				hist_BDT_output_t2bw050_R3BVetoLightDown->Fill(myEvent.BDT_output_t2bw050_R3, weight);		
 				hist_BDT_output_t2bw050_R4BVetoLightDown->Fill(myEvent.BDT_output_t2bw050_R4, weight);		
 				hist_BDT_output_t2bw050_R5BVetoLightDown->Fill(myEvent.BDT_output_t2bw050_R5, weight);		
@@ -2136,8 +2205,7 @@ int main (int argc, char *argv[])
 
 				hist_BDT_output_t2tt_R1BVetoLightDown->Fill(myEvent.BDT_output_t2tt_R1, weight);		
 				hist_BDT_output_t2tt_R2BVetoLightDown->Fill(myEvent.BDT_output_t2tt_R2, weight);		
-				hist_BDT_output_t2tt_R5_looseBVetoLightDown->Fill(myEvent.BDT_output_t2tt_R5, weight);		
-				hist_BDT_output_t2tt_R5_tightBVetoLightDown->Fill(myEvent.BDT_output_t2tt_R5, weight);		
+				hist_BDT_output_t2tt_R5BVetoLightDown->Fill(myEvent.BDT_output_t2tt_R5, weight);		
 
 				}
 

@@ -217,7 +217,8 @@ typedef struct
 
         // BDT related quantities
 
-    Int_t           isUsedInBDT;
+    Int_t           isUsedInBDTTraining;
+    //Int_t           isUsedInBDT;
     Double_t        BDT_output_t2bw025_R1;
     Double_t        BDT_output_t2bw025_R3;
     Double_t        BDT_output_t2bw025_R4;
@@ -234,6 +235,40 @@ typedef struct
     Double_t        BDT_output_t2tt_R1;
     Double_t        BDT_output_t2tt_R2;
     Double_t        BDT_output_t2tt_R5;
+
+    Double_t        BDT_output_t2bw025_R1_JESup;
+    Double_t        BDT_output_t2bw025_R3_JESup;
+    Double_t        BDT_output_t2bw025_R4_JESup;
+    Double_t        BDT_output_t2bw025_R6_JESup;
+    Double_t        BDT_output_t2bw050_R1_JESup;
+    Double_t        BDT_output_t2bw050_R3_JESup;
+    Double_t        BDT_output_t2bw050_R4_JESup;
+    Double_t        BDT_output_t2bw050_R5_JESup;
+    Double_t        BDT_output_t2bw050_R6_JESup;
+    Double_t        BDT_output_t2bw075_R1_JESup;
+    Double_t        BDT_output_t2bw075_R2_JESup;
+    Double_t        BDT_output_t2bw075_R3_JESup;
+    Double_t        BDT_output_t2bw075_R5_JESup;
+    Double_t        BDT_output_t2tt_R1_JESup;
+    Double_t        BDT_output_t2tt_R2_JESup;
+    Double_t        BDT_output_t2tt_R5_JESup;
+
+    Double_t        BDT_output_t2bw025_R1_JESdown;
+    Double_t        BDT_output_t2bw025_R3_JESdown;
+    Double_t        BDT_output_t2bw025_R4_JESdown;
+    Double_t        BDT_output_t2bw025_R6_JESdown;
+    Double_t        BDT_output_t2bw050_R1_JESdown;
+    Double_t        BDT_output_t2bw050_R3_JESdown;
+    Double_t        BDT_output_t2bw050_R4_JESdown;
+    Double_t        BDT_output_t2bw050_R5_JESdown;
+    Double_t        BDT_output_t2bw050_R6_JESdown;
+    Double_t        BDT_output_t2bw075_R1_JESdown;
+    Double_t        BDT_output_t2bw075_R2_JESdown;
+    Double_t        BDT_output_t2bw075_R3_JESdown;
+    Double_t        BDT_output_t2bw075_R5_JESdown;
+    Double_t        BDT_output_t2tt_R1_JESdown;
+    Double_t        BDT_output_t2tt_R2_JESdown;
+    Double_t        BDT_output_t2tt_R5_JESdown;
 
 
 } babyEvent;   
@@ -480,7 +515,8 @@ void InitializeBranchesForReading(TTree* theTree, babyEvent* myEvent,intermediat
     theTree->SetBranchAddress("flavor_firstIncomingParton",                   &(myEvent->flavor_firstIncomingParton)); 
     theTree->SetBranchAddress("flavor_secondIncomingParton",                  &(myEvent->flavor_secondIncomingParton));
     theTree->SetBranchAddress("scalePDF",                                     &(myEvent->scalePDF));                   
-    theTree->SetBranchAddress("isUsedInBDT",                                  &(myEvent->isUsedInBDT));
+    //theTree->SetBranchAddress("isUsedInBDT",                                  &(myEvent->isUsedInBDT));
+    theTree->SetBranchAddress("isUsedInBDTTraining",                          &(myEvent->isUsedInBDTTraining));
     theTree->SetBranchAddress("BDT_output_t2bw025_R1",                        &(myEvent->BDT_output_t2bw025_R1));
     theTree->SetBranchAddress("BDT_output_t2bw025_R3",                        &(myEvent->BDT_output_t2bw025_R3));
     theTree->SetBranchAddress("BDT_output_t2bw025_R4",                        &(myEvent->BDT_output_t2bw025_R4));
@@ -497,6 +533,38 @@ void InitializeBranchesForReading(TTree* theTree, babyEvent* myEvent,intermediat
     theTree->SetBranchAddress("BDT_output_t2tt_R1",                           &(myEvent->BDT_output_t2tt_R1));
     theTree->SetBranchAddress("BDT_output_t2tt_R2",                           &(myEvent->BDT_output_t2tt_R2));
     theTree->SetBranchAddress("BDT_output_t2tt_R5",                           &(myEvent->BDT_output_t2tt_R5));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R1_JESup",                        &(myEvent->BDT_output_t2bw025_R1_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R3_JESup",                        &(myEvent->BDT_output_t2bw025_R3_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R4_JESup",                        &(myEvent->BDT_output_t2bw025_R4_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R6_JESup",                        &(myEvent->BDT_output_t2bw025_R6_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R1_JESup",                        &(myEvent->BDT_output_t2bw050_R1_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R3_JESup",                        &(myEvent->BDT_output_t2bw050_R3_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R4_JESup",                        &(myEvent->BDT_output_t2bw050_R4_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R5_JESup",                        &(myEvent->BDT_output_t2bw050_R5_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R6_JESup",                        &(myEvent->BDT_output_t2bw050_R6_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R1_JESup",                        &(myEvent->BDT_output_t2bw075_R1_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R2_JESup",                        &(myEvent->BDT_output_t2bw075_R2_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R3_JESup",                        &(myEvent->BDT_output_t2bw075_R3_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R5_JESup",                        &(myEvent->BDT_output_t2bw075_R5_JESup));
+    theTree->SetBranchAddress("BDT_output_t2tt_R1_JESup",                           &(myEvent->BDT_output_t2tt_R1_JESup));
+    theTree->SetBranchAddress("BDT_output_t2tt_R2_JESup",                           &(myEvent->BDT_output_t2tt_R2_JESup));
+    theTree->SetBranchAddress("BDT_output_t2tt_R5_JESup",                           &(myEvent->BDT_output_t2tt_R5_JESup));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R1_JESdown",                        &(myEvent->BDT_output_t2bw025_R1_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R3_JESdown",                        &(myEvent->BDT_output_t2bw025_R3_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R4_JESdown",                        &(myEvent->BDT_output_t2bw025_R4_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw025_R6_JESdown",                        &(myEvent->BDT_output_t2bw025_R6_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R1_JESdown",                        &(myEvent->BDT_output_t2bw050_R1_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R3_JESdown",                        &(myEvent->BDT_output_t2bw050_R3_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R4_JESdown",                        &(myEvent->BDT_output_t2bw050_R4_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R5_JESdown",                        &(myEvent->BDT_output_t2bw050_R5_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw050_R6_JESdown",                        &(myEvent->BDT_output_t2bw050_R6_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R1_JESdown",                        &(myEvent->BDT_output_t2bw075_R1_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R2_JESdown",                        &(myEvent->BDT_output_t2bw075_R2_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R3_JESdown",                        &(myEvent->BDT_output_t2bw075_R3_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2bw075_R5_JESdown",                        &(myEvent->BDT_output_t2bw075_R5_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2tt_R1_JESdown",                           &(myEvent->BDT_output_t2tt_R1_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2tt_R2_JESdown",                           &(myEvent->BDT_output_t2tt_R2_JESdown));
+    theTree->SetBranchAddress("BDT_output_t2tt_R5_JESdown",                           &(myEvent->BDT_output_t2tt_R5_JESdown));
 }
 
 void InitializeBranchesForWriting(TTree* theTree, babyEvent* myEvent)
