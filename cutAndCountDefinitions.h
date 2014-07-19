@@ -63,7 +63,7 @@ bool findISRJet()
 // #                         #
 // ###########################
 
-bool cutAndCount_T2tt(float cutMET, float cutMEToverSqrtHT, float cutMT, float cutMT2W, float cutDeltaPhi, float cutHadronicChi2, bool enableISRJetRequirement)
+bool cutAndCount_T2tt(float cutMET, float cutMEToverSqrtHT, float cutMT, float cutMT2W, float cutDeltaPhi, float cutHadronicChi2, bool enableISRJetRequirement, float enableHighPtNonBJetRequirement = -1)
 {
     if (myEvent.METoverSqrtHT   < cutMEToverSqrtHT) return false;
     if (myEvent.MT              < cutMT)            return false;
@@ -79,6 +79,14 @@ bool cutAndCount_T2tt(float cutMET, float cutMEToverSqrtHT, float cutMT, float c
             if (!myEvent.ISRJet)   return false;
         #else
             if (!findISRJet())     return false;
+        #endif
+    }
+    if (enableHighPtNonBJetRequirement != -1)
+    {
+        #ifdef LEADING_NON_B_PT_ALREADY_COMPUTED
+            if (myEvent.leadingNonBPt < enableHighPtNonBJetRequirement)   return false;
+        #else
+            if (leadingNonBPt()       < enableHighPtNonBJetRequirement)   return false;
         #endif
     }
 
@@ -101,7 +109,7 @@ bool cutAndCount_T2tt_highDeltaM   (bool applyMTCut) { return cutAndCount_T2tt( 
 // #                               #
 // #################################
 
-bool cutAndCount_T2bw(float cutMET, float cutMETsig, float cutMT, float cutMT2W, float cutBPt, float cutDeltaPhi, bool enableISRJetRequirement)
+bool cutAndCount_T2bw(float cutMET, float cutMETsig, float cutMT, float cutMT2W, float cutBPt, float cutDeltaPhi, bool enableISRJetRequirement, float enableHighPtNonBJetRequirement = -1)
 {
     if (myEvent.MET             < cutMET)               return false;
     if (myEvent.METoverSqrtHT   < cutMETsig)            return false;
@@ -116,6 +124,14 @@ bool cutAndCount_T2bw(float cutMET, float cutMETsig, float cutMT, float cutMT2W,
             if (!myEvent.ISRJet)   return false;
         #else
             if (!findISRJet())     return false;
+        #endif
+    }
+    if (enableHighPtNonBJetRequirement != -1)
+    {
+        #ifdef LEADING_NON_B_PT_ALREADY_COMPUTED
+            if (myEvent.leadingNonBPt < enableHighPtNonBJetRequirement)   return false;
+        #else
+            if (leadingNonBPt()       < enableHighPtNonBJetRequirement)   return false;
         #endif
     }
 
