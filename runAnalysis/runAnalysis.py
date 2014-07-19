@@ -11,7 +11,7 @@ pwd = os.environ['PWD']
 #dataset_name 		= ['SingleElec', 'SingleMuon', 'DoubleElec', 'DoubleMuon', 'MuEl', 'W+jets', 'rare', 'singleTop_st', 'ttbar_madgraph_1l', 'ttbar_madgraph_2l', 'T2bw-025' , 'T2bw-050' , 'T2bw-075' , 'T2tt' ]
 #dataset_name 		= ['T2bw-025' , 'T2bw-050' , 'T2bw-075' , 'T2tt'] 
 dataset_name 		= ['T2bw-025' , 'T2bw-050' , 'T2bw-075'] 
-executable         	= "runAnalysis2" 
+executable         	= "runAnalysis" 
 
 
 for z in range(len(dataset_name)):

@@ -1131,104 +1131,104 @@ int main (int argc, char *argv[])
 
 
 
-   Events_Preselection 	= new TH1D("Preselection","",50,0,1000) ; 
+   Events_Preselection 	= new TH1D("Preselection","",50,0,10000) ; 
 
-   Events_T2tt_offShellLoose 	= new TH1D(name1,title1,50,0,1000) ; 
-   Events_T2tt_offShellTight 	= new TH1D(name2,title2,50,0,1000) ; 
-   Events_T2tt_lowDeltaM 	= new TH1D(name3,title3,50,0,1000) ; 
-   Events_T2tt_mediumDeltaM 	= new TH1D(name4,title4,50,0,1000) ; 
-   Events_T2tt_highDeltaM 	= new TH1D(name5,title5,50,0,1000) ; 
+   Events_T2tt_offShellLoose 	= new TH1D(name1,title1,50,0,10000) ; 
+   Events_T2tt_offShellTight 	= new TH1D(name2,title2,50,0,10000) ; 
+   Events_T2tt_lowDeltaM 	= new TH1D(name3,title3,50,0,10000) ; 
+   Events_T2tt_mediumDeltaM 	= new TH1D(name4,title4,50,0,10000) ; 
+   Events_T2tt_highDeltaM 	= new TH1D(name5,title5,50,0,10000) ; 
 
-   Events_T2bw025_offShell = new TH1D(name7,title7,50,0,1000);
-   Events_T2bw025_lowMasses = new TH1D(name8,title8,50,0,1000); 
-   Events_T2bw025_highMasses = new TH1D(name9,title9,50,0,1000);
+   Events_T2bw025_offShell = new TH1D(name7,title7,50,0,10000);
+   Events_T2bw025_lowMasses = new TH1D(name8,title8,50,0,10000); 
+   Events_T2bw025_highMasses = new TH1D(name9,title9,50,0,10000);
 
-   Events_T2bw050_offShell = new TH1D(name10,title10,50,0,1000);
-   Events_T2bw050_lowMasses = new TH1D(name11,title11,50,0,1000);
-   Events_T2bw050_mediumDeltaM = new TH1D(name12,title12,50,0,1000);
-   Events_T2bw050_highDeltaM = new TH1D(name13,title13,50,0,1000);
+   Events_T2bw050_offShell = new TH1D(name10,title10,50,0,10000);
+   Events_T2bw050_lowMasses = new TH1D(name11,title11,50,0,10000);
+   Events_T2bw050_mediumDeltaM = new TH1D(name12,title12,50,0,10000);
+   Events_T2bw050_highDeltaM = new TH1D(name13,title13,50,0,10000);
 
-   Events_T2bw075_lowDeltaM = new TH1D(name14,title14,50,0,1000);
-   Events_T2bw075_mediumDeltaM = new TH1D(name15,title15,50,0,1000);
-   Events_T2bw075_highDeltaM = new TH1D(name16,title16,50,0,1000);
-
-
-   Events_T2tt_offShellLooseBVetoBCUp 				= new TH1D(name1BVetoBCUp,title1BVetoBCUp,50,0,1000) ; 
-   Events_T2tt_offShellLooseBVetoBCDown 			= new TH1D(name1BVetoBCDown,title1BVetoBCDown,50,0,1000) ; 
-   Events_T2tt_offShellLooseBVetoLightUp 			= new TH1D(name1BVetoLightUp,title1BVetoLightUp,50,0,1000) ; 
-   Events_T2tt_offShellLooseBVetoLightDown 			= new TH1D(name1BVetoLightDown,title1BVetoLightDown,50,0,1000) ; 
-
-   Events_T2tt_offShellTightBVetoBCUp 	    			= new TH1D(name2BVetoBCUp,title2BVetoBCUp,50,0,1000) ;           	
-   Events_T2tt_offShellTightBVetoBCDown     	                = new TH1D(name2BVetoBCDown,title2BVetoBCDown,50,0,1000) ; 
-   Events_T2tt_offShellTightBVetoLightUp    	                = new TH1D(name2BVetoLightUp,title2BVetoLightUp,50,0,1000) ; 
-   Events_T2tt_offShellTightBVetoLightDown  	                = new TH1D(name2BVetoLightDown,title2BVetoLightDown,50,0,1000) ; 
-
-   Events_T2tt_lowDeltaMBVetoBCUp 	    			= new TH1D(name3BVetoBCUp,title3BVetoBCUp,50,0,1000) ;           	
-   Events_T2tt_lowDeltaMBVetoBCDown     	                = new TH1D(name3BVetoBCDown,title3BVetoBCDown,50,0,1000) ; 
-   Events_T2tt_lowDeltaMBVetoLightUp    	                = new TH1D(name3BVetoLightUp,title3BVetoLightUp,50,0,1000) ; 
-   Events_T2tt_lowDeltaMBVetoLightDown  	                = new TH1D(name3BVetoLightDown,title3BVetoLightDown,50,0,1000) ; 
-
-   Events_T2tt_mediumDeltaMBVetoBCUp 	    			= new TH1D(name4BVetoBCUp,title4BVetoBCUp,50,0,1000) ;           	
-   Events_T2tt_mediumDeltaMBVetoBCDown     	                = new TH1D(name4BVetoBCDown,title4BVetoBCDown,50,0,1000) ; 
-   Events_T2tt_mediumDeltaMBVetoLightUp    	                = new TH1D(name4BVetoLightUp,title4BVetoLightUp,50,0,1000) ; 
-   Events_T2tt_mediumDeltaMBVetoLightDown  	                = new TH1D(name4BVetoLightDown,title4BVetoLightDown,50,0,1000) ; 
-
-   Events_T2tt_highDeltaMBVetoBCUp 	    			= new TH1D(name5BVetoBCUp,title5BVetoBCUp,50,0,1000) ;           	
-   Events_T2tt_highDeltaMBVetoBCDown     	                = new TH1D(name5BVetoBCDown,title5BVetoBCDown,50,0,1000) ; 
-   Events_T2tt_highDeltaMBVetoLightUp    	                = new TH1D(name5BVetoLightUp,title5BVetoLightUp,50,0,1000) ; 
-   Events_T2tt_highDeltaMBVetoLightDown  	                = new TH1D(name5BVetoLightDown,title5BVetoLightDown,50,0,1000) ; 
+   Events_T2bw075_lowDeltaM = new TH1D(name14,title14,50,0,10000);
+   Events_T2bw075_mediumDeltaM = new TH1D(name15,title15,50,0,10000);
+   Events_T2bw075_highDeltaM = new TH1D(name16,title16,50,0,10000);
 
 
-   Events_T2bw025_offShellBVetoBCUp 	   		= new TH1D(name7BVetoBCUp,title7BVetoBCUp,50,0,1000) ;           			 
-   Events_T2bw025_offShellBVetoBCDown                    = new TH1D(name7BVetoBCDown,title7BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_offShellBVetoLightUp                   = new TH1D(name7BVetoLightUp,title7BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_offShellBVetoLightDown                 = new TH1D(name7BVetoLightDown,title7BVetoLightDown,50,0,1000) ; 
+   Events_T2tt_offShellLooseBVetoBCUp 				= new TH1D(name1BVetoBCUp,title1BVetoBCUp,50,0,10000) ; 
+   Events_T2tt_offShellLooseBVetoBCDown 			= new TH1D(name1BVetoBCDown,title1BVetoBCDown,50,0,10000) ; 
+   Events_T2tt_offShellLooseBVetoLightUp 			= new TH1D(name1BVetoLightUp,title1BVetoLightUp,50,0,10000) ; 
+   Events_T2tt_offShellLooseBVetoLightDown 			= new TH1D(name1BVetoLightDown,title1BVetoLightDown,50,0,10000) ; 
 
-   Events_T2bw025_lowMassesBVetoBCUp 	   		 = new TH1D(name8BVetoBCUp,title8BVetoBCUp,50,0,1000) ;           	
-   Events_T2bw025_lowMassesBVetoBCDown                    = new TH1D(name8BVetoBCDown,title8BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_lowMassesBVetoLightUp                   = new TH1D(name8BVetoLightUp,title8BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_lowMassesBVetoLightDown                 = new TH1D(name8BVetoLightDown,title8BVetoLightDown,50,0,1000) ; 
+   Events_T2tt_offShellTightBVetoBCUp 	    			= new TH1D(name2BVetoBCUp,title2BVetoBCUp,50,0,10000) ;           	
+   Events_T2tt_offShellTightBVetoBCDown     	                = new TH1D(name2BVetoBCDown,title2BVetoBCDown,50,0,10000) ; 
+   Events_T2tt_offShellTightBVetoLightUp    	                = new TH1D(name2BVetoLightUp,title2BVetoLightUp,50,0,10000) ; 
+   Events_T2tt_offShellTightBVetoLightDown  	                = new TH1D(name2BVetoLightDown,title2BVetoLightDown,50,0,10000) ; 
 
-   Events_T2bw025_highMassesBVetoBCUp 	   			= new TH1D(name9BVetoBCUp,title9BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw025_highMassesBVetoBCDown                        = new TH1D(name9BVetoBCDown,title9BVetoBCDown,50,0,1000) ; 
-   Events_T2bw025_highMassesBVetoLightUp                       = new TH1D(name9BVetoLightUp,title9BVetoLightUp,50,0,1000) ; 
-   Events_T2bw025_highMassesBVetoLightDown                     = new TH1D(name9BVetoLightDown,title9BVetoLightDown,50,0,1000) ; 
+   Events_T2tt_lowDeltaMBVetoBCUp 	    			= new TH1D(name3BVetoBCUp,title3BVetoBCUp,50,0,10000) ;           	
+   Events_T2tt_lowDeltaMBVetoBCDown     	                = new TH1D(name3BVetoBCDown,title3BVetoBCDown,50,0,10000) ; 
+   Events_T2tt_lowDeltaMBVetoLightUp    	                = new TH1D(name3BVetoLightUp,title3BVetoLightUp,50,0,10000) ; 
+   Events_T2tt_lowDeltaMBVetoLightDown  	                = new TH1D(name3BVetoLightDown,title3BVetoLightDown,50,0,10000) ; 
 
-   Events_T2bw050_offShellBVetoBCUp 	   		= new TH1D(name10BVetoBCUp,title10BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_offShellBVetoBCDown                    = new TH1D(name10BVetoBCDown,title10BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_offShellBVetoLightUp                   = new TH1D(name10BVetoLightUp,title10BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_offShellBVetoLightDown                 = new TH1D(name10BVetoLightDown,title10BVetoLightDown,50,0,1000) ; 
+   Events_T2tt_mediumDeltaMBVetoBCUp 	    			= new TH1D(name4BVetoBCUp,title4BVetoBCUp,50,0,10000) ;           	
+   Events_T2tt_mediumDeltaMBVetoBCDown     	                = new TH1D(name4BVetoBCDown,title4BVetoBCDown,50,0,10000) ; 
+   Events_T2tt_mediumDeltaMBVetoLightUp    	                = new TH1D(name4BVetoLightUp,title4BVetoLightUp,50,0,10000) ; 
+   Events_T2tt_mediumDeltaMBVetoLightDown  	                = new TH1D(name4BVetoLightDown,title4BVetoLightDown,50,0,10000) ; 
 
-   Events_T2bw050_lowMassesBVetoBCUp 	   			= new TH1D(name11BVetoBCUp,title11BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_lowMassesBVetoBCDown                           = new TH1D(name11BVetoBCDown,title11BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_lowMassesBVetoLightUp                          = new TH1D(name11BVetoLightUp,title11BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_lowMassesBVetoLightDown                        = new TH1D(name11BVetoLightDown,title11BVetoLightDown,50,0,1000) ; 
-
-   Events_T2bw050_mediumDeltaMBVetoBCUp 	   		= new TH1D(name12BVetoBCUp,title12BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_mediumDeltaMBVetoBCDown                = new TH1D(name12BVetoBCDown,title12BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_mediumDeltaMBVetoLightUp               = new TH1D(name12BVetoLightUp,title12BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_mediumDeltaMBVetoLightDown             = new TH1D(name12BVetoLightDown,title12BVetoLightDown,50,0,1000) ; 
-
-   Events_T2bw050_highDeltaMBVetoBCUp 	   			= new TH1D(name13BVetoBCUp,title13BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw050_highDeltaMBVetoBCDown                        = new TH1D(name13BVetoBCDown,title13BVetoBCDown,50,0,1000) ; 
-   Events_T2bw050_highDeltaMBVetoLightUp                       = new TH1D(name13BVetoLightUp,title13BVetoLightUp,50,0,1000) ; 
-   Events_T2bw050_highDeltaMBVetoLightDown                     = new TH1D(name13BVetoLightDown,title13BVetoLightDown,50,0,1000) ; 
+   Events_T2tt_highDeltaMBVetoBCUp 	    			= new TH1D(name5BVetoBCUp,title5BVetoBCUp,50,0,10000) ;           	
+   Events_T2tt_highDeltaMBVetoBCDown     	                = new TH1D(name5BVetoBCDown,title5BVetoBCDown,50,0,10000) ; 
+   Events_T2tt_highDeltaMBVetoLightUp    	                = new TH1D(name5BVetoLightUp,title5BVetoLightUp,50,0,10000) ; 
+   Events_T2tt_highDeltaMBVetoLightDown  	                = new TH1D(name5BVetoLightDown,title5BVetoLightDown,50,0,10000) ; 
 
 
-   Events_T2bw075_lowDeltaMBVetoBCUp 	   		= new TH1D(name14BVetoBCUp,title14BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw075_lowDeltaMBVetoBCDown                   = new TH1D(name14BVetoBCDown,title14BVetoBCDown,50,0,1000) ; 
-   Events_T2bw075_lowDeltaMBVetoLightUp                  = new TH1D(name14BVetoLightUp,title14BVetoLightUp,50,0,1000) ; 
-   Events_T2bw075_lowDeltaMBVetoLightDown                = new TH1D(name14BVetoLightDown,title14BVetoLightDown,50,0,1000) ; 
+   Events_T2bw025_offShellBVetoBCUp 	   		= new TH1D(name7BVetoBCUp,title7BVetoBCUp,50,0,10000) ;           			 
+   Events_T2bw025_offShellBVetoBCDown                    = new TH1D(name7BVetoBCDown,title7BVetoBCDown,50,0,10000) ; 
+   Events_T2bw025_offShellBVetoLightUp                   = new TH1D(name7BVetoLightUp,title7BVetoLightUp,50,0,10000) ; 
+   Events_T2bw025_offShellBVetoLightDown                 = new TH1D(name7BVetoLightDown,title7BVetoLightDown,50,0,10000) ; 
 
-   Events_T2bw075_mediumDeltaMBVetoBCUp    			= new TH1D(name15BVetoBCUp,title15BVetoBCUp,50,0,1000) ;           	
-   Events_T2bw075_mediumDeltaMBVetoBCDown                      = new TH1D(name15BVetoBCDown,title15BVetoBCDown,50,0,1000) ; 
-   Events_T2bw075_mediumDeltaMBVetoLightUp                     = new TH1D(name15BVetoLightUp,title15BVetoLightUp,50,0,1000) ; 
-   Events_T2bw075_mediumDeltaMBVetoLightDown                   = new TH1D(name15BVetoLightDown,title15BVetoLightDown,50,0,1000) ; 
+   Events_T2bw025_lowMassesBVetoBCUp 	   		 = new TH1D(name8BVetoBCUp,title8BVetoBCUp,50,0,10000) ;           	
+   Events_T2bw025_lowMassesBVetoBCDown                    = new TH1D(name8BVetoBCDown,title8BVetoBCDown,50,0,10000) ; 
+   Events_T2bw025_lowMassesBVetoLightUp                   = new TH1D(name8BVetoLightUp,title8BVetoLightUp,50,0,10000) ; 
+   Events_T2bw025_lowMassesBVetoLightDown                 = new TH1D(name8BVetoLightDown,title8BVetoLightDown,50,0,10000) ; 
 
-   Events_T2bw075_highDeltaMBVetoBCUp 	   			= new TH1D(name16BVetoBCUp,title16BVetoBCUp,50,0,1000) ;           	 
-   Events_T2bw075_highDeltaMBVetoBCDown                        = new TH1D(name16BVetoBCDown,title16BVetoBCDown,50,0,1000) ; 
-   Events_T2bw075_highDeltaMBVetoLightUp                       = new TH1D(name16BVetoLightUp,title16BVetoLightUp,50,0,1000) ; 
-   Events_T2bw075_highDeltaMBVetoLightDown                     = new TH1D(name16BVetoLightDown,title16BVetoLightDown,50,0,1000) ; 
+   Events_T2bw025_highMassesBVetoBCUp 	   			= new TH1D(name9BVetoBCUp,title9BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw025_highMassesBVetoBCDown                        = new TH1D(name9BVetoBCDown,title9BVetoBCDown,50,0,10000) ; 
+   Events_T2bw025_highMassesBVetoLightUp                       = new TH1D(name9BVetoLightUp,title9BVetoLightUp,50,0,10000) ; 
+   Events_T2bw025_highMassesBVetoLightDown                     = new TH1D(name9BVetoLightDown,title9BVetoLightDown,50,0,10000) ; 
+
+   Events_T2bw050_offShellBVetoBCUp 	   		= new TH1D(name10BVetoBCUp,title10BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw050_offShellBVetoBCDown                    = new TH1D(name10BVetoBCDown,title10BVetoBCDown,50,0,10000) ; 
+   Events_T2bw050_offShellBVetoLightUp                   = new TH1D(name10BVetoLightUp,title10BVetoLightUp,50,0,10000) ; 
+   Events_T2bw050_offShellBVetoLightDown                 = new TH1D(name10BVetoLightDown,title10BVetoLightDown,50,0,10000) ; 
+
+   Events_T2bw050_lowMassesBVetoBCUp 	   			= new TH1D(name11BVetoBCUp,title11BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw050_lowMassesBVetoBCDown                           = new TH1D(name11BVetoBCDown,title11BVetoBCDown,50,0,10000) ; 
+   Events_T2bw050_lowMassesBVetoLightUp                          = new TH1D(name11BVetoLightUp,title11BVetoLightUp,50,0,10000) ; 
+   Events_T2bw050_lowMassesBVetoLightDown                        = new TH1D(name11BVetoLightDown,title11BVetoLightDown,50,0,10000) ; 
+
+   Events_T2bw050_mediumDeltaMBVetoBCUp 	   		= new TH1D(name12BVetoBCUp,title12BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw050_mediumDeltaMBVetoBCDown                = new TH1D(name12BVetoBCDown,title12BVetoBCDown,50,0,10000) ; 
+   Events_T2bw050_mediumDeltaMBVetoLightUp               = new TH1D(name12BVetoLightUp,title12BVetoLightUp,50,0,10000) ; 
+   Events_T2bw050_mediumDeltaMBVetoLightDown             = new TH1D(name12BVetoLightDown,title12BVetoLightDown,50,0,10000) ; 
+
+   Events_T2bw050_highDeltaMBVetoBCUp 	   			= new TH1D(name13BVetoBCUp,title13BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw050_highDeltaMBVetoBCDown                        = new TH1D(name13BVetoBCDown,title13BVetoBCDown,50,0,10000) ; 
+   Events_T2bw050_highDeltaMBVetoLightUp                       = new TH1D(name13BVetoLightUp,title13BVetoLightUp,50,0,10000) ; 
+   Events_T2bw050_highDeltaMBVetoLightDown                     = new TH1D(name13BVetoLightDown,title13BVetoLightDown,50,0,10000) ; 
+
+
+   Events_T2bw075_lowDeltaMBVetoBCUp 	   		= new TH1D(name14BVetoBCUp,title14BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw075_lowDeltaMBVetoBCDown                   = new TH1D(name14BVetoBCDown,title14BVetoBCDown,50,0,10000) ; 
+   Events_T2bw075_lowDeltaMBVetoLightUp                  = new TH1D(name14BVetoLightUp,title14BVetoLightUp,50,0,10000) ; 
+   Events_T2bw075_lowDeltaMBVetoLightDown                = new TH1D(name14BVetoLightDown,title14BVetoLightDown,50,0,10000) ; 
+
+   Events_T2bw075_mediumDeltaMBVetoBCUp    			= new TH1D(name15BVetoBCUp,title15BVetoBCUp,50,0,10000) ;           	
+   Events_T2bw075_mediumDeltaMBVetoBCDown                      = new TH1D(name15BVetoBCDown,title15BVetoBCDown,50,0,10000) ; 
+   Events_T2bw075_mediumDeltaMBVetoLightUp                     = new TH1D(name15BVetoLightUp,title15BVetoLightUp,50,0,10000) ; 
+   Events_T2bw075_mediumDeltaMBVetoLightDown                   = new TH1D(name15BVetoLightDown,title15BVetoLightDown,50,0,10000) ; 
+
+   Events_T2bw075_highDeltaMBVetoBCUp 	   			= new TH1D(name16BVetoBCUp,title16BVetoBCUp,50,0,10000) ;           	 
+   Events_T2bw075_highDeltaMBVetoBCDown                        = new TH1D(name16BVetoBCDown,title16BVetoBCDown,50,0,10000) ; 
+   Events_T2bw075_highDeltaMBVetoLightUp                       = new TH1D(name16BVetoLightUp,title16BVetoLightUp,50,0,10000) ; 
+   Events_T2bw075_highDeltaMBVetoLightDown                     = new TH1D(name16BVetoLightDown,title16BVetoLightDown,50,0,10000) ; 
 
 
 
@@ -1498,7 +1498,7 @@ int main (int argc, char *argv[])
 
 			if (goesInPreselectionMTtail() == true) {
 			
-		
+					
 
 				counter ++;
 				Events_Preselection->Fill(  counter , getWeight());
@@ -1583,8 +1583,10 @@ int main (int argc, char *argv[])
 				
 				// BDT STUFF
 				
-				if (myEvent.isUsedInBDTTraining == 1) continue;
+				//if (myEvent.isUsedInBDTTraining == 1) continue;
+				if ( (myEvent.event%2)==1 ) continue;
 				double weight = getWeight() * 2.; 
+
 
 				hist_BDT_output_t2bw025_R1->Fill(myEvent.BDT_output_t2bw025_R1, weight);		
 				hist_BDT_output_t2bw025_R3->Fill(myEvent.BDT_output_t2bw025_R3, weight);		
@@ -2111,7 +2113,9 @@ int main (int argc, char *argv[])
 
 
 
-				if (myEvent.isUsedInBDTTraining == 1) continue;
+//				if (myEvent.isUsedInBDTTraining == 1) continue;
+                                if ( (myEvent.event%2)==1 ) continue;
+
 				double weight = getWeight() * 2.; 
 
 
