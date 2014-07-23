@@ -25,8 +25,7 @@
 
 
 #include "../signalRegionDefinitions.h" 
-#include "../backgroundPredictions.h" 
-//#include "../backgroundPredictions_MT120.h" 
+#include "../backgroundPredictions_LATEST_MT100.h" 
 
 
 using namespace std;
@@ -78,8 +77,8 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 	  if (SignalRegion == "T2bw025_4")   {SignalRegion_ = "R4";   }
    	  if (SignalRegion == "T2bw025_6")   {SignalRegion_ = "R6";   }
 
-	  if (SignalRegion == "T2bw050_1_loose") {SignalRegion_ = "R1_loose"; }
-	  if (SignalRegion == "T2bw050_1_tight") {SignalRegion_ = "R1_tight"; }
+	  if (SignalRegion == "T2bw050_1_lowDM") {SignalRegion_ = "R1"; }
+	  if (SignalRegion == "T2bw050_1_highDM") {SignalRegion_ = "R1"; }
  	  if (SignalRegion == "T2bw050_3")   {SignalRegion_ = "R3";   }   
 	  if (SignalRegion == "T2bw050_4")   {SignalRegion_ = "R4";   }
 	  if (SignalRegion == "T2bw050_5")   {SignalRegion_ = "R5";   }
@@ -89,127 +88,145 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
  	  if (SignalRegion == "T2bw075_1")   {SignalRegion_ = "R1";   }   
 	  if (SignalRegion == "T2bw075_2")   {SignalRegion_ = "R2";   }
 	  if (SignalRegion == "T2bw075_3")   {SignalRegion_ = "R3";   }
-   	  if (SignalRegion == "T2bw075_5")   {SignalRegion_ = "R5";   }
+   	  if (SignalRegion == "T2bw075_5_lowDM")   {SignalRegion_ = "R5";   }
+   	  if (SignalRegion == "T2bw075_5_highDM")   {SignalRegion_ = "R5";   }
 
  	  if (SignalRegion == "T2tt_1")   {SignalRegion_ = "R1";   }   
-	  if (SignalRegion == "T2tt_2")   {SignalRegion_ = "R2";   }
-	  if (SignalRegion == "T2tt_5_loose")   {SignalRegion_ = "R5_loose";   }
-   	  if (SignalRegion == "T2tt_5_tight")   {SignalRegion_ = "R5_tight";   }
+	  if (SignalRegion == "T2tt_2_lowDM")   {SignalRegion_ = "R2";   }
+	  if (SignalRegion == "T2tt_2_highDM")   {SignalRegion_ = "R2";   }
+	  if (SignalRegion == "T2tt_5_lowDM")   {SignalRegion_ = "R5";   }
+	  if (SignalRegion == "T2tt_5_mediumDM")   {SignalRegion_ = "R5";   }
+   	  if (SignalRegion == "T2tt_5_highDM")   {SignalRegion_ = "R5";   }
 
 
-          TFile sig("ntpMT100/"+decay_mode+".root");
-          //TFile sig("ntpMT120/"+decay_mode+".root");
+          TFile sig("ntp_2_MT100/"+decay_mode+".root");
           TH1D* signal= (TH1D*)sig.Get("hist_BDT_output_"+decay_mode_+"_"+SignalRegion_+"_S"+TString(stop)+"_N"+TString(neut));
 
           int nbins = signal->GetNbinsX();
           double BDTdefCut = signalcut(decay_mode, MSTOP, MLSP); 
 
-          //int max_bin = signal->GetXaxis()->FindBin(BDTdefCut); 
 	  double cut = BDTdefCut + BDTdefCutOffset;
+	  //double cut = BDTdefCut; 
           int max_bin = signal->GetXaxis()->FindBin(cut); // Do CLs minimization 
           double nsignal = signal->Integral(max_bin,nbins+1);
-	  
+	   
 	  double bkg = 0.; 
           double bkg_err = 0.; 
           double bkg_err_percentage = 0.; 
 
 
-
 	if (SignalRegion == "T2bw025_1") {
-	  bkg = Pred_BDT_T2bw025_1(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw025_1(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw025_1(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw025_1(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw025_3") {
-	  bkg = Pred_BDT_T2bw025_3(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw025_3(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw025_3(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw025_3(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw025_4") {
-	  bkg = Pred_BDT_T2bw025_4(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw025_4(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw025_4(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw025_4(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw025_6") {
-	  bkg = Pred_BDT_T2bw025_6(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw025_6(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw025_6(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw025_6(BDTdefCutOffset).second ; 
 	  }
 
-	if (SignalRegion == "T2bw050_1_loose") {
-	  bkg = Pred_BDT_T2bw050_1_loose(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw050_1_loose(BDTdefCutOffset).second ; 
+	if (SignalRegion == "T2bw050_1_lowDM") {
+	  bkg = backgroundPrediction_BDT_T2bw050_1_lowDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw050_1_lowDM(BDTdefCutOffset).second ; 
 	  }
 
-	if (SignalRegion == "T2bw050_1_tight") {
-	  bkg = Pred_BDT_T2bw050_1_tight(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw050_1_tight(BDTdefCutOffset).second ; 
+	if (SignalRegion == "T2bw050_1_highDM") {
+	  bkg = backgroundPrediction_BDT_T2bw050_1_highDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw050_1_highDM(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_3") {
-	  bkg = Pred_BDT_T2bw050_3(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw050_3(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw050_3(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw050_3(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_4") {
-	  bkg = Pred_BDT_T2bw050_4(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw050_4(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw050_4(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw050_4(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_5") {
-	  bkg = Pred_BDT_T2bw050_5(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw050_5(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw050_5(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw050_5(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw050_6") {
-	  bkg = Pred_BDT_T2bw050_6(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw050_6(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw050_6(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw050_6(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_1") {
-	  bkg = Pred_BDT_T2bw075_1(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw075_1(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw075_1(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw075_1(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_2") {
-	  bkg = Pred_BDT_T2bw075_2(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw075_2(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw075_2(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw075_2(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2bw075_3") {
-	  bkg = Pred_BDT_T2bw075_3(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw075_3(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2bw075_3(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw075_3(BDTdefCutOffset).second ; 
 	  }
 
-	if (SignalRegion == "T2bw075_5") {
-	  bkg = Pred_BDT_T2bw075_5(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2bw075_5(BDTdefCutOffset).second ; 
+	if (SignalRegion == "T2bw075_5_lowDM") {
+	  bkg = backgroundPrediction_BDT_T2bw075_5_lowDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw075_5_lowDM(BDTdefCutOffset).second ; 
+	  }
+
+	if (SignalRegion == "T2bw075_5_highDM") {
+	  bkg = backgroundPrediction_BDT_T2bw075_5_highDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2bw075_5_highDM(BDTdefCutOffset).second ; 
 	  }
 
 	if (SignalRegion == "T2tt_1") {
-	  bkg = Pred_BDT_T2tt_1(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2tt_1(BDTdefCutOffset).second ; 
+	  bkg = backgroundPrediction_BDT_T2tt_1(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2tt_1(BDTdefCutOffset).second ; 
 	  }
 
-	if (SignalRegion == "T2tt_2") {
-	  bkg = Pred_BDT_T2tt_2(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2tt_2(BDTdefCutOffset).second ; 
+	if (SignalRegion == "T2tt_2_lowDM") {
+	  bkg = backgroundPrediction_BDT_T2tt_2_lowDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2tt_2_lowDM(BDTdefCutOffset).second ; 
 	  }
 
-	if (SignalRegion == "T2tt_5_loose") {
-	  bkg = Pred_BDT_T2tt_5_loose(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2tt_5_loose(BDTdefCutOffset).second ; 
+	if (SignalRegion == "T2tt_2_highDM") {
+	  bkg = backgroundPrediction_BDT_T2tt_2_highDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2tt_2_highDM(BDTdefCutOffset).second ; 
 	  }
 
-	if (SignalRegion == "T2tt_5_tight") {
-	  bkg = Pred_BDT_T2tt_5_tight(BDTdefCutOffset).first  ; 
-	  bkg_err = Pred_BDT_T2tt_5_tight(BDTdefCutOffset).second ; 
+	if (SignalRegion == "T2tt_5_lowDM") {
+	  bkg = backgroundPrediction_BDT_T2tt_5_lowDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2tt_5_lowDM(BDTdefCutOffset).second ; 
 	  }
 
+	if (SignalRegion == "T2tt_5_mediumDM") {
+	  bkg = backgroundPrediction_BDT_T2tt_5_mediumDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2tt_5_mediumDM(BDTdefCutOffset).second ; 
+	  }
+
+	if (SignalRegion == "T2tt_5_highDM") {
+	  bkg = backgroundPrediction_BDT_T2tt_5_highDM(BDTdefCutOffset).first  ; 
+	  bkg_err = backgroundPrediction_BDT_T2tt_5_highDM(BDTdefCutOffset).second ; 
+	  }
 
           bkg_err_percentage = (bkg_err / bkg) + 1. ;
 
-//          cout << "NSIG: "<< nsignal << endl;
-//          cout << "NBKG: "<< bkg << " +/- "<< bkg_err_percentage<< endl;
+         // cout << "NSIG: "<< nsignal << endl;
+         // cout << "NBKG: "<< bkg << " +/- "<< bkg_err_percentage<< endl;
+         // cout << "SR: "<< SignalRegion << endl;
+         // cout << "cut: "<< BDTdefCut << endl;
+         // cout << "cut offset: "<< BDTdefCutOffset << endl;
 
             createTableCLsBDT(decay_mode, BDTdefCutOffset, SignalRegion, MSTOP, MLSP,  nsignal, bkg, bkg_err_percentage);
 
@@ -225,11 +242,12 @@ void makeCards(TString decay_mode ){
       cout << decay_mode << endl;  
       int start;
       int end;
+      // -9 to 4 is 0.45 to 0.2
  
-      if (decay_mode == "T2tt") { start = -9; end = 4;}
-      if (decay_mode == "T2bw025") { start = -9; end = 4;}
-      if (decay_mode == "T2bw050") { start = -7; end = 4;}
-      if (decay_mode == "T2bw075") { start = -9; end = 2;}
+      if (decay_mode == "T2tt") { start = 4; end = 4;}
+      if (decay_mode == "T2bw025") { start = 4; end = 4;}
+      if (decay_mode == "T2bw050") { start = 4; end = 4;}
+      if (decay_mode == "T2bw075") { start = 4; end = 4;}
 
 
       for(int z= start; z<= end; z+=1){
@@ -238,9 +256,9 @@ void makeCards(TString decay_mode ){
 
             //cout << BDTdefCutOffset << endl;
 	
-              for(int x=175; x<=775; x+=25){
+              for(int x=100; x<=800; x+=25){
 	
-    	              for(int y=25; y<=700; y+=25){
+    	              for(int y=0; y<=700; y+=25){
 
 				 if (x - y > 99){  
 					 cout << "S"<<x << "N"<<y<<endl;	
@@ -295,7 +313,7 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
   tablesFile.close();
 
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_6_mT100/"+TString(decay_mode)+"_CUT"+TString(CUT)+"/";
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_8_mT100/"+TString(decay_mode)+"_CUT"+TString(CUT)+"/";
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 
@@ -307,8 +325,8 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
 void makeCards(){
 
 makeCards("T2bw025");
-//makeCards("T2bw050");
+makeCards("T2bw050");
 makeCards("T2bw075");
-//makeCards("T2tt");
+makeCards("T2tt");
 
 }

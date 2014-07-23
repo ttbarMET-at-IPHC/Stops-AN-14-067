@@ -80,15 +80,17 @@ string signalregionName(TString decaymode, int stopmass, int lspmass)
         if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
             SR = "T2bw075_3";
         if (lspmass <= stopmass - 475)
-            SR = "T2bw075_5";
+            SR = "T2bw075_5_lowDM";
+        if (lspmass <= stopmass - 575)
+            SR = "T2bw075_5_highDM";
     }
 
     if (decaymode == "T2bw050") 
     {
         if (lspmass > stopmass - 250) 
         {
-            SR = "T2bw050_1_tight" ; 
-            if (lspmass < 150) SR = "T2bw050_1_loose";
+            SR = "T2bw050_1_highDM" ; 
+            if (lspmass < 150) SR = "T2bw050_1_lowDM";
         }
 
         if (lspmass <= stopmass - 250 && lspmass > stopmass - 400)
@@ -129,11 +131,17 @@ string signalregionName(TString decaymode, int stopmass, int lspmass)
         if (lspmass > stopmass - 225)
             SR = "T2tt_1";
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-            SR = "T2tt_2";
+            SR = "T2tt_2_lowDM";
         if (lspmass <= stopmass - 275) 
-        {
-            SR="T2tt_5_loose"; if (lspmass <= stopmass - 400) SR = "T2tt_5_tight";
-        }
+	   {
+        	SR = "T2tt_2_highDM";
+            if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
+                SR = "T2tt_5_lowDM";
+            if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 
+                SR = "T2tt_5_mediumDM"; 
+            if (lspmass <= stopmass - 500) 
+                SR = "T2tt_5_highDM";
+	   }
     }
 
     return SR;
@@ -157,7 +165,9 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
         if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
             cutvalue = 0.350;
         if (lspmass <= stopmass - 475)
-            cutvalue = 0.2;
+            cutvalue = 0.25;
+        if (lspmass <= stopmass - 575)
+            cutvalue = 0.3;
     }
 
     if (decaymode == "T2bw050") 
@@ -179,39 +189,49 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
     }    
 
     if (decaymode == "T2bw025") 
-    {
-        if (lspmass <= 125)
-        {
-            if (lspmass > stopmass - 275)
-                cutvalue = 0.2;
-        }
-        if (lspmass > 125)
-        {
-            if (lspmass > stopmass - 225)
-                cutvalue = 0.2;
-            if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                cutvalue = 0.3;
-        }
+    { 
+          if (lspmass <= 125)
+            {
+              if (lspmass > stopmass - 275)
+                cutvalue = 0.15;
 
-        if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
-            cutvalue = 0.3;
-        if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
-            cutvalue = 0.2;
-        if (lspmass <= stopmass - 600)
+            }
+          if (lspmass > 125)
+            {
+              if (lspmass > stopmass - 225)
+                cutvalue = 0.15;
+              if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
+                cutvalue = 0.15;
+
+            }
+
+          if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
+            cutvalue = 0.15;
+          if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
+            cutvalue = 0.15;
+          if (lspmass <= stopmass - 600)
             cutvalue = 0.175;
-    }
 
+   }
     if (decaymode == "T2tt") 
-    {
+    { 
         if (lspmass > stopmass - 225)
             cutvalue = 0.325;
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
             cutvalue = 0.350;
         if (lspmass <= stopmass - 275) 
         {
-            cutvalue=0.250; if (lspmass <= stopmass - 400) cutvalue = 0.325;
+		cutvalue = 0.25;
+            if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
+                cutvalue = 0.35;
+            if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 
+                cutvalue = 0.325;
+            if (lspmass <= stopmass - 500) 
+                cutvalue = 0.375;
+
         }
     }
+
 
     return cutvalue;
 }
@@ -223,15 +243,15 @@ int returnIntBDTOffsetValue(TString decaymode, int stopmass, int lspmass)
     if (decaymode == "T2bw075") 
     {
         if (lspmass > stopmass - 200)
-            intoffset = 8;
+            intoffset = 4;
         if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
-            intoffset = 8;
+            intoffset = 4;
         if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
-            intoffset = 8;
+            intoffset = 4;
         if (lspmass <= stopmass - 475)
-            intoffset = 9;
+            intoffset = 4;
         if (lspmass <= stopmass - 575)
-            intoffset = 10;
+            intoffset = 4;
     }
 
     if (decaymode == "T2bw050") 
@@ -259,24 +279,24 @@ int returnIntBDTOffsetValue(TString decaymode, int stopmass, int lspmass)
           if (lspmass <= 125)
             {
               if (lspmass > stopmass - 275)
-                intoffset = 7;
+                intoffset = 4;
 
             }
           if (lspmass > 125)
             {
               if (lspmass > stopmass - 225)
-                intoffset = 7;
+                intoffset = 4;
               if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                intoffset = 5;
+                intoffset = 4;
 
             }
 
           if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
-            intoffset = 5;
-          if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
             intoffset = 7;
+          if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
+            intoffset = 4;
           if (lspmass <= stopmass - 600)
-            intoffset = 8;
+            intoffset = 4;
 
   }
 
@@ -286,19 +306,19 @@ int returnIntBDTOffsetValue(TString decaymode, int stopmass, int lspmass)
     if (decaymode == "T2tt") 
     {
         if (lspmass > stopmass - 225)
-            intoffset = 8;
+            intoffset = 3;
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-            intoffset = 8;
+            intoffset = 4;
         if (lspmass <= stopmass - 275) 
         {
-            intoffset=8; 
+            intoffset=7; 
 
             if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
-                intoffset = 10;
+                intoffset = 4;
             if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 
-                intoffset = 8;
+                intoffset = 4;
             if (lspmass <= stopmass - 500) 
-                intoffset = 9;
+                intoffset = 4;
         }
     }
 
