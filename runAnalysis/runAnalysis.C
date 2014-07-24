@@ -1494,7 +1494,7 @@ int main (int argc, char *argv[])
 	  || (sampleName == "MuEl")) {						 sampleType = "data"; } 
 
 
-			if ( (sampleType == "signal")  &&  !((myEvent.mStop ==  atoi(argv[3]) ) && (myEvent.mNeutralino ==  atoi(argv[4]) )) )continue;
+			//if ( (sampleType == "signal")  &&  !((myEvent.mStop ==  atoi(argv[3]) ) && (myEvent.mNeutralino ==  atoi(argv[4]) )) )continue;
 
 			if (goesInPreselectionMTtail() == true) {
 			
@@ -1687,6 +1687,11 @@ int main (int argc, char *argv[])
 						nBJetsDownLight++;			 
 				}	
 
+				cout <<  "0: " << myEvent.nBTag << endl;
+				cout <<  "1: " << nBJetsUpBC << endl;
+				cout <<  "2: " << nBJetsDownBC << endl;
+				cout <<  "3: " << nBJetsUpLight << endl;
+				cout <<  "4: " << nBJetsDownLight << endl;
 
 
 				if ( cutAndCount_T2tt_offShellLoose(true) == true){ 

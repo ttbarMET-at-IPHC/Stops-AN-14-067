@@ -279,11 +279,11 @@ void plot_limit(TString decay_mode){
            TAxis *data_yaxis = SMS->GetYaxis();
            TAxis *data_xaxis = SMS->GetXaxis();
 
-   //        SMS->GetXaxis()->SetTitle("Mass STOP");
-   //        SMS->GetYaxis()->SetTitle("Mass LSP");
-   //	   SMS->GetZaxis()->SetTitle("Optimal BDT cut off-set"); 
+           SMS2->GetXaxis()->SetTitle("Mass STOP");
+           SMS2->GetYaxis()->SetTitle("Mass LSP");
+   	   SMS2->GetZaxis()->SetTitle("Optimal BDT cut off-set"); 
 
-   //	   SMS2->GetZaxis()->SetRangeUser(1,7);
+   	   SMS2->GetZaxis()->SetRangeUser(1,7);
  
 
 	   TPaveText* key = new TPaveText( 0.6, 0.6, 0.8, 0.92, "brNDC" );
@@ -314,7 +314,7 @@ void plot_limit(TString decay_mode){
            SMS2->SetMarkerColor(kWhite);
            SMS2->Draw("COLZ TEXT");
 
-  	   //key->Draw("same");
+  	   key->Draw("same");
            c1.RedrawAxis();
            c1.SaveAs("~/www/"+TString(decay_mode)+"_REDUCED.png");
 

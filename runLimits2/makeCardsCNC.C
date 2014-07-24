@@ -49,9 +49,8 @@ void makeCLsCards(TString decay_mode, TString SignalRegion, int MSTOP, int MLSP)
           TFile sig("ntp_2_MT100/"+decay_mode+".root");
 
           TH1D* signal= (TH1D*)sig.Get("Events_"+decay_mode+"_"+SignalRegion+"_S"+TString(stop)+"_N"+TString(neut));
+
           double nsignal = signal->Integral();
-
-
 	  double bkg = 0.; 
           double bkg_err = 0.; 
           double bkg_err_percentage = 0.; 
@@ -163,8 +162,6 @@ void makeCLsCards(TString decay_mode, TString SignalRegion, int MSTOP, int MLSP)
             bkg_err_percentage = (bkg_err / bkg) + 1. ;
 
 
-//          cout << "NSIG: "<< nsignal << endl;
- //         cout << "NBKG: "<< bkg << " +/- "<< bkg_err_percentage<< endl;
 
             createTableCLsCNC(decay_mode, SignalRegion, MSTOP, MLSP,  nsignal, bkg, bkg_err_percentage);
 
