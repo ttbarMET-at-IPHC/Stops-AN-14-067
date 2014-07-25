@@ -329,34 +329,35 @@ int returnIntBDTOffsetValue(TString decaymode, int stopmass, int lspmass)
 
 float BDToutput(string BDTregion)
 {
-         if (BDTregion == "T2tt_1"      )     return myEvent.BDT_output_t2tt_R1;
-    else if (BDTregion == "T2tt_2_lowDM")     return myEvent.BDT_output_t2tt_R2;
-    else if (BDTregion == "T2tt_2_highDM")    return myEvent.BDT_output_t2tt_R2;
-    else if (BDTregion == "T2tt_5_lowDM")     return myEvent.BDT_output_t2tt_R5;
-    else if (BDTregion == "T2tt_5_mediumDM")  return myEvent.BDT_output_t2tt_R5;
-    else if (BDTregion == "T2tt_5_highDM")    return myEvent.BDT_output_t2tt_R5;
+         if (BDTregion == "T2tt_1"          ) return myEvent.BDT_output_t2tt_R1;
+    else if (BDTregion == "T2tt_2_lowDM"    ) return myEvent.BDT_output_t2tt_R2;
+    else if (BDTregion == "T2tt_2_highDM"   ) return myEvent.BDT_output_t2tt_R2;
+    else if (BDTregion == "T2tt_5_lowDM"    ) return myEvent.BDT_output_t2tt_R5;
+    else if (BDTregion == "T2tt_5_mediumDM" ) return myEvent.BDT_output_t2tt_R5;
+    else if (BDTregion == "T2tt_5_highDM"   ) return myEvent.BDT_output_t2tt_R5;
 
-    else if (BDTregion == "T2bw075_1"   )     return myEvent.BDT_output_t2bw075_R1;
-    else if (BDTregion == "T2bw075_2"   )     return myEvent.BDT_output_t2bw075_R2;
-    else if (BDTregion == "T2bw075_3"   )     return myEvent.BDT_output_t2bw075_R3;
-    else if (BDTregion == "T2bw075_5_lowDM")  return myEvent.BDT_output_t2bw075_R5;
+    else if (BDTregion == "T2bw075_1"       ) return myEvent.BDT_output_t2bw075_R1;
+    else if (BDTregion == "T2bw075_2"       ) return myEvent.BDT_output_t2bw075_R2;
+    else if (BDTregion == "T2bw075_3"       ) return myEvent.BDT_output_t2bw075_R3;
+    else if (BDTregion == "T2bw075_5_lowDM" ) return myEvent.BDT_output_t2bw075_R5;
     else if (BDTregion == "T2bw075_5_highDM") return myEvent.BDT_output_t2bw075_R5;
 
-    else if (BDTregion == "T2bw050_1_lowDM")  return myEvent.BDT_output_t2bw050_R1;
+    else if (BDTregion == "T2bw050_1_lowDM" ) return myEvent.BDT_output_t2bw050_R1;
     else if (BDTregion == "T2bw050_1_highDM") return myEvent.BDT_output_t2bw050_R1;
-    else if (BDTregion == "T2bw050_3"   )     return myEvent.BDT_output_t2bw050_R3;
-    else if (BDTregion == "T2bw050_4"   )     return myEvent.BDT_output_t2bw050_R4;
-    else if (BDTregion == "T2bw050_5"   )     return myEvent.BDT_output_t2bw050_R5;
-    else if (BDTregion == "T2bw050_6"   )     return myEvent.BDT_output_t2bw050_R6;
+    else if (BDTregion == "T2bw050_3"       ) return myEvent.BDT_output_t2bw050_R3;
+    else if (BDTregion == "T2bw050_4"       ) return myEvent.BDT_output_t2bw050_R4;
+    else if (BDTregion == "T2bw050_5"       ) return myEvent.BDT_output_t2bw050_R5;
+    else if (BDTregion == "T2bw050_6"       ) return myEvent.BDT_output_t2bw050_R6;
 
-    else if (BDTregion == "T2bw025_1"   )     return myEvent.BDT_output_t2bw025_R1;
-    else if (BDTregion == "T2bw025_3"   )     return myEvent.BDT_output_t2bw025_R3;
-    else if (BDTregion == "T2bw025_4"   )     return myEvent.BDT_output_t2bw025_R4;
-    else if (BDTregion == "T2bw025_6"   )     return myEvent.BDT_output_t2bw025_R6;
+    else if (BDTregion == "T2bw025_1"       ) return myEvent.BDT_output_t2bw025_R1;
+    else if (BDTregion == "T2bw025_3_lowDM" ) return myEvent.BDT_output_t2bw025_R3;
+    else if (BDTregion == "T2bw025_3_highDM") return myEvent.BDT_output_t2bw025_R3;
+    else if (BDTregion == "T2bw025_4"       ) return myEvent.BDT_output_t2bw025_R4;
+    else if (BDTregion == "T2bw025_6"       ) return myEvent.BDT_output_t2bw025_R6;
     
     else 
     {
-        cout << "WARNING (" << __FILE__ << ", l." << __LINE__ << ")"
+        cerr << "WARNING (" << __FILE__ << ", l." << __LINE__ << ")"
              << "Trying to read cut for unknown BDT region '" << BDTregion << "'" << endl;
         return -10.0;
     }
@@ -370,9 +371,9 @@ float BDTcut(string BDTregion)
 {
     if (NOMINAL_BDT_CUT)
     {
-             if (BDTregion == "T2tt_1"         )  return 0.325;
+             if (BDTregion == "T2tt_1"         )  return 0.275;
         else if (BDTregion == "T2tt_2_lowDM"   )  return 0.35 ;
-        else if (BDTregion == "T2tt_2_highDM"  )  return 0.25 ;
+        else if (BDTregion == "T2tt_2_highDM"  )  return 0.4  ;
         else if (BDTregion == "T2tt_5_lowDM"   )  return 0.35 ;
         else if (BDTregion == "T2tt_5_mediumDM")  return 0.325;
         else if (BDTregion == "T2tt_5_highDM"  )  return 0.375;
@@ -391,13 +392,14 @@ float BDTcut(string BDTregion)
         else if (BDTregion == "T2bw050_6"       ) return 0.2  ;
                                                 
         else if (BDTregion == "T2bw025_1"       ) return 0.15 ;
-        else if (BDTregion == "T2bw025_3"       ) return 0.15 ;
+        else if (BDTregion == "T2bw025_3_lowDM" ) return 0.15 ;
+        else if (BDTregion == "T2bw025_3_highDM") return 0.3  ;
         else if (BDTregion == "T2bw025_4"       ) return 0.15 ;
         else if (BDTregion == "T2bw025_6"       ) return 0.175;
 
         else 
         {
-            cout << "WARNING (" << __FILE__ << ", l." << __LINE__ << ")"
+            cerr << "WARNING (" << __FILE__ << ", l." << __LINE__ << ")"
                  << "Trying to read cut for unknown BDT region '" << BDTregion << "'" << endl;
             return -1.0;
         }
@@ -425,13 +427,14 @@ float BDTcut(string BDTregion)
         else if (BDTregion == "T2bw050_6"       ) return customBDTCuts["T2bw050_6"];
                                                 
         else if (BDTregion == "T2bw025_1"       ) return customBDTCuts["T2bw025_1"];
-        else if (BDTregion == "T2bw025_3"       ) return customBDTCuts["T2bw025_3"];
+        else if (BDTregion == "T2bw025_3_lowDM" ) return customBDTCuts["T2bw025_3"];
+        else if (BDTregion == "T2bw025_3_highDM") return customBDTCuts["T2bw025_3"];
         else if (BDTregion == "T2bw025_4"       ) return customBDTCuts["T2bw025_4"];
         else if (BDTregion == "T2bw025_6"       ) return customBDTCuts["T2bw025_6"];
 
         else 
         {
-            cout << "WARNING (" << __FILE__ << ", l." << __LINE__ << ")"
+            cerr << "WARNING (" << __FILE__ << ", l." << __LINE__ << ")"
                  << "Trying to read cut for unknown BDT region '" << BDTregion << "'" << endl;
             return -1.0;
         }
@@ -458,7 +461,8 @@ bool BDT_T2bw050_4       (bool applyMTCut) { return goesInBDTRegion("T2bw050_4" 
 bool BDT_T2bw050_5       (bool applyMTCut) { return goesInBDTRegion("T2bw050_5"       ); }
 bool BDT_T2bw050_6       (bool applyMTCut) { return goesInBDTRegion("T2bw050_6"       ); }
 bool BDT_T2bw025_1       (bool applyMTCut) { return goesInBDTRegion("T2bw025_1"       ); }
-bool BDT_T2bw025_3       (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"       ); }
+bool BDT_T2bw025_3_lowDM (bool applyMTCut) { return goesInBDTRegion("T2bw025_3_lowDM" ); }
+bool BDT_T2bw025_3_highDM(bool applyMTCut) { return goesInBDTRegion("T2bw025_3_highDM"); }
 bool BDT_T2bw025_4       (bool applyMTCut) { return goesInBDTRegion("T2bw025_4"       ); }
 bool BDT_T2bw025_6       (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"       ); }
 
@@ -467,6 +471,7 @@ bool BDT_T2tt_2          (bool applyMTCut) { return BDT_T2tt_2_highDM  (applyMTC
 bool BDT_T2tt_5          (bool applyMTCut) { return BDT_T2tt_5_mediumDM(applyMTCut); }
 bool BDT_T2bw075_5       (bool applyMTCut) { return BDT_T2bw075_5_lowDM(applyMTCut); }
 bool BDT_T2bw050_1       (bool applyMTCut) { return BDT_T2bw050_1_lowDM(applyMTCut); }
+bool BDT_T2bw025_3       (bool applyMTCut) { return BDT_T2bw025_3_lowDM(applyMTCut); }
 
 
 #endif
