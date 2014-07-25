@@ -9,65 +9,65 @@ void LoadBDTCutWithCustomRequirement(string customRequirement)
 {
     if (customRequirement == "CR4_1j")
     {
-        customBDTCuts["T2tt_1"]    = 0.305;  
-        customBDTCuts["T2tt_2"]    = 0.25 ; // 0.395
+        customBDTCuts["T2tt_1"]    = 0.275; // 0.305;
+        customBDTCuts["T2tt_2"]    = 0.35 ; // 0.395; 
         customBDTCuts["T2tt_5"]    = 0.265; 
         customBDTCuts["T2bw075_1"] = 0.225;
-        customBDTCuts["T2bw075_2"] = 0.275; // 0.315
+        customBDTCuts["T2bw075_2"] = 0.275; // 0.315;
         customBDTCuts["T2bw075_3"] = 0.305;
         customBDTCuts["T2bw075_5"] = 0.175;
-        customBDTCuts["T2bw050_1"] = 0.175; // 0.225
+        customBDTCuts["T2bw050_1"] = 0.175; // 0.225;
         customBDTCuts["T2bw050_3"] = 0.295; 
         customBDTCuts["T2bw050_4"] = 0.185; 
         customBDTCuts["T2bw050_5"] = 0.175; 
         customBDTCuts["T2bw050_6"] = 0.145; 
-        customBDTCuts["T2bw025_1"] = 0.15 ; // 0.205
-        customBDTCuts["T2bw025_3"] = 0.15 ; // 0.185
+        customBDTCuts["T2bw025_1"] = 0.15 ; // 0.205;
+        customBDTCuts["T2bw025_3"] = 0.15 ; // 0.185;
         customBDTCuts["T2bw025_4"] = 0.135; 
         customBDTCuts["T2bw025_6"] = 0.105; 
     }
     if (customRequirement == "CR4_2j")
     {
-        customBDTCuts["T2tt_1"]    = 0.305;
-        customBDTCuts["T2tt_2"]    = 0.25 ; // 0.365
+        customBDTCuts["T2tt_1"]    = 0.275; // 0.305;
+        customBDTCuts["T2tt_2"]    = 0.35 ; // 0.365;
         customBDTCuts["T2tt_5"]    = 0.225;
         customBDTCuts["T2bw075_1"] = 0.225;
-        customBDTCuts["T2bw075_2"] = 0.275; // 0.285
+        customBDTCuts["T2bw075_2"] = 0.275; // 0.285;
         customBDTCuts["T2bw075_3"] = 0.275;
         customBDTCuts["T2bw075_5"] = 0.155;
-        customBDTCuts["T2bw050_1"] = 0.175; // 0.215
+        customBDTCuts["T2bw050_1"] = 0.175; // 0.215;
         customBDTCuts["T2bw050_3"] = 0.245;
         customBDTCuts["T2bw050_4"] = 0.155;
         customBDTCuts["T2bw050_5"] = 0.155;
         customBDTCuts["T2bw050_6"] = 0.125;
-        customBDTCuts["T2bw025_1"] = 0.15 ; // 0.195
-        customBDTCuts["T2bw025_3"] = 0.15 ; // 0.175
+        customBDTCuts["T2bw025_1"] = 0.15 ; // 0.195;
+        customBDTCuts["T2bw025_3"] = 0.15 ; // 0.175;
         customBDTCuts["T2bw025_4"] = 0.125; 
         customBDTCuts["T2bw025_6"] = 0.095;
     }
     if (customRequirement == "CR4_3j")
     {
-        customBDTCuts["T2tt_1"]    = 0.285;
-        customBDTCuts["T2tt_2"]    = 0.25 ; // 0.335
+        customBDTCuts["T2tt_1"]    = 0.275; // 0.285;
+        customBDTCuts["T2tt_2"]    = 0.335;
         customBDTCuts["T2tt_5"]    = 0.185;
         customBDTCuts["T2bw075_1"] = 0.195;
         customBDTCuts["T2bw075_2"] = 0.245;
         customBDTCuts["T2bw075_3"] = 0.245;
         customBDTCuts["T2bw075_5"] = 0.145;
-        customBDTCuts["T2bw050_1"] = 0.175; // 0.185
+        customBDTCuts["T2bw050_1"] = 0.175; // 0.185;
         customBDTCuts["T2bw050_3"] = 0.205;
         customBDTCuts["T2bw050_4"] = 0.145;
         customBDTCuts["T2bw050_5"] = 0.135;
         customBDTCuts["T2bw050_6"] = 0.105;
-        customBDTCuts["T2bw025_1"] = 0.15 ; // 0.175
-        customBDTCuts["T2bw025_3"] = 0.15 ; // 0.155
+        customBDTCuts["T2bw025_1"] = 0.15 ; // 0.175;
+        customBDTCuts["T2bw025_3"] = 0.15 ; // 0.155;
         customBDTCuts["T2bw025_4"] = 0.115;
         customBDTCuts["T2bw025_6"] = 0.095;
     }
     if (customRequirement == "CR4_4j")
     {
         customBDTCuts["T2tt_1"]    = 0.265;
-        customBDTCuts["T2tt_2"]    = 0.25 ; // 0.285
+        customBDTCuts["T2tt_2"]    = 0.285;
         customBDTCuts["T2tt_5"]    = 0.135;
         customBDTCuts["T2bw075_1"] = 0.155;
         customBDTCuts["T2bw075_2"] = 0.205;
@@ -86,7 +86,7 @@ void LoadBDTCutWithCustomRequirement(string customRequirement)
     if (customRequirement == "CR4_4j_50evts")
     {
         customBDTCuts["T2tt_1"]    = 0.255;
-        customBDTCuts["T2tt_2"]    = 0.25 ; // 0.255
+        customBDTCuts["T2tt_2"]    = 0.255;
         customBDTCuts["T2tt_5"]    = 0.105;
         customBDTCuts["T2bw075_1"] = 0.135;
         customBDTCuts["T2bw075_2"] = 0.175;
