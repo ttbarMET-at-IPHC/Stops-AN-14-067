@@ -1,71 +1,6 @@
 #ifndef _SignalRegionDefinitions_h
 #define _SignalRegionDefinitions_h
 
-int signalregion(TString decaymode, int stopmass, int lspmass)
-{
-    int signalregion = 0;
-
-    if (decaymode == "T2bw075") 
-    {
-        if (lspmass > stopmass - 200)
-            signalregion = 1;
-        if (lspmass <= stopmass - 200 && lspmass > stopmass - 325)
-            signalregion = 2;
-        if (lspmass <= stopmass - 325 && lspmass > stopmass - 475)
-            signalregion = 3;
-        if (lspmass <= stopmass - 475)
-            signalregion = 5;
-    }
-    else if (decaymode == "T2bw050") 
-    {
-        if (lspmass > stopmass - 250)
-            signalregion = 1;
-        if (lspmass <= stopmass - 250 && lspmass > stopmass - 400)
-            signalregion = 3;
-        if (lspmass <= stopmass - 400 && lspmass > stopmass - 450)
-            signalregion = 4;
-        if (lspmass <= stopmass - 450 && lspmass > stopmass - 625)
-            signalregion = 5;
-        if (lspmass <= stopmass - 625)
-            signalregion = 6;
-    }    
-
-    else if (decaymode == "T2bw025") 
-    {
-        if (lspmass <= 125)
-        {
-            if (lspmass > stopmass - 275)
-                signalregion = 1;
-        }
-        if (lspmass > 125)
-        {
-            if (lspmass > stopmass - 225)
-                signalregion = 1;
-            if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                signalregion = 3;
-        }
-        if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
-            signalregion = 3;
-        if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
-            signalregion = 4;
-        if (lspmass <= stopmass - 600)
-            signalregion = 6;
-    }
-
-
-    else if (decaymode == "T2tt") 
-    {
-        if (lspmass > stopmass - 225)
-            signalregion = 1;
-        if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-            signalregion = 2;
-        if (lspmass <= stopmass - 275)
-            signalregion = 5;
-    } 
-
-    return signalregion;
-
-}
 
 string signalregionName(TString decaymode, int stopmass, int lspmass)
 {
@@ -115,11 +50,11 @@ string signalregionName(TString decaymode, int stopmass, int lspmass)
             if (lspmass > stopmass - 225)
                 SR = "T2bw025_1";
             if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                SR = "T2bw025_3";
+                SR = "T2bw025_3_lowDM";
         }
 
         if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
-            SR = "T2bw025_3";
+            SR = "T2bw025_3_highDM";
         if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
             SR = "T2bw025_4";
         if (lspmass <= stopmass - 600)
@@ -206,7 +141,7 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
             }
 
           if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
-            cutvalue = 0.15;
+            cutvalue = 0.3;
           if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
             cutvalue = 0.15;
           if (lspmass <= stopmass - 600)
@@ -216,12 +151,12 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
     if (decaymode == "T2tt") 
     { 
         if (lspmass > stopmass - 225)
-            cutvalue = 0.325;
+            cutvalue = 0.275;
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
             cutvalue = 0.350;
         if (lspmass <= stopmass - 275) 
         {
-		cutvalue = 0.25;
+		cutvalue = 0.4;
             if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
                 cutvalue = 0.35;
             if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 

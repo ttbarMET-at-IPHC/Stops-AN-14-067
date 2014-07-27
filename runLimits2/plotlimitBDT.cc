@@ -93,7 +93,7 @@ void plot_limit(TString dir){
   		  char filename[500];
 
 
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_8_mT100/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_9_mT100/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, x, y);
 
    
                   ifstream ifile(filename);
@@ -135,6 +135,7 @@ void plot_limit(TString dir){
               data_yaxis->SetTitle("Mass LSP");
               data_zaxis->SetTitle("Signal strength R");
 
+//         SMS->GetZaxis()->SetRangeUser(1,12);
 
            TCanvas c1("c1","c1",800,600);
            c1.SetLeftMargin(0.1706731);

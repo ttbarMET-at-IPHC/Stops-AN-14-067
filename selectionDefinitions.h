@@ -29,7 +29,6 @@ string sampleType;
 bool goesInMTpeak()     { if ((myEvent.MT > 50) && (myEvent.MT < 80)) return true; else return false; }
 bool goesInMTtail()     { if (myEvent.MT > MT_CUT)                    return true; else return false; }
 bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return true; else return false; }
-bool BVeto()            { if (myEvent.nBTag < NBJET_CUT)              return false; else return true; }  //For systematics MS
 
 // Control region definitions
 // ##########################
@@ -62,18 +61,18 @@ bool goesInPreselection()
 }
 
 
-bool goesInPreselectionNoBVeto() // For systematics MS
+bool goesInPreselectionNoBVeto() 
 {
     if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
-    if (myEvent.nJets < NJET_CUT)  return false; 
+    if (myEvent.nJets < NJET_CUT)  return false;
     if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
 
     return true; 
 }
 
 
-bool goesInPreselectionMTtailNoBeto()   { return (goesInPreselectionNoBVeto() && goesInMTtail());     } 
+bool goesInPreselectionMTtailNoBeto(){return (goesInPreselectionNoBVeto() && goesInMTtail());} 
 bool goesInPreselectionMTtail()     { return (goesInPreselection() && goesInMTtail());     } 
 bool goesInPreselectionMTpeak()     { return (goesInPreselection() && goesInMTpeak());     } 
 bool goesInPreselectionMTinverted() { return (goesInPreselection() && goesInMTinverted()); } 
