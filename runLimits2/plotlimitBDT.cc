@@ -80,7 +80,7 @@ void plot_limit(TString dir){
 
    TFile *fout = new TFile(TString(dataset_name)+"_BDT.root","recreate");
 
-   TH2D *SMS = new TH2D(dataset_name,"",29,87.5, 812.5, 16, 12.5,412.5); 
+   TH2D *SMS = new TH2D(dataset_name,"",29,87.5, 812.5, 17, -12.5,412.5); 
 
 
               for(int x=100; x<=800; x+=25){
@@ -118,8 +118,8 @@ void plot_limit(TString dir){
 		        if (exp->GetMean() < 1.0){
 		        SMS->Fill(x,y,exp->GetMean());
 
-			cout << "x: "<< x << ", y: " << y << endl;
-			cout << exp->GetMean() << endl;
+//			cout << "x: "<< x << ", y: " << y << endl;
+//			cout << exp->GetMean() << endl;
 
 		  file->Close();
 
