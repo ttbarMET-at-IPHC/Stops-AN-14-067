@@ -110,7 +110,7 @@ bool goesInDileptonControlRegion(short int nJetCut = -1)
     if ((myEvent.leadingLeptonPDGId > 0) && (myEvent.secondLeptonPDGId > 0)) return false;
     
     // Remove Z mass peak
-    if (((myEvent.leadingLepton + myEvent.secondLepton).M() - 91) > 15) return false;
+    if (fabs((myEvent.leadingLepton + myEvent.secondLepton).M() - 91) < 15) return false;
 
     return true; 
 }
