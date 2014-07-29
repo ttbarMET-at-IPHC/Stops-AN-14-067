@@ -619,695 +619,699 @@ int main (int argc, char *argv[])
    TH1D* hist_BDT_output_t2tt_R2JESDown;
    TH1D* hist_BDT_output_t2tt_R5JESDown;
 
+   int STOPMASS = atoi(argv[3]);
+   int LSPMASS = atoi(argv[4]);
 
-   sprintf(name0,"Events_NGenSignal_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title0,"Events_NGenSignal_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name00,"Events_Preselection_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title00,"Events_Preselection_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+//   if (LSPMASS == 1) LSPMASS = 0;
+
+   sprintf(name0,"Events_NGenSignal_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title0,"Events_NGenSignal_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name00,"Events_Preselection_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title00,"Events_Preselection_S%i_N%i", STOPMASS, LSPMASS);
  
-   sprintf(name1,"Events_T2tt_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1,"Events_T2tt_offShellLoose_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1,"Events_T2tt_offShellLoose_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1,"Events_T2tt_offShellLoose_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name2,"Events_T2tt_offShellTight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2,"Events_T2tt_offShellTight_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2,"Events_T2tt_offShellTight_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2,"Events_T2tt_offShellTight_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3,"Events_T2tt_lowDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3,"Events_T2tt_lowDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3,"Events_T2tt_lowDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3,"Events_T2tt_lowDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4,"Events_T2tt_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4,"Events_T2tt_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4,"Events_T2tt_mediumDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4,"Events_T2tt_mediumDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5,"Events_T2tt_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5,"Events_T2tt_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5,"Events_T2tt_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5,"Events_T2tt_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name7,"Events_T2bw025_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7,"Events_T2bw025_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7,"Events_T2bw025_offShell_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7,"Events_T2bw025_offShell_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name8,"Events_T2bw025_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8,"Events_T2bw025_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8,"Events_T2bw025_lowMasses_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8,"Events_T2bw025_lowMasses_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name9,"Events_T2bw025_highMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9,"Events_T2bw025_highMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9,"Events_T2bw025_highMasses_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9,"Events_T2bw025_highMasses_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name10,"Events_T2bw050_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10,"Events_T2bw050_offShell_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10,"Events_T2bw050_offShell_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10,"Events_T2bw050_offShell_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name11,"Events_T2bw050_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11,"Events_T2bw050_lowMasses_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11,"Events_T2bw050_lowMasses_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11,"Events_T2bw050_lowMasses_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name12,"Events_T2bw050_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12,"Events_T2bw050_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12,"Events_T2bw050_mediumDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12,"Events_T2bw050_mediumDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name13,"Events_T2bw050_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13,"Events_T2bw050_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13,"Events_T2bw050_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13,"Events_T2bw050_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name14,"Events_T2bw075_lowDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14,"Events_T2bw075_lowDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14,"Events_T2bw075_lowDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14,"Events_T2bw075_lowDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name15,"Events_T2bw075_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15,"Events_T2bw075_mediumDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15,"Events_T2bw075_mediumDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15,"Events_T2bw075_mediumDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name16,"Events_T2bw075_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16,"Events_T2bw075_highDeltaM_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16,"Events_T2bw075_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16,"Events_T2bw075_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
 
-   sprintf(name17,"hist_BDT_output_t2bw025_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17,"hist_BDT_output_t2bw025_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17,"hist_BDT_output_t2bw025_R1_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17,"hist_BDT_output_t2bw025_R1_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name18,"hist_BDT_output_t2bw025_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18,"hist_BDT_output_t2bw025_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18,"hist_BDT_output_t2bw025_R3_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18,"hist_BDT_output_t2bw025_R3_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name19,"hist_BDT_output_t2bw025_R4_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19,"hist_BDT_output_t2bw025_R4_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19,"hist_BDT_output_t2bw025_R4_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19,"hist_BDT_output_t2bw025_R4_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name20,"hist_BDT_output_t2bw025_R6_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20,"hist_BDT_output_t2bw025_R6_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20,"hist_BDT_output_t2bw025_R6_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20,"hist_BDT_output_t2bw025_R6_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name21,"hist_BDT_output_t2bw050_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21,"hist_BDT_output_t2bw050_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21,"hist_BDT_output_t2bw050_R1_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21,"hist_BDT_output_t2bw050_R1_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name22,"hist_BDT_output_t2bw050_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22,"hist_BDT_output_t2bw050_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22,"hist_BDT_output_t2bw050_R3_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22,"hist_BDT_output_t2bw050_R3_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name23,"hist_BDT_output_t2bw050_R4_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23,"hist_BDT_output_t2bw050_R4_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23,"hist_BDT_output_t2bw050_R4_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23,"hist_BDT_output_t2bw050_R4_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name24,"hist_BDT_output_t2bw050_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24,"hist_BDT_output_t2bw050_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24,"hist_BDT_output_t2bw050_R5_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24,"hist_BDT_output_t2bw050_R5_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name25,"hist_BDT_output_t2bw050_R6_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25,"hist_BDT_output_t2bw050_R6_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25,"hist_BDT_output_t2bw050_R6_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25,"hist_BDT_output_t2bw050_R6_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name26,"hist_BDT_output_t2bw075_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26,"hist_BDT_output_t2bw075_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26,"hist_BDT_output_t2bw075_R1_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26,"hist_BDT_output_t2bw075_R1_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name27,"hist_BDT_output_t2bw075_R2_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27,"hist_BDT_output_t2bw075_R2_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27,"hist_BDT_output_t2bw075_R2_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27,"hist_BDT_output_t2bw075_R2_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name28,"hist_BDT_output_t2bw075_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28,"hist_BDT_output_t2bw075_R3_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28,"hist_BDT_output_t2bw075_R3_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28,"hist_BDT_output_t2bw075_R3_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name29,"hist_BDT_output_t2bw075_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29,"hist_BDT_output_t2bw075_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29,"hist_BDT_output_t2bw075_R5_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29,"hist_BDT_output_t2bw075_R5_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name30,"hist_BDT_output_t2tt_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30,"hist_BDT_output_t2tt_R1_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30,"hist_BDT_output_t2tt_R1_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30,"hist_BDT_output_t2tt_R1_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name31,"hist_BDT_output_t2tt_R2_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31,"hist_BDT_output_t2tt_R2_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31,"hist_BDT_output_t2tt_R2_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31,"hist_BDT_output_t2tt_R2_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name32,"hist_BDT_output_t2tt_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32,"hist_BDT_output_t2tt_R5_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32,"hist_BDT_output_t2tt_R5_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32,"hist_BDT_output_t2tt_R5_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
-   sprintf(name1BVetoBCUp,"Events_T2tt_offShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1BVetoBCUp,"Events_T2tt_offShellLooseBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1BVetoBCUp,"Events_T2tt_offShellLooseBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1BVetoBCUp,"Events_T2tt_offShellLooseBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name1BVetoBCDown,"Events_T2tt_offShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1BVetoBCDown,"Events_T2tt_offShellLooseBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1BVetoBCDown,"Events_T2tt_offShellLooseBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1BVetoBCDown,"Events_T2tt_offShellLooseBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name1BVetoLightUp,"Events_T2tt_offShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1BVetoLightUp,"Events_T2tt_offShellLooseBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1BVetoLightUp,"Events_T2tt_offShellLooseBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1BVetoLightUp,"Events_T2tt_offShellLooseBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name1BVetoLightDown,"Events_T2tt_offShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1BVetoLightDown,"Events_T2tt_offShellLooseBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1BVetoLightDown,"Events_T2tt_offShellLooseBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1BVetoLightDown,"Events_T2tt_offShellLooseBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name2BVetoBCUp,"Events_T2tt_offShellTightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2BVetoBCUp,"Events_T2tt_offShellTightBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2BVetoBCUp,"Events_T2tt_offShellTightBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2BVetoBCUp,"Events_T2tt_offShellTightBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name2BVetoBCDown,"Events_T2tt_offShellTightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2BVetoBCDown,"Events_T2tt_offShellTightBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2BVetoBCDown,"Events_T2tt_offShellTightBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2BVetoBCDown,"Events_T2tt_offShellTightBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name2BVetoLightUp,"Events_T2tt_offShellTightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2BVetoLightUp,"Events_T2tt_offShellTightBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2BVetoLightUp,"Events_T2tt_offShellTightBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2BVetoLightUp,"Events_T2tt_offShellTightBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name2BVetoLightDown,"Events_T2tt_offShellTightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2BVetoLightDown,"Events_T2tt_offShellTightBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2BVetoLightDown,"Events_T2tt_offShellTightBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2BVetoLightDown,"Events_T2tt_offShellTightBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3BVetoBCUp,"Events_T2tt_lowDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3BVetoBCUp,"Events_T2tt_lowDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3BVetoBCUp,"Events_T2tt_lowDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3BVetoBCUp,"Events_T2tt_lowDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3BVetoBCDown,"Events_T2tt_lowDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3BVetoBCDown,"Events_T2tt_lowDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3BVetoBCDown,"Events_T2tt_lowDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3BVetoBCDown,"Events_T2tt_lowDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3BVetoLightUp,"Events_T2tt_lowDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3BVetoLightUp,"Events_T2tt_lowDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3BVetoLightUp,"Events_T2tt_lowDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3BVetoLightUp,"Events_T2tt_lowDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3BVetoLightDown,"Events_T2tt_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3BVetoLightDown,"Events_T2tt_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3BVetoLightDown,"Events_T2tt_lowDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3BVetoLightDown,"Events_T2tt_lowDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4BVetoBCUp,"Events_T2tt_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4BVetoBCUp,"Events_T2tt_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4BVetoBCUp,"Events_T2tt_mediumDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4BVetoBCUp,"Events_T2tt_mediumDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4BVetoBCDown,"Events_T2tt_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4BVetoBCDown,"Events_T2tt_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4BVetoBCDown,"Events_T2tt_mediumDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4BVetoBCDown,"Events_T2tt_mediumDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4BVetoLightUp,"Events_T2tt_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4BVetoLightUp,"Events_T2tt_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4BVetoLightUp,"Events_T2tt_mediumDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4BVetoLightUp,"Events_T2tt_mediumDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4BVetoLightDown,"Events_T2tt_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4BVetoLightDown,"Events_T2tt_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4BVetoLightDown,"Events_T2tt_mediumDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4BVetoLightDown,"Events_T2tt_mediumDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5BVetoBCUp,"Events_T2tt_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5BVetoBCUp,"Events_T2tt_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5BVetoBCUp,"Events_T2tt_highDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5BVetoBCUp,"Events_T2tt_highDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5BVetoBCDown,"Events_T2tt_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5BVetoBCDown,"Events_T2tt_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5BVetoBCDown,"Events_T2tt_highDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5BVetoBCDown,"Events_T2tt_highDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5BVetoLightUp,"Events_T2tt_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5BVetoLightUp,"Events_T2tt_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5BVetoLightUp,"Events_T2tt_highDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5BVetoLightUp,"Events_T2tt_highDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5BVetoLightDown,"Events_T2tt_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5BVetoLightDown,"Events_T2tt_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5BVetoLightDown,"Events_T2tt_highDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5BVetoLightDown,"Events_T2tt_highDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name7BVetoBCUp,"Events_T2bw025_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoBCUp,"Events_T2bw025_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoBCUp,"Events_T2bw025_offShellBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7BVetoBCUp,"Events_T2bw025_offShellBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name7BVetoBCDown,"Events_T2bw025_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoBCDown,"Events_T2bw025_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoBCDown,"Events_T2bw025_offShellBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7BVetoBCDown,"Events_T2bw025_offShellBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name7BVetoLightUp,"Events_T2bw025_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoLightUp,"Events_T2bw025_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoLightUp,"Events_T2bw025_offShellBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7BVetoLightUp,"Events_T2bw025_offShellBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name7BVetoLightDown,"Events_T2bw025_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7BVetoLightDown,"Events_T2bw025_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7BVetoLightDown,"Events_T2bw025_offShellBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7BVetoLightDown,"Events_T2bw025_offShellBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name8BVetoBCUp,"Events_T2bw025_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoBCUp,"Events_T2bw025_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoBCUp,"Events_T2bw025_lowMassesBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8BVetoBCUp,"Events_T2bw025_lowMassesBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name8BVetoBCDown,"Events_T2bw025_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoBCDown,"Events_T2bw025_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoBCDown,"Events_T2bw025_lowMassesBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8BVetoBCDown,"Events_T2bw025_lowMassesBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name8BVetoLightUp,"Events_T2bw025_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoLightUp,"Events_T2bw025_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoLightUp,"Events_T2bw025_lowMassesBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8BVetoLightUp,"Events_T2bw025_lowMassesBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name8BVetoLightDown,"Events_T2bw025_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8BVetoLightDown,"Events_T2bw025_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8BVetoLightDown,"Events_T2bw025_lowMassesBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8BVetoLightDown,"Events_T2bw025_lowMassesBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name9BVetoBCUp,"Events_T2bw025_highMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoBCUp,"Events_T2bw025_highMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoBCUp,"Events_T2bw025_highMassesBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9BVetoBCUp,"Events_T2bw025_highMassesBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name9BVetoBCDown,"Events_T2bw025_highMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoBCDown,"Events_T2bw025_highMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoBCDown,"Events_T2bw025_highMassesBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9BVetoBCDown,"Events_T2bw025_highMassesBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name9BVetoLightUp,"Events_T2bw025_highMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoLightUp,"Events_T2bw025_highMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoLightUp,"Events_T2bw025_highMassesBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9BVetoLightUp,"Events_T2bw025_highMassesBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name9BVetoLightDown,"Events_T2bw025_highMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9BVetoLightDown,"Events_T2bw025_highMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9BVetoLightDown,"Events_T2bw025_highMassesBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9BVetoLightDown,"Events_T2bw025_highMassesBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
 
-   sprintf(name10BVetoBCUp,"Events_T2bw050_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoBCUp,"Events_T2bw050_offShellBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoBCUp,"Events_T2bw050_offShellBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10BVetoBCUp,"Events_T2bw050_offShellBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name10BVetoBCDown,"Events_T2bw050_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoBCDown,"Events_T2bw050_offShellBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoBCDown,"Events_T2bw050_offShellBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10BVetoBCDown,"Events_T2bw050_offShellBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name10BVetoLightUp,"Events_T2bw050_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoLightUp,"Events_T2bw050_offShellBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoLightUp,"Events_T2bw050_offShellBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10BVetoLightUp,"Events_T2bw050_offShellBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name10BVetoLightDown,"Events_T2bw050_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10BVetoLightDown,"Events_T2bw050_offShellBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10BVetoLightDown,"Events_T2bw050_offShellBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10BVetoLightDown,"Events_T2bw050_offShellBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name11BVetoBCUp,"Events_T2bw050_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoBCUp,"Events_T2bw050_lowMassesBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoBCUp,"Events_T2bw050_lowMassesBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11BVetoBCUp,"Events_T2bw050_lowMassesBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name11BVetoBCDown,"Events_T2bw050_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoBCDown,"Events_T2bw050_lowMassesBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoBCDown,"Events_T2bw050_lowMassesBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11BVetoBCDown,"Events_T2bw050_lowMassesBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name11BVetoLightUp,"Events_T2bw050_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoLightUp,"Events_T2bw050_lowMassesBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoLightUp,"Events_T2bw050_lowMassesBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11BVetoLightUp,"Events_T2bw050_lowMassesBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name11BVetoLightDown,"Events_T2bw050_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11BVetoLightDown,"Events_T2bw050_lowMassesBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11BVetoLightDown,"Events_T2bw050_lowMassesBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11BVetoLightDown,"Events_T2bw050_lowMassesBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name12BVetoBCUp,"Events_T2bw050_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoBCUp,"Events_T2bw050_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12BVetoBCUp,"Events_T2bw050_mediumDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12BVetoBCUp,"Events_T2bw050_mediumDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name12BVetoBCDown,"Events_T2bw050_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoBCDown,"Events_T2bw050_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12BVetoBCDown,"Events_T2bw050_mediumDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12BVetoBCDown,"Events_T2bw050_mediumDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name12BVetoLightUp,"Events_T2bw050_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoLightUp,"Events_T2bw050_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12BVetoLightUp,"Events_T2bw050_mediumDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12BVetoLightUp,"Events_T2bw050_mediumDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name12BVetoLightDown,"Events_T2bw050_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12BVetoLightDown,"Events_T2bw050_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12BVetoLightDown,"Events_T2bw050_mediumDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12BVetoLightDown,"Events_T2bw050_mediumDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name13BVetoBCUp,"Events_T2bw050_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13BVetoBCUp,"Events_T2bw050_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13BVetoBCUp,"Events_T2bw050_highDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13BVetoBCUp,"Events_T2bw050_highDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name13BVetoBCDown,"Events_T2bw050_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13BVetoBCDown,"Events_T2bw050_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13BVetoBCDown,"Events_T2bw050_highDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13BVetoBCDown,"Events_T2bw050_highDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name13BVetoLightUp,"Events_T2bw050_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13BVetoLightUp,"Events_T2bw050_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13BVetoLightUp,"Events_T2bw050_highDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13BVetoLightUp,"Events_T2bw050_highDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name13BVetoLightDown,"Events_T2bw050_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13BVetoLightDown,"Events_T2bw050_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13BVetoLightDown,"Events_T2bw050_highDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13BVetoLightDown,"Events_T2bw050_highDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name14BVetoBCUp,"Events_T2bw075_lowDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoBCUp,"Events_T2bw075_lowDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoBCUp,"Events_T2bw075_lowDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14BVetoBCUp,"Events_T2bw075_lowDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name14BVetoBCDown,"Events_T2bw075_lowDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoBCDown,"Events_T2bw075_lowDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoBCDown,"Events_T2bw075_lowDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14BVetoBCDown,"Events_T2bw075_lowDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name14BVetoLightUp,"Events_T2bw075_lowDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoLightUp,"Events_T2bw075_lowDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoLightUp,"Events_T2bw075_lowDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14BVetoLightUp,"Events_T2bw075_lowDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name14BVetoLightDown,"Events_T2bw075_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14BVetoLightDown,"Events_T2bw075_lowDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14BVetoLightDown,"Events_T2bw075_lowDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14BVetoLightDown,"Events_T2bw075_lowDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name15BVetoBCUp,"Events_T2bw075_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15BVetoBCUp,"Events_T2bw075_mediumDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15BVetoBCUp,"Events_T2bw075_mediumDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15BVetoBCUp,"Events_T2bw075_mediumDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name15BVetoBCDown,"Events_T2bw075_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15BVetoBCDown,"Events_T2bw075_mediumDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15BVetoBCDown,"Events_T2bw075_mediumDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15BVetoBCDown,"Events_T2bw075_mediumDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name15BVetoLightUp,"Events_T2bw075_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15BVetoLightUp,"Events_T2bw075_mediumDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15BVetoLightUp,"Events_T2bw075_mediumDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15BVetoLightUp,"Events_T2bw075_mediumDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name15BVetoLightDown,"Events_T2bw075_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15BVetoLightDown,"Events_T2bw075_mediumDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15BVetoLightDown,"Events_T2bw075_mediumDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15BVetoLightDown,"Events_T2bw075_mediumDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name16BVetoBCUp,"Events_T2bw075_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16BVetoBCUp,"Events_T2bw075_highDeltaMBVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16BVetoBCUp,"Events_T2bw075_highDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16BVetoBCUp,"Events_T2bw075_highDeltaMBVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name16BVetoBCDown,"Events_T2bw075_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16BVetoBCDown,"Events_T2bw075_highDeltaMBVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16BVetoBCDown,"Events_T2bw075_highDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16BVetoBCDown,"Events_T2bw075_highDeltaMBVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name16BVetoLightUp,"Events_T2bw075_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16BVetoLightUp,"Events_T2bw075_highDeltaMBVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16BVetoLightUp,"Events_T2bw075_highDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16BVetoLightUp,"Events_T2bw075_highDeltaMBVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name16BVetoLightDown,"Events_T2bw075_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16BVetoLightDown,"Events_T2bw075_highDeltaMBVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16BVetoLightDown,"Events_T2bw075_highDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16BVetoLightDown,"Events_T2bw075_highDeltaMBVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
 
-   sprintf(name17BVetoBCUp,"hist_BDT_output_t2bw025_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17BVetoBCUp,"hist_BDT_output_t2bw025_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17BVetoBCUp,"hist_BDT_output_t2bw025_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17BVetoBCUp,"hist_BDT_output_t2bw025_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name17BVetoBCDown,"hist_BDT_output_t2bw025_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17BVetoBCDown,"hist_BDT_output_t2bw025_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17BVetoBCDown,"hist_BDT_output_t2bw025_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17BVetoBCDown,"hist_BDT_output_t2bw025_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name17BVetoLightUp,"hist_BDT_output_t2bw025_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17BVetoLightUp,"hist_BDT_output_t2bw025_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17BVetoLightUp,"hist_BDT_output_t2bw025_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17BVetoLightUp,"hist_BDT_output_t2bw025_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name17BVetoLightDown,"hist_BDT_output_t2bw025_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17BVetoLightDown,"hist_BDT_output_t2bw025_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17BVetoLightDown,"hist_BDT_output_t2bw025_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17BVetoLightDown,"hist_BDT_output_t2bw025_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name18BVetoBCUp,"hist_BDT_output_t2bw025_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18BVetoBCUp,"hist_BDT_output_t2bw025_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18BVetoBCUp,"hist_BDT_output_t2bw025_R3BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18BVetoBCUp,"hist_BDT_output_t2bw025_R3BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name18BVetoBCDown,"hist_BDT_output_t2bw025_R3BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18BVetoBCDown,"hist_BDT_output_t2bw025_R3BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18BVetoBCDown,"hist_BDT_output_t2bw025_R3BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18BVetoBCDown,"hist_BDT_output_t2bw025_R3BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name18BVetoLightUp,"hist_BDT_output_t2bw025_R3BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18BVetoLightUp,"hist_BDT_output_t2bw025_R3BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18BVetoLightUp,"hist_BDT_output_t2bw025_R3BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18BVetoLightUp,"hist_BDT_output_t2bw025_R3BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name18BVetoLightDown,"hist_BDT_output_t2bw025_R3BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18BVetoLightDown,"hist_BDT_output_t2bw025_R3BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18BVetoLightDown,"hist_BDT_output_t2bw025_R3BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18BVetoLightDown,"hist_BDT_output_t2bw025_R3BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name19BVetoBCUp,"hist_BDT_output_t2bw025_R4BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19BVetoBCUp,"hist_BDT_output_t2bw025_R4BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19BVetoBCUp,"hist_BDT_output_t2bw025_R4BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19BVetoBCUp,"hist_BDT_output_t2bw025_R4BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name19BVetoBCDown,"hist_BDT_output_t2bw025_R4BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19BVetoBCDown,"hist_BDT_output_t2bw025_R4BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19BVetoBCDown,"hist_BDT_output_t2bw025_R4BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19BVetoBCDown,"hist_BDT_output_t2bw025_R4BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name19BVetoLightUp,"hist_BDT_output_t2bw025_R4BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19BVetoLightUp,"hist_BDT_output_t2bw025_R4BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19BVetoLightUp,"hist_BDT_output_t2bw025_R4BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19BVetoLightUp,"hist_BDT_output_t2bw025_R4BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name19BVetoLightDown,"hist_BDT_output_t2bw025_R4BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19BVetoLightDown,"hist_BDT_output_t2bw025_R4BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19BVetoLightDown,"hist_BDT_output_t2bw025_R4BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19BVetoLightDown,"hist_BDT_output_t2bw025_R4BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name20BVetoBCUp,"hist_BDT_output_t2bw025_R6BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20BVetoBCUp,"hist_BDT_output_t2bw025_R6BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20BVetoBCUp,"hist_BDT_output_t2bw025_R6BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20BVetoBCUp,"hist_BDT_output_t2bw025_R6BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name20BVetoBCDown,"hist_BDT_output_t2bw025_R6BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20BVetoBCDown,"hist_BDT_output_t2bw025_R6BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20BVetoBCDown,"hist_BDT_output_t2bw025_R6BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20BVetoBCDown,"hist_BDT_output_t2bw025_R6BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name20BVetoLightUp,"hist_BDT_output_t2bw025_R6BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20BVetoLightUp,"hist_BDT_output_t2bw025_R6BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20BVetoLightUp,"hist_BDT_output_t2bw025_R6BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20BVetoLightUp,"hist_BDT_output_t2bw025_R6BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name20BVetoLightDown,"hist_BDT_output_t2bw025_R6BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20BVetoLightDown,"hist_BDT_output_t2bw025_R6BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20BVetoLightDown,"hist_BDT_output_t2bw025_R6BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20BVetoLightDown,"hist_BDT_output_t2bw025_R6BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
    
 
-   sprintf(name21BVetoBCUp,"hist_BDT_output_t2bw050_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21BVetoBCUp,"hist_BDT_output_t2bw050_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoBCUp,"hist_BDT_output_t2bw050_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21BVetoBCUp,"hist_BDT_output_t2bw050_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name21BVetoBCDown,"hist_BDT_output_t2bw050_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21BVetoBCDown,"hist_BDT_output_t2bw050_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoBCDown,"hist_BDT_output_t2bw050_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21BVetoBCDown,"hist_BDT_output_t2bw050_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name21BVetoLightUp,"hist_BDT_output_t2bw050_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21BVetoLightUp,"hist_BDT_output_t2bw050_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoLightUp,"hist_BDT_output_t2bw050_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21BVetoLightUp,"hist_BDT_output_t2bw050_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name21BVetoLightDown,"hist_BDT_output_t2bw050_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21BVetoLightDown,"hist_BDT_output_t2bw050_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21BVetoLightDown,"hist_BDT_output_t2bw050_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21BVetoLightDown,"hist_BDT_output_t2bw050_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name22BVetoBCUp,"hist_BDT_output_t2bw050_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22BVetoBCUp,"hist_BDT_output_t2bw050_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22BVetoBCUp,"hist_BDT_output_t2bw050_R3BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22BVetoBCUp,"hist_BDT_output_t2bw050_R3BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name22BVetoBCDown,"hist_BDT_output_t2bw050_R3BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22BVetoBCDown,"hist_BDT_output_t2bw050_R3BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22BVetoBCDown,"hist_BDT_output_t2bw050_R3BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22BVetoBCDown,"hist_BDT_output_t2bw050_R3BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name22BVetoLightUp,"hist_BDT_output_t2bw050_R3BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22BVetoLightUp,"hist_BDT_output_t2bw050_R3BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22BVetoLightUp,"hist_BDT_output_t2bw050_R3BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22BVetoLightUp,"hist_BDT_output_t2bw050_R3BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name22BVetoLightDown,"hist_BDT_output_t2bw050_R3BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22BVetoLightDown,"hist_BDT_output_t2bw050_R3BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22BVetoLightDown,"hist_BDT_output_t2bw050_R3BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22BVetoLightDown,"hist_BDT_output_t2bw050_R3BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name23BVetoBCUp,"hist_BDT_output_t2bw050_R4BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23BVetoBCUp,"hist_BDT_output_t2bw050_R4BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23BVetoBCUp,"hist_BDT_output_t2bw050_R4BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23BVetoBCUp,"hist_BDT_output_t2bw050_R4BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name23BVetoBCDown,"hist_BDT_output_t2bw050_R4BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23BVetoBCDown,"hist_BDT_output_t2bw050_R4BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23BVetoBCDown,"hist_BDT_output_t2bw050_R4BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23BVetoBCDown,"hist_BDT_output_t2bw050_R4BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name23BVetoLightUp,"hist_BDT_output_t2bw050_R4BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23BVetoLightUp,"hist_BDT_output_t2bw050_R4BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23BVetoLightUp,"hist_BDT_output_t2bw050_R4BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23BVetoLightUp,"hist_BDT_output_t2bw050_R4BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name23BVetoLightDown,"hist_BDT_output_t2bw050_R4BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23BVetoLightDown,"hist_BDT_output_t2bw050_R4BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23BVetoLightDown,"hist_BDT_output_t2bw050_R4BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23BVetoLightDown,"hist_BDT_output_t2bw050_R4BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name24BVetoBCUp,"hist_BDT_output_t2bw050_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24BVetoBCUp,"hist_BDT_output_t2bw050_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24BVetoBCUp,"hist_BDT_output_t2bw050_R5BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24BVetoBCUp,"hist_BDT_output_t2bw050_R5BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name24BVetoBCDown,"hist_BDT_output_t2bw050_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24BVetoBCDown,"hist_BDT_output_t2bw050_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24BVetoBCDown,"hist_BDT_output_t2bw050_R5BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24BVetoBCDown,"hist_BDT_output_t2bw050_R5BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name24BVetoLightUp,"hist_BDT_output_t2bw050_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24BVetoLightUp,"hist_BDT_output_t2bw050_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24BVetoLightUp,"hist_BDT_output_t2bw050_R5BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24BVetoLightUp,"hist_BDT_output_t2bw050_R5BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name24BVetoLightDown,"hist_BDT_output_t2bw050_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24BVetoLightDown,"hist_BDT_output_t2bw050_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24BVetoLightDown,"hist_BDT_output_t2bw050_R5BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24BVetoLightDown,"hist_BDT_output_t2bw050_R5BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name25BVetoBCUp,"hist_BDT_output_t2bw050_R6BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25BVetoBCUp,"hist_BDT_output_t2bw050_R6BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25BVetoBCUp,"hist_BDT_output_t2bw050_R6BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25BVetoBCUp,"hist_BDT_output_t2bw050_R6BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name25BVetoBCDown,"hist_BDT_output_t2bw050_R6BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25BVetoBCDown,"hist_BDT_output_t2bw050_R6BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25BVetoBCDown,"hist_BDT_output_t2bw050_R6BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25BVetoBCDown,"hist_BDT_output_t2bw050_R6BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name25BVetoLightUp,"hist_BDT_output_t2bw050_R6BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25BVetoLightUp,"hist_BDT_output_t2bw050_R6BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25BVetoLightUp,"hist_BDT_output_t2bw050_R6BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25BVetoLightUp,"hist_BDT_output_t2bw050_R6BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name25BVetoLightDown,"hist_BDT_output_t2bw050_R6BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25BVetoLightDown,"hist_BDT_output_t2bw050_R6BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25BVetoLightDown,"hist_BDT_output_t2bw050_R6BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25BVetoLightDown,"hist_BDT_output_t2bw050_R6BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name26BVetoBCUp,"hist_BDT_output_t2bw075_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26BVetoBCUp,"hist_BDT_output_t2bw075_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26BVetoBCUp,"hist_BDT_output_t2bw075_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26BVetoBCUp,"hist_BDT_output_t2bw075_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name26BVetoBCDown,"hist_BDT_output_t2bw075_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26BVetoBCDown,"hist_BDT_output_t2bw075_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26BVetoBCDown,"hist_BDT_output_t2bw075_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26BVetoBCDown,"hist_BDT_output_t2bw075_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name26BVetoLightUp,"hist_BDT_output_t2bw075_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26BVetoLightUp,"hist_BDT_output_t2bw075_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26BVetoLightUp,"hist_BDT_output_t2bw075_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26BVetoLightUp,"hist_BDT_output_t2bw075_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name26BVetoLightDown,"hist_BDT_output_t2bw075_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26BVetoLightDown,"hist_BDT_output_t2bw075_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26BVetoLightDown,"hist_BDT_output_t2bw075_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26BVetoLightDown,"hist_BDT_output_t2bw075_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name27BVetoBCUp,"hist_BDT_output_t2bw075_R2BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27BVetoBCUp,"hist_BDT_output_t2bw075_R2BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27BVetoBCUp,"hist_BDT_output_t2bw075_R2BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27BVetoBCUp,"hist_BDT_output_t2bw075_R2BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name27BVetoBCDown,"hist_BDT_output_t2bw075_R2BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27BVetoBCDown,"hist_BDT_output_t2bw075_R2BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27BVetoBCDown,"hist_BDT_output_t2bw075_R2BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27BVetoBCDown,"hist_BDT_output_t2bw075_R2BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name27BVetoLightUp,"hist_BDT_output_t2bw075_R2BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27BVetoLightUp,"hist_BDT_output_t2bw075_R2BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27BVetoLightUp,"hist_BDT_output_t2bw075_R2BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27BVetoLightUp,"hist_BDT_output_t2bw075_R2BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name27BVetoLightDown,"hist_BDT_output_t2bw075_R2BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27BVetoLightDown,"hist_BDT_output_t2bw075_R2BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27BVetoLightDown,"hist_BDT_output_t2bw075_R2BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27BVetoLightDown,"hist_BDT_output_t2bw075_R2BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name28BVetoBCUp,"hist_BDT_output_t2bw075_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28BVetoBCUp,"hist_BDT_output_t2bw075_R3BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28BVetoBCUp,"hist_BDT_output_t2bw075_R3BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28BVetoBCUp,"hist_BDT_output_t2bw075_R3BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name28BVetoBCDown,"hist_BDT_output_t2bw075_R3BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28BVetoBCDown,"hist_BDT_output_t2bw075_R3BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28BVetoBCDown,"hist_BDT_output_t2bw075_R3BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28BVetoBCDown,"hist_BDT_output_t2bw075_R3BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name28BVetoLightUp,"hist_BDT_output_t2bw075_R3BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28BVetoLightUp,"hist_BDT_output_t2bw075_R3BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28BVetoLightUp,"hist_BDT_output_t2bw075_R3BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28BVetoLightUp,"hist_BDT_output_t2bw075_R3BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name28BVetoLightDown,"hist_BDT_output_t2bw075_R3BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28BVetoLightDown,"hist_BDT_output_t2bw075_R3BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28BVetoLightDown,"hist_BDT_output_t2bw075_R3BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28BVetoLightDown,"hist_BDT_output_t2bw075_R3BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name29BVetoBCUp,"hist_BDT_output_t2bw075_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29BVetoBCUp,"hist_BDT_output_t2bw075_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29BVetoBCUp,"hist_BDT_output_t2bw075_R5BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29BVetoBCUp,"hist_BDT_output_t2bw075_R5BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name29BVetoBCDown,"hist_BDT_output_t2bw075_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29BVetoBCDown,"hist_BDT_output_t2bw075_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29BVetoBCDown,"hist_BDT_output_t2bw075_R5BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29BVetoBCDown,"hist_BDT_output_t2bw075_R5BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name29BVetoLightUp,"hist_BDT_output_t2bw075_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29BVetoLightUp,"hist_BDT_output_t2bw075_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29BVetoLightUp,"hist_BDT_output_t2bw075_R5BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29BVetoLightUp,"hist_BDT_output_t2bw075_R5BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name29BVetoLightDown,"hist_BDT_output_t2bw075_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29BVetoLightDown,"hist_BDT_output_t2bw075_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29BVetoLightDown,"hist_BDT_output_t2bw075_R5BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29BVetoLightDown,"hist_BDT_output_t2bw075_R5BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
-   sprintf(name30BVetoBCUp,"hist_BDT_output_t2tt_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30BVetoBCUp,"hist_BDT_output_t2tt_R1BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30BVetoBCUp,"hist_BDT_output_t2tt_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30BVetoBCUp,"hist_BDT_output_t2tt_R1BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name30BVetoBCDown,"hist_BDT_output_t2tt_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30BVetoBCDown,"hist_BDT_output_t2tt_R1BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30BVetoBCDown,"hist_BDT_output_t2tt_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30BVetoBCDown,"hist_BDT_output_t2tt_R1BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name30BVetoLightUp,"hist_BDT_output_t2tt_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30BVetoLightUp,"hist_BDT_output_t2tt_R1BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30BVetoLightUp,"hist_BDT_output_t2tt_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30BVetoLightUp,"hist_BDT_output_t2tt_R1BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name30BVetoLightDown,"hist_BDT_output_t2tt_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30BVetoLightDown,"hist_BDT_output_t2tt_R1BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30BVetoLightDown,"hist_BDT_output_t2tt_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30BVetoLightDown,"hist_BDT_output_t2tt_R1BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name31BVetoBCUp,"hist_BDT_output_t2tt_R2BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31BVetoBCUp,"hist_BDT_output_t2tt_R2BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31BVetoBCUp,"hist_BDT_output_t2tt_R2BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31BVetoBCUp,"hist_BDT_output_t2tt_R2BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name31BVetoBCDown,"hist_BDT_output_t2tt_R2BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31BVetoBCDown,"hist_BDT_output_t2tt_R2BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31BVetoBCDown,"hist_BDT_output_t2tt_R2BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31BVetoBCDown,"hist_BDT_output_t2tt_R2BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name31BVetoLightUp,"hist_BDT_output_t2tt_R2BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31BVetoLightUp,"hist_BDT_output_t2tt_R2BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31BVetoLightUp,"hist_BDT_output_t2tt_R2BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31BVetoLightUp,"hist_BDT_output_t2tt_R2BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name31BVetoLightDown,"hist_BDT_output_t2tt_R2BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31BVetoLightDown,"hist_BDT_output_t2tt_R2BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31BVetoLightDown,"hist_BDT_output_t2tt_R2BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31BVetoLightDown,"hist_BDT_output_t2tt_R2BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name32BVetoBCUp,"hist_BDT_output_t2tt_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32BVetoBCUp,"hist_BDT_output_t2tt_R5BVetoBCUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoBCUp,"hist_BDT_output_t2tt_R5BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32BVetoBCUp,"hist_BDT_output_t2tt_R5BVetoBCUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name32BVetoBCDown,"hist_BDT_output_t2tt_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32BVetoBCDown,"hist_BDT_output_t2tt_R5BVetoBCDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoBCDown,"hist_BDT_output_t2tt_R5BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32BVetoBCDown,"hist_BDT_output_t2tt_R5BVetoBCDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name32BVetoLightUp,"hist_BDT_output_t2tt_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32BVetoLightUp,"hist_BDT_output_t2tt_R5BVetoLightUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoLightUp,"hist_BDT_output_t2tt_R5BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32BVetoLightUp,"hist_BDT_output_t2tt_R5BVetoLightUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name32BVetoLightDown,"hist_BDT_output_t2tt_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32BVetoLightDown,"hist_BDT_output_t2tt_R5BVetoLightDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32BVetoLightDown,"hist_BDT_output_t2tt_R5BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32BVetoLightDown,"hist_BDT_output_t2tt_R5BVetoLightDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name1JESUp,"Events_T2tt_offShellLooseJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1JESUp,"Events_T2tt_offShellLooseJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1JESUp,"Events_T2tt_offShellLooseJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1JESUp,"Events_T2tt_offShellLooseJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name2JESUp,"Events_T2tt_offShellTightJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2JESUp,"Events_T2tt_offShellTightJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2JESUp,"Events_T2tt_offShellTightJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2JESUp,"Events_T2tt_offShellTightJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3JESUp,"Events_T2tt_lowDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3JESUp,"Events_T2tt_lowDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3JESUp,"Events_T2tt_lowDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3JESUp,"Events_T2tt_lowDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4JESUp,"Events_T2tt_mediumDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4JESUp,"Events_T2tt_mediumDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4JESUp,"Events_T2tt_mediumDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4JESUp,"Events_T2tt_mediumDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5JESUp,"Events_T2tt_highDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5JESUp,"Events_T2tt_highDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5JESUp,"Events_T2tt_highDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5JESUp,"Events_T2tt_highDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name7JESUp,"Events_T2bw025_offShellJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7JESUp,"Events_T2bw025_offShellJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7JESUp,"Events_T2bw025_offShellJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7JESUp,"Events_T2bw025_offShellJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name8JESUp,"Events_T2bw025_lowMassesJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8JESUp,"Events_T2bw025_lowMassesJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8JESUp,"Events_T2bw025_lowMassesJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8JESUp,"Events_T2bw025_lowMassesJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name9JESUp,"Events_T2bw025_highMassesJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9JESUp,"Events_T2bw025_highMassesJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9JESUp,"Events_T2bw025_highMassesJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9JESUp,"Events_T2bw025_highMassesJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name10JESUp,"Events_T2bw050_offShellJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10JESUp,"Events_T2bw050_offShellJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10JESUp,"Events_T2bw050_offShellJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10JESUp,"Events_T2bw050_offShellJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name11JESUp,"Events_T2bw050_lowMassesJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11JESUp,"Events_T2bw050_lowMassesJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11JESUp,"Events_T2bw050_lowMassesJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11JESUp,"Events_T2bw050_lowMassesJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name12JESUp,"Events_T2bw050_mediumDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12JESUp,"Events_T2bw050_mediumDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12JESUp,"Events_T2bw050_mediumDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12JESUp,"Events_T2bw050_mediumDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name13JESUp,"Events_T2bw050_highDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13JESUp,"Events_T2bw050_highDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13JESUp,"Events_T2bw050_highDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13JESUp,"Events_T2bw050_highDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name14JESUp,"Events_T2bw075_lowDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14JESUp,"Events_T2bw075_lowDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14JESUp,"Events_T2bw075_lowDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14JESUp,"Events_T2bw075_lowDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name15JESUp,"Events_T2bw075_mediumDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15JESUp,"Events_T2bw075_mediumDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15JESUp,"Events_T2bw075_mediumDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15JESUp,"Events_T2bw075_mediumDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name16JESUp,"Events_T2bw075_highDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16JESUp,"Events_T2bw075_highDeltaMJESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16JESUp,"Events_T2bw075_highDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16JESUp,"Events_T2bw075_highDeltaMJESUp_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name1JESDown,"Events_T2tt_offShellLooseJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title1JESDown,"Events_T2tt_offShellLooseJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name1JESDown,"Events_T2tt_offShellLooseJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title1JESDown,"Events_T2tt_offShellLooseJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name2JESDown,"Events_T2tt_offShellTightJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title2JESDown,"Events_T2tt_offShellTightJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name2JESDown,"Events_T2tt_offShellTightJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title2JESDown,"Events_T2tt_offShellTightJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name3JESDown,"Events_T2tt_lowDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title3JESDown,"Events_T2tt_lowDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name3JESDown,"Events_T2tt_lowDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title3JESDown,"Events_T2tt_lowDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name4JESDown,"Events_T2tt_mediumDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title4JESDown,"Events_T2tt_mediumDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name4JESDown,"Events_T2tt_mediumDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title4JESDown,"Events_T2tt_mediumDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name5JESDown,"Events_T2tt_highDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title5JESDown,"Events_T2tt_highDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name5JESDown,"Events_T2tt_highDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title5JESDown,"Events_T2tt_highDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name7JESDown,"Events_T2bw025_offShellJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title7JESDown,"Events_T2bw025_offShellJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name7JESDown,"Events_T2bw025_offShellJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title7JESDown,"Events_T2bw025_offShellJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name8JESDown,"Events_T2bw025_lowMassesJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title8JESDown,"Events_T2bw025_lowMassesJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name8JESDown,"Events_T2bw025_lowMassesJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title8JESDown,"Events_T2bw025_lowMassesJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name9JESDown,"Events_T2bw025_highMassesJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title9JESDown,"Events_T2bw025_highMassesJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name9JESDown,"Events_T2bw025_highMassesJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title9JESDown,"Events_T2bw025_highMassesJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name10JESDown,"Events_T2bw050_offShellJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title10JESDown,"Events_T2bw050_offShellJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name10JESDown,"Events_T2bw050_offShellJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title10JESDown,"Events_T2bw050_offShellJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name11JESDown,"Events_T2bw050_lowMassesJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title11JESDown,"Events_T2bw050_lowMassesJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name11JESDown,"Events_T2bw050_lowMassesJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title11JESDown,"Events_T2bw050_lowMassesJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name12JESDown,"Events_T2bw050_mediumDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title12JESDown,"Events_T2bw050_mediumDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name12JESDown,"Events_T2bw050_mediumDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title12JESDown,"Events_T2bw050_mediumDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name13JESDown,"Events_T2bw050_highDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title13JESDown,"Events_T2bw050_highDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name13JESDown,"Events_T2bw050_highDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title13JESDown,"Events_T2bw050_highDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
-   sprintf(name14JESDown,"Events_T2bw075_lowDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title14JESDown,"Events_T2bw075_lowDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name14JESDown,"Events_T2bw075_lowDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title14JESDown,"Events_T2bw075_lowDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name15JESDown,"Events_T2bw075_mediumDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title15JESDown,"Events_T2bw075_mediumDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name15JESDown,"Events_T2bw075_mediumDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title15JESDown,"Events_T2bw075_mediumDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name16JESDown,"Events_T2bw075_highDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title16JESDown,"Events_T2bw075_highDeltaMJESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name16JESDown,"Events_T2bw075_highDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title16JESDown,"Events_T2bw075_highDeltaMJESDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
-   sprintf(name17JESUp,"hist_BDT_output_t2bw025_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17JESUp,"hist_BDT_output_t2bw025_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name17JESDown,"hist_BDT_output_t2bw025_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title17JESDown,"hist_BDT_output_t2bw025_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name17JESUp,"hist_BDT_output_t2bw025_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17JESUp,"hist_BDT_output_t2bw025_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name17JESDown,"hist_BDT_output_t2bw025_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17JESDown,"hist_BDT_output_t2bw025_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name18JESUp,"hist_BDT_output_t2bw025_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18JESUp,"hist_BDT_output_t2bw025_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name18JESDown,"hist_BDT_output_t2bw025_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title18JESDown,"hist_BDT_output_t2bw025_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name18JESUp,"hist_BDT_output_t2bw025_R3JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18JESUp,"hist_BDT_output_t2bw025_R3JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name18JESDown,"hist_BDT_output_t2bw025_R3JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18JESDown,"hist_BDT_output_t2bw025_R3JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name19JESUp,"hist_BDT_output_t2bw025_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19JESUp,"hist_BDT_output_t2bw025_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name19JESDown,"hist_BDT_output_t2bw025_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title19JESDown,"hist_BDT_output_t2bw025_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name19JESUp,"hist_BDT_output_t2bw025_R4JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19JESUp,"hist_BDT_output_t2bw025_R4JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name19JESDown,"hist_BDT_output_t2bw025_R4JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19JESDown,"hist_BDT_output_t2bw025_R4JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name20JESUp,"hist_BDT_output_t2bw025_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20JESUp,"hist_BDT_output_t2bw025_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name20JESDown,"hist_BDT_output_t2bw025_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title20JESDown,"hist_BDT_output_t2bw025_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name20JESUp,"hist_BDT_output_t2bw025_R6JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20JESUp,"hist_BDT_output_t2bw025_R6JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name20JESDown,"hist_BDT_output_t2bw025_R6JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20JESDown,"hist_BDT_output_t2bw025_R6JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name21JESUp,"hist_BDT_output_t2bw050_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21JESUp,"hist_BDT_output_t2bw050_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name21JESDown,"hist_BDT_output_t2bw050_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title21JESDown,"hist_BDT_output_t2bw050_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name21JESUp,"hist_BDT_output_t2bw050_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21JESUp,"hist_BDT_output_t2bw050_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name21JESDown,"hist_BDT_output_t2bw050_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21JESDown,"hist_BDT_output_t2bw050_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name22JESUp,"hist_BDT_output_t2bw050_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22JESUp,"hist_BDT_output_t2bw050_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name22JESDown,"hist_BDT_output_t2bw050_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title22JESDown,"hist_BDT_output_t2bw050_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name22JESUp,"hist_BDT_output_t2bw050_R3JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22JESUp,"hist_BDT_output_t2bw050_R3JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name22JESDown,"hist_BDT_output_t2bw050_R3JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22JESDown,"hist_BDT_output_t2bw050_R3JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name23JESUp,"hist_BDT_output_t2bw050_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23JESUp,"hist_BDT_output_t2bw050_R4JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name23JESDown,"hist_BDT_output_t2bw050_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title23JESDown,"hist_BDT_output_t2bw050_R4JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name23JESUp,"hist_BDT_output_t2bw050_R4JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23JESUp,"hist_BDT_output_t2bw050_R4JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name23JESDown,"hist_BDT_output_t2bw050_R4JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23JESDown,"hist_BDT_output_t2bw050_R4JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name24JESUp,"hist_BDT_output_t2bw050_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24JESUp,"hist_BDT_output_t2bw050_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name24JESDown,"hist_BDT_output_t2bw050_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title24JESDown,"hist_BDT_output_t2bw050_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name24JESUp,"hist_BDT_output_t2bw050_R5JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24JESUp,"hist_BDT_output_t2bw050_R5JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name24JESDown,"hist_BDT_output_t2bw050_R5JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24JESDown,"hist_BDT_output_t2bw050_R5JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name25JESUp,"hist_BDT_output_t2bw050_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25JESUp,"hist_BDT_output_t2bw050_R6JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name25JESDown,"hist_BDT_output_t2bw050_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title25JESDown,"hist_BDT_output_t2bw050_R6JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name25JESUp,"hist_BDT_output_t2bw050_R6JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25JESUp,"hist_BDT_output_t2bw050_R6JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name25JESDown,"hist_BDT_output_t2bw050_R6JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25JESDown,"hist_BDT_output_t2bw050_R6JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name26JESUp,"hist_BDT_output_t2bw075_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26JESUp,"hist_BDT_output_t2bw075_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name26JESDown,"hist_BDT_output_t2bw075_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title26JESDown,"hist_BDT_output_t2bw075_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name26JESUp,"hist_BDT_output_t2bw075_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26JESUp,"hist_BDT_output_t2bw075_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name26JESDown,"hist_BDT_output_t2bw075_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26JESDown,"hist_BDT_output_t2bw075_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name27JESUp,"hist_BDT_output_t2bw075_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27JESUp,"hist_BDT_output_t2bw075_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name27JESDown,"hist_BDT_output_t2bw075_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title27JESDown,"hist_BDT_output_t2bw075_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name27JESUp,"hist_BDT_output_t2bw075_R2JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27JESUp,"hist_BDT_output_t2bw075_R2JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name27JESDown,"hist_BDT_output_t2bw075_R2JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27JESDown,"hist_BDT_output_t2bw075_R2JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name28JESUp,"hist_BDT_output_t2bw075_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28JESUp,"hist_BDT_output_t2bw075_R3JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name28JESDown,"hist_BDT_output_t2bw075_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title28JESDown,"hist_BDT_output_t2bw075_R3JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name28JESUp,"hist_BDT_output_t2bw075_R3JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28JESUp,"hist_BDT_output_t2bw075_R3JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name28JESDown,"hist_BDT_output_t2bw075_R3JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28JESDown,"hist_BDT_output_t2bw075_R3JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name29JESUp,"hist_BDT_output_t2bw075_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29JESUp,"hist_BDT_output_t2bw075_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name29JESDown,"hist_BDT_output_t2bw075_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title29JESDown,"hist_BDT_output_t2bw075_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name29JESUp,"hist_BDT_output_t2bw075_R5JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29JESUp,"hist_BDT_output_t2bw075_R5JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name29JESDown,"hist_BDT_output_t2bw075_R5JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29JESDown,"hist_BDT_output_t2bw075_R5JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name30JESUp,"hist_BDT_output_t2tt_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30JESUp,"hist_BDT_output_t2tt_R1JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name30JESDown,"hist_BDT_output_t2tt_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title30JESDown,"hist_BDT_output_t2tt_R1JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name30JESUp,"hist_BDT_output_t2tt_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30JESUp,"hist_BDT_output_t2tt_R1JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name30JESDown,"hist_BDT_output_t2tt_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30JESDown,"hist_BDT_output_t2tt_R1JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name31JESUp,"hist_BDT_output_t2tt_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31JESUp,"hist_BDT_output_t2tt_R2JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name31JESDown,"hist_BDT_output_t2tt_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title31JESDown,"hist_BDT_output_t2tt_R2JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name31JESUp,"hist_BDT_output_t2tt_R2JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31JESUp,"hist_BDT_output_t2tt_R2JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name31JESDown,"hist_BDT_output_t2tt_R2JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31JESDown,"hist_BDT_output_t2tt_R2JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
-   sprintf(name32JESUp,"hist_BDT_output_t2tt_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32JESUp,"hist_BDT_output_t2tt_R5JESUp_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(name32JESDown,"hist_BDT_output_t2tt_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
-   sprintf(title32JESDown,"hist_BDT_output_t2tt_R5JESDown_S%i_N%i", atoi(argv[3]), atoi(argv[4]));
+   sprintf(name32JESUp,"hist_BDT_output_t2tt_R5JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32JESUp,"hist_BDT_output_t2tt_R5JESUp_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name32JESDown,"hist_BDT_output_t2tt_R5JESDown_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32JESDown,"hist_BDT_output_t2tt_R5JESDown_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
@@ -1746,7 +1750,10 @@ int main (int argc, char *argv[])
 	  || (sampleName == "DoubleElec") || (sampleName == "DoubleMuon") 
 	  || (sampleName == "MuEl")) {						 sampleType = "data"; } 
 
-	
+
+			double width = fabs(myEvent.mNeutralino - 1);
+		        if (width < 0.1) myEvent.mNeutralino = 0; // For the MLSP=0 plane	
+
 
 			if ( (sampleType == "signal")  &&  !((myEvent.mStop ==  atoi(argv[3]) ) && (myEvent.mNeutralino ==  atoi(argv[4]) )) )continue;
 				
