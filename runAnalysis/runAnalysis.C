@@ -622,7 +622,7 @@ int main (int argc, char *argv[])
    int STOPMASS = atoi(argv[3]);
    int LSPMASS = atoi(argv[4]);
 
-   if (LSPMASS == 1) LSPMASS = 0;
+//   if (LSPMASS == 1) LSPMASS = 0;
 
    sprintf(name0,"Events_NGenSignal_S%i_N%i", STOPMASS, LSPMASS);
    sprintf(title0,"Events_NGenSignal_S%i_N%i", STOPMASS, LSPMASS);
@@ -1750,7 +1750,10 @@ int main (int argc, char *argv[])
 	  || (sampleName == "DoubleElec") || (sampleName == "DoubleMuon") 
 	  || (sampleName == "MuEl")) {						 sampleType = "data"; } 
 
-	
+
+			double width = fabs(myEvent.mNeutralino - 1);
+		        if (width < 0.1) myEvent.mNeutralino = 0; // For the MLSP=0 plane	
+
 
 			if ( (sampleType == "signal")  &&  !((myEvent.mStop ==  atoi(argv[3]) ) && (myEvent.mNeutralino ==  atoi(argv[4]) )) )continue;
 				

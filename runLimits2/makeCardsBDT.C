@@ -285,8 +285,11 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 		
 	  double sig_err_percentage = tot_err/100. + 1.;
 
-            createTableCLsBDT(decay_mode, BDTdefCutOffset, SignalRegion, MSTOP, MLSP,  nsignal, sig_err_percentage, bkg, bkg_err_percentage);
 
+
+ 
+
+            createTableCLsBDT(decay_mode, BDTdefCutOffset, SignalRegion, MSTOP, MLSP,  nsignal, sig_err_percentage, bkg, bkg_err_percentage);
 	  
 }
 
@@ -315,7 +318,8 @@ void makeCards(TString decay_mode ){
 	
               for(int x=100; x<=800; x+=25){
 	
-    	              for(int y=25; y<=700; y+=25){
+    	              //for(int y=25; y<=700; y+=25){
+    	              for(int y=0; y<=0; y+=25){
 
 				 if (x - y > 99){  
 					 cout << "S"<<x << "N"<<y<<endl;	
@@ -327,8 +331,6 @@ void makeCards(TString decay_mode ){
 	       }	
         }	   
 }
-
-
 
 
 
