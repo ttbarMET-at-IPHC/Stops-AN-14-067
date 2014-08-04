@@ -297,7 +297,7 @@ float BDTcut(string BDTregion)
         else if (BDTregion == "T2bw075_5_highDM")	  	return 0.3  ;
 
         else if (BDTregion == "T2bw050_1_lowLSP")	  	return 0.075;
-        else if (BDTregion == "T2bw050_1_higLSP")	  	return 0.225;
+        else if (BDTregion == "T2bw050_1_highLSP")	  	return 0.225;
         else if (BDTregion == "T2bw050_3"       )	  	return 0.3  ;
         else if (BDTregion == "T2bw050_4"       )	  	return 0.250;
         else if (BDTregion == "T2bw050_5"       ) 		return 0.225;
