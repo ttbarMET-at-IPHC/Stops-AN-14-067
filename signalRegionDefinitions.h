@@ -40,19 +40,11 @@ string signalregionName(TString decaymode, int stopmass, int lspmass)
 
     if (decaymode == "T2bw025") 
     {
-        if (lspmass <= 125)
-        {
-            if (lspmass > stopmass - 275)
-                SR = "T2bw025_1";
-        }
-        if (lspmass > 125)
-        {
-            if (lspmass > stopmass - 225)
-                SR = "T2bw025_1";
-            if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                SR = "T2bw025_3_lowDM";
-        }
 
+        if (lspmass > stopmass - 225)
+            SR = "T2bw025_1";
+        if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
+            SR = "T2bw025_3_lowDM";
         if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
             SR = "T2bw025_3_highDM";
         if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
@@ -63,20 +55,20 @@ string signalregionName(TString decaymode, int stopmass, int lspmass)
 
     if (decaymode == "T2tt") 
     {
+
         if (lspmass > stopmass - 225)
             SR = "T2tt_1";
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
             SR = "T2tt_2_lowDM";
-        if (lspmass <= stopmass - 275) 
-	   {
-        	SR = "T2tt_2_highDM";
-            if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
-                SR = "T2tt_5_lowDM";
-            if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 
-                SR = "T2tt_5_mediumDM"; 
-            if (lspmass <= stopmass - 500) 
-                SR = "T2tt_5_highDM";
-	   }
+        if (lspmass <= stopmass - 275 && lspmass > stopmass - 325)
+            SR = "T2tt_2_highDM";
+        if (lspmass <= stopmass - 325 && lspmass > stopmass - 400)
+            SR = "T2tt_5_lowDM";
+        if (lspmass <= stopmass - 400 && lspmass > stopmass - 500)
+            SR = "T2tt_5_mediumDM";
+        if (lspmass <= stopmass - 500)
+            SR = "T2tt_5_highDM";
+
     }
 
     return SR;
@@ -124,22 +116,12 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
     }    
 
     if (decaymode == "T2bw025") 
-    { 
-          if (lspmass <= 125)
-            {
-              if (lspmass > stopmass - 275)
-                cutvalue = 0.15;
+    {
 
-            }
-          if (lspmass > 125)
-            {
-              if (lspmass > stopmass - 225)
-                cutvalue = 0.15;
-              if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                cutvalue = 0.15;
-
-            }
-
+          if (lspmass > stopmass - 225)
+            cutvalue = 0.15;
+          if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
+            cutvalue = 0.15;
           if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
             cutvalue = 0.3;
           if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
@@ -150,21 +132,20 @@ double signalcut(TString decaymode, int stopmass, int lspmass)
    }
     if (decaymode == "T2tt") 
     { 
+
         if (lspmass > stopmass - 225)
             cutvalue = 0.275;
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
             cutvalue = 0.350;
-        if (lspmass <= stopmass - 275) 
-        {
-		cutvalue = 0.4;
-            if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
-                cutvalue = 0.35;
-            if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 
-                cutvalue = 0.325;
-            if (lspmass <= stopmass - 500) 
-                cutvalue = 0.375;
+        if (lspmass <= stopmass - 275 && lspmass > stopmass - 325)
+            cutvalue = 0.4;
+        if (lspmass <= stopmass - 325 && lspmass > stopmass - 400)
+            cutvalue = 0.35;
+        if (lspmass <= stopmass - 400 && lspmass > stopmass - 500)
+            cutvalue = 0.325;
+        if (lspmass <= stopmass - 500)
+            cutvalue = 0.375;
 
-        }
     }
 
 
@@ -189,73 +170,68 @@ int returnIntBDTOffsetValue(TString decaymode, int stopmass, int lspmass)
             intoffset = 4;
     }
 
-    if (decaymode == "T2bw050") 
-    {
-        if (lspmass > stopmass - 250) 
-        {
-            intoffset = 7 ; 
-            if (lspmass < 150) intoffset = 6;
+
+    if (decaymode == "T2bw050"){ 
+  
+
+        if (lspmass > stopmass - 250)
+        {   
+            intoffset = 5 ;
+            if (lspmass <= 50) intoffset = 2;
+          //  if (lspmass > 50) && intoffset = 5;
         }
 
         if (lspmass <= stopmass - 250 && lspmass > stopmass - 400)
-            intoffset = 5;
+            intoffset = 4;
         if (lspmass <= stopmass - 400 && lspmass > stopmass - 450)
-            intoffset = 6;
-        if (lspmass <= stopmass - 450 && lspmass > stopmass - 625)
-            intoffset = 8;
-        if (lspmass <= stopmass - 625)
-            intoffset = 3;
+            intoffset = 4;
+        if (lspmass <= stopmass - 450 && lspmass > stopmass - 550)
+            intoffset = 4;
+        if (lspmass <= stopmass - 550 )
+            intoffset = 5;
     }    
-
 
 
   if (decaymode == "T2bw025") {
 
-          if (lspmass <= 125)
-            {
-              if (lspmass > stopmass - 275)
-                intoffset = 4;
-
-            }
-          if (lspmass > 125)
-            {
-              if (lspmass > stopmass - 225)
-                intoffset = 4;
-              if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
-                intoffset = 4;
-
-            }
-
-          if (lspmass <= stopmass - 275 && lspmass > stopmass - 425)
-            intoffset = 7;
-          if (lspmass <= stopmass - 425 && lspmass > stopmass - 600)
+          if (lspmass > stopmass - 225)
             intoffset = 4;
-          if (lspmass <= stopmass - 600)
+          if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
             intoffset = 4;
+
+          if ((lspmass <= stopmass - 275 && lspmass > stopmass - 425) && (lspmass <= 50))
+            intoffset = 1;
+          if ((lspmass <= stopmass - 275 && lspmass > stopmass - 425) && (lspmass > 50))
+            intoffset = 4;
+
+          if (lspmass <= stopmass - 425 && lspmass > stopmass - 550)
+            intoffset = 4;
+          if (lspmass <= stopmass - 550)
+            intoffset = 3;
 
   }
 
 
 
-
-    if (decaymode == "T2tt") 
+    if (decaymode == "T2tt")
     {
-        if (lspmass > stopmass - 225)
-            intoffset = 3;
+
+        if ((lspmass > stopmass - 225 ) && (lspmass <= 100)) intoffset = 4;
+        if ((lspmass > stopmass - 225 ) && (lspmass > 100)) intoffset = 7; // peak of the off shell top part
+
         if (lspmass <= stopmass - 225 && lspmass > stopmass - 275)
             intoffset = 4;
-        if (lspmass <= stopmass - 275) 
-        {
-            intoffset=7; 
+        if (lspmass <= stopmass - 275 && lspmass > stopmass - 325)
+            intoffset = 4;
+        if (lspmass <= stopmass - 325 && lspmass > stopmass - 400)
+            intoffset = 4;
+        if (lspmass <= stopmass - 400 && lspmass > stopmass - 500)
+            intoffset = 4;
+        if (lspmass <= stopmass - 500)
+            intoffset = 4;
 
-            if (lspmass <= stopmass - 325 && lspmass > stopmass - 400) 
-                intoffset = 4;
-            if (lspmass <= stopmass - 400 && lspmass > stopmass - 500) 
-                intoffset = 4;
-            if (lspmass <= stopmass - 500) 
-                intoffset = 4;
-        }
     }
+
 
     return intoffset;
 }
@@ -306,31 +282,34 @@ float BDTcut(string BDTregion)
 {
     if (NOMINAL_BDT_CUT)
     {
-             if (BDTregion == "T2tt_1"         )  return 0.275;
-        else if (BDTregion == "T2tt_2_lowDM"   )  return 0.35 ;
-        else if (BDTregion == "T2tt_2_highDM"  )  return 0.4  ;
-        else if (BDTregion == "T2tt_5_lowDM"   )  return 0.35 ;
-        else if (BDTregion == "T2tt_5_mediumDM")  return 0.325;
-        else if (BDTregion == "T2tt_5_highDM"  )  return 0.375;
+             if (BDTregion == "T2tt_1_lowLSP"  )  		return 0.275;
+             if (BDTregion == "T2tt_1_highLSP" )	  	return 0.425;
+        else if (BDTregion == "T2tt_2_lowDM"   )	  	return 0.35 ;
+        else if (BDTregion == "T2tt_2_highDM"  )	  	return 0.4  ;
+        else if (BDTregion == "T2tt_5_lowDM"   )	  	return 0.35 ;
+        else if (BDTregion == "T2tt_5_mediumDM")	  	return 0.325;
+        else if (BDTregion == "T2tt_5_highDM"  )	  	return 0.375;
 
-        else if (BDTregion == "T2bw075_1"       ) return 0.225;
-        else if (BDTregion == "T2bw075_2"       ) return 0.275;
-        else if (BDTregion == "T2bw075_3"       ) return 0.350;
-        else if (BDTregion == "T2bw075_5_lowDM" ) return 0.25 ;
-        else if (BDTregion == "T2bw075_5_highDM") return 0.3  ;
+        else if (BDTregion == "T2bw075_1"       )	  	return 0.225;
+        else if (BDTregion == "T2bw075_2"       )	  	return 0.275;
+        else if (BDTregion == "T2bw075_3"       )	  	return 0.350;
+        else if (BDTregion == "T2bw075_5_lowDM" )	  	return 0.25 ;
+        else if (BDTregion == "T2bw075_5_highDM")	  	return 0.3  ;
 
-        else if (BDTregion == "T2bw050_1_lowDM" ) return 0.175;
-        else if (BDTregion == "T2bw050_1_highDM") return 0.25 ;
-        else if (BDTregion == "T2bw050_3"       ) return 0.3  ;
-        else if (BDTregion == "T2bw050_4"       ) return 0.250;
-        else if (BDTregion == "T2bw050_5"       ) return 0.225;
-        else if (BDTregion == "T2bw050_6"       ) return 0.2  ;
+        else if (BDTregion == "T2bw050_1_lowLSP")	  	return 0.075;
+        else if (BDTregion == "T2bw050_1_higLSP")	  	return 0.225;
+        else if (BDTregion == "T2bw050_3"       )	  	return 0.3  ;
+        else if (BDTregion == "T2bw050_4"       )	  	return 0.250;
+        else if (BDTregion == "T2bw050_5"       ) 		return 0.225;
+       // else if (BDTregion == "T2bw050_6"       ) return 0.2  ;  // Get rid of this (have no sensitivity)
                                                 
-        else if (BDTregion == "T2bw025_1"       ) return 0.15 ;
-        else if (BDTregion == "T2bw025_3_lowDM" ) return 0.15 ;
-        else if (BDTregion == "T2bw025_3_highDM") return 0.3  ;
-        else if (BDTregion == "T2bw025_4"       ) return 0.15 ;
-        else if (BDTregion == "T2bw025_6"       ) return 0.175;
+        else if (BDTregion == "T2bw025_1"       ) 		return 0.15 ;
+        else if (BDTregion == "T2bw025_3_lowDM" ) 		return 0.15 ;
+        else if (BDTregion == "T2bw025_3_highDM_lowLSP") 	return 0.15 ;
+        else if (BDTregion == "T2bw025_3_highDM_highLSP") 	return 0.3  ;
+        else if (BDTregion == "T2bw025_4_lowDM" ) 		return 0.15 ;
+        else if (BDTregion == "T2bw025_4_highDM") 		return 0.1  ;
+       // else if (BDTregion == "T2bw025_6"       ) return 0.175; // Get rid of this (have no sensitivity)
 
         else 
         {

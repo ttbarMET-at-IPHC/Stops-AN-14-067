@@ -100,8 +100,9 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
    	  if (SignalRegion == "T2tt_5_highDM")   {SignalRegion_ = "R5";   }
 
 
-          TFile sig("ntp_6_MT100/"+decay_mode+".root");
+          TFile sig("ntp_7_MT100/"+decay_mode+".root");
           TH1D* signal= (TH1D*)sig.Get("hist_BDT_output_"+decay_mode_+"_"+SignalRegion_+"_S"+TString(stop)+"_N"+TString(neut));
+          TH1D* signal_RAW= (TH1D*)sig.Get("hist_BDT_output_"+decay_mode_+"_"+SignalRegion_+"_RAW_S"+TString(stop)+"_N"+TString(neut));
           TH1D* signalJESUp= (TH1D*)sig.Get("hist_BDT_output_"+decay_mode_+"_"+SignalRegion_+"JESUp_S"+TString(stop)+"_N"+TString(neut));
           TH1D* signalJESDown= (TH1D*)sig.Get("hist_BDT_output_"+decay_mode_+"_"+SignalRegion_+"JESDown_S"+TString(stop)+"_N"+TString(neut));
 
@@ -120,6 +121,7 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 	  double cut = BDTdefCut; 
           int max_bin = signal->GetXaxis()->FindBin(cut); // Do CLs minimization 
           double nsignal = signal->Integral(max_bin,nbins+1);
+          double nsignal_RAW = signal_RAW->Integral(max_bin,nbins+1);
           double nsignalJESUp = signalJESUp->Integral(max_bin,nbins+1);
           double nsignalJESDown = signalJESDown->Integral(max_bin,nbins+1);
           double nsignalBVetoBCUp = signalBVetoBCUp->Integral(max_bin,nbins+1);
@@ -258,7 +260,7 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 	  double BVetoLighttot =  (BVetoLightUp + BVetoLightDown)/ 2. ;
 	  double BVetoBCtot =  (BVetoBCUp + BVetoBCDown)/ 2. ;
 	  double BVetotot = sqrt (BVetoBCtot*BVetoBCtot + BVetoLighttot*BVetoLighttot); 
-	  double stat_err = 1 + sqrt (1 /nsignal + 1 / totalsignal -   1 /   (sqrt(nsignal * totalsignal)));
+	  double stat_err = 1. + sqrt (1. /nsignal_RAW + 1. / totalsignal -   1. /   (sqrt(nsignal_RAW * totalsignal)));
 
           if (JEStot > 20.) JEStot = 20.;	// put upper bound on JES uncertainty
           if (BVetotot > 10.) BVetotot = 10.;	// put upper bound on JES uncertainty
@@ -266,7 +268,8 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
          
           double tot_err = sqrt(stat_err*stat_err + BVetotot*BVetotot + JEStot*JEStot + 3*3 + 5*5 + 2.2*2.2 );
 
-/*          cout << "n_signal: \t\t\t \t\t\t"<< nsignal << endl;
+/*
+          cout << "n_signal: \t\t\t \t\t\t"<< nsignal << endl;
           cout << "preselec1, preselec2:\t\t\t\t\t "<< nsignalpreselection << ", "<< nsignalpreselection2 << endl;
 
           //cout << "n_signalJESUp: "<< nsignalJESUp << " ("<< JESUp  << "%)"<< endl;
@@ -288,7 +291,6 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 
 
  
-
             createTableCLsBDT(decay_mode, BDTdefCutOffset, SignalRegion, MSTOP, MLSP,  nsignal, sig_err_percentage, bkg, bkg_err_percentage);
 	  
 }
@@ -300,15 +302,15 @@ void makeCLsCards(TString decay_mode, double BDTdefCutOffset, int MSTOP, int MLS
 void makeCards(TString decay_mode ){
 
       cout << decay_mode << endl;  
-      int start;
-      int end;
+      int start = 0;
+      int end = 0;
       // -9 to 4 is 0.45 to 0.2
- 
-      if (decay_mode == "T2tt") { start = 0; end = 0;}
-      if (decay_mode == "T2bw025") { start = 0; end = 0;}
-      if (decay_mode == "T2bw050") { start = 0; end = 0;}
-      if (decay_mode == "T2bw075") { start = 0; end = 0;}
-
+ /*
+      if (decay_mode == "T2tt") { start = -3; end = 0;}
+      if (decay_mode == "T2bw025") { start = -3; end = 0;}
+      if (decay_mode == "T2bw050") { start = -2; end = 0;}
+      if (decay_mode == "T2bw075") { start = -3; end = 0;}
+*/
 
       for(int z= start; z<= end; z+=1){
 
@@ -318,8 +320,7 @@ void makeCards(TString decay_mode ){
 	
               for(int x=100; x<=800; x+=25){
 	
-    	              //for(int y=25; y<=700; y+=25){
-    	              for(int y=0; y<=0; y+=25){
+    	              for(int y=0; y<=700; y+=25){
 
 				 if (x - y > 99){  
 					 cout << "S"<<x << "N"<<y<<endl;	
@@ -362,8 +363,8 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
              << "process        	\t\t 0              \t 1          	" << endl
              << "rate           	\t\t " << signal << "  \t \t "<< bkg << endl
              << "------------" << endl
-             << "signal_unc \t lnN 	\t "<< signal_err_percentage << "          \t\t -              	\t   Total uncertainty on the signal" << endl
-             << "bkg_unc    \t lnN 	\t -             \t\t "<< bkg_err_percentage <<"          	\t  Total uncertainty on the background" << endl
+             << "signal_unc \t lnN 	\t   " << signal_err_percentage << "          \t\t -      \t   Total uncertainty on the signal " << endl
+             << "bkg_unc    \t lnN 	\t -             \t\t "<< bkg_err_percentage <<"          \t  Total uncertainty on the background " << endl
              << "------------"<<endl 
              << "#DEBUG (SR): "  << TString(SignalRegion) << endl;
  
@@ -371,7 +372,7 @@ void createTableCLsBDT(TString decay_mode, double BDTdefCutOffset, TString Signa
   tablesFile.close();
 
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_9_mT100/"+TString(decay_mode)+"_CUT"+TString(CUT)+"/";
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsBDT_11_mT100/"+TString(decay_mode)+"_CUT"+TString(CUT)+"/";
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 

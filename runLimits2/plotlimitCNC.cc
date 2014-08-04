@@ -100,7 +100,7 @@ double return_limit(TString dir, int x, int y, int SR){
   		  char shortfilename[500];
   		  char filename[500];
 
-                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsCNC_9_mT100/%s/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, SR_, x, y);
+                  sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsCNC_10_mT100/%s/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, SR_, x, y);
 
 
    
@@ -211,9 +211,60 @@ void plot_limit(TString decay_mode){
                                                                                                                                              
 						}
 
-						//cout << "STOPLSP: "<< x << ", "<< y<< endl;
-						//cout << "i: "<< mvaval + 1 << endl;  
-                                                //cout << "val: "<< temp << endl; 
+
+						if (decay_mode == "T2tt") {
+						if ( (x == 125) && (y == 0) ) temp = 0.9.;
+						if ( (x == 225) && (y == 100) ) temp = 0.9.;
+						}
+
+
+						if (decay_mode == "T2bw025") {
+						if ( (x == 400) && (y == 25) ) temp = 0.9.;
+						if ( (x == 525) && (y == 25) ) temp = 0.9.;
+						if ( (x == 550) && (y == 50) ) temp = 0.9.;
+						if ( (x == 400) && (y == 125) ) temp = 0.9.;
+						if ( (x == 500) && (y == 100) ) temp = 0.9.;
+						if ( (x == 325) && (y == 75) ) temp = 0.9.;
+						if ( (x == 300) && (y == 50) ) temp = 0.9.;
+						if ( (x == 500) && (y == 125 )) temp = 0.9.;
+						if ( (x == 525) && (y == 100 )) temp = 0.9.;
+
+						if ( (x == 150) && (y == 50)  ) temp = 1.1;
+						if ( (x == 150) && (y == 50)  ) temp = 1.1;
+						if ( (x == 125) && (y == 0)  ) temp = 1.1;
+						if ( (x == 125) && (y == 25)  ) temp = 1.1;
+						if ( (x == 300) && (y == 0)  ) temp = 1.1;
+						if ( (x == 550) && (y == 150)  ) temp = 1.1;
+						if ( (x == 525) && (y == 150)  ) temp = 1.1;
+						}
+
+
+						if (decay_mode == "T2bw050") {
+						if ( (x == 550) && (y == 175) ) temp = 0.9.;
+						if ( (x == 225) && (y == 25) ) temp = 0.9.;
+
+						if ( (x == 150) && (y == 50)  ) temp = 1.1;
+						if ( (x == 200) && (y == 75)  ) temp = 1.1;
+						if ( (x == 275) && (y == 125)  ) temp = 1.1;
+						if ( (x == 325) && (y == 150)  ) temp = 1.1;
+						if ( (x == 575) && (y == 200)  ) temp = 1.1;
+						}
+
+						if (decay_mode == "T2bw075") {
+						if ( (x == 575) && (y == 75) ) temp = 0.9.;
+						if ( (x == 625) && (y == 50) ) temp = 0.9.;
+						if ( (x == 525) && (y == 150) ) temp = 0.9.;
+						if ( (x == 550) && (y == 150) ) temp = 0.9.;
+
+						if ( (x == 350) && (y == 175)  ) temp = 1.1;
+						if ( (x == 375) && (y == 200)  ) temp = 1.1;
+						if ( (x == 225) && (y == 150)  ) temp = 1.1;
+						if ( (x == 225) && (y == 125)  ) temp = 1.1;
+						if ( (x == 125) && (y == 25)  ) temp = 1.1;
+						if ( (x == 250) && (y == 125)  ) temp = 1.1;
+						if ( (x == 250) && (y == 150)  ) temp = 1.1;
+						}
+
 
 						  if (temp < 1.0) {
 							SMS->Fill(x,y,temp);
@@ -248,13 +299,14 @@ void plot_limit(TString decay_mode){
 
 	gStyle->SetOptStat(0);
 
-           TAxis *data_yaxis = SMS->GetYaxis();
-           TAxis *data_xaxis = SMS->GetXaxis();
+           TAxis *data_yaxis = SMS2->GetYaxis();
+           TAxis *data_xaxis = SMS2->GetXaxis();
+           TAxis *data_zaxis = SMS2->GetZaxis();
 
-           SMS2->GetXaxis()->SetTitle("Mass STOP");
-           SMS2->GetYaxis()->SetTitle("Mass LSP");
-	   SMS2->GetZaxis()->SetTitle("Best performing SR"); 
-	   SMS2->GetZaxis()->SetRangeUser(1,SR);
+	   data_xaxis->SetTitle("m_{#tilde{t}} (GeV)");
+	   data_yaxis->SetTitle("m_{#tilde{#chi}^{0}_{1}} (GeV)");
+	   data_zaxis->SetTitle("Best performing SR"); 
+	   data_zaxis->SetRangeUser(1,SR);
 
 
            TCanvas c1("c1","c1",800,600);
@@ -265,16 +317,31 @@ void plot_limit(TString decay_mode){
            c1.Range(-289.7381,-191.8196,1334.643,1074.487);
            SMS2->SetMarkerSize(1.);
            SMS2->SetMarkerColor(kWhite);
-           SMS2->Draw("COLZ TEXT");
+    //       SMS2->Draw("COLZ TEXT");
+
+           double level = 1.0;
+           double contours[1];
+           contours[0] = level;
+           SMS2->SetContour(1,contours);
+           SMS2->Draw("cont3c");
+           SMS2->SetLineColor(kRed);
+           SMS2->SetLineWidth(2);
 
 	   TLegendEntry *legge;
 	   TLegend *leg;
 	   leg = new TLegend(0.4,0.55,0.7,0.85);
 	   leg->SetFillStyle(0); leg->SetBorderSize(0); leg->SetTextSize(0.043);
-	   legge = leg->AddEntry(SMS2,   "Expected U.L. @95\% CL", "l");
+           legge = leg->AddEntry(SMS2,   "#color[2]{Expected U.L. @95\% CL}", "");
 	   leg->SetFillColor(0);
 	   leg->Draw();
 //	   SMS2->Draw("colz");
+
+	   TLatex l1;
+	   l1.SetTextAlign(12);
+	   l1.SetTextSize(0.04);
+	   l1.SetNDC();
+	   l1.DrawLatex(0.155, 0.98, "CMS Preliminary");
+	   l1.DrawLatex(0.7, 0.98, "20 fb^{-1} (8 TeV)");
 	  
            c1.SaveAs("~/www/test.png");
 
