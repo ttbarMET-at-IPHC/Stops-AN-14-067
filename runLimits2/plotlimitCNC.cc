@@ -29,6 +29,7 @@
 #include <map>
 #include <utility>
 
+#include "smooth.C"
 
 
 
@@ -42,7 +43,7 @@ TString savedir = "~/www/";
 
 
 
-double return_limit(TString dir, int x, int y, int SR){
+double return_limit(TString dir, int x, int y, int SR, TString Exp){
 
 
    double limit;
@@ -102,55 +103,59 @@ double return_limit(TString dir, int x, int y, int SR){
 
                   sprintf(filename,"/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsCNC_10_mT100/%s/%s/ASYMPTOTIC_CLS_RESULT_S%d-N%d.root", dataset_name, SR_, x, y);
 
-
    
 	         
-		  TFile* file  = new TFile(filename, "READ");  
-		  char* name = (char*)file->GetName();
-
+	   	        TFile* file  = new TFile(filename, "READ");  
+		        char* name = (char*)file->GetName();
 
 
 			TTree *limittree = (TTree*)file->Get("limit");
 			double high_val = 100.;
-			TH1F* exp = new TH1F("exp","",100,0,high_val);
-			limittree->Draw("limit>>exp", "quantileExpected==0.5");
+                        TH1F* expm1 = new TH1F("expm1","",100,0,high_val);
+                        limittree->Draw("limit>>expm1", "quantileExpected>0.15 && quantileExpected<0.16");
+                        TH1F* exp = new TH1F("exp","",100,0,high_val);
+                        limittree->Draw("limit>>exp", "quantileExpected==0.5");
+                        TH1F* expp1 = new TH1F("expp1","",100,0,high_val);
+                        limittree->Draw("limit>>expp1", "quantileExpected>0.83 && quantileExpected<0.84");
 
-			limit =  exp->GetMean(); 
+                        if ( Exp == "Exp" )  limit =  exp->GetMean();
+                        if ( Exp == "ExpM" ) limit =  expm1->GetMean();
+                        if ( Exp == "ExpP" ) limit =  expp1->GetMean();
+
 		  	file->Close();
 
 
-
- return limit; 	
+         return limit; 	
 
 }
 
 
 
 
-void plot_limit(TString decay_mode){
+void plot_limit(TString decay_mode, TString Exp){
 
-   TFile *fout = new TFile(decay_mode+"_CNC.root","recreate");
+   TFile *fout = new TFile(decay_mode+"_"+Exp+"_CNC.root","recreate");
 	
    int SR;
 
-   TH2D *SMS = new TH2D(decay_mode,"",26,162.5, 812.5, 17, -12.5,412.5);
-   TH2D *SMS2 = new TH2D(decay_mode,"SRs",29,87.5, 812.5, 17, -12.5,412.5);
+   TH2D *SMS = new TH2D(decay_mode+"_"+Exp,"",26,162.5, 812.5, 17, -12.5,412.5);
+//   TH2D *SMS2 = new TH2D(decay_mode,"SRs",29,87.5, 812.5, 17, -12.5,412.5);
 	
               for(int x=100; x<800; x+=25){
 
                       for(int y=0; y<=700; y+=25){
 
-                               if (x - y > 75){
+                                 if (x - y > 99){
 
 						if (decay_mode == "T2tt") {
 							SR =5; 
 							double limits[5] = {
 
-							return_limit(decay_mode,x,y,1),
-							return_limit(decay_mode,x,y,2),
-							return_limit(decay_mode,x,y,3),
-							return_limit(decay_mode,x,y,4),
-							return_limit(decay_mode,x,y,5),
+							return_limit(decay_mode,x,y,1, Exp),
+							return_limit(decay_mode,x,y,2, Exp),
+							return_limit(decay_mode,x,y,3, Exp),
+							return_limit(decay_mode,x,y,4, Exp),
+							return_limit(decay_mode,x,y,5, Exp),
 							};
 
 						}
@@ -161,11 +166,11 @@ void plot_limit(TString decay_mode){
 
 							double limits[3] = {
 
-							return_limit(decay_mode,x,y,1),
-							return_limit(decay_mode,x,y,2),
-							return_limit(decay_mode,x,y,3)
-							};
-
+							return_limit(decay_mode,x,y,1, Exp),
+							return_limit(decay_mode,x,y,2, Exp),
+							return_limit(decay_mode,x,y,3, Exp)
+							};                           
+                                                                                     
 						}
 
 						if (decay_mode == "T2bw050") {
@@ -173,10 +178,10 @@ void plot_limit(TString decay_mode){
 
 							double limits[4] = {
 
-							return_limit(decay_mode,x,y,1),
-							return_limit(decay_mode,x,y,2),
-							return_limit(decay_mode,x,y,3),
-							return_limit(decay_mode,x,y,4)
+							return_limit(decay_mode,x,y,1, Exp),
+							return_limit(decay_mode,x,y,2, Exp),
+							return_limit(decay_mode,x,y,3, Exp),
+							return_limit(decay_mode,x,y,4, Exp)
 							};
 
 						}
@@ -186,9 +191,9 @@ void plot_limit(TString decay_mode){
 
 							double limits[3] = {
 
-							return_limit(decay_mode,x,y,1),
-							return_limit(decay_mode,x,y,2),
-							return_limit(decay_mode,x,y,3)
+							return_limit(decay_mode,x,y,1, Exp),
+							return_limit(decay_mode,x,y,2, Exp),
+							return_limit(decay_mode,x,y,3, Exp)
 							};
 
 						}
@@ -202,74 +207,23 @@ void plot_limit(TString decay_mode){
         
 							if( (limits[i]<temp) && limits[i] > 0. ){
 		
-								
 								 temp    = limits[i];                     
 								 mvaval  = i;
 													   
-																   
 							}
                                                                                                                                              
 						}
 
+						if ( Exp == "ExpM" ) exp = 1;
+						if ( Exp == "Exp" )  exp = 2;
+						if ( Exp == "ExpP" ) exp = 3;
 
-						if (decay_mode == "T2tt") {
-						if ( (x == 125) && (y == 0) ) temp = 0.9.;
-						if ( (x == 225) && (y == 100) ) temp = 0.9.;
-						}
+                  				  double limit = ReturnCleanedLimit( x, y, temp, decay_mode, false, exp);
 
+						  if (limit < 1.0) {
 
-						if (decay_mode == "T2bw025") {
-						if ( (x == 400) && (y == 25) ) temp = 0.9.;
-						if ( (x == 525) && (y == 25) ) temp = 0.9.;
-						if ( (x == 550) && (y == 50) ) temp = 0.9.;
-						if ( (x == 400) && (y == 125) ) temp = 0.9.;
-						if ( (x == 500) && (y == 100) ) temp = 0.9.;
-						if ( (x == 325) && (y == 75) ) temp = 0.9.;
-						if ( (x == 300) && (y == 50) ) temp = 0.9.;
-						if ( (x == 500) && (y == 125 )) temp = 0.9.;
-						if ( (x == 525) && (y == 100 )) temp = 0.9.;
-
-						if ( (x == 150) && (y == 50)  ) temp = 1.1;
-						if ( (x == 150) && (y == 50)  ) temp = 1.1;
-						if ( (x == 125) && (y == 0)  ) temp = 1.1;
-						if ( (x == 125) && (y == 25)  ) temp = 1.1;
-						if ( (x == 300) && (y == 0)  ) temp = 1.1;
-						if ( (x == 550) && (y == 150)  ) temp = 1.1;
-						if ( (x == 525) && (y == 150)  ) temp = 1.1;
-						}
-
-
-						if (decay_mode == "T2bw050") {
-						if ( (x == 550) && (y == 175) ) temp = 0.9.;
-						if ( (x == 225) && (y == 25) ) temp = 0.9.;
-
-						if ( (x == 150) && (y == 50)  ) temp = 1.1;
-						if ( (x == 200) && (y == 75)  ) temp = 1.1;
-						if ( (x == 275) && (y == 125)  ) temp = 1.1;
-						if ( (x == 325) && (y == 150)  ) temp = 1.1;
-						if ( (x == 575) && (y == 200)  ) temp = 1.1;
-						}
-
-						if (decay_mode == "T2bw075") {
-						if ( (x == 575) && (y == 75) ) temp = 0.9.;
-						if ( (x == 625) && (y == 50) ) temp = 0.9.;
-						if ( (x == 525) && (y == 150) ) temp = 0.9.;
-						if ( (x == 550) && (y == 150) ) temp = 0.9.;
-
-						if ( (x == 350) && (y == 175)  ) temp = 1.1;
-						if ( (x == 375) && (y == 200)  ) temp = 1.1;
-						if ( (x == 225) && (y == 150)  ) temp = 1.1;
-						if ( (x == 225) && (y == 125)  ) temp = 1.1;
-						if ( (x == 125) && (y == 25)  ) temp = 1.1;
-						if ( (x == 250) && (y == 125)  ) temp = 1.1;
-						if ( (x == 250) && (y == 150)  ) temp = 1.1;
-						}
-
-
-						  if (temp < 1.0) {
-							SMS->Fill(x,y,temp);
-							SMS2->Fill(x,y,mvaval+1);
-
+							SMS->Fill(x,y, limit);
+							//SMS2->Fill(x,y,mvaval+1);
 						  }
 				}
 		}
@@ -299,14 +253,14 @@ void plot_limit(TString decay_mode){
 
 	gStyle->SetOptStat(0);
 
-           TAxis *data_yaxis = SMS2->GetYaxis();
-           TAxis *data_xaxis = SMS2->GetXaxis();
-           TAxis *data_zaxis = SMS2->GetZaxis();
+           TAxis *data_yaxis = SMS->GetYaxis();
+           TAxis *data_xaxis = SMS->GetXaxis();
+           TAxis *data_zaxis = SMS->GetZaxis();
 
 	   data_xaxis->SetTitle("m_{#tilde{t}} (GeV)");
 	   data_yaxis->SetTitle("m_{#tilde{#chi}^{0}_{1}} (GeV)");
 	   data_zaxis->SetTitle("Best performing SR"); 
-	   data_zaxis->SetRangeUser(1,SR);
+//	   data_zaxis->SetRangeUser(1,SR);
 
 
            TCanvas c1("c1","c1",800,600);
@@ -315,26 +269,26 @@ void plot_limit(TString decay_mode){
            c1.SetTopMargin(0.04895105);
            c1.SetBottomMargin(0.1416084);
            c1.Range(-289.7381,-191.8196,1334.643,1074.487);
-           SMS2->SetMarkerSize(1.);
-           SMS2->SetMarkerColor(kWhite);
-    //       SMS2->Draw("COLZ TEXT");
+           SMS->SetMarkerSize(1.);
+           SMS->SetMarkerColor(kWhite);
+    //       SMS->Draw("COLZ TEXT");
 
-           double level = 1.0;
+  /*         double level = 1.0;
            double contours[1];
            contours[0] = level;
-           SMS2->SetContour(1,contours);
-           SMS2->Draw("cont3c");
-           SMS2->SetLineColor(kRed);
-           SMS2->SetLineWidth(2);
-
+           SMS->SetContour(1,contours);
+           SMS->Draw("cont3c");
+           SMS->SetLineColor(kRed);
+           SMS->SetLineWidth(2);
+*/
 	   TLegendEntry *legge;
 	   TLegend *leg;
 	   leg = new TLegend(0.4,0.55,0.7,0.85);
 	   leg->SetFillStyle(0); leg->SetBorderSize(0); leg->SetTextSize(0.043);
-           legge = leg->AddEntry(SMS2,   "#color[2]{Expected U.L. @95\% CL}", "");
+           legge = leg->AddEntry(SMS,   "#color[2]{Expected U.L. @95\% CL}", "");
 	   leg->SetFillColor(0);
 	   leg->Draw();
-//	   SMS2->Draw("colz");
+	   SMS->Draw("colz");
 
 	   TLatex l1;
 	   l1.SetTextAlign(12);
@@ -346,6 +300,6 @@ void plot_limit(TString decay_mode){
            c1.SaveAs("~/www/test.png");
 
       fout->cd();
-      fout->Write();
+      SMS->Write();
       fout->Close();	  
 }
