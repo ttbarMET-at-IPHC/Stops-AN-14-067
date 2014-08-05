@@ -62,6 +62,7 @@ int main (int argc, char *argv[])
 
    char name0[100], title0[100];
    char name00[100], title00[100];
+   char name000[100], title000[100];
 
    char name1[100], title1[100];
    char name2[200], title2[200];
@@ -189,7 +190,24 @@ int main (int argc, char *argv[])
    char name16BVetoLightDown[100], title16BVetoLightDown[100];
 
    // BDT stuff
-   //
+
+   char name17_RAW[500], title17_RAW[500];
+   char name18_RAW[500], title18_RAW[500];
+   char name19_RAW[500], title19_RAW[500];
+   char name20_RAW[500], title20_RAW[500];
+   char name21_RAW[500], title21_RAW[500];
+   char name22_RAW[500], title22_RAW[500];
+   char name23_RAW[500], title23_RAW[500];
+   char name24_RAW[500], title24_RAW[500];
+   char name25_RAW[500], title25_RAW[500];
+   char name26_RAW[500], title26_RAW[500];
+   char name27_RAW[500], title27_RAW[500];
+   char name28_RAW[500], title28_RAW[500];
+   char name29_RAW[500], title29_RAW[500];
+   char name30_RAW[500], title30_RAW[500];
+   char name31_RAW[500], title31_RAW[500];
+   char name32_RAW[500], title32_RAW[500];
+
    char name17[500], title17[500];
    char name18[500], title18[500];
    char name19[500], title19[500];
@@ -329,6 +347,7 @@ int main (int argc, char *argv[])
 
 
    TH1D* Events_NGenSignal;
+   TH1D* Events_NSignal;
    TH1D* Events_Preselection;
 
    TH1D* Events_T2tt_offShellLoose ; 
@@ -350,6 +369,26 @@ int main (int argc, char *argv[])
    TH1D* Events_T2bw075_mediumDeltaM;
    TH1D* Events_T2bw075_highDeltaM;
 
+
+   TH1D* hist_BDT_output_t2bw025_R1_RAW;
+   TH1D* hist_BDT_output_t2bw025_R3_RAW;
+   TH1D* hist_BDT_output_t2bw025_R4_RAW;
+   TH1D* hist_BDT_output_t2bw025_R6_RAW;
+
+   TH1D* hist_BDT_output_t2bw050_R1_RAW;
+   TH1D* hist_BDT_output_t2bw050_R3_RAW;
+   TH1D* hist_BDT_output_t2bw050_R4_RAW;
+   TH1D* hist_BDT_output_t2bw050_R5_RAW;
+   TH1D* hist_BDT_output_t2bw050_R6_RAW;
+
+   TH1D* hist_BDT_output_t2bw075_R1_RAW;
+   TH1D* hist_BDT_output_t2bw075_R2_RAW;
+   TH1D* hist_BDT_output_t2bw075_R3_RAW;
+   TH1D* hist_BDT_output_t2bw075_R5_RAW;
+
+   TH1D* hist_BDT_output_t2tt_R1_RAW;
+   TH1D* hist_BDT_output_t2tt_R2_RAW;
+   TH1D* hist_BDT_output_t2tt_R5_RAW;
 
  
    TH1D* hist_BDT_output_t2bw025_R1;
@@ -626,6 +665,8 @@ int main (int argc, char *argv[])
 
    sprintf(name0,"Events_NGenSignal_S%i_N%i", STOPMASS, LSPMASS);
    sprintf(title0,"Events_NGenSignal_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(name000,"Events_NSignal_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title000,"Events_NSignal_S%i_N%i", STOPMASS, LSPMASS);
    sprintf(name00,"Events_Preselection_S%i_N%i", STOPMASS, LSPMASS);
    sprintf(title00,"Events_Preselection_S%i_N%i", STOPMASS, LSPMASS);
  
@@ -677,6 +718,56 @@ int main (int argc, char *argv[])
    sprintf(name16,"Events_T2bw075_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
    sprintf(title16,"Events_T2bw075_highDeltaM_S%i_N%i", STOPMASS, LSPMASS);
 
+
+   sprintf(name17_RAW,"hist_BDT_output_t2bw025_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title17_RAW,"hist_BDT_output_t2bw025_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name18_RAW,"hist_BDT_output_t2bw025_R3_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title18_RAW,"hist_BDT_output_t2bw025_R3_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name19_RAW,"hist_BDT_output_t2bw025_R4_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title19_RAW,"hist_BDT_output_t2bw025_R4_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name20_RAW,"hist_BDT_output_t2bw025_R6_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title20_RAW,"hist_BDT_output_t2bw025_R6_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name21_RAW,"hist_BDT_output_t2bw050_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title21_RAW,"hist_BDT_output_t2bw050_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name22_RAW,"hist_BDT_output_t2bw050_R3_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title22_RAW,"hist_BDT_output_t2bw050_R3_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name23_RAW,"hist_BDT_output_t2bw050_R4_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title23_RAW,"hist_BDT_output_t2bw050_R4_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name24_RAW,"hist_BDT_output_t2bw050_R5_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title24_RAW,"hist_BDT_output_t2bw050_R5_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name25_RAW,"hist_BDT_output_t2bw050_R6_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title25_RAW,"hist_BDT_output_t2bw050_R6_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+
+   sprintf(name26_RAW,"hist_BDT_output_t2bw075_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title26_RAW,"hist_BDT_output_t2bw075_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name27_RAW,"hist_BDT_output_t2bw075_R2_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title27_RAW,"hist_BDT_output_t2bw075_R2_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name28_RAW,"hist_BDT_output_t2bw075_R3_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title28_RAW,"hist_BDT_output_t2bw075_R3_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name29_RAW,"hist_BDT_output_t2bw075_R5_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title29_RAW,"hist_BDT_output_t2bw075_R5_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+
+   sprintf(name30_RAW,"hist_BDT_output_t2tt_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title30_RAW,"hist_BDT_output_t2tt_R1_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name31_RAW,"hist_BDT_output_t2tt_R2_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title31_RAW,"hist_BDT_output_t2tt_R2_RAW_S%i_N%i", STOPMASS, LSPMASS);
+
+   sprintf(name32_RAW,"hist_BDT_output_t2tt_R5_RAW_S%i_N%i", STOPMASS, LSPMASS);
+   sprintf(title32_RAW,"hist_BDT_output_t2tt_R5_RAW_S%i_N%i", STOPMASS, LSPMASS);
 
 
 
@@ -1316,7 +1407,8 @@ int main (int argc, char *argv[])
 
 
    Events_Preselection 	= new TH1D(name00,title00,100,0,10000) ;
-   Events_NGenSignal 	= new TH1D(name0,title0,100,0,500000) ;
+   Events_NGenSignal 	= new TH1D(name0,title0,100,0,999999) ;
+   Events_NSignal 	= new TH1D(name000,title000,100,0,999999) ;
 
    Events_T2tt_offShellLoose 	= new TH1D(name1,title1,100,0,10000) ; 
    Events_T2tt_offShellTight 	= new TH1D(name2,title2,100,0,10000) ; 
@@ -1457,6 +1549,27 @@ int main (int argc, char *argv[])
    Events_T2bw075_highDeltaMJESDown = new TH1D(name16JESDown,title16JESDown,100,0,10000);
 
 	
+   hist_BDT_output_t2bw025_R1_RAW = new TH1D(name17_RAW,title17_RAW,100,-2,2);
+   hist_BDT_output_t2bw025_R3_RAW = new TH1D(name18_RAW,title18_RAW,100,-2,2);
+   hist_BDT_output_t2bw025_R4_RAW = new TH1D(name19_RAW,title19_RAW,100,-2,2);
+   hist_BDT_output_t2bw025_R6_RAW = new TH1D(name20_RAW,title20_RAW,100,-2,2);
+
+   hist_BDT_output_t2bw050_R1_RAW = new TH1D(name21_RAW,title21_RAW,100,-2,2);
+   hist_BDT_output_t2bw050_R3_RAW = new TH1D(name22_RAW,title22_RAW,100,-2,2);
+   hist_BDT_output_t2bw050_R4_RAW = new TH1D(name23_RAW,title23_RAW,100,-2,2);
+   hist_BDT_output_t2bw050_R5_RAW = new TH1D(name24_RAW,title24_RAW,100,-2,2);
+   hist_BDT_output_t2bw050_R6_RAW = new TH1D(name25_RAW,title25_RAW,100,-2,2);
+
+   hist_BDT_output_t2bw075_R1_RAW = new TH1D(name26_RAW,title26_RAW,100,-2,2);
+   hist_BDT_output_t2bw075_R2_RAW = new TH1D(name27_RAW,title27_RAW,100,-2,2);
+   hist_BDT_output_t2bw075_R3_RAW = new TH1D(name28_RAW,title28_RAW,100,-2,2);
+   hist_BDT_output_t2bw075_R5_RAW = new TH1D(name29_RAW,title29_RAW,100,-2,2);
+
+   hist_BDT_output_t2tt_R1_RAW = new TH1D(name30_RAW,title30_RAW,100,-2,2);
+   hist_BDT_output_t2tt_R2_RAW = new TH1D(name31_RAW,title31_RAW,100,-2,2);
+   hist_BDT_output_t2tt_R5_RAW = new TH1D(name32_RAW,title32_RAW,100,-2,2);
+
+
    hist_BDT_output_t2bw025_R1 = new TH1D(name17,title17,100,-2,2);
    hist_BDT_output_t2bw025_R3 = new TH1D(name18,title18,100,-2,2);
    hist_BDT_output_t2bw025_R4 = new TH1D(name19,title19,100,-2,2);
@@ -1622,7 +1735,6 @@ int main (int argc, char *argv[])
    int counter15 = 0; 
    int counter16 = 0; 
 
-
    int counter1JESUp = 0; 
    int counter2JESUp = 0; 
    int counter3JESUp = 0; 
@@ -1757,12 +1869,12 @@ int main (int argc, char *argv[])
 
 			if ( (sampleType == "signal")  &&  !((myEvent.mStop ==  atoi(argv[3]) ) && (myEvent.mNeutralino ==  atoi(argv[4]) )) )continue;
 				
-
 			if (goesInPreselectionMTtail() == true) {
 			
 				Events_NGenSignal->Fill( myEvent.numberOfInitialEvents);
 
 				counter ++;
+				Events_NSignal->Fill(  counter);
 				Events_Preselection->Fill(  counter , getWeight());
 
 				if ( cutAndCount_T2tt_offShellLoose(true) == true){ 
@@ -1846,9 +1958,28 @@ int main (int argc, char *argv[])
 				// BDT STUFF
 				
 					if (myEvent.isUsedInBDTTraining == 0) {
-					//if ( (myEvent.event%2)==1 ) continue;
 					double weight = getWeight() * 2.; 
 
+
+					hist_BDT_output_t2bw025_R1_RAW->Fill(myEvent.BDT_output_t2bw025_R1);		
+					hist_BDT_output_t2bw025_R3_RAW->Fill(myEvent.BDT_output_t2bw025_R3);		
+					hist_BDT_output_t2bw025_R4_RAW->Fill(myEvent.BDT_output_t2bw025_R4);		
+					hist_BDT_output_t2bw025_R6_RAW->Fill(myEvent.BDT_output_t2bw025_R6);		
+
+					hist_BDT_output_t2bw050_R1_RAW->Fill(myEvent.BDT_output_t2bw050_R1);		
+					hist_BDT_output_t2bw050_R3_RAW->Fill(myEvent.BDT_output_t2bw050_R3);		
+					hist_BDT_output_t2bw050_R4_RAW->Fill(myEvent.BDT_output_t2bw050_R4);		
+					hist_BDT_output_t2bw050_R5_RAW->Fill(myEvent.BDT_output_t2bw050_R5);		
+					hist_BDT_output_t2bw050_R6_RAW->Fill(myEvent.BDT_output_t2bw050_R6);		
+
+					hist_BDT_output_t2bw075_R1_RAW->Fill(myEvent.BDT_output_t2bw075_R1);		
+					hist_BDT_output_t2bw075_R2_RAW->Fill(myEvent.BDT_output_t2bw075_R2);		
+					hist_BDT_output_t2bw075_R3_RAW->Fill(myEvent.BDT_output_t2bw075_R3);		
+					hist_BDT_output_t2bw075_R5_RAW->Fill(myEvent.BDT_output_t2bw075_R5);		
+
+					hist_BDT_output_t2tt_R1_RAW->Fill(myEvent.BDT_output_t2tt_R1);		
+					hist_BDT_output_t2tt_R2_RAW->Fill(myEvent.BDT_output_t2tt_R2);		
+					hist_BDT_output_t2tt_R5_RAW->Fill(myEvent.BDT_output_t2tt_R5);		
 
 					hist_BDT_output_t2bw025_R1->Fill(myEvent.BDT_output_t2bw025_R1, weight);		
 					hist_BDT_output_t2bw025_R3->Fill(myEvent.BDT_output_t2bw025_R3, weight);		

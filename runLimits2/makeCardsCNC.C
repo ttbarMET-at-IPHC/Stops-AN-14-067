@@ -236,8 +236,7 @@ void makeCards(TString decay_mode, TString SignalRegion ){
               for(int x=100; x<=800; x+=25){
 
 	
-    	              //for(int y=0; y<=700; y+=25){
-    	              for(int y=0; y<=0; y+=25){
+    	              for(int y=0; y<=700; y+=25){
 
 	
 				 if (x - y > 99){  
@@ -279,15 +278,15 @@ void createTableCLsCNC(TString decay_mode, TString SignalRegion, int S, int N, d
              << "process                \t\t 0              \t 1                " << endl
              << "rate                   \t\t " << signal << "  \t \t "<< bkg << endl
              << "------------" << endl
-             << "signal_unc \t lnN      \t "<< signal_err_percentage << "          \t\t -               \t   Total uncertainty on the signal" << endl
-             << "bkg_unc    \t lnN      \t -             \t\t "<< bkg_err_percentage <<"                \t  Total uncertainty on the background" << endl
+             << "signal_unc \t lnN      \t "<< signal_err_percentage << " \t -        \t   Total uncertainty on the signal" << endl
+             << "bkg_unc    \t lnN      \t -             \t\t "<< bkg_err_percentage <<"   \t  Total uncertainty on the background" << endl
              << "------------"<<endl
              << "#DEBUG (SR): "  << TString(SignalRegion) << endl;
 
 
   tablesFile.close();
 
-  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsCNC_9_mT100/"+TString(decay_mode)+"/"+TString(SignalRegion);
+  TString savedir = "/afs/cern.ch/work/s/sigamani/public/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/LimitsCNC_10_mT100/"+TString(decay_mode)+"/"+TString(SignalRegion);
   gSystem->Exec("mkdir -p "+savedir); 
   gSystem->Exec("mv "+TString(datacardname)+" "+savedir); 
 
