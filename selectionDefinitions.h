@@ -1,4 +1,4 @@
-#define MT_CUT    100 
+#define MT_CUT    100
 #define MET_CUT   80
 #define NJET_CUT  4
 #define NBJET_CUT 1
@@ -11,7 +11,7 @@
 // of skimming or use of tiny tuples...
 
 //#include "Reader.h"
-#include "Reader_final.h"  // Has the extended BDT info defined 
+#include "Reader_final.h"  // Has the extended BDT info defined
 
 
 // NB : When you call any of the following functions,
@@ -33,65 +33,65 @@ bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return tru
 // Control region definitions
 // ##########################
 
-bool goesInPreVetoSelection() 
+bool goesInPreVetoSelection()
 {
 
     if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
-    if (myEvent.nJets < NJET_CUT)  return false; 
-    if (myEvent.nBTag < NBJET_CUT)  return false; 
+    if (myEvent.nJets < NJET_CUT)  return false;
+    if (myEvent.nBTag < NBJET_CUT)  return false;
 
-    return true; 
+    return true;
 }
 
-bool goesInPreVetoSelectionMTtail()     { return (goesInPreVetoSelection() && goesInMTtail());     } 
-bool goesInPreVetoSelectionMTpeak()     { return (goesInPreVetoSelection() && goesInMTpeak());     } 
-bool goesInPreVetoSelectionMTinverted() { return (goesInPreVetoSelection() && goesInMTinverted()); } 
+bool goesInPreVetoSelectionMTtail()     { return (goesInPreVetoSelection() && goesInMTtail());     }
+bool goesInPreVetoSelectionMTpeak()     { return (goesInPreVetoSelection() && goesInMTpeak());     }
+bool goesInPreVetoSelectionMTinverted() { return (goesInPreVetoSelection() && goesInMTinverted()); }
 
 
-bool goesInPreselection() 
+bool goesInPreselection()
 {
     if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
-    if (myEvent.nJets < NJET_CUT)  return false; 
-    if (myEvent.nBTag < NBJET_CUT)  return false; 
+    if (myEvent.nJets < NJET_CUT)  return false;
+    if (myEvent.nBTag < NBJET_CUT)  return false;
     if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
 
-    return true; 
+    return true;
 }
 
 
-bool goesInPreselectionNoBVeto() 
+bool goesInPreselectionNoBVeto()
 {
     if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
     if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
 
-    return true; 
+    return true;
 }
 
 
-bool goesInPreselectionMTtailNoBeto(){return (goesInPreselectionNoBVeto() && goesInMTtail());} 
-bool goesInPreselectionMTtail()     { return (goesInPreselection() && goesInMTtail());     } 
-bool goesInPreselectionMTpeak()     { return (goesInPreselection() && goesInMTpeak());     } 
-bool goesInPreselectionMTinverted() { return (goesInPreselection() && goesInMTinverted()); } 
+bool goesInPreselectionMTtailNoBeto(){return (goesInPreselectionNoBVeto() && goesInMTtail());}
+bool goesInPreselectionMTtail()     { return (goesInPreselection() && goesInMTtail());     }
+bool goesInPreselectionMTpeak()     { return (goesInPreselection() && goesInMTpeak());     }
+bool goesInPreselectionMTinverted() { return (goesInPreselection() && goesInMTinverted()); }
 
 bool goesIn0BtagControlRegion()
 {
 
     if (myEvent.MET < MET_CUT) return false;
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
-    if (myEvent.nJets < NJET_CUT)  return false; 
-    if (myEvent.nBTag != 0 )  return false; 
+    if (myEvent.nJets < NJET_CUT)  return false;
+    if (myEvent.nBTag != 0 )  return false;
     if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
 
-    return true; 
+    return true;
 }
 
-bool goesIn0BtagControlRegionMTtail()     { return (goesIn0BtagControlRegion() && goesInMTtail());     } 
-bool goesIn0BtagControlRegionMTpeak()     { return (goesIn0BtagControlRegion() && goesInMTpeak());     } 
-bool goesIn0BtagControlRegionMTinverted() { return (goesIn0BtagControlRegion() && goesInMTinverted()); } 
+bool goesIn0BtagControlRegionMTtail()     { return (goesIn0BtagControlRegion() && goesInMTtail());     }
+bool goesIn0BtagControlRegionMTpeak()     { return (goesIn0BtagControlRegion() && goesInMTpeak());     }
+bool goesIn0BtagControlRegionMTinverted() { return (goesIn0BtagControlRegion() && goesInMTinverted()); }
 
 bool goesInDileptonControlRegion(short int nJetCut = -1)
 {
@@ -101,21 +101,21 @@ bool goesInDileptonControlRegion(short int nJetCut = -1)
     else if (nJetCut == 2)  { if ((myEvent.nJets != 1) && (myEvent.nJets != 2)) return false; }
     else if (nJetCut == 3)  { if (myEvent.nJets != 3) return false; }
     else if (nJetCut == 4)  { if (myEvent.nJets <  4) return false; }
-    
+
     if (myEvent.nBTag < NBJET_CUT)   return false;
     if (myEvent.MET   < MET_CUTLL)   return false;
 
     // Remove same-sign events
     if ((myEvent.leadingLeptonPDGId < 0) && (myEvent.secondLeptonPDGId < 0)) return false;
     if ((myEvent.leadingLeptonPDGId > 0) && (myEvent.secondLeptonPDGId > 0)) return false;
-    
+
     // Remove Z mass peak
     if (fabs((myEvent.leadingLepton + myEvent.secondLepton).M() - 91) < 15) return false;
 
-    return true; 
+    return true;
 }
 
-bool goesInVetosControlRegion() 
+bool goesInVetosControlRegion()
 {
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     if (myEvent.nJets < NJET_CUT)  return false;
@@ -125,7 +125,7 @@ bool goesInVetosControlRegion()
     // Apply reversed vetos
     if ((myEvent.isolatedTrackVeto) && (myEvent.tauVeto)) return false;
 
-    return true; 
+    return true;
 }
 
 bool goesInDileptonControlRegionMTtail()     { return (goesInDileptonControlRegion() && goesInMTtail());     }
@@ -139,7 +139,7 @@ bool goesInVetoControlRegionMTinverted() { return (goesInVetosControlRegion() &&
 // Single-lepton channels definitions
 // ##################################
 
-bool goesInSingleElecChannel() 
+bool goesInSingleElecChannel()
 {
     // Keep only events with numberOfLepton == 1
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
@@ -148,38 +148,38 @@ bool goesInSingleElecChannel()
     {
         if ((sampleName != "SingleElec") || (!myEvent.triggerElec)) return false;
     }
-    
+
     // Remove electrons with pT < 30 GeV
     if (myEvent.leadingLepton.Pt() < 30)  return false;
-    
+
     // Keep only events with an electron as leading lepton
-    return (abs(myEvent.leadingLeptonPDGId) == 11); 
+    return (abs(myEvent.leadingLeptonPDGId) == 11);
 }
 
 
-bool goesInSingleMuonChannel() 
-{ 
+bool goesInSingleMuonChannel()
+{
     // Keep only events with numberOfLepton == 1
     if (myEvent.numberOfLepton != 1) return false;
     // For data, keep only events from SingleMuon dataset that fired the trigger
     if (sampleType == "data")
     {
         if ((sampleName != "SingleMuon") || ((!myEvent.triggerMuon) && (!myEvent.xtriggerMuon))) return false;
-        
+
         // Take care of the splitting due to x-trigger
         if ((myEvent.leadingLepton.Pt() >= 26) && (!myEvent.triggerMuon))  return false;
         if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
-    }    
-   
+    }
+
     // Keep only events with a muon as leading lepton
-    return (abs(myEvent.leadingLeptonPDGId) == 13); 
+    return (abs(myEvent.leadingLeptonPDGId) == 13);
 }
 
 
-bool goesInSingleLeptonChannel() 
-{ 
+bool goesInSingleLeptonChannel()
+{
     // Single-lepton channel is the union of e-channel + mu-channel
-    bool test = (goesInSingleElecChannel() 
+    bool test = (goesInSingleElecChannel()
               || goesInSingleMuonChannel());
     return test;
 }
@@ -189,8 +189,8 @@ bool goesInSingleLeptonChannel()
 // Double-lepton channels definitions
 // ##################################
 
-bool goesInDoubleElecChannel() 
-{ 
+bool goesInDoubleElecChannel()
+{
     // Keep only events with numberOfLepton == 2
     if (myEvent.numberOfLepton != 2) return false;
     // For data, keep only events from DoubleElec dataset that fired the trigger
@@ -199,12 +199,12 @@ bool goesInDoubleElecChannel()
         if ((sampleName != "DoubleElec") || (!myEvent.triggerDoubleElec)) return false;
     }
     // Keep only events with two electrons
-    return ((abs(myEvent.leadingLeptonPDGId) == 11) 
-         && (abs(myEvent.secondLeptonPDGId)  == 11)); 
+    return ((abs(myEvent.leadingLeptonPDGId) == 11)
+         && (abs(myEvent.secondLeptonPDGId)  == 11));
 }
 
-bool goesInDoubleMuonChannel() 
-{ 
+bool goesInDoubleMuonChannel()
+{
     // Keep only events with numberOfLepton == 2
     if (myEvent.numberOfLepton != 2) return false;
     // For data, keep only events from DoubleMuon dataset that fired the trigger
@@ -213,12 +213,12 @@ bool goesInDoubleMuonChannel()
         if ((sampleName != "DoubleMuon") || (!myEvent.triggerDoubleMuon)) return false;
     }
     // Keep only events with two muons
-    return ((abs(myEvent.leadingLeptonPDGId) == 13) 
-         && (abs(myEvent.secondLeptonPDGId)  == 13)); 
+    return ((abs(myEvent.leadingLeptonPDGId) == 13)
+         && (abs(myEvent.secondLeptonPDGId)  == 13));
 }
 
-bool goesInMuonElecChannel() 
-{ 
+bool goesInMuonElecChannel()
+{
     // Keep only events with numberOfLepton == 2
     if (myEvent.numberOfLepton != 2) return false;
     // For data, keep only events from SingleMuon channel that fired the trigger
@@ -227,20 +227,20 @@ bool goesInMuonElecChannel()
         if ((sampleName != "MuEl") || (!myEvent.triggerMuonElec)) return false;
     }
     // Keep only events with an electron and a muon
-    return   (((abs(myEvent.leadingLeptonPDGId) == 13) 
+    return   (((abs(myEvent.leadingLeptonPDGId) == 13)
             && (abs(myEvent.secondLeptonPDGId)  == 11))
-       ||     ((abs(myEvent.leadingLeptonPDGId) == 11) 
+       ||     ((abs(myEvent.leadingLeptonPDGId) == 11)
             && (abs(myEvent.secondLeptonPDGId)  == 13)));
 }
 
 
 
-bool goesInDoubleLeptonChannel() 
-{ 
+bool goesInDoubleLeptonChannel()
+{
     // Double-lepton channel is the union of ee, mumu and emu channels
-    bool test = (goesInDoubleElecChannel() 
+    bool test = (goesInDoubleElecChannel()
               || goesInDoubleMuonChannel()
-              ||   goesInMuonElecChannel()  ); 
+              ||   goesInMuonElecChannel()  );
     return test;
 }
 
@@ -297,18 +297,24 @@ float getWeight()
         weight *= myEvent.secondLeptonIdEfficiency  * myEvent.secondLeptonIsoScaleFactor;
     }
 
-    // Apply pile-up weight 
+    // Apply pile-up weight
     // TODO : Do we confirm we'll use also this for signal ?
         weight *= myEvent.weightPileUp;
 
 
-    // For signal, apply ISR reweighting
-    if (sampleType == "signal")  
+    if (sampleType == "signal")
+    {
+        // For signal, apply ISR reweighting
         weight *= myEvent.weightISRmodeling;
+
+        // Check if event has been used in BDT training
+        //if (myEvent.isUsedInBDT == 0) weight *= 2;
+        //else                          weight  = 0;
+    }
 
 
     // For ttbar only, apply topPt reweighting
-    if (sampleName.find("ttbar") != string::npos) 
+    if (sampleName.find("ttbar") != string::npos)
         weight *= myEvent.weightTopPt;
 
     return weight;
