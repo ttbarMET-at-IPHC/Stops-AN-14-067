@@ -164,11 +164,10 @@ void loadBDTCutsWithCustomRequirement(string customRequirement)
 
     // Only take the custom cuts if it's looser than the standard cut
     BDTSignalRegionMap["T2tt_1_lowLSP"    ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_1_lowLSP"    ].BDTOutputCut, customBDTCuts["T2tt_1"   ] );
+    BDTSignalRegionMap["T2tt_1_mediumLSP" ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_1_mediumLSP" ].BDTOutputCut, customBDTCuts["T2tt_1"   ] );
     BDTSignalRegionMap["T2tt_1_highLSP"   ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_1_highLSP"   ].BDTOutputCut, customBDTCuts["T2tt_1"   ] );
-    BDTSignalRegionMap["T2tt_2_lowDM"     ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_2_lowDM"     ].BDTOutputCut, customBDTCuts["T2tt_2"   ] );
-    BDTSignalRegionMap["T2tt_2_highDM"    ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_2_highDM"    ].BDTOutputCut, customBDTCuts["T2tt_2"   ] );
+    BDTSignalRegionMap["T2tt_2"           ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_2"           ].BDTOutputCut, customBDTCuts["T2tt_2"   ] );
     BDTSignalRegionMap["T2tt_5_lowDM"     ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_5_lowDM"     ].BDTOutputCut, customBDTCuts["T2tt_5"   ] );
-    BDTSignalRegionMap["T2tt_5_mediumDM"  ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_5_mediumDM"  ].BDTOutputCut, customBDTCuts["T2tt_5"   ] );
     BDTSignalRegionMap["T2tt_5_highDM"    ].BDTOutputCut = min( BDTSignalRegionMap["T2tt_5_highDM"    ].BDTOutputCut, customBDTCuts["T2tt_5"   ] );
 
     BDTSignalRegionMap["T2bw075_1"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw075_1"        ].BDTOutputCut, customBDTCuts["T2bw075_1"] );
@@ -177,18 +176,18 @@ void loadBDTCutsWithCustomRequirement(string customRequirement)
     BDTSignalRegionMap["T2bw075_5_lowDM"  ].BDTOutputCut = min( BDTSignalRegionMap["T2bw075_5_lowDM"  ].BDTOutputCut, customBDTCuts["T2bw075_5"] );
     BDTSignalRegionMap["T2bw075_5_highDM" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw075_5_highDM" ].BDTOutputCut, customBDTCuts["T2bw075_5"] );
 
-    BDTSignalRegionMap["T2bw050_1_lowLSP" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_1_lowLSP" ].BDTOutputCut, customBDTCuts["T2bw050_1"] );
-    BDTSignalRegionMap["T2bw050_1_highLSP"].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_1_highLSP"].BDTOutputCut, customBDTCuts["T2bw050_1"] );
+    BDTSignalRegionMap["T2bw050_1_lowDM_lowLSP" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_1_lowDM_lowLSP" ].BDTOutputCut, customBDTCuts["T2bw050_1"] );
+    BDTSignalRegionMap["T2bw050_1_lowDM_highLSP"].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_1_lowDM_highLSP"].BDTOutputCut, customBDTCuts["T2bw050_1"] );
+    BDTSignalRegionMap["T2bw050_1_highDM" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_1_highDM" ].BDTOutputCut, customBDTCuts["T2bw050_1"] );
     BDTSignalRegionMap["T2bw050_3"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_3"        ].BDTOutputCut, customBDTCuts["T2bw050_3"] );
     BDTSignalRegionMap["T2bw050_4"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_4"        ].BDTOutputCut, customBDTCuts["T2bw050_4"] );
-    BDTSignalRegionMap["T2bw050_5_lowDM"  ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_5_lowDM"  ].BDTOutputCut, customBDTCuts["T2bw050_5"] );
-    BDTSignalRegionMap["T2bw050_5_highDM" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_5_highDM" ].BDTOutputCut, customBDTCuts["T2bw050_5"] );
+    BDTSignalRegionMap["T2bw050_5"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_5"        ].BDTOutputCut, customBDTCuts["T2bw050_5"] );
     BDTSignalRegionMap["T2bw050_6"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw050_6"        ].BDTOutputCut, customBDTCuts["T2bw050_6"] );
 
     BDTSignalRegionMap["T2bw025_1"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_1"        ].BDTOutputCut, customBDTCuts["T2bw025_1"] );
-    BDTSignalRegionMap["T2bw025_3_lowDM"  ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_3_lowDM"  ].BDTOutputCut, customBDTCuts["T2bw025_3"] );
-    BDTSignalRegionMap["T2bw025_3_highDM" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_3_highDM" ].BDTOutputCut, customBDTCuts["T2bw025_3"] );
-    BDTSignalRegionMap["T2bw025_4"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_4"        ].BDTOutputCut, customBDTCuts["T2bw025_4"] );
+    BDTSignalRegionMap["T2bw025_3"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_3"        ].BDTOutputCut, customBDTCuts["T2bw025_3"] );
+    BDTSignalRegionMap["T2bw025_4_lowLSP" ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_4_lowLSP" ].BDTOutputCut, customBDTCuts["T2bw025_4"] );
+    BDTSignalRegionMap["T2bw025_4_highLSP"].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_4_highLSP"].BDTOutputCut, customBDTCuts["T2bw025_4"] );
     BDTSignalRegionMap["T2bw025_6"        ].BDTOutputCut = min( BDTSignalRegionMap["T2bw025_6"        ].BDTOutputCut, customBDTCuts["T2bw025_6"] );
 
 }

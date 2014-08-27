@@ -100,25 +100,26 @@ void loadBDTSignalRegions()
     loadBDTSignalRegion("T2tt_1_lowLSP",     "BDT T2tt-1, low m(LSP)",       "BDT T2tt-1, low $m$(LSP)",        &myEvent.BDT_output_t2tt_R1,    0.175);
     loadBDTSignalRegion("T2tt_1_mediumLSP",  "BDT T2tt-1, medium m(LSP)",    "BDT T2tt-1, medium $m$(LSP)",     &myEvent.BDT_output_t2tt_R1,    0.325);
     loadBDTSignalRegion("T2tt_1_highLSP",    "BDT T2tt-1, high m(LSP)",      "BDT T2tt-1, high $m$(LSP)",       &myEvent.BDT_output_t2tt_R1,    0.375);
-    loadBDTSignalRegion("T2tt_2_lowDM",      "BDT T2tt-2, low #Delta m",     "BDT T2tt-2, low $\\Delta m$",     &myEvent.BDT_output_t2tt_R2,    0.3  );
-    loadBDTSignalRegion("T2tt_2_highDM",     "BDT T2tt-2, high #Delta m",    "BDT T2tt-2, high $\\Delta m$",    &myEvent.BDT_output_t2tt_R2,    0.35 );
-    loadBDTSignalRegion("T2tt_5_lowDM",      "BDT T2tt-5, low #Delta m",     "BDT T2tt-5, low $\\Delta m$",     &myEvent.BDT_output_t2tt_R5,    0.30 );
-    loadBDTSignalRegion("T2tt_5_highDM",     "BDT T2tt-5, high #Delta m",    "BDT T2tt-5, high $\\Delta m$",    &myEvent.BDT_output_t2tt_R5,    0.325);
+    loadBDTSignalRegion("T2tt_2",            "BDT T2tt-2",                   "BDT T2tt-2",                      &myEvent.BDT_output_t2tt_R2,    0.35 );
+    loadBDTSignalRegion("T2tt_5_lowDM",      "BDT T2tt-5, low #Deltam",      "BDT T2tt-5, low $\\Delta m$",     &myEvent.BDT_output_t2tt_R5,    0.30 );
+    loadBDTSignalRegion("T2tt_5_highDM",     "BDT T2tt-5, high #Deltam",     "BDT T2tt-5, high $\\Delta m$",    &myEvent.BDT_output_t2tt_R5,    0.325);
+
     loadBDTSignalRegion("T2bw075_1",         "BDT T2bw075-1",                "BDT T2bw075-1",                   &myEvent.BDT_output_t2bw075_R1, 0.225);
     loadBDTSignalRegion("T2bw075_2",         "BDT T2bw075-2",                "BDT T2bw075-2",                   &myEvent.BDT_output_t2bw075_R2, 0.275);
     loadBDTSignalRegion("T2bw075_3",         "BDT T2bw075-3",                "BDT T2bw075-3",                   &myEvent.BDT_output_t2bw075_R3, 0.3  );
-    loadBDTSignalRegion("T2bw075_5_lowDM",   "BDT T2bw075-5, low #Delta m",  "BDT T2bw075-5, low $\\Delta m$",  &myEvent.BDT_output_t2bw075_R5, 0.25 );
-    loadBDTSignalRegion("T2bw075_5_highDM",  "BDT T2bw075-5, high #Delta m", "BDT T2bw075-5, high $\\Delta m$", &myEvent.BDT_output_t2bw075_R5, 0.3  );
-    loadBDTSignalRegion("T2bw050_1_lowDM",   "BDT T2bw050-1, #Delta m",      "BDT T2bw050-1, low $\\Delta m$",  &myEvent.BDT_output_t2bw050_R1, 0.275);
-    loadBDTSignalRegion("T2bw050_1_highDM",  "BDT T2bw050-1, #Delta m",      "BDT T2bw050-1, high $\\Delta m$", &myEvent.BDT_output_t2bw050_R1, 0.175);
+    loadBDTSignalRegion("T2bw075_5_lowDM",   "BDT T2bw075-5, low #Deltam",   "BDT T2bw075-5, low $\\Delta m$",  &myEvent.BDT_output_t2bw075_R5, 0.25 );
+    loadBDTSignalRegion("T2bw075_5_highDM",  "BDT T2bw075-5, high #Deltam",  "BDT T2bw075-5, high $\\Delta m$", &myEvent.BDT_output_t2bw075_R5, 0.3  );
+
+    loadBDTSignalRegion("T2bw050_1_lowDM_lowLSP",  "BDT T2bw050-1, low #Deltam low m(LSP)",  "BDT T2bw050-1, low $\\Delta m$ low $m$(LSP)",  &myEvent.BDT_output_t2bw050_R1, 0.275);
+    loadBDTSignalRegion("T2bw050_1_lowDM_highLSP", "BDT T2bw050-1, low #Deltam high m(LSP)", "BDT T2bw050-1, low $\\Delta m$ high $m$(LSP)", &myEvent.BDT_output_t2bw050_R1, 0.175);
+    loadBDTSignalRegion("T2bw050_1_highDM",  "BDT T2bw050-1, high #Deltam",  "BDT T2bw050-1, high $\\Delta m$", &myEvent.BDT_output_t2bw050_R1, 0.375);
     loadBDTSignalRegion("T2bw050_3",         "BDT T2bw050-3",                "BDT T2bw050-3",                   &myEvent.BDT_output_t2bw050_R3, 0.3  );
     loadBDTSignalRegion("T2bw050_4",         "BDT T2bw050-4",                "BDT T2bw050-4",                   &myEvent.BDT_output_t2bw050_R4, 0.250);
-    loadBDTSignalRegion("T2bw050_5_lowDM",   "BDT T2bw050-5, low #Delta m",  "BDT T2bw050-5, low $\\Delta m$",  &myEvent.BDT_output_t2bw050_R5, 0.225);
-    loadBDTSignalRegion("T2bw050_5_highDM",  "BDT T2bw050-5, high #Delta m", "BDT T2bw050-5, high $\\Delta m$", &myEvent.BDT_output_t2bw050_R5, 0.275);
+    loadBDTSignalRegion("T2bw050_5",         "BDT T2bw050-5",                "BDT T2bw050-5",                   &myEvent.BDT_output_t2bw050_R5, 0.275);
     loadBDTSignalRegion("T2bw050_6",         "BDT T2bw050-6",                "BDT T2bw050-6",                   &myEvent.BDT_output_t2bw050_R6, 0.2  );
+
     loadBDTSignalRegion("T2bw025_1",         "BDT T2bw025-1",                "BDT T2bw025-1",                   &myEvent.BDT_output_t2bw025_R1, 0.2  );
-    loadBDTSignalRegion("T2bw025_3_lowDM",   "BDT T2bw025-3, low #Delta m",  "BDT T2bw025-3, low $\\Delta m$",  &myEvent.BDT_output_t2bw025_R3, 0.2  );
-    loadBDTSignalRegion("T2bw025_3_highDM",  "BDT T2bw025-3, high #Delta m", "BDT T2bw025-3, high $\\Delta m$", &myEvent.BDT_output_t2bw025_R3, 0.35 );
+    loadBDTSignalRegion("T2bw025_3",         "BDT T2bw025-3",                "BDT T2bw025-3",                   &myEvent.BDT_output_t2bw025_R3, 0.2  );
     loadBDTSignalRegion("T2bw025_4_lowLSP",  "BDT T2bw025-4, low m(LSP)",    "BDT T2bw025-4, low $m$(LSP)",     &myEvent.BDT_output_t2bw025_R4, 0.15 );
     loadBDTSignalRegion("T2bw025_4_highLSP", "BDT T2bw025-4, high m(LSP)",   "BDT T2bw025-4, high $m$(LSP)",    &myEvent.BDT_output_t2bw025_R4, 0.2  );
     loadBDTSignalRegion("T2bw025_6",         "BDT T2bw025-6",                "BDT T2bw025-6",                   &myEvent.BDT_output_t2bw025_R6, 0.175);
@@ -176,8 +177,7 @@ bool goesInBDTRegion(string BDTregion) { return (BDToutput(BDTregion) > BDTcut(B
 bool BDT_T2tt_1_lowLSP    (bool applyMTCut) { return goesInBDTRegion("T2tt_1_lowLSP"    ); }
 bool BDT_T2tt_1_mediumLSP (bool applyMTCut) { return goesInBDTRegion("T2tt_1_mediumLSP" ); }
 bool BDT_T2tt_1_highLSP   (bool applyMTCut) { return goesInBDTRegion("T2tt_1_highLSP"   ); }
-bool BDT_T2tt_2_lowDM     (bool applyMTCut) { return goesInBDTRegion("T2tt_2_lowDM"     ); }
-bool BDT_T2tt_2_highDM    (bool applyMTCut) { return goesInBDTRegion("T2tt_2_highDM"    ); }
+bool BDT_T2tt_2           (bool applyMTCut) { return goesInBDTRegion("T2tt_2"           ); }
 bool BDT_T2tt_5_lowDM     (bool applyMTCut) { return goesInBDTRegion("T2tt_5_lowDM"     ); }
 bool BDT_T2tt_5_highDM    (bool applyMTCut) { return goesInBDTRegion("T2tt_5_highDM"    ); }
 bool BDT_T2bw075_1        (bool applyMTCut) { return goesInBDTRegion("T2bw075_1"        ); }
@@ -185,28 +185,24 @@ bool BDT_T2bw075_2        (bool applyMTCut) { return goesInBDTRegion("T2bw075_2"
 bool BDT_T2bw075_3        (bool applyMTCut) { return goesInBDTRegion("T2bw075_3"        ); }
 bool BDT_T2bw075_5_lowDM  (bool applyMTCut) { return goesInBDTRegion("T2bw075_5_lowDM"  ); }
 bool BDT_T2bw075_5_highDM (bool applyMTCut) { return goesInBDTRegion("T2bw075_5_highDM" ); }
-bool BDT_T2bw050_1_lowDM  (bool applyMTCut) { return goesInBDTRegion("T2bw050_1_lowDM"  ); }
+bool BDT_T2bw050_1_lowDM_lowLSP  (bool applyMTCut) { return goesInBDTRegion("T2bw050_1_lowDM_lowLSP"  ); }
+bool BDT_T2bw050_1_lowDM_highLSP (bool applyMTCut) { return goesInBDTRegion("T2bw050_1_lowDM_highLSP" ); }
 bool BDT_T2bw050_1_highDM (bool applyMTCut) { return goesInBDTRegion("T2bw050_1_highDM" ); }
 bool BDT_T2bw050_3        (bool applyMTCut) { return goesInBDTRegion("T2bw050_3"        ); }
 bool BDT_T2bw050_4        (bool applyMTCut) { return goesInBDTRegion("T2bw050_4"        ); }
-bool BDT_T2bw050_5_lowDM  (bool applyMTCut) { return goesInBDTRegion("T2bw050_5_lowDM"  ); }
-bool BDT_T2bw050_5_highDM (bool applyMTCut) { return goesInBDTRegion("T2bw050_5_highDM" ); }
+bool BDT_T2bw050_5        (bool applyMTCut) { return goesInBDTRegion("T2bw050_5"        ); }
 bool BDT_T2bw050_6        (bool applyMTCut) { return goesInBDTRegion("T2bw050_6"        ); }
 bool BDT_T2bw025_1        (bool applyMTCut) { return goesInBDTRegion("T2bw025_1"        ); }
-bool BDT_T2bw025_3_lowDM  (bool applyMTCut) { return goesInBDTRegion("T2bw025_3_lowDM"  ); }
-bool BDT_T2bw025_3_highDM (bool applyMTCut) { return goesInBDTRegion("T2bw025_3_highDM" ); }
+bool BDT_T2bw025_3        (bool applyMTCut) { return goesInBDTRegion("T2bw025_3"        ); }
 bool BDT_T2bw025_4_lowLSP (bool applyMTCut) { return goesInBDTRegion("T2bw025_4_lowLSP" ); }
 bool BDT_T2bw025_4_highLSP(bool applyMTCut) { return goesInBDTRegion("T2bw025_4_highLSP"); }
 bool BDT_T2bw025_6        (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"        ); }
 
 // Aliases to loosest BDT signal regions in case of different cuts that apply to same BDT output
 bool BDT_T2tt_1           (bool applyMTCut) { return BDT_T2tt_1_lowLSP   (applyMTCut); }
-bool BDT_T2tt_2           (bool applyMTCut) { return BDT_T2tt_2_lowDM    (applyMTCut); }
 bool BDT_T2tt_5           (bool applyMTCut) { return BDT_T2tt_5_lowDM    (applyMTCut); }
 bool BDT_T2bw075_5        (bool applyMTCut) { return BDT_T2bw075_5_lowDM (applyMTCut); }
-bool BDT_T2bw050_1        (bool applyMTCut) { return BDT_T2bw050_1_highDM(applyMTCut); }
-bool BDT_T2bw050_5        (bool applyMTCut) { return BDT_T2bw050_5_lowDM (applyMTCut); }
-bool BDT_T2bw025_3        (bool applyMTCut) { return BDT_T2bw025_3_lowDM (applyMTCut); }
+bool BDT_T2bw050_1        (bool applyMTCut) { return BDT_T2bw050_1_lowDM_highLSP(applyMTCut); }
 bool BDT_T2bw025_4        (bool applyMTCut) { return BDT_T2bw025_4_lowLSP(applyMTCut); }
 
 #endif
