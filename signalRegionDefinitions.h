@@ -111,8 +111,8 @@ void loadBDTSignalRegions()
     loadBDTSignalRegion("T2bw075_5_highDM",  "BDT T2bw075-5, high #Deltam",  "BDT T2bw075-5, high $\\Delta m$", &myEvent.BDT_output_t2bw075_R5, 0.3  );
 
     loadBDTSignalRegion("T2bw050_1_lowDM_lowLSP",  "BDT T2bw050-1, low #Deltam low m(LSP)",  "BDT T2bw050-1, low $\\Delta m$ low $m$(LSP)",  &myEvent.BDT_output_t2bw050_R1, 0.275);
-    loadBDTSignalRegion("T2bw050_1_lowDM_highLSP", "BDT T2bw050-1, low #Deltam high m(LSP)", "BDT T2bw050-1, low $\\Delta m$ high $m$(LSP)", &myEvent.BDT_output_t2bw050_R1, 0.175);
-    loadBDTSignalRegion("T2bw050_1_highDM",  "BDT T2bw050-1, high #Deltam",  "BDT T2bw050-1, high $\\Delta m$", &myEvent.BDT_output_t2bw050_R1, 0.375);
+    loadBDTSignalRegion("T2bw050_1_lowDM_highLSP", "BDT T2bw050-1, low #Deltam high m(LSP)", "BDT T2bw050-1, low $\\Delta m$ high $m$(LSP)", &myEvent.BDT_output_t2bw050_R1, 0.375);
+    loadBDTSignalRegion("T2bw050_1_highDM",  "BDT T2bw050-1, high #Deltam",  "BDT T2bw050-1, high $\\Delta m$", &myEvent.BDT_output_t2bw050_R1, 0.175);
     loadBDTSignalRegion("T2bw050_3",         "BDT T2bw050-3",                "BDT T2bw050-3",                   &myEvent.BDT_output_t2bw050_R3, 0.3  );
     loadBDTSignalRegion("T2bw050_4",         "BDT T2bw050-4",                "BDT T2bw050-4",                   &myEvent.BDT_output_t2bw050_R4, 0.250);
     loadBDTSignalRegion("T2bw050_5",         "BDT T2bw050-5",                "BDT T2bw050-5",                   &myEvent.BDT_output_t2bw050_R5, 0.275);
@@ -202,7 +202,7 @@ bool BDT_T2bw025_6        (bool applyMTCut) { return goesInBDTRegion("T2bw025_6"
 bool BDT_T2tt_1           (bool applyMTCut) { return BDT_T2tt_1_lowLSP   (applyMTCut); }
 bool BDT_T2tt_5           (bool applyMTCut) { return BDT_T2tt_5_lowDM    (applyMTCut); }
 bool BDT_T2bw075_5        (bool applyMTCut) { return BDT_T2bw075_5_lowDM (applyMTCut); }
-bool BDT_T2bw050_1        (bool applyMTCut) { return BDT_T2bw050_1_lowDM_highLSP(applyMTCut); }
+bool BDT_T2bw050_1        (bool applyMTCut) { return BDT_T2bw050_1_highDM(applyMTCut); }
 bool BDT_T2bw025_4        (bool applyMTCut) { return BDT_T2bw025_4_lowLSP(applyMTCut); }
 
 #endif
