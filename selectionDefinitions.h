@@ -3,7 +3,7 @@
 #define NJET_CUT  4
 #define NBJET_CUT 1
 #define NLEP_CUT  1
-#define MET_CUTLL 80
+#define MET_CUTLL 50
 
 
 // Not sure that it is a good idea to include this here,
@@ -308,8 +308,8 @@ float getWeight()
         weight *= myEvent.weightISRmodeling;
 
         // Check if event has been used in BDT training
-        //if (myEvent.isUsedInBDT == 0) weight *= 2;
-        //else                          weight  = 0;
+        if (myEvent.isUsedInBDT == 0) weight *= 2;
+        else                          weight  = 0;
     }
 
 

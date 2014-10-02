@@ -8,42 +8,23 @@ void loadBDTCutsWithCustomRequirement(string customRequirement)
 {
     map<string,float> customBDTCuts;
 
-    if (customRequirement == "30evts_in_CR4_1jets_MTTail")
-    {
-        customBDTCuts["T2tt_1"]    = 0.255;
-        customBDTCuts["T2tt_2"]    = 0.325;
-        customBDTCuts["T2tt_5"]    = 0.165;
-        customBDTCuts["T2bw075_1"] = 0.175;
-        customBDTCuts["T2bw075_2"] = 0.235;
-        customBDTCuts["T2bw075_3"] = 0.225;
-        customBDTCuts["T2bw075_5"] = 0.125;
-        customBDTCuts["T2bw050_1"] = 0.165;
-        customBDTCuts["T2bw050_3"] = 0.175;
-        customBDTCuts["T2bw050_4"] = 0.125;
-        customBDTCuts["T2bw050_5"] = 0.105;
-        customBDTCuts["T2bw050_6"] = 0.085;
-        customBDTCuts["T2bw025_1"] = 0.155;
-        customBDTCuts["T2bw025_3"] = 0.125;
-        customBDTCuts["T2bw025_4"] = 0.095;
-        customBDTCuts["T2bw025_6"] = 0.075;
-    }
     if (customRequirement == "30evts_in_CR4_2jets_MTTail")
     {
-        customBDTCuts["T2tt_1"]    = 0.255;
-        customBDTCuts["T2tt_2"]    = 0.325;
-        customBDTCuts["T2tt_5"]    = 0.165;
-        customBDTCuts["T2bw075_1"] = 0.175;
-        customBDTCuts["T2bw075_2"] = 0.235;
-        customBDTCuts["T2bw075_3"] = 0.225;
-        customBDTCuts["T2bw075_5"] = 0.125;
-        customBDTCuts["T2bw050_1"] = 0.165;
-        customBDTCuts["T2bw050_3"] = 0.175;
-        customBDTCuts["T2bw050_4"] = 0.125;
-        customBDTCuts["T2bw050_5"] = 0.105;
-        customBDTCuts["T2bw050_6"] = 0.085;
-        customBDTCuts["T2bw025_1"] = 0.155;
-        customBDTCuts["T2bw025_3"] = 0.125;
-        customBDTCuts["T2bw025_4"] = 0.095;
+        customBDTCuts["T2tt_1"]    = 0.275;
+        customBDTCuts["T2tt_2"]    = 0.355;
+        customBDTCuts["T2tt_5"]    = 0.205;
+        customBDTCuts["T2bw075_1"] = 0.205;
+        customBDTCuts["T2bw075_2"] = 0.265;
+        customBDTCuts["T2bw075_3"] = 0.265;
+        customBDTCuts["T2bw075_5"] = 0.135;
+        customBDTCuts["T2bw050_1"] = 0.195;
+        customBDTCuts["T2bw050_3"] = 0.205;
+        customBDTCuts["T2bw050_4"] = 0.135;
+        customBDTCuts["T2bw050_5"] = 0.125;
+        customBDTCuts["T2bw050_6"] = 0.095;
+        customBDTCuts["T2bw025_1"] = 0.185;
+        customBDTCuts["T2bw025_3"] = 0.145;
+        customBDTCuts["T2bw025_4"] = 0.105;
         customBDTCuts["T2bw025_6"] = 0.075;
     }
     if (customRequirement == "30evts_in_CR4_3jets_MTTail")
