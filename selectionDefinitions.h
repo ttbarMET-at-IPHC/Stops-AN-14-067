@@ -144,10 +144,11 @@ bool goesInSingleElecChannel()
     // Keep only events with numberOfLepton == 1
     if (myEvent.numberOfLepton != NLEP_CUT) return false;
     // For data, keep only events from SingleElec dataset that fired the trigger
+    /*
     if (sampleType == "data")
     {
         if ((sampleName != "SingleElec") || (!myEvent.triggerElec)) return false;
-    }
+    }*/
 
     // Remove electrons with pT < 30 GeV
     if (myEvent.leadingLepton.Pt() < 30)  return false;
@@ -162,6 +163,7 @@ bool goesInSingleMuonChannel()
     // Keep only events with numberOfLepton == 1
     if (myEvent.numberOfLepton != 1) return false;
     // For data, keep only events from SingleMuon dataset that fired the trigger
+    /*
     if (sampleType == "data")
     {
         if ((sampleName != "SingleMuon") || ((!myEvent.triggerMuon) && (!myEvent.xtriggerMuon))) return false;
@@ -169,7 +171,7 @@ bool goesInSingleMuonChannel()
         // Take care of the splitting due to x-trigger
         if ((myEvent.leadingLepton.Pt() >= 26) && (!myEvent.triggerMuon))  return false;
         if ((myEvent.leadingLepton.Pt() <  26) && (!myEvent.xtriggerMuon)) return false;
-    }
+    }*/
 
     // Keep only events with a muon as leading lepton
     return (abs(myEvent.leadingLeptonPDGId) == 13);
@@ -203,15 +205,18 @@ bool goesInDoubleElecChannel()
          && (abs(myEvent.secondLeptonPDGId)  == 11));
 }
 
+
 bool goesInDoubleMuonChannel()
 {
     // Keep only events with numberOfLepton == 2
     if (myEvent.numberOfLepton != 2) return false;
     // For data, keep only events from DoubleMuon dataset that fired the trigger
+    /*
     if (sampleType == "data")
     {
         if ((sampleName != "DoubleMuon") || (!myEvent.triggerDoubleMuon)) return false;
     }
+    */
     // Keep only events with two muons
     return ((abs(myEvent.leadingLeptonPDGId) == 13)
          && (abs(myEvent.secondLeptonPDGId)  == 13));
@@ -222,10 +227,12 @@ bool goesInMuonElecChannel()
     // Keep only events with numberOfLepton == 2
     if (myEvent.numberOfLepton != 2) return false;
     // For data, keep only events from SingleMuon channel that fired the trigger
+    /*
     if (sampleType == "data")
     {
         if ((sampleName != "MuEl") || (!myEvent.triggerMuonElec)) return false;
     }
+    */
     // Keep only events with an electron and a muon
     return   (((abs(myEvent.leadingLeptonPDGId) == 13)
             && (abs(myEvent.secondLeptonPDGId)  == 11))
