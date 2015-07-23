@@ -13,7 +13,7 @@
 //#include "Reader.h"
 //#include "Reader_final.h"  // Has the extended BDT info defined
 #include "Reader_CommonFormat.h"  // Has the extended BDT info defined
-
+#include "CrossSection.h" // used to compute the weight
 
 // NB : When you call any of the following functions,
 // these three variables must be filled with the current
@@ -27,9 +27,9 @@ string sampleType;
 // MT cuts definitions
 // ###################
 
-bool goesInMTpeak()     { if ((myEvent.MT > 50) && (myEvent.MT < 80)) return true; else return false; }
-bool goesInMTtail()     { if (myEvent.MT > MT_CUT)                    return true; else return false; }
-bool goesInMTinverted() { if (myEvent.MT < MT_CUT)                    return true; else return false; }
+bool goesInMTpeak()     { if ((myEvent.mt_met_lep > 50) && (myEvent.mt_met_lep < 80)) return true; else return false; }
+bool goesInMTtail()     { if (myEvent.mt_met_lep > MT_CUT)                    return true; else return false; }
+bool goesInMTinverted() { if (myEvent.mt_met_lep < MT_CUT)                    return true; else return false; }
 
 // Control region definitions
 // ##########################
@@ -50,21 +50,35 @@ bool goesInPreVetoSelectionMTpeak()     { return (goesInPreVetoSelection() && go
 bool goesInPreVetoSelectionMTinverted() { return (goesInPreVetoSelection() && goesInMTinverted()); }
 
 
+bool goesInPreselectionNoVeto()
+{
+    if (myEvent.pfmet < MET_CUT) return false;
+    if (myEvent.ngoodleps != NLEP_CUT) return false;
+    if (myEvent.ngoodjets < NJET_CUT)  return false;
+    if (myEvent.ngoodbtags < NBJET_CUT)  return false;
+}
 
 bool goesInPreselection()
 {
     if (myEvent.pfmet < MET_CUT) return false;
     if (myEvent.ngoodleps != NLEP_CUT) return false;
     if (myEvent.ngoodjets < NJET_CUT)  return false;
-    //if (myEvent.ngoodbtags < NBJET_CUT)  return false;
-    //if ((!myEvent.isolatedTrackVeto) || (!myEvent.tauVeto)) return false;
+    if (myEvent.ngoodbtags < NBJET_CUT)  return false;
+    
+    if ((!myEvent.PassTrackVeto) || (!myEvent.PassTauVeto)) return false;
 
     return true;
 }
 
 bool goesInBaselineSearchSR() { return (goesInPreselection() && goesInMTtail() );}
-bool goesInLargeDMSR() { return (goesInPreselection() &&  myEvent.MT > 150 && myEvent.MT2W > 200 && myEvent.dphi_Wlep> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 200);}
-bool goesInSmallDMSR() { return (goesInPreselection() &&  myEvent.MT > 150 && myEvent.dphi_Wlep> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 200);}
+bool goesInBaselineSearchSR2b() { return (goesInPreselection() && goesInMTtail() && myEvent.ngoodbtags >=2 );}
+//bool goesInLargeDMSR() { return (goesInPreselection() &&  myEvent.mt_met_lep > 150 && myEvent.MT2W > 200 && myEvent.dphi_Wlep> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 200);}
+//bool goesInSmallDMSR() { return (goesInPreselection() &&  myEvent.mt_met_lep > 150 && myEvent.dphi_Wlep> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 200);}
+
+bool goesInLargeDMSR() { return (goesInPreselection() &&  myEvent.mt_met_lep > 150 && myEvent.MT2W > 200 && myEvent.minDPhi_jmet> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 200);}
+bool goesInSmallDMSR() { return (goesInPreselection() &&  myEvent.mt_met_lep > 150 && myEvent.minDPhi_jmet> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 200);}
+bool goesInSmallDMSR300() { return (goesInPreselection() &&  myEvent.mt_met_lep > 150 && myEvent.minDPhi_jmet> 0.8 && myEvent.hadronic_top_chi2 < 10 && myEvent.pfmet > 300);}
+bool goesInSmallDMSR2b() { return (goesInSmallDMSR() && myEvent.ngoodbtags>=2);}
 
 
 bool goesInPreselectionNoBVeto()
@@ -157,7 +171,7 @@ bool goesInSingleElecChannel()
     }*/
 
     // Remove electrons with pT < 30 GeV
-    if (myEvent.leadingLepton.Pt() < 30)  return false;
+    //if (myEvent.leadingLepton.Pt() < 30)  return false;
 
     // Keep only events with an electron as leading lepton
     return (abs(myEvent.lep1_pdgid) == 11);
@@ -274,14 +288,29 @@ float getLumi()
     else                                 return 0.0;
 }
 
-float getWeight()
+float getWeight(const string& dataset, int nofEventsInTree, float sf_fracEvent = 1) //sf_fracEvent = used if we read only a part of the events
 {
     float weight = 1.0;
     if (sampleType == "data") return weight;
 
     // Get the lumi
-    float lumi = getLumi();
+    //float lumi = getLumi();
+    float lumi = 10000.;
 
+    // Normalize to cross section times lumi
+    int nofInitEvent = myEvent.totalNumberOfInitialEvent;
+    /*
+    cout<<"nofIniEvent = "<<nofInitEvent<<endl;
+    cout<<"xs = "<<CrossSection(dataset)<<endl;
+    cout<<"lumi = "<<lumi<<" sf = "<<sf_fracEvent<<endl;
+    */
+    //nofEventsInTree can be different from nofIniEvent due to skimming and preselection
+    if(nofInitEvent!=0)
+    	//weight = CrossSection(dataset) * lumi * sf_fracEvent *  nofEventsInTree/ nofInitEvent;
+    	weight = (float) CrossSection(dataset) * lumi / sf_fracEvent / nofInitEvent;
+    else 
+    	weight = 0;
+    
     // Normalize to cross section times lumi
     //weight *= myEvent.weightCrossSection * lumi;
 
