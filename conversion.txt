@@ -1,0 +1,9 @@
+#apply those lines to convert the old selection files
+
+:%s /nBTag/ngoodbtags/g
+:%s /nJets/ngoodjets/g
+:%s /numberOfLepton/ngoodleps/g
+:%s /secondLeptonPDGId/lep2_pdgid/g
+:%s /leadingLeptonPDGId/lep1_pdgid/g
+:$s /leadingLeptonPDGId/lep1_pdgid/g
+:%s /myEvent.MET/myEvent.pfmet/
